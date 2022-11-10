@@ -1,0 +1,10 @@
+
+.login-box{
+    background-color: beige;
+    padding: 4em;
+}
+
+.login-box label{
+    display: flex;
+    flex-direction: column;
+}
