@@ -19,21 +19,54 @@
     </header>
 
     <main>
-<div class="container ">
+        <div class="container ">
 
+                <label for="input-img" class="box-photo center">
+                    <div id="img-content">
 
-        <label class="box-photo center">
-            <img src="assets/home.png" alt="" class="like">
-            <h2>Adicionar fotos</h2>
-            <p>Clique aqui para adicionar uma nova foto</p>
-        
-                <input type="file" accept="image/*" name="" >
-            </label>
-        
+                    </div>
+                </label>
+                <input type="file" accept="image/*" name="input-img" class="input-img" id="input-img" >
+                
+                <button class="button-publish">Publicar</button>
 
-</div>
-    
+        </div>
     </main>
+    <script>
+
+        const labelcontent = document.querySelector("#img-content");
+        const contentDefault = `
+        <img src="assets/home.png" alt="" class="like">
+        <h2>Adicionar fotos</h2>
+        <span>Clique aqui para adicionar uma nova foto</span>`
+        labelcontent.innerHTML = contentDefault;
+        const inputFile = document.querySelector("#input-img");
+
+        inputFile.addEventListener("change", function (e) {
+            const inputTarget = e.target;
+            const file = inputTarget.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.addEventListener("load", function (e) {
+                const readerTarget = e.target;
+
+                const img = document.createElement("img");
+                img.src = readerTarget.result;
+                img.classList.add("img-format");
+
+                labelcontent.innerHTML = "";
+                labelcontent.appendChild(img);
+                });
+
+                reader.readAsDataURL(file);
+            } else {
+                labelcontent.innerHTML = contentDefault;
+            }
+        });
+
+    </script>
 
     
     <div class="footer-fake">
@@ -53,7 +86,7 @@
                 </div>
             </a>
 
-            <a href="index.html">
+            <a href="home.html">
                 <div class="option-footer"> 
                     <img src="assets/home.png" alt="">
                 </div>

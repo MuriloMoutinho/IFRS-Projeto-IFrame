@@ -132,13 +132,11 @@ html, body{
     border-radius: 50%;
     width: 3em;
 }
-.post-img img{
+.img-format{
     width: 100%;
     max-height: 550px;
     min-height: 340px;
     object-fit: cover;
-    
-    
 }
 
 /*IMG---------------------------------------------------*/

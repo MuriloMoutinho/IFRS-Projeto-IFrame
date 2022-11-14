@@ -1,17 +1,28 @@
 .box-photo{
     border: 1px solid black;
     border-radius: 10px;
-    padding: 3em 0;
     cursor: pointer;
+text-align: center;
+
+    max-height: 550px;
+    min-height: 340px;
 
     transition: background-color 0.3s ease;
 }
 .box-photo:hover{
     background-color: #ddd;
 }
-
-.box-photo input{
+.input-img{
     display: none;
 }
 
-
+.button-publish{
+    padding: 1em;
+    border-radius: 10px;
+    border: 1px solid black;
+    text-align: center;
+    margin: 1em 0;
+    font-size: 1.2em;
+    font-weight: bolder;
+    width: 100%;
+}
