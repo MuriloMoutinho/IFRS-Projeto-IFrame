@@ -1,0 +1,17 @@
+.box-photo{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 3em 0;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+}
+.box-photo:hover{
+    background-color: #ddd;
+}
+
+.box-photo input{
+    display: none;
+}
+
+
