@@ -7,23 +7,25 @@ $footer = "
 <footer class='footer' >
     <div class='container flex-row-bet'>
 
-        <a href='ranking.php'>
-            <div class='option-footer'> 
-                <img src='$imgRanking' alt='icon ranking'>
-            </div>
-        </a>
-
-        <a href='search.php'>
-            <div class='option-footer'> 
-                <img src='$imgSearch' alt='icon search'>
-            </div>
-        </a>
 
         <a href='home.php'>
             <div class='option-footer'> 
                 <img src='$imgHome' alt='icon home'>
             </div>
         </a>
+        
+        <a href='search.php'>
+            <div class='option-footer'> 
+                <img src='$imgSearch' alt='icon search'>
+            </div>
+        </a>
+
+        <a href='ranking.php'>
+            <div class='option-footer'> 
+                <img src='$imgRanking' alt='icon ranking'>
+            </div>
+        </a>
+
         <a href='newPhoto.php'>
             <div class='option-footer'> 
                 <img src='$imgNewPost' alt='icon newPhoto'>
@@ -32,7 +34,7 @@ $footer = "
 
         <a href='profile.php'>
             <div class='option-footer'> 
-            <img src='$imgProfile' alt='icon profile'>
+            <img src='$imgProfileFooter' alt='icon profile'>
             </div>
         </a>
     </div>

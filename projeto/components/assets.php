@@ -1,11 +1,13 @@
 <?php
 
-$imglogo = 'assets/logo.png';
+$imglogo = 'assets/icos/logo_ico2.png';
 
-$imgSearch = 'assets/home.png';
-$imgHome = 'assets/home.png';
-$imgNewPost = 'assets/home.png';
-$imgProfile = 'assets/home.png';
-$imgLike = 'assets/home.png';
-$imgRanking = 'assets/home.png';
+$imgSearch = 'assets/icos/search_ico2.png';
+$imgHome = 'assets/icos/home_ico2.png';
+$imgNewPost = 'assets/icos/post_ico2.png';
+$imgProfile = 'assets/icos/user_ico1.png';
+$imgProfileFooter = 'assets/icos/user_ico2.png';
+$imgLike = 'assets/icos/like_ico2.png';
+$imgRanking = 'assets/icos/rank_ico2.png';
 
+?>
