@@ -1,6 +1,7 @@
 <?php
-    require 'assets.php';
+    require 'components/import.php';
 ?>
+
 
 
 <!DOCTYPE html>
@@ -14,6 +15,7 @@
     <title>IFrame</title>
 </head>
 <body>
+
 <?php
 echo $header;
 ?>
@@ -37,7 +39,7 @@ echo $header;
 
         const labelcontent = document.querySelector("#img-content");
         const contentDefault = `
-        <img src="assets/home.png" alt="" class="like">
+        <img src="<?php echo $imgNewPost ?>" alt="" class="like">
         <h2>Adicionar fotos</h2>
         <span>Clique aqui para adicionar uma nova foto</span>`
         labelcontent.innerHTML = contentDefault;
@@ -69,11 +71,10 @@ echo $header;
 
     </script>
 
-    
-    <div class="footer-fake">
-    </div>
+
     <?php
     echo $footer;
     ?>  
+
 </body>
 </html>

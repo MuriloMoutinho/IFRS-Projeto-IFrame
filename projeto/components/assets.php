@@ -2,10 +2,10 @@
 
 $imglogo = 'assets/logo.png';
 
-$imgSearch = 'asstes/home.png';
-$imgHome = 'asstes/home.png';
-$imgNewPost = 'asstes/home.png';
-$imgProfile = 'asstes/home.png';
-$imgLike = 'asstes/home.png';
-$imgRanking = 'asstes/home.png';
+$imgSearch = 'assets/home.png';
+$imgHome = 'assets/home.png';
+$imgNewPost = 'assets/home.png';
+$imgProfile = 'assets/home.png';
+$imgLike = 'assets/home.png';
+$imgRanking = 'assets/home.png';
 

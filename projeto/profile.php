@@ -1,7 +1,6 @@
 <?php
-    require 'assets.php';
+    require 'components/import.php';
 ?>
-
 
 
 <!DOCTYPE html>
@@ -33,7 +32,7 @@ echo $header;
                     <h2>Nome Perfil</h2>
                     <span>Turma a1</span>
                     <div>    
-                        <img src="assets/home.png" alt="Likes" class="like">
+                        <img src="<?php echo $imgLike ?>" alt="Likes" class="like">
                         xx
                     </div>
                 </div>
@@ -56,7 +55,7 @@ echo $header;
                 <div class="post-img">
                     <img class="img-format" src="assets/img.jpg" alt="">
                 </div>
-                <img src="assets/home.png" class="like" alt="">
+                <img src="<?php echo $imgLike ?>" class="like" alt="">
 
             </div>
 
@@ -65,7 +64,7 @@ echo $header;
                 <div class="post-img">
                     <img class="img-format" src="assets/img.jpg" alt="">
                 </div>
-                <img src="assets/home.png" class="like" alt="">
+                <img src="<?php echo $imgLike ?>" class="like" alt="">
 
             </div>    
             <div class="post">
@@ -73,19 +72,17 @@ echo $header;
                 <div class="post-img">
                     <img class="img-format" src="assets/img.jpg" alt="">
                 </div>
-                <img src="assets/home.png" class="like" alt="">
+                <img src="<?php echo $imgLike ?>" class="like" alt="">
 
             </div>
 
         </div>
 </div>
 
-
     </main>
 
 
-    <div class="footer-fake">
-    </div>
+    
     <?php
     echo $footer;
     ?>   
