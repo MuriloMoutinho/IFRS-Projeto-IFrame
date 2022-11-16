@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 16-Nov-2022 às 09:53
+-- Tempo de geração: 16-Nov-2022 às 10:40
 -- Versão do servidor: 8.0.30-0ubuntu0.20.04.2
 -- versão do PHP: 8.1.11
 
@@ -62,20 +62,20 @@ CREATE TABLE `turma` (
 --
 
 INSERT INTO `turma` (`id`, `curso`) VALUES
-(28, 'PROFESSOR'),
-(27, 'SERVIDOR'),
-(15, 'TI-1'),
-(16, 'TI-2'),
-(17, 'TI-3'),
-(18, 'TI-4'),
-(23, 'TMA-1'),
-(24, 'TMA-2'),
-(25, 'TMA-3'),
-(26, 'TMA-4'),
-(19, 'TQ-1'),
-(20, 'TQ-2'),
-(21, 'TQ-3'),
-(22, 'TQ-4');
+(13, 'PROFESSOR'),
+(12, 'SERVIDOR'),
+(0, 'TI-1'),
+(1, 'TI-2'),
+(2, 'TI-3'),
+(3, 'TI-4'),
+(8, 'TMA-1'),
+(9, 'TMA-2'),
+(10, 'TMA-3'),
+(11, 'TMA-4'),
+(4, 'TQ-1'),
+(5, 'TQ-2'),
+(6, 'TQ-3'),
+(7, 'TQ-4');
 
 -- --------------------------------------------------------
 
@@ -142,12 +142,6 @@ ALTER TABLE `curtidas`
 --
 ALTER TABLE `post`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `turma`
---
-ALTER TABLE `turma`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
