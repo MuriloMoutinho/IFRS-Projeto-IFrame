@@ -19,7 +19,7 @@ html, body{
 /*SCROLLBAR---------------------------------------------------*/
 
 ::-webkit-scrollbar{
-    width: 8px;
+    width: 10px;
     background-color: #181818;
 }
 ::-webkit-scrollbar-thumb{
@@ -82,7 +82,7 @@ html, body{
 .container{
     margin: 0 auto;
     width: 90%;
-    max-width: 550px;
+    max-width: 480px;
 
 }
 .container-posts{

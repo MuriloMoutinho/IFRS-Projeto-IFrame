@@ -1,3 +1,8 @@
+<?php
+    require 'assets.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,14 +14,9 @@
     <title>IFrame</title>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="header-title">
-                <img src="assets/unnamed.png" alt="Iframe logo">
-                <h1>IFrame</h1> 
-            </div>
-        </div>
-    </header>
+<?php
+echo $header;
+?>
 
     <main>
         <div class="container ">
@@ -32,6 +32,7 @@
 
         </div>
     </main>
+    
     <script>
 
         const labelcontent = document.querySelector("#img-content");
@@ -62,7 +63,7 @@
 
                 reader.readAsDataURL(file);
             } else {
-                labelcontent.innerHTML = contentDefault;
+
             }
         });
 
@@ -71,40 +72,8 @@
     
     <div class="footer-fake">
     </div>
-    <footer class="footer" >
-        <div class="container flex-row-bet">
-
-            <a href="ranking.html">
-                <div class="option-footer"> 
-                    <img src="assets/home.png" alt="">
-                </div>
-            </a>
-
-            <a href="search.html">
-                <div class="option-footer"> 
-                    <img src="assets/home.png" alt="">
-                </div>
-            </a>
-
-            <a href="home.html">
-                <div class="option-footer"> 
-                    <img src="assets/home.png" alt="">
-                </div>
-            </a>
-            <a href="newPhoto.html">
-                <div class="option-footer"> 
-                    <img src="assets/home.png" alt="">
-                </div>
-            </a>
-
-            <a href="profile.html">
-                <div class="option-footer"> 
-                    <img src="assets/home.png" alt="">
-                </div>
-            </a>
-        </div>
-
-    </footer>
-
+    <?php
+    echo $footer;
+    ?>  
 </body>
 </html>
