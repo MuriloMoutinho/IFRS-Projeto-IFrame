@@ -27,7 +27,7 @@ echo $header;
                 <div class="post">
                     
                     <div class="post-info">
-                        <img  src="assets/istockphoto-1016744034-170667a.jpg" alt="">
+                        <img  src="<?php echo $imgProfile ?>" alt="">
                         <div>
                             <p class="">Nome Usuario</p>
                             <p>turma A1</p>
@@ -43,7 +43,7 @@ echo $header;
                 <div class="post">
                     
                     <div class="post-info">
-                        <img  src="assets/istockphoto-1016744034-170667a.jpg" alt="">
+                        <img  src="<?php echo $imgProfile ?>" alt="">
                         <div>
                             <p class="">Nome Usuario</p>
                             <p>turma A1</p>
@@ -60,7 +60,7 @@ echo $header;
                 <div class="post">
                     
                     <div class="post-info">
-                        <img src="assets/istockphoto-1016744034-170667a.jpg" alt="">
+                        <img src="<?php echo $imgProfile ?>" alt="">
                         <div>
                             <p class="">Nome Usuario</p>
                             <p>turma A1</p>
@@ -77,7 +77,7 @@ echo $header;
                 <div class="post">
                     
                     <div class="post-info">
-                        <img src="assets/istockphoto-1016744034-170667a.jpg" alt="">
+                        <img src="<?php echo $imgProfile ?>" alt="">
                         <div>
                             <p class="">Nome Usuario</p>
                             <p>turma A1</p>
