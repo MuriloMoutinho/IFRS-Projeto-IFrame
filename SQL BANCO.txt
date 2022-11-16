@@ -1,6 +1,5 @@
 create table turma(
-    id int not null primary key auto_increment,
-    ano char(1),
+    id int not null primary key,
     curso varchar(100) not null unique
 );
 
