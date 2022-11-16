@@ -1,5 +1,5 @@
 <?php
-    require 'components/';
+    require 'components/import.php';
 ?>
 
 
@@ -36,7 +36,7 @@ echo $header;
                 <div class="post-img">
                     <img class="img-format" src="assets/img.jpg" alt="">
                 </div>
-                <img src="assets/home.png" class="like" alt="">
+                <img src="<?php echo $imgLike ?>" class="like" alt="">
             </div>
 
             <div class="post">
@@ -52,7 +52,7 @@ echo $header;
                 <div class="post-img">
                     <img class="img-format" src="assets/photo-1606946887361-78feb162a525.jfif" alt="">
                 </div>
-                <img src="assets/home.png" class="like" alt="">
+                <img src="<?php echo $imgLike ?>" class="like" alt="">
 
             </div>
 
@@ -69,7 +69,7 @@ echo $header;
                 <div class="post-img">
                     <img class="img-format" src="assets/espacoo.jpg" alt="">
                 </div>
-                <img src="assets/home.png" class="like" alt="">
+                <img src="<?php echo $imgLike ?>" class="like" alt="">
 
             </div>
 
@@ -86,7 +86,7 @@ echo $header;
                 <div class="post-img">
                     <img class="img-format" src="assets/gif.gif" alt="">
                 </div>
-                <img src="assets/home.png" class="like" alt="">
+                <img src="<?php echo $imgLike ?>" class="like" alt="">
 
             </div>
 
@@ -98,9 +98,6 @@ echo $header;
         
     </div>
     </main>
-
-    <div class="footer-fake">
-    </div>
 
     <?php
         echo $footer;

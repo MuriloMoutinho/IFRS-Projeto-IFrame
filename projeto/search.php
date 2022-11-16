@@ -1,7 +1,6 @@
 <?php
-    require 'assets.php';
+    require 'components/import.php';
 ?>
-
 
 
 <!DOCTYPE html>
@@ -31,8 +30,7 @@ echo $header;
     </main>
 
 
-    <div class="footer-fake">
-    </div>
+  
 <?php
 echo $footer;
 ?>     
