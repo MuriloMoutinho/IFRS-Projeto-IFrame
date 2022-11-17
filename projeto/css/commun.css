@@ -9,6 +9,7 @@
 html{
     scroll-behavior: smooth;
 }
+
 html, body{
     height: 100%;
     width: 100%;
@@ -17,12 +18,18 @@ html, body{
     background-color: white;
 }
 
+.container{
+    padding-top: 1vh;
+}
+
+
 /*SCROLLBAR---------------------------------------------------*/
 
 ::-webkit-scrollbar{
     width: 10px;
     background-color: #181818;
 }
+
 ::-webkit-scrollbar-thumb{
     width: 8px;
     background-color: #AAAAAA;
@@ -31,22 +38,23 @@ html, body{
 
 
 /*VAR---------------------------------------------------*/
+
 :root{
     --fontPrimary: 'Roboto', sans-serif;
     --primary: #f9b041;
     --secondary: #181818 ;
     --contrast: #323232;
-    
 }
 
 /*HEADER---------------------------------------------------*/
+
 .header{
-    position: sticky;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
 
-    margin-bottom: 1em;
+    margin-bottom: 0em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,16 +62,26 @@ html, body{
     background-color: rgb(0, 0, 0);
     border-bottom: rgb(43, 43, 43) solid 1px;
 }
+
 .header-title{
     display: flex;
     align-items: center;
     gap: 0.3em;
     color: white;
 }
+
 .header img{
     width: 2em;
 }
+
+@media all and (min-width:1168px){
+    .header{
+        display: none;
+    }
+}
+
 /*FOOTER---------------------------------------------------*/
+
 .footer{
     height: 3.5em;
     display: flex;
@@ -74,12 +92,17 @@ html, body{
     bottom: 0;
     width: 100%;
     border-top: rgb(43, 43, 43) solid 1px;
-    
 }
+
 .footer img{
     width: 2em;
 }
 
+@media all and (min-width:1168px){
+    .footer{
+        display: none;
+    }
+}
 
 
 /*CONTAINERS---------------------------------------------------*/
@@ -88,14 +111,15 @@ html, body{
     margin: 0 auto;
     width: 90%;
     max-width: 480px;
-
 }
 .container-posts{
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 2em;
+    margin-top: 6vh;
 }
+
 
 /*STYLES---------------------------------------------------*/
 
@@ -104,6 +128,7 @@ html, body{
     place-items: center;
     height: 100%;
 }
+
 .flex-row-bet{
     display: flex;
     flex-direction: row;
@@ -111,14 +136,22 @@ html, body{
     align-items: center;
     justify-content: space-between;
 }
+
 .flex-row-short{
     display: flex;
     align-items: center;
     gap: 0.5em;
 }
+
 .column{
     display: flex;
     flex-direction: column;
+}
+
+.division hr{
+    display: flex;
+    padding: 5px;
+    margin: 50px;
 }
 
 
@@ -129,35 +162,110 @@ html, body{
     flex-direction: column;
     color: black;
 }
+
 .post-info{
     display: flex;
     align-items: center;
     gap: 0.5em;
     margin-bottom: 3px;
 }
+
 .post-info img{
     border-radius: 50%;
     width: 3em;
 }
+
 .img-format{
     width: 100%;
     max-height: 550px;
     min-height: 340px;
     object-fit: cover;
     border: rgb(43, 43, 43) solid 1px;
-    box-shadow: rgb(68, 68, 68) 5px 5px 5px;
     border-radius: 0.2em;
+    box-shadow: rgb(136, 136, 136) 5px 5px 5px;
 }
+
 
 /*IMG---------------------------------------------------*/
 
 .like{
     width: 1.5em;
+    margin-top: 3px;
 }
-
-
 
 .footer-fake{
     height: 3.5em;
     margin-top: 1em;
+}
+
+
+/*MENU------------------------------------------------- */
+
+.container_menu{
+    float: left;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+    border-right: rgb(43, 43, 43) solid 1px;
+    background-color: white;
+}
+
+.menu-title{
+    background-color: black;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    padding: 2vh;
+}
+
+.menu-title img{
+    width: 2em;
+}
+
+.menu_ops{
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 5vh 3vh;
+    align-items: center;
+    width: 30%;
+    justify-content: left;
+    padding: 2vh;
+}
+
+.menu_img img{
+    width: 20px;
+    margin-right: 1em;
+}
+
+.container_menu ul{
+    list-style: none;
+}
+
+.container_menu a{
+    text-decoration: none;
+    flex-direction: row;
+    white-space: nowrap;
+    color: black; 
+}
+
+.container_menu a:hover{
+    filter: invert(1);
+}
+
+.container_menu li:hover{
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+}
+
+@media all and (max-width:1168px){
+    .container_menu{
+        display: none;
+    }
 }

@@ -15,6 +15,12 @@
 </head>
 <body>
     
+<div class="menu-div">
+    <?php
+    echo $menu;
+    ?>
+</div>
+
 <?php
 echo $header;
 ?>
@@ -26,7 +32,7 @@ echo $header;
 
             <div class="flex-row-short">
 
-                <img src="assets/istockphoto-1016744034-170667a.jpg"  class="profile-photo" alt="Foto de Perfil">
+                <img src="assets/icos/user_ico1.png"  class="profile-photo" alt="Foto de Perfil">
                 
                 <div class="column">
                     <h2>Nome Perfil</h2>

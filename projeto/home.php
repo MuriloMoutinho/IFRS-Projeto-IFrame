@@ -14,12 +14,25 @@
     <title>IFrame</title>
 </head>
 <body>
- 
-<?php
-echo $header;
-?>
+
+
+<div class="menu-div">
+    <?php
+    echo $menu;
+    ?>
+</div>
+
+    <?php
+    echo $header;
+    ?>
+
+
+
+
     <main>
         <div class="container">
+
+        <div class="menu-div">
 
             <div class="container-posts">
 

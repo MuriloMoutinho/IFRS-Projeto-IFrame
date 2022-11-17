@@ -16,6 +16,12 @@
 </head>
 <body>
 
+<div class="menu-div">
+    <?php
+    echo $menu;
+    ?>
+</div>
+
 <?php
 echo $header;
 ?>
@@ -39,7 +45,7 @@ echo $header;
 
         const labelcontent = document.querySelector("#img-content");
         const contentDefault = `
-        <img src="<?php echo $imgNewPost ?>" alt="" class="like">
+        <img src="<?php echo $imgNewPostInvert ?>" alt="" class="like">
         <h2>Adicionar fotos</h2>
         <span>Clique aqui para adicionar uma nova foto</span>`
         labelcontent.innerHTML = contentDefault;
