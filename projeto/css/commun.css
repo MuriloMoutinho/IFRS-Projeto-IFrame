@@ -97,18 +97,17 @@ html, body{
 
 .option-footer{
     background-color: black;
-    padding: 1.2vh;
+    
 }
 
 .footer img{
     width: 2em;
-    margin: 1px;
+    margin-bottom: 10px;
 }
 
 .footer-links a{
     background-color: black;
 }
-
 
 
 @media all and (min-width:1168px){
