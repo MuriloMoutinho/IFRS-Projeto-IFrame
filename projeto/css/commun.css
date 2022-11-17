@@ -109,11 +109,7 @@ html, body{
     background-color: black;
 }
 
-.footer-links a:hover{
-    filter: invert(1);
-    background-color: white;
 
-}
 
 @media all and (min-width:1168px){
     .footer{
