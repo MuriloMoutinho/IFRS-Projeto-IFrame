@@ -24,5 +24,6 @@
         </div>
     </div>
 
+    <a href="home.php">Link temporario que redireciona para a HOME</a>
 </body>
 </html>

@@ -41,7 +41,7 @@ echo $header;
                     </div>
                 </div>
                 <div>    
-                    <img src="assets/home.png" alt="Likes" class="like">
+                    <img src="<?php echo $imgLike ?>" alt="Likes" class="like">
                     xx
                 </div>
             </div>
@@ -55,7 +55,7 @@ echo $header;
                     </div>
                 </div>
                 <div>    
-                    <img src="assets/home.png" alt="Likes" class="like">
+                    <img src="<?php echo $imgLike ?>" alt="Likes" class="like">
                     xx
                 </div>
             </div>
@@ -69,7 +69,7 @@ echo $header;
                     </div>
                 </div>
                 <div>    
-                    <img src="assets/home.png" alt="Likes" class="like">
+                    <img src="<?php echo $imgLike ?>" alt="Likes" class="like">
                     xx
                 </div>
             </div>
@@ -85,7 +85,7 @@ echo $header;
                     </div>
                 </div>
                 <div>    
-                    <img src="assets/home.png" alt="Likes" class="like">
+                    <img src="<?php echo $imgLike ?>" alt="Likes" class="like">
                     xx
                 </div>
             </div>
@@ -99,7 +99,7 @@ echo $header;
                     </div>
                 </div>
                 <div>    
-                    <img src="assets/home.png" alt="Likes" class="like">
+                    <img src="<?php echo $imgLike ?>" alt="Likes" class="like">
                     xx
                 </div>
             </div>
@@ -113,7 +113,7 @@ echo $header;
                     </div>
                 </div>
                 <div>    
-                    <img src="assets/home.png" alt="Likes" class="like">
+                    <img src="<?php echo $imgLike ?>" alt="Likes" class="like">
                     xx
                 </div>
             </div>
@@ -127,7 +127,7 @@ echo $header;
                     </div>
                 </div>
                 <div>    
-                    <img src="assets/home.png" alt="Likes" class="like">
+                    <img src="<?php echo $imgLike ?>" alt="Likes" class="like">
                     xx
                 </div>
             </div>
@@ -141,7 +141,7 @@ echo $header;
                     </div>
                 </div>
                 <div>    
-                    <img src="assets/home.png" alt="Likes" class="like">
+                    <img src="<?php echo $imgLike ?>" alt="Likes" class="like">
                     xx
                 </div>
             </div>

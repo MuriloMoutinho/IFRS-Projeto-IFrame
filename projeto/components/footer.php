@@ -4,38 +4,47 @@ $footer = "
 <div class='footer-fake'>
 </div>
 
-<footer class='footer' >
-    <div class='container flex-row-bet'>
+    <footer class='footer' >
+        <div class='container flex-row-bet'>
 
-
-        <a href='home.php'>
-            <div class='option-footer'> 
-                <img src='$imgHome' alt='icon home'>
-            </div>
-        </a>
+        <div class='footer-links'>
+            <a href='home.php'>
+                <div class='option-footer'> 
+                    <img src='$imgHome' alt='icon home'>
+                </div>
+            </a>
+        </div>
         
-        <a href='search.php'>
-            <div class='option-footer'> 
-                <img src='$imgSearch' alt='icon search'>
-            </div>
-        </a>
+        <div class='footer-links'>
+            <a href='search.php'>
+                <div class='option-footer'> 
+                    <img src='$imgSearch' alt='icon search'>
+                </div>
+            </a>
+        </div>
 
-        <a href='ranking.php'>
-            <div class='option-footer'> 
-                <img src='$imgRanking' alt='icon ranking'>
-            </div>
-        </a>
+        <div class='footer-links'>
+            <a href='ranking.php'>
+                <div class='option-footer'> 
+                    <img src='$imgRanking' alt='icon ranking'>
+                </div>
+            </a>
+        </div>
 
-        <a href='newPhoto.php'>
-            <div class='option-footer'> 
-                <img src='$imgNewPost' alt='icon newPhoto'>
-            </div>
-        </a>
+        <div class='footer-links'>
+            <a href='newPhoto.php'>
+                <div class='option-footer'> 
+                    <img src='$imgNewPost' alt='icon newPhoto'>
+                </div>
+            </a>
+        </div>
 
-        <a href='profile.php'>
-            <div class='option-footer'> 
-            <img src='$imgProfileFooter' alt='icon profile'>
-            </div>
-        </a>
+        <div class='footer-links'>
+            <a href='profile.php'>
+                <div class='option-footer'> 
+                <img src='$imgProfileFooter' alt='icon profile'>
+                </div>
+            </a>
+        </div>
     </div>
 </footer>";

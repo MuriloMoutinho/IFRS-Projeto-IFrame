@@ -4,6 +4,7 @@ $imglogo = 'assets/icos/logo_ico2.png';
 $imglogoInvert = 'assets/icos/logo_ico1.png';
 
 $imgSearch = 'assets/icos/search_ico2.png';
+$imgSearchInvert = 'assets/icos/search_ico1.png';
 
 $imgHome = 'assets/icos/home_ico2.png';
 

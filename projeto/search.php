@@ -30,8 +30,10 @@ echo $header;
 
     <main>
         <div class="flex-row-short">
-            <img src="assets/home.png" class="like" alt="">
             <input type="text" class="search-input" placeholder="Pesquisar">
+            <div class="search-img-ico">
+                <img src="<?php echo $imgSearchInvert ?>" class="like" alt="">
+            </div>
         </div>
 
     </main>
