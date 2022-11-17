@@ -1,6 +1,7 @@
 <?php
 
 $header = "
+<div class='container_header'>
 <header class='header'>
         <div class='container'>
             <div class='header-title'>
@@ -9,4 +10,5 @@ $header = "
             </div>
         </div>
     </header>
+    </div>
     ";
