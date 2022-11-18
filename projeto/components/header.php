@@ -1,14 +1,9 @@
 <?php
 
 $header = "
-<div class='container_header'>
-<header class='header'>
-        <div class='container'>
-            <div class='header-title'>
+    <header class='header'>
+        <div class='container flex-row-short'>        
                 <img src='$imglogo' alt='Iframe logo'>
-                <h1>IFrame</h1> 
-            </div>
+                <h1>IFrame</h1>      
         </div>
-    </header>
-    </div>
-    ";
+    </header>";

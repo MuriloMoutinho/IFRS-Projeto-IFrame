@@ -17,11 +17,9 @@ html, body{
     font-family: var(--fontPrimary);
     background-color: white;
 }
-
-.container{
-    padding-top: 2vh;
+main{
+    padding: 1em 0 ;
 }
-
 
 /*SCROLLBAR---------------------------------------------------*/
 
@@ -41,21 +39,12 @@ html, body{
 
 :root{
     --fontPrimary: 'Roboto', sans-serif;
-    --primary: #f9b041;
-    --secondary: #181818 ;
-    --contrast: #323232;
+    --bkgraund: #000000;
+    --border: #2b2b2b ;
+    --colorPrinc: #ffffff;
 }
 
 /*HEADER---------------------------------------------------*/
-
-.container_header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-    border: rgb(43, 43, 43) solid 1px;
-}
 
 .header{
     position: sticky;
@@ -63,20 +52,13 @@ html, body{
     top: 0;
     width: 100%;
 
-    margin-bottom: 1vh;
+    height: 3em;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    height: 2.5em;
-    background-color: rgb(0, 0, 0);
-    justify-content: center;
-}
 
-.header-title{
-    display: flex;
-    align-items: center;
-    gap: 0.3em;
-    color: white;
+    background-color: var(--bkgraund);
+    border: var(--border) solid 1px;
+    color: var(--colorPrinc);
 }
 
 .header img{
@@ -89,33 +71,41 @@ html, body{
     }
 }
 
-/*FOOTER---------------------------------------------------*/
 
+/*FOOTER---------------------------------------------------*/
 .footer{
-    height: 3.5em;
+    background-color: var(--bkgraund);
+    border-top: var(--border) solid 1px;
+ 
     display: flex;
     align-items: center;
-    background-color: black;
+
     position: fixed;
     left: 0;
     bottom: 0;
+    
+    height: 3.5em;
     width: 100%;
-    border-top: rgb(43, 43, 43) solid 1px;
 }
-
-.option-footer{
-    background-color: black;
+.footer ul{
+    text-decoration: none;
+    list-style-type: none;
 }
 
 .footer img{
     width: 2em;
-    margin-bottom: 1vh;
+}
+.option-footer{
+    background-color: var(--bkgraund);
+    border-radius: 5px;
+    padding: 0.1em 0.5em;
+
+    transition: filter 0.3s ease;
 }
 
-.footer-links a{
-    background-color: black;
+.option-footer:hover{
+    filter: invert(1);
 }
-
 
 @media all and (min-width:1168px){
     .footer{
@@ -124,12 +114,15 @@ html, body{
 }
 
 
+
 /*CONTAINERS---------------------------------------------------*/
 
 .container{
     margin: 0 auto;
     width: 90%;
     max-width: 480px;
+    padding: 0;
+
 }
 .container-posts{
     width: 100%;
@@ -137,7 +130,6 @@ html, body{
     flex-direction: column;
     gap: 2em;    
 }
-
 
 /*STYLES---------------------------------------------------*/
 
@@ -188,7 +180,7 @@ html, body{
 
 @media all and (min-width:1168px){
     .post{
-        margin-top: 2vh;
+        margin-bottom: 2vh;
     }
 }
 
@@ -209,7 +201,7 @@ html, body{
     max-height: 550px;
     min-height: 340px;
     object-fit: cover;
-    border: rgb(43, 43, 43) solid 1px;
+    border: var(--border) solid 1px;
     border-radius: 0.2em;
     box-shadow: rgb(136, 136, 136) 5px 5px 5px;
 }
@@ -238,7 +230,7 @@ html, body{
     align-items: center;
     width: 20%;
     height: 100%;
-    border-right: rgb(43, 43, 43) solid 1px;
+    border-right: var(--border) solid 1px;
     background-color: white;
 }
 
@@ -281,6 +273,8 @@ html, body{
     flex-direction: row;
     white-space: nowrap;
     color: black; 
+
+    transition: all 0.5s ease;
 }
 
 .container_menu a:hover{
@@ -293,7 +287,7 @@ html, body{
     color: white;
 }
 
-@media all and (max-width:1168px){
+@media all and (max-width:1167px){
     .container_menu{
         display: none;
     }

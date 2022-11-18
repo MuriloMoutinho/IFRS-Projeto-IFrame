@@ -2,6 +2,7 @@
 
 $menu =
     "
+    <div class='menu-div'>
 
     <div class='container_menu'>
 
@@ -89,7 +90,9 @@ $menu =
             </li>
         </ul>
     </nav>
-</div>"
+</div>
+</div>
+"
 
 ?>
 

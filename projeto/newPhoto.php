@@ -16,11 +16,10 @@
 </head>
 <body>
 
-<div class="menu-div">
+
     <?php
     echo $menu;
     ?>
-</div>
 
 <?php
 echo $header;

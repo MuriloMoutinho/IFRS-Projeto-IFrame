@@ -4,47 +4,34 @@ $footer = "
 <div class='footer-fake'>
 </div>
 
-    <footer class='footer' >
-        <div class='container flex-row-bet'>
-
-        <div class='footer-links'>
+<footer class='footer'>
+    <nav class='container'>
+        <ul class='flex-row-bet'>
             <a href='home.php'>
-                <div class='option-footer'> 
-                    <img src='$imgHome' alt='icon home'>
-                </div>
+                <li class='option-footer'>
+                        <img src='$imgHome' alt='icon home'>
+                </li>
             </a>
-        </div>
-        
-        <div class='footer-links'>
-            <a href='search.php'>
-                <div class='option-footer'> 
+            <a href='search.php'> 
+                <li class='option-footer'>
                     <img src='$imgSearch' alt='icon search'>
-                </div>
+                </li>
             </a>
-        </div>
-
-        <div class='footer-links'>
             <a href='ranking.php'>
-                <div class='option-footer'> 
+                <li class='option-footer'>
                     <img src='$imgRanking' alt='icon ranking'>
-                </div>
+                </li>
             </a>
-        </div>
-
-        <div class='footer-links'>
             <a href='newPhoto.php'>
-                <div class='option-footer'> 
+                <li class='option-footer'>
                     <img src='$imgNewPost' alt='icon newPhoto'>
-                </div>
+                </li>
             </a>
-        </div>
-
-        <div class='footer-links'>
             <a href='profile.php'>
-                <div class='option-footer'> 
-                <img src='$imgProfileFooter' alt='icon profile'>
-                </div>
+                <li class='option-footer'>
+                    <img src='$imgProfileFooter' alt='icon profile'>
+                </li>
             </a>
-        </div>
-    </div>
+        </ul>
+    </nav>
 </footer>";
