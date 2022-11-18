@@ -1,8 +1,0 @@
-insert into usuario (email, senha, nome, bio, turma) VALUES
-("iframe@gmail.com", "teste123", "Iframe", "eu souu um app foda", 2)
-
-insert into post(foto, usuario, descricao) values 
-("/foto/fotoPica", 1, "minha primeira postagem nesse novo site, estou muito feliz")
-
-insert into curtidas (post, usuario) values 
-(1, 1);

@@ -17,14 +17,18 @@ create table usuario(
 
 create table post(
     id int not null primary key auto_increment,
-    foto varchar(200) not null,
+    criador int not null,
     usuario int not null,
+    foto varchar(200) not null,
     descricao varchar(200) not null,
+    data timestamp not null,
     FOREIGN key (usuario) REFERENCES
+    usuario(id),
+    FOREIGN key (criador) REFERENCES
     usuario(id)
 );
 
-create table curtidas(
+create table post_curtida(
     id int not null primary key auto_increment,
     post int not null,
     usuario int not null,
@@ -47,5 +51,6 @@ insert into turma (id, curso) values
 (9, "TMA-2"),
 (10, "TMA-3"),
 (11, "TMA-4"),
-(12, "SERVIDOR"),
-(13, "PROFESSOR")
+(12, "SUPERIOR"),
+(13, "SERVIDOR"),
+(14, "PROFESSOR");
