@@ -40,7 +40,7 @@
 
         if($u->validate()){
             $u->save();
-            header("location: profile.php");
+            header("location: profile.php?username={$u->getNome()}");
         }else{
             header("location: editUser.php");
         }

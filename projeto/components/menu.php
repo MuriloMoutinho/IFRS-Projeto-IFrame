@@ -7,7 +7,6 @@ $menu =
 
     <div class='container_menu'>
 
-    
     <div class='menu-title'>
         <img src='{$imglogo}' alt='Iframe logo'>
         <h1>IFrame</h1> 

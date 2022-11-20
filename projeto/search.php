@@ -1,9 +1,8 @@
-<?php
-    require 'components/import.php';
+<?php 
 
+require 'components/import.php';
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,17 +26,46 @@
     
     <div class="container">
 
+        <main>
+            <form action="search.php" method="get">
 
-    <main>
-        <div class="flex-row-short">
-            <input type="text" class="search-input" placeholder="Pesquisar">
-            <div class="search-img-ico">
-                <img src="<?php echo $imgSearchInvert ?>" class="like" alt="">
-            </div>
-        </div>
+                <input type="text" class="search-input" required placeholder="Pesquisar" name="search">
 
-    </main>
+                <button type="submit" class='flex-row-short'>
+                    <img src="<?php echo $imgSearchInvert ?>" class="like" alt="">
+                    <span>Pesquisar</span>
+                </button>
+        </main>
+        <hr>
 
+        <?php
+
+
+                require 'src/User.php';
+
+                if(isset($_GET['search'])){
+                    $usuariosBuscados = User::findUser($_GET['search']);
+                }else{
+                    echo "<h2>Sugestões</h2>";
+                    $usuariosBuscados = User::findUser('');
+                }
+                
+                foreach($usuariosBuscados as $usuario){
+                    echo "
+                    <a href='profile.php?username={$usuario->getNome()}'>
+                        <div class='flex-row-short profile-case'>
+                            <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Foto de Perfil'>
+                            <div class='column'>
+                                <span>{$usuario->getNome()}</span>
+                                <span>{$usuario->getTurma()}</span>
+                            </div>
+                        </div>
+                    </a>";      
+            }
+        
+        ?>
+
+    </div>
 
   
 <?php

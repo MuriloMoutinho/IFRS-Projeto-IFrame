@@ -66,6 +66,30 @@ class User implements ActiveRecord{
         return $this->foto;
     }
 
+    //FINDPROFILE ------------------------------------------------
+    public static function findUser($nome):array{
+
+        $userSearch = "%".trim($nome)."%";
+
+        $conexao = new MySQL();
+        $sqlUser = "SELECT nome,foto,turma FROM usuario WHERE nome like '{$userSearch}'";
+        $usuariosBanco = $conexao->consulta($sqlUser);
+        
+        $usuarios = array();
+        foreach($usuariosBanco as $usuario){
+
+            $sqlClass = "SELECT curso FROM turma WHERE id = {$usuario['turma']}";
+            $turmaUsuario = $conexao->consulta($sqlClass);
+
+            $u = new User();
+            $u->setNome($usuario['nome']);
+            $u->setTurma($turmaUsuario['0']['curso']); //retorna o nome da turma        
+            $u->setfoto($usuario['foto']);
+
+            $usuarios[] = $u;
+        }
+        return $usuarios;
+    }
 
     //FINDPROFILE ------------------------------------------------
     public static function findProfile($nome):User{

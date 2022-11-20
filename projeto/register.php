@@ -49,7 +49,7 @@ if(isset($_POST['submit'])){
                 <option value="" disabled selected>Chose your class</option>
 
                     <?php 
-                       require 'src/Configuracao.php';
+                    
                        require 'src/MySQL.php';
 
                         $conexao = new MySQL();
