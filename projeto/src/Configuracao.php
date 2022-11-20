@@ -1,6 +1,6 @@
 <?php
     define("HOST","localhost");
-    define("USUARIO","aluno");
-    define("SENHA","aluno");
+    define("USUARIO","root");
+    define("SENHA","");
     define("BANCO","iframe-app");
 ?>

@@ -1,5 +1,9 @@
 <?php
     require 'components/import.php';
+
+    require 'config/loginCheck.php';
+
+
 ?>
 
 
@@ -19,9 +23,9 @@
     echo $menu;
     ?>
 
-<?php
-echo $header;
-?>     
+    <?php
+    echo $header;
+    ?>     
     
     <div class="container">
 

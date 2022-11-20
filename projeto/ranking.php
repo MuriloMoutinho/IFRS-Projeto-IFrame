@@ -1,5 +1,7 @@
 <?php
     require 'components/import.php';
+    require 'config/loginCheck.php';
+
 ?>
 
 

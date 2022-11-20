@@ -1,3 +1,18 @@
+<?php
+if(isset($_POST['submit'])){
+
+
+    require 'src/User.php';
+
+    $u = new User($_POST['email'],$_POST['password']);
+    if($u->authenticate()){
+        header("location: home.php");
+    }else{
+        header("location: login.php");
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,11 +29,11 @@
         <div class="column login-box">
             
             <h1>Login</h1>
-            <form action="" method="" class="column">
-                <label>Email <input type="text"></label>
-                <label>Password <input type="password"></label>
-                <input type="submit" value="login">
-                <a href="index.html">Back</a>
+            <form  action='login.php' method='post' class="column">
+                <label>Email <input type="email" name='email' required></label>
+                <label>Password <input type="password" name='password' required></label>
+                <input type="submit" value="login" name='submit'>
+                <a href="index.php">Back</a>
             </form>
 
         </div>

@@ -1,3 +1,12 @@
+<?php
+    require 'components/import.php';
+    session_start();
+    if(isset($_SESSION['idSession'])){
+        header("location:home.php");
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

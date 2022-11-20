@@ -1,5 +1,10 @@
 <?php
     require 'components/import.php';
+    
+    require 'config/loginCheck.php';
+
+
+
 ?>
 
 
@@ -32,7 +37,11 @@
 
             <div class="container-posts">
 
+            <?php 
             
+            
+            ?>
+
                 <div class="post">
                     
                     <div class="post-info">

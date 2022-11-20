@@ -1,7 +1,9 @@
 <?php
     require 'components/import.php';
+
     require 'config/loginCheck.php';
 
+    
 ?>
 
 
@@ -27,10 +29,9 @@
 
     <main>
 
+
         <div class="container">
-            
-            <a href="editUser.php">Edit</a>
-            <a href="config/logout.php">Logout</a>
+
 
                
                 <?php 
@@ -39,7 +40,7 @@
                     require 'src/MySQL.php';
 
                     $conexao = new MySQL();
-                    $sqlProfile = "SELECT * FROM usuario WHERE id = {$_SESSION['idSession']}";
+                    $sqlProfile = "SELECT * FROM usuario WHERE id = {$_COOKIE['idCookie']}";
                     $usuario = $conexao->consulta($sqlProfile);
 
                     $sqlClass = "SELECT curso FROM turma WHERE id = {$usuario['0']['turma']}";
