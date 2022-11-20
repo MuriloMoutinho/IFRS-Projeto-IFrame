@@ -1,9 +1,10 @@
 <?php
     require 'components/import.php';
-
     require 'config/loginCheck.php';
+    require 'src/User.php';
 
-    
+    $u = User::findProfile($_SESSION['idSession']);
+
 ?>
 
 
@@ -29,30 +30,19 @@
 
     <main>
 
-
         <div class="container">
-
+            
+            <a href="editUser.php">Edit</a>
+            <a href="config/logout.php">Logout</a>
 
                
                 <?php 
-
-                    require 'src/Configuracao.php';
-                    require 'src/MySQL.php';
-
-                    $conexao = new MySQL();
-                    $sqlProfile = "SELECT * FROM usuario WHERE id = {$_COOKIE['idCookie']}";
-                    $usuario = $conexao->consulta($sqlProfile);
-
-                    $sqlClass = "SELECT curso FROM turma WHERE id = {$usuario['0']['turma']}";
-                    $turma = $conexao->consulta($sqlClass);
-
-                    $usuario;
                     echo "<div class='flex-row-short'>";
-                    echo "<img src='photos/profile/{$usuario['0']['foto']}' class='profile-photo' alt='Foto de Perfil'>";
+                    echo "<img src='photos/profile/{$u->getFoto()}' class='profile-photo' alt='Foto de Perfil'>";
                     echo "<div class='column'>";
 
-                    echo "<h2>{$usuario['0']['nome']}</h2>";
-                    echo "<span>{$turma['0']['curso']}</span>";
+                    echo "<h2>{$u->getNome()}</h2>";
+                    echo "<span>{$u->getTurma()}</span>";
 
                     echo "<div>    
                         <img src='$imgLike' alt='Likes' class='like'>
@@ -63,7 +53,7 @@
                     echo "</div>";
 
                     echo "<div class='profile-bio'>                     
-                            <p>{$usuario['0']['bio']}</p>
+                            <p>{$u->getBio()}</p>
                         </div>";
                     ?>
 

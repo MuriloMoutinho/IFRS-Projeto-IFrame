@@ -156,7 +156,7 @@ class User implements ActiveRecord{
                 $sql = "UPDATE usuario SET email = '{$this->email}',senha = '{$this->senha}'
                 ,nome = '{$this->nome}' ,turma = '{$this->turma}', bio = '{$this->bio}' WHERE id = {$this->id}";
             }elseif (!empty($this->foto)) {
-              $sql = "UPDATE usuario SET email = '{$this->email}' ,senha = '{$this->senha}' ,nome = '{$this->nome}' ,turma = '{$this->turma}', bio = '{$this->bio}', foto = '{$this->foto}' WHERE id = {$this->id}";
+              $sql = "UPDATE usuario SET email = '{$this->email}', nome = '{$this->nome}' ,turma = '{$this->turma}', bio = '{$this->bio}', foto = '{$this->foto}' WHERE id = {$this->id}";
             }
         
         }else{
