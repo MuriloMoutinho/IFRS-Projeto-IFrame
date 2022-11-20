@@ -18,19 +18,10 @@
     <title>IFrame</title>
 </head>
 
-
 <body>
 
-
-
-
-
     <div class="container-inicial">
-
-    
         <div class="inicial-box">
-
-    
             <div class="container-info">
                 <div>
                     <div class='logo'>
@@ -43,7 +34,6 @@
 
             </div>
 
-
             <div class="container-funcional" >
 
                 <div class="ops-funcional" >
@@ -55,26 +45,9 @@
                         <a href="register.php">Criar conta</a>  
                     </div>    
                 </div>
-                
-                
-
             </div>
         </div>
-        
-        
     </div>
-    
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
 
