@@ -41,9 +41,9 @@ if(isset($_POST['submit'])){
             
             <h1>Registration</h1>
             <form action="register.php" method="post" class="column" enctype="multipart/form-data">
-                <label>User Name <input type="text" name='name' required></label>
+                <label>User Name <input type="text" name='name' minlength="2" maxlength="50" required></label>
                 <label>Email <input type="email" name='email' required></label>
-                <label>Password <input type="password" minlength="4" name='password' required></label>
+                <label>Password <input type="password" minlength="3" name='password' required></label>
                 <label>Qual sua turma: <select name='turma' required>
 
                 <option value="" disabled selected>Chose your class</option>

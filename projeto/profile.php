@@ -1,9 +1,8 @@
 <?php
     require 'components/import.php';
-    require 'config/loginCheck.php';
     require 'src/User.php';
 
-    $u = User::findProfile($_SESSION['idSession']);
+    $u = User::findProfile($_GET['username']);
 
 ?>
 
@@ -32,8 +31,13 @@
 
         <div class="container">
             
-            <a href="editUser.php">Edit</a>
-            <a href="config/logout.php">Logout</a>
+            <?php 
+            if($_GET['username'] == $_SESSION['nameSession']){
+                echo "<a href='editUser.php'>Edit</a>";
+                echo "<a href='config/logout.php'> Logout</a>";
+            }
+            ?>
+            
 
                
                 <?php 

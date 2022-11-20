@@ -1,11 +1,10 @@
 <?php
-    require 'components/import.php';
+
     session_start();
     if(isset($_SESSION['idSession'])){
         header("location:home.php");
     }
 
-    require 'components/assets.php';
 ?>
 
 <!DOCTYPE html>

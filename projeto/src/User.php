@@ -13,8 +13,6 @@ class User implements ActiveRecord{
     private string $nome;
     private $turma;
 
-
-
     //ID ------------------------------------------------
     public function setId(int $id):void{
         $this->id = $id;
@@ -70,15 +68,14 @@ class User implements ActiveRecord{
 
 
     //FINDPROFILE ------------------------------------------------
-    public static function findProfile($id):User{
+    public static function findProfile($nome):User{
         $conexao = new MySQL();
-        $sqlUser = "SELECT * FROM usuario WHERE id = {$id}";
+        $sqlUser = "SELECT * FROM usuario WHERE nome = '{$nome}'";
         $user = $conexao->consulta($sqlUser);
 
         $sqlClass = "SELECT curso FROM turma WHERE id = {$user['0']['turma']}";
         $turma = $conexao->consulta($sqlClass);
 
-        
         $u = new User();
         $u->setId($user[0]['id']);
         $u->setNome($user['0']['nome']);
@@ -107,6 +104,7 @@ class User implements ActiveRecord{
 
         return $u;
     }
+    
     public static function findall():array{
         $conexao = new MySQL();
         $sql = "SELECT * FROM usuarios";
@@ -147,6 +145,8 @@ class User implements ActiveRecord{
         } 
 
         if(isset($this->id)){
+            $_SESSION['nameSession'] = $this->nome;
+
             $sql = "UPDATE usuario SET email = '{$this->email}', nome = '{$this->nome}' ,turma = '{$this->turma}', bio = '{$this->bio}' WHERE id = {$this->id}";
 
             if(!empty($this->senha) && !empty($this->foto)){
@@ -172,13 +172,14 @@ class User implements ActiveRecord{
     //AUTENTICAR ------------------------------------------------
     public function authenticate():bool{
         $conexao = new MySQL();
-        $sql = "SELECT id,senha FROM usuario WHERE email = '{$this->email}'";
+        $sql = "SELECT id,senha,nome FROM usuario WHERE email = '{$this->email}'";
         $resultados = $conexao->consulta($sql);
 
-        if(password_verify($this->senha,$resultados[0]['senha'])){
+        if(password_verify($this->senha,$resultados['0']['senha'])){
             session_start();
-            $_SESSION['idSession'] = $resultados[0]['id'];
-            $_SESSION['emailSession'] = $this->email;
+            $_SESSION['idSession'] = $resultados['0']['id'];
+            $_SESSION['nameSession'] = $resultados['0']['nome'];
+
             return true;
         }else{
             return false;
@@ -191,7 +192,7 @@ class User implements ActiveRecord{
         if(isset($this->id)){
             $sql = "SELECT id FROM usuario WHERE (email = '{$this->email}' OR nome = '{$this->nome}') AND id != '{$this->id}'";
         }else{
-        $sql = "SELECT id FROM usuario WHERE email = '{$this->email}' OR nome = '{$this->nome}'";
+            $sql = "SELECT id FROM usuario WHERE email = '{$this->email}' OR nome = '{$this->nome}'";
         }
 
         $resultados = $conexao->consulta($sql);

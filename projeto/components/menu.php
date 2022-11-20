@@ -1,5 +1,6 @@
 <?php
 
+
 $menu =
     "
     <div class='menu-div'>
@@ -8,7 +9,7 @@ $menu =
 
     
     <div class='menu-title'>
-        <img src='$imglogo' alt='Iframe logo'>
+        <img src='{$imglogo}' alt='Iframe logo'>
         <h1>IFrame</h1> 
     </div>
 
@@ -76,7 +77,7 @@ $menu =
 
 
             <li>
-                <a href='profile.php'>
+            <a href='profile.php?username={$_SESSION['nameSession']} '>
                     <div class='menu_ops'>
                         <div class='menu_ops_text'>
                             <h2>PROFILE</h2>

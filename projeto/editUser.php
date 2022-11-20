@@ -2,7 +2,6 @@
     require 'components/import.php';
     require 'src/User.php';
 
-    require 'config/loginCheck.php';
 
 
     $usuarioConsulta = User::find($_SESSION['idSession']);
@@ -79,7 +78,7 @@
             <form action="editUser.php" method="post" class="column" enctype="multipart/form-data">
                 <?php
 
-                echo "<label>User Name <input type='text' name='name' value='{$usuarioConsulta->getNome()}' required></label>";
+                echo "<label>User Name <input type='text' name='name' maxlength='25' minlength='2' value='{$usuarioConsulta->getNome()}' required></label>";
                 echo "<label>Email <input type='email' name='email' value='{$usuarioConsulta->getEmail()}' required></label>";
                 
                 echo "<label>Qual sua turma: <select name='turma'label>";
@@ -103,7 +102,7 @@
                 
                 
                 <label>Actual Password <input type='password' name='nowPassword' ></label>
-                <label>New Password <input type='password' name='newPassword' ></label>
+                <label>New Password <input type='password' minlength='3' name='newPassword' ></label>
 
                 <input type='submit' value='Edit' name='submit'>
                 
