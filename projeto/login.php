@@ -4,7 +4,10 @@ if(isset($_POST['submit'])){
 
     require 'src/User.php';
 
-    $u = new User($_POST['email'],$_POST['password']);
+    $u = new User();
+    $u->setEmail($_POST['email']);
+    $u->setSenha($_POST['password']);
+
     if($u->authenticate()){
         header("location: home.php");
     }else{

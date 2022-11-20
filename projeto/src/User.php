@@ -5,14 +5,14 @@ require 'MySQL.php';
 
 class User implements ActiveRecord{
 
+    private string $email;
+    private string $senha;
     private int $id;
     private $foto;
     private string $bio;
     private string $nome;
     private $turma;
 
-    public function __construct(private string $email,private string $senha){
-    }
 
 
     //ID ------------------------------------------------
@@ -24,11 +24,17 @@ class User implements ActiveRecord{
     }
 
     //SENHA ------------------------------------------------
+    public function setSenha($senha):void{
+        $this->senha = $senha;
+    }
     public function getSenha():string{
         return $this->senha;
     }
 
     //EMAIL ------------------------------------------------
+    public function setEmail($email):void{
+        $this->email = $email;
+    }
     public function getEmail():string{
         return $this->email;
     }
@@ -73,10 +79,10 @@ class User implements ActiveRecord{
         $turma = $conexao->consulta($sqlClass);
 
         
-        $u = new User('','');
+        $u = new User();
         $u->setId($user[0]['id']);
         $u->setNome($user['0']['nome']);
-        $u->setTurma($turma['0']['curso']);
+        $u->setTurma($turma['0']['curso']); //retorna o nome da turma
         $u->setBio($user['0']['bio']);
         
         $u->setfoto($user['0']['foto']);
@@ -89,12 +95,14 @@ class User implements ActiveRecord{
         $sql = "SELECT * FROM usuario WHERE id = {$id}";
         $resultado = $conexao->consulta($sql);
         
-        $u = new User($resultado['0']['email'],$resultado['0']['senha']);
+        $u = new User();
+        $u->setEmail($resultado['0']['email']);
+        $u->setSenha($resultado['0']['senha']);
         $u->setId($resultado['0']['id']);
         $u->setNome($resultado['0']['nome']);
         $u->setBio($resultado['0']['bio']);
 
-        $u->setTurma($resultado['0']['turma']);
+        $u->setTurma($resultado['0']['turma']); //retorna o numero da turma
         $u->setFoto($resultado['0']['foto']);
 
         return $u;
@@ -124,7 +132,10 @@ class User implements ActiveRecord{
     //SALVAR ------------------------------------------------
     public function save():bool{
         $conexao = new MySQL();
-        $this->senha = password_hash($this->senha,PASSWORD_BCRYPT); 
+        
+        if(isset($this->senha)){
+            $this->senha = password_hash($this->senha,PASSWORD_BCRYPT); 
+        }
 
         if(!empty($this->foto) && $this->foto != "profileDefault.jpg"){
             $diretorio = "photos/profile/";
@@ -136,13 +147,19 @@ class User implements ActiveRecord{
         } 
 
         if(isset($this->id)){
-            $sql = "UPDATE usuario SET email = '{$this->email}' ,senha = '{$this->senha}' ,nome = '{$this->nome}' ,turma = '{$this->turma}', bio = '{$this->bio}' WHERE id = {$this->id}";
+            $sql = "UPDATE usuario SET email = '{$this->email}', nome = '{$this->nome}' ,turma = '{$this->turma}', bio = '{$this->bio}' WHERE id = {$this->id}";
 
-             if(!empty($this->foto)){
-                $sql = "UPDATE usuario SET email = '{$this->email}' ,senha = '{$this->senha}' ,nome = '{$this->nome}' ,turma = '{$this->turma}', bio = '{$this->bio}', foto = '{$this->foto}' WHERE id = {$this->id}";
+            if(!empty($this->senha) && !empty($this->foto)){
+                $sql = "UPDATE usuario SET email = '{$this->email}',senha = '{$this->senha}'
+                ,nome = '{$this->nome}' ,turma = '{$this->turma}', bio = '{$this->bio}', foto = '{$this->foto}' WHERE id = {$this->id}";
+            }elseif(!empty($this->senha)){
+                $sql = "UPDATE usuario SET email = '{$this->email}',senha = '{$this->senha}'
+                ,nome = '{$this->nome}' ,turma = '{$this->turma}', bio = '{$this->bio}' WHERE id = {$this->id}";
+            }elseif (!empty($this->foto)) {
+              $sql = "UPDATE usuario SET email = '{$this->email}' ,senha = '{$this->senha}' ,nome = '{$this->nome}' ,turma = '{$this->turma}', bio = '{$this->bio}', foto = '{$this->foto}' WHERE id = {$this->id}";
             }
         
-            }else{
+        }else{
             $sql = "INSERT INTO usuario (email,senha,nome,turma,bio) VALUES ('{$this->email}','{$this->senha}','{$this->nome}','{$this->turma}', '{$this->bio}')";
 
             if(!empty($this->foto))
