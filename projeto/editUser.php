@@ -6,15 +6,31 @@
 
 
     $usuarioConsulta = User::find($_SESSION['idSession']);
-    
-    if(isset($_POST['submit'])){
+
+
+
+    if(isset($_POST['submit']) || isset($_POST['remove'])){
         $u = new User($_POST['email'],$_POST['password']);
         $u->setId($_SESSION['idSession']);
         $u->setNome($_POST['name']);
         $u->setBio($_POST['bio']);
         $u->setTurma($_POST['turma']);
+      
+        if(isset($_POST['remove'])){
+            if($usuarioConsulta->getFoto() != "profileDefault.jpg"){
+                unlink("photos/profile/".$usuarioConsulta->getFoto());
+            }
+            $u->setFoto("profileDefault.jpg");
+        }
 
-        //$u->setFoto($_POST['foto']);
+        if(isset($_POST['submit'])){
+            if(!empty($_FILES['foto']['name'])){
+                if($usuarioConsulta->getFoto() != "profileDefault.jpg"){
+                    unlink("photos/profile/".$usuarioConsulta->getFoto());
+                }
+                $u->setFoto($_FILES['foto']['name']);
+            }
+        }
 
         if($u->validate()){
             $u->save();
@@ -70,17 +86,18 @@
                         }
     
                 echo "</select>";
-                
                 echo "<label> Biografia:<textarea name='bio' cols='20' rows='6' >{$usuarioConsulta->getBio()}</textarea> </label>";
 
-                echo "<label> Foto: <input type='file' accept='image/*' value='photos/profile/{$usuarioConsulta->getFoto()}' name='foto'> </label>";
-
                 ?>
+                <label> Foto: <input type='file' accept='image/*' name='foto'> </label>
+             
                 <input type='submit' value='Edit' name='submit'>
-            </form>
-            <a href="config/deleteUser.php"> Deletar conta </a>
-            <a href="index.php">Back</a>
 
+                <input type='submit' value='remove photo' name='remove'>
+
+            </form>
+            <a href="config/deleteUser.php">Deletar conta</a>
+            <a href="index.php">Back</a>
         </div>
     </div>
 

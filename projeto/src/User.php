@@ -9,7 +9,7 @@ class User implements ActiveRecord{
     private $foto;
     private string $bio;
     private string $nome;
-    private string $turma;
+    private $turma;
 
     public function __construct(private string $email,private string $senha){
     }
@@ -48,10 +48,10 @@ class User implements ActiveRecord{
         return $this->bio;
     }
     //TURMA ------------------------------------------------
-    public function setTurma(string $turma):void{
+    public function setTurma( $turma):void{
     $this->turma = $turma;
     }
-    public function getTurma():string{
+    public function getTurma(){
         return $this->turma;
     }
     //FOTO ------------------------------------------------
@@ -66,15 +66,20 @@ class User implements ActiveRecord{
     //FINDPROFILE ------------------------------------------------
     public static function findProfile($id):User{
         $conexao = new MySQL();
-        $sql = "SELECT * FROM usuario WHERE id = {$id}";
-        $resultado = $conexao->consulta($sql);
+        $sqlUser = "SELECT * FROM usuario WHERE id = {$id}";
+        $user = $conexao->consulta($sqlUser);
 
-        $u = new User();
-        $u->setId($resultado[0]['id']);
-        $u->setNome($resultado['0']['nome']);
-        $u->setTurma($resultado['0']['turma']);
-        $u->setBio($resultado['0']['bio']);
-        $u->setfoto($resultado['0']['foto']);
+        $sqlClass = "SELECT curso FROM turma WHERE id = {$user['0']['turma']}";
+        $turma = $conexao->consulta($sqlClass);
+
+        
+        $u = new User('','');
+        $u->setId($user[0]['id']);
+        $u->setNome($user['0']['nome']);
+        $u->setTurma($turma['0']['curso']);
+        $u->setBio($user['0']['bio']);
+        
+        $u->setfoto($user['0']['foto']);
         return $u;
     }
 
@@ -88,6 +93,7 @@ class User implements ActiveRecord{
         $u->setId($resultado['0']['id']);
         $u->setNome($resultado['0']['nome']);
         $u->setBio($resultado['0']['bio']);
+
         $u->setTurma($resultado['0']['turma']);
         $u->setFoto($resultado['0']['foto']);
 
@@ -110,6 +116,7 @@ class User implements ActiveRecord{
     //DELETE ------------------------------------------------
     public function delete():bool{
         $conexao = new MySQL();
+        unlink("../photos/profile/".$this->foto);
         $sql = "DELETE FROM usuario WHERE id = {$this->id}";
         return $conexao->executa($sql);
     }
@@ -119,9 +126,7 @@ class User implements ActiveRecord{
         $conexao = new MySQL();
         $this->senha = password_hash($this->senha,PASSWORD_BCRYPT); 
 
-        //unlink("../photos/profile/".$this->foto);
-
-        if(!empty($this->foto)){
+        if(!empty($this->foto) && $this->foto != "profileDefault.jpg"){
             $diretorio = "photos/profile/";
             $nome_arquivo = $this->foto;
             $info_name = explode(".",$nome_arquivo);
@@ -131,28 +136,17 @@ class User implements ActiveRecord{
         } 
 
         if(isset($this->id)){
-            $sql = "UPDATE usuario SET email = '{$this->email}' ,senha = '{$this->senha}' ,nome = '{$this->nome}' ,turma = '{$this->turma}' WHERE id = {$this->id}";
+            $sql = "UPDATE usuario SET email = '{$this->email}' ,senha = '{$this->senha}' ,nome = '{$this->nome}' ,turma = '{$this->turma}', bio = '{$this->bio}' WHERE id = {$this->id}";
 
-            if(!empty($this->bio) && !empty($this->foto)){
+             if(!empty($this->foto)){
                 $sql = "UPDATE usuario SET email = '{$this->email}' ,senha = '{$this->senha}' ,nome = '{$this->nome}' ,turma = '{$this->turma}', bio = '{$this->bio}', foto = '{$this->foto}' WHERE id = {$this->id}";
-
-            }else if(!empty($this->bio)){
-                $sql = "UPDATE usuario SET email = '{$this->email}' ,senha = '{$this->senha}' ,nome = '{$this->nome}' ,turma = '{$this->turma}', bio = '{$this->bio}'";
-
-            }else if(!empty($this->foto)){
-                $sql = "UPDATE usuario SET email = '{$this->email}' ,senha = '{$this->senha}' ,nome = '{$this->nome}' ,turma = '{$this->turma}', foto = '{$this->foto}' WHERE id = {$this->id}";
             }
         
             }else{
-            $sql = "INSERT INTO usuario (email,senha,nome,turma) VALUES ('{$this->email}','{$this->senha}','{$this->nome}','{$this->turma}')";
-            if(!empty($this->bio) && !empty($this->foto)){
+            $sql = "INSERT INTO usuario (email,senha,nome,turma,bio) VALUES ('{$this->email}','{$this->senha}','{$this->nome}','{$this->turma}', '{$this->bio}')";
+
+            if(!empty($this->foto))
                 $sql = "INSERT INTO usuario (email,senha,nome,turma,bio,foto) VALUES ('{$this->email}','{$this->senha}','{$this->nome}','{$this->turma}','{$this->bio}','{$this->foto}')";
-
-            }else if(!empty($this->bio)){
-                $sql = "INSERT INTO usuario (email,senha,nome,turma,bio) VALUES ('{$this->email}','{$this->senha}','{$this->nome}','{$this->turma}','{$this->bio}')";
-
-            }else if(!empty($this->foto))
-                $sql = "INSERT INTO usuario (email,senha,nome,turma,foto) VALUES ('{$this->email}','{$this->senha}','{$this->nome}','{$this->turma}','{$this->foto}')";
             }
 
         return $conexao->executa($sql);

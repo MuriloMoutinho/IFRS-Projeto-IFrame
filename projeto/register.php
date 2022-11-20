@@ -58,7 +58,7 @@ if(isset($_POST['submit'])){
                 </select>
                 </label>
                 
-                <label> Biografia: <textarea name="bio" cols="20" rows="6" ></textarea></label>
+                <label> Biografia: <textarea name="bio" cols="20" rows="6" >Olá! Eu estou usando o Iframe.</textarea></label>
 
                 
                 <label>Photo <input type='file' accept="image/*" name='foto'></label>
