@@ -27,9 +27,8 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: black solid 1px;
-    box-shadow: 5px 5px 5px rgb(184, 184, 184);
-    background-color: rgb(215, 255, 250,0.5);
+    border: rgb(168, 168, 168) solid 1px;
+    background-color: rgb(215, 255, 250,0.8);
 }
 
 @media all and (min-width:1167px){
@@ -45,6 +44,14 @@ body{
 .container-info{
     width: 95%;
     height: 100%;
+    margin: 2vh;
+}
+
+.text-info{
+    font-size: 2vh;
+    text-shadow: rgb(167, 167, 167) 1px 1px 1px;
+    justify-content: center;
+    text-align: center;
     margin: 2vh;
 }
 
@@ -112,8 +119,18 @@ body{
     -webkit-border-radius: 5px;
     border-radius: 5px;
     transition: all 0.2s linear;
-    border: solid 1px #fff;
+    border: solid 1px rgb(22, 85, 128);
     
+}
+
+.logo{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    color: black;
+    font-size: 4vh;
 }
 
 .ops-funcional a:hover{
@@ -129,7 +146,6 @@ body{
     }
 }
 
-img{
-    width: 20px;
-    margin-right: 1em;
+.img-logo{
+    width: 8vh;
 }

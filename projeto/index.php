@@ -4,7 +4,7 @@
     if(isset($_SESSION['idSession'])){
         header("location:home.php");
     }
-
+    require 'components/inicial_index.php';
 ?>
 
 <!DOCTYPE html>
@@ -22,14 +22,20 @@
     <div class="container-inicial">
         <div class="inicial-box">
             <div class="container-info">
-                <div>
+                
                     <div class='logo'>
-                        <img src='assets/icos/logo_ico1.png' alt='Iframe logo'>
+                        <img class="img-logo" src='assets/icos/logo_ico1.png' alt='Iframe logo'>
                         <h1>IFrame</h1> 
                     </div>
-                </div>
+
+                    <div class="text-info">
+                        <?php echo $text_intro_proj?>
+                        <br>
+                        <br>
+                        <?php echo $text_info_index?>
+                    </div>
                 
-                <p>Conheça a rede social do IF, onde suas postagems bla bla bla</p>
+                
 
             </div>
 
