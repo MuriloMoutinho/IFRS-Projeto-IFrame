@@ -49,10 +49,11 @@ body{
 
 .text-info{
     font-size: 2vh;
-    text-shadow: rgb(167, 167, 167) 1px 1px 1px;
+    
     justify-content: center;
     text-align: center;
     margin: 2vh;
+    text-align: justify;
 }
 
 
