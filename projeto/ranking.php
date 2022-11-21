@@ -19,11 +19,9 @@
 
     <?php
     echo $menu;
-    ?>
 
-<?php
-echo $header;
-?>
+    echo $header;
+    ?>
     <main>
         <div class="container">
             <h2>Ranking</h2>

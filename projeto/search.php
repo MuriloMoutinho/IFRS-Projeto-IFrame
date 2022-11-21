@@ -18,9 +18,7 @@ require 'components/import.php';
 
     <?php
     echo $menu;
-    ?>
 
-    <?php
     echo $header;
     ?>     
     

@@ -1,6 +1,17 @@
 <?php
     require 'components/import.php';
+    require 'src/Post.php';
 
+    if(isset($_POST['submit'])){
+        if(!empty($_FILES['newPhoto']['name'])){
+
+            $post = new Post($_SESSION['idSession'],$_FILES['newPhoto']['name']);
+            $post->setDescricao($_POST['descricao']);
+            $post->save();
+
+            header("location: profile.php?username={$_SESSION['nameSession']}");
+        }
+    }
 ?>
 
 
@@ -20,23 +31,27 @@
 
     <?php
     echo $menu;
+    
+    echo $header;
     ?>
-
-<?php
-echo $header;
-?>
 
     <main>
         <div class="container ">
+
+            <form action="newPhoto.php" method="post" enctype="multipart/form-data">
 
                 <label for="input-img" class="box-photo center">
                     <div id="img-content">
 
                     </div>
                 </label>
-                <input type="file" accept="image/*" name="input-img" class="input-img" id="input-img" >
-                
-                <button class="button-publish">Publicar</button>
+
+                <input type="file" accept="image/*" name="newPhoto" class="input-img" id="input-img" >
+                <label>Description <input type="text" name="descricao" /></label>
+
+
+                <button type="submit" name="submit" class="button-publish" >Publicar</button>
+            </form>
 
         </div>
     </main>

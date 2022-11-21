@@ -20,8 +20,8 @@ create table post(
     criador int not null,
     usuario int not null,
     foto varchar(200) not null,
-    descricao varchar(200) not null,
-    data timestamp not null,
+    descricao varchar(200),
+    dataCriacao timestamp not null,
     FOREIGN key (usuario) REFERENCES
     usuario(id),
     FOREIGN key (criador) REFERENCES

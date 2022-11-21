@@ -128,19 +128,6 @@ class User implements ActiveRecord{
 
         return $u;
     }
-    
-    public static function findall():array{
-        $conexao = new MySQL();
-        $sql = "SELECT * FROM usuarios";
-        $resultados = $conexao->consulta($sql);
-        $usuarios = array();
-        foreach($resultados as $resultado){
-            $u = new Usuario($resultado['email'],$resultado['senha']);
-            $u->setid($resultado['id']);
-            $usuarios[] = $u;
-        }
-        return $usuarios;
-    }
 
 
     //DELETE ------------------------------------------------

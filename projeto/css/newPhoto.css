@@ -2,7 +2,7 @@
     border: 1px solid black;
     border-radius: 10px;
     cursor: pointer;
-text-align: center;
+    text-align: center;
 
     max-height: 550px;
     min-height: 340px;
@@ -15,6 +15,7 @@ text-align: center;
 .input-img{
     display: none;
 }
+
 
 .button-publish{
     padding: 1em;
