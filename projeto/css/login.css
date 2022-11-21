@@ -15,10 +15,8 @@ body{
     height: 100%;
 }
 
-.title-img{
-    width: 8vh;
-    margin-right: 1vh;
-}
+
+/*BOX------------------------------*/
 
 .login-all-box{
     background-color: rgb(119, 119, 119);
@@ -30,9 +28,26 @@ body{
     background-color: rgb(215, 255, 250,0.8);
 }
 
-.login-all-box label{
+
+/*TITLE----------------------------*/
+
+.title-login{
+    text-align: center;
+    font-size: 2em;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    margin-bottom: 2vh;
+}
+
+
+/*INSERT---------------------------*/
+
+.input-box{
+    width: 30vh;
+}
+
+.input-box input{
+    width: 100%;
 }
 
 .input-text{
@@ -42,7 +57,6 @@ body{
 .input-text label{
     color: rgb(0, 0, 0);
     font-family: Open Sans;
-    
 }
 
 .input-text input{
@@ -61,16 +75,14 @@ body{
     color: rgb(0, 0, 0);
     align-items: center;
     justify-content: center;
-  }
+}
 
 .input-text input:hover{
-    border: solid rgb(39, 159, 180) 2px;
-    
+    border: solid rgb(39, 159, 180) 2px;    
 }
 
-.text-input input{
-    font-size: 2vh;
-}
+
+/*BUTTON---------------------------*/
 
 .input-button{
     display: flex;
@@ -79,7 +91,6 @@ body{
     justify-content: center;
     width: 100%;
 }
-
 
 .input-button input{
     align-items: center;
@@ -135,21 +146,8 @@ body{
     justify-content: center;
 }
 
-.input-box{
-    width: 30vh;
-}
 
-.input-box input{
-    width: 100%;
-}
-
-.title-login{
-    text-align: center;
-    font-size: 2em;
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 2vh;
-}
+/*ACCESSIBILITY--------------------*/
 
 @media all and (min-width:1167px){
     .input-button{
@@ -169,7 +167,5 @@ body{
     .input-login{
         margin-right: 1vh;
     }
-
-
 
 }
