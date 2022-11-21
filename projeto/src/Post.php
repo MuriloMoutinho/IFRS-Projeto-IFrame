@@ -1,7 +1,8 @@
 <?php
 
-require 'ActiveRecord.php';
-require 'MySQL.php';
+require_once 'ActiveRecord.php';
+require_once 'MySQL.php';
+require_once 'User.php';
 
 class Post implements ActiveRecord{
 
@@ -20,6 +21,9 @@ class Post implements ActiveRecord{
     }
 
     //data ------------------------------------------------
+    public function setData(string $data):void{
+        $this->data = $data;
+    }
     public function getData():string{
         return $this->data;
     }
@@ -38,50 +42,60 @@ class Post implements ActiveRecord{
     public function getDescricao():string{
         return $this->descricao;
     }
+ 
 
 
     //FINDPROFILE ------------------------------------------------
-    public static function findUser($nome):array{
-
-        $userSearch = "%".trim($nome)."%";
-
+    public static function findAllPosts():array{
         $conexao = new MySQL();
-        $sqlUser = "SELECT nome,foto,turma FROM usuario WHERE nome like '{$userSearch}'";
-        $usuariosBanco = $conexao->consulta($sqlUser);
+        $sqlPosts = "SELECT * FROM post ORDER BY dataCriacao desc";
+        $postsBanco = $conexao->consulta($sqlPosts);
         
-        $usuarios = array();
-        foreach($usuariosBanco as $usuario){
+        $postsProfile = array();
+        foreach($postsBanco as $post){
+            $sqlUser = "SELECT nome,turma,foto FROM usuario WHERE id = '{$post['criador']}' ";
+            $userBanco = $conexao->consulta($sqlUser);
 
-            $sqlClass = "SELECT curso FROM turma WHERE id = {$usuario['turma']}";
+            $sqlClass = "SELECT curso FROM turma WHERE id = {$userBanco['0']['turma']}";
             $turmaUsuario = $conexao->consulta($sqlClass);
 
             $u = new User();
-            $u->setNome($usuario['nome']);
-            $u->setTurma($turmaUsuario['0']['curso']); //retorna o nome da turma        
-            $u->setfoto($usuario['foto']);
+            $u->setNome($userBanco['0']['nome']);
+            $u->setTurma($turmaUsuario['0']['curso']);     
+            $u->setfoto($userBanco['0']['foto']);
 
-            $usuarios[] = $u;
+            $p = new Post($post['criador'],$post['foto']);
+            $p->setId($post['id']);
+            $p->setDescricao($post['descricao']);
+            $p->setData(strval($post['dataCriacao']));
+
+            $postsProfile[] = array($u,$p);
         }
-        return $usuarios;
+        return $postsProfile;
     }
 
     //FIND ----------------xxxx--------------------------------
-    public static function find($id):Post{
+    public static function findProfilePost($nameCriador):array{
         $conexao = new MySQL();
-        $sql = "SELECT * FROM usuario WHERE id = {$id}";
-        $resultado = $conexao->consulta($sql);
         
-        $u = new User();
-        $u->setEmail($resultado['0']['email']);
-        $u->setSenha($resultado['0']['senha']);
-        $u->setId($resultado['0']['id']);
-        $u->setNome($resultado['0']['nome']);
-        $u->setBio($resultado['0']['bio']);
+        $sqlCriador = "SELECT id FROM usuario WHERE nome = '{$nameCriador}'";
+        $idCriador = $conexao->consulta($sqlCriador);
 
-        $u->setTurma($resultado['0']['turma']); //retorna o numero da turma
-        $u->setFoto($resultado['0']['foto']);
+        $sqlPosts = "SELECT * FROM post WHERE criador = {$idCriador['0']['id']} ORDER BY dataCriacao desc";
+        $postsBanco = $conexao->consulta($sqlPosts);
+        
+        $postsProfile = array();
+        foreach($postsBanco as $post){
 
-        return $u;
+            $p = new Post($post['criador'],$post['foto']);
+            $p->setId($post['id']);
+            $p->setDescricao($post['descricao']);
+
+            $p->setData(strval($post['dataCriacao']));
+
+            $postsProfile[] = $p;
+        }
+        return $postsProfile;
     }
     
 
@@ -105,11 +119,8 @@ class Post implements ActiveRecord{
         $this->foto = uniqid().".".$extensao;
         move_uploaded_file($_FILES["newPhoto"]["tmp_name"], $diretorio.$this->foto);
 
-        if(empty($this->descricao)){
-            $sql = "INSERT INTO post (criador,usuario,foto,dataCriacao) VALUES ('{$this->criador}','{$this->criador}','{$this->foto}',CURRENT_TIMESTAMP())";
-        }else{
-            $sql = "INSERT INTO post (criador,usuario,foto,descricao,dataCriacao) VALUES ('{$this->criador}','{$this->criador}','{$this->foto}','{$this->descricao}',CURRENT_TIMESTAMP())";
-        }
+        $sql = "INSERT INTO post (criador,usuario,foto,descricao,dataCriacao) VALUES ('{$this->criador}','{$this->criador}','{$this->foto}','{$this->descricao}',CURRENT_TIMESTAMP())";
+        
 
         return $conexao->executa($sql);
     }

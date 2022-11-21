@@ -1,6 +1,7 @@
 <?php
     require 'components/import.php';
-    
+    require 'src/Post.php';
+
 
 ?>
 
@@ -34,75 +35,37 @@
 
             <?php 
             
+            $postsProfile = Post::findAllPosts();
+
+            if(count($postsProfile)){
+                foreach($postsProfile as $post){
+                    
+                    echo "<div class='post'>";    
+
+                        echo "<div class='post-info'>";
+                            echo "<img src='photos/profile/{$post[0]->getFoto()}' alt='Foto de Perfil'>";
+                            echo "<div>";
+                                echo "<p>{$post[0]->getNome()}</p>";
+                                echo "<p>{$post[0]->getTurma()}</p>";
+                            echo "</div>";
+                        echo "</div>";
+
+                        echo "<div class='post-img'>";
+                            echo "<img class='img-format' src='photos/posts/{$post[1]->getFoto()}'  alt='Imagem Post'>";
+                        echo "</div>";
+                        echo "<img src='{$imgLike}' class='like' alt='Like'>";
+                        echo "<p>{$post[1]->getDescricao()}</p>";
+                        echo "<span>{$post[1]->getData()}</span>";
+
+                    echo "</div>";
+                }
+            }else{
+                echo "Sem publicações disponiveis";
+            }
             
             ?>
 
-                <div class="post">
-                    
-                    <div class="post-info">
-                        <img  src="<?php echo $imgProfile ?>" alt="">
-                        <div>
-                            <p class="">Nome Usuario</p>
-                            <p>turma A1</p>
-                        </div>
-                    </div>
-                
-                    <div class="post-img">
-                        <img class="img-format" src="assets/img.jpg" alt="">
-                    </div>
-                    <img src="<?php echo $imgLike ?>" class="like" alt="">
-                </div>
 
-                <div class="post">
-                    
-                    <div class="post-info">
-                        <img  src="<?php echo $imgProfile ?>" alt="">
-                        <div>
-                            <p class="">Nome Usuario</p>
-                            <p>turma A1</p>
-                        </div>
-                    </div>
-                
-                    <div class="post-img">
-                        <img class="img-format" src="assets/photo-1606946887361-78feb162a525.jfif" alt="">
-                    </div>
-                    <img src="<?php echo $imgLike ?>" class="like" alt="">
-
-                </div>
-
-                <div class="post">
-                    
-                    <div class="post-info">
-                        <img src="<?php echo $imgProfile ?>" alt="">
-                        <div>
-                            <p class="">Nome Usuario</p>
-                            <p>turma A1</p>
-                        </div>
-                    </div>
-                
-                    <div class="post-img">
-                        <img class="img-format" src="assets/espacoo.jpg" alt="">
-                    </div>
-                    <img src="<?php echo $imgLike ?>" class="like" alt="">
-
-                </div>
-
-                <div class="post">
-                    
-                    <div class="post-info">
-                        <img src="<?php echo $imgProfile ?>" alt="">
-                        <div>
-                            <p class="">Nome Usuario</p>
-                            <p>turma A1</p>
-                        </div>
-                    </div>
-                
-                    <div class="post-img">
-                        <img class="img-format" src="assets/gif.gif" alt="">
-                    </div>
-                    <img src="<?php echo $imgLike ?>" class="like" alt="">
-
-                </div>
 
         </div>
 

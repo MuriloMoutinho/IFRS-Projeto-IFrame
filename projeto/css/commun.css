@@ -171,7 +171,9 @@ main{
 .profile-photo{
     border-radius: 50%;
     width: 5em;
+    height: 5em;
 }
+
 .profile-case{
     border: 1px solid black;
     margin: 0.5em 0;

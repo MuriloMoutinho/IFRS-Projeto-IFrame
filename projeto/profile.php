@@ -1,6 +1,11 @@
 <?php
     require 'components/import.php';
     require 'src/User.php';
+    require 'src/Post.php';
+
+    if(!isset($_GET['username'])){
+        header("location: home.php");
+    }
 
     $u = User::findProfile($_GET['username']);
 
@@ -68,31 +73,46 @@
     <div class="container">
         <div class="container-posts">
 
-            <div class="post">
-                
-                <div class="post-img">
-                    <img class="img-format" src="assets/img.jpg" alt="">
-                </div>
-                <img src="<?php echo $imgLike ?>" class="like" alt="">
+        <?php 
+        
 
-            </div>
+        $postsProfile = Post::findProfilePost($_GET['username']);
+    
+        if(count($postsProfile)){
+            foreach($postsProfile as $post){
 
-            <div class="post">
-                
-                <div class="post-img">
-                    <img class="img-format" src="assets/img.jpg" alt="">
-                </div>
-                <img src="<?php echo $imgLike ?>" class="like" alt="">
+                echo "<div class='post'>";    
+    
+                    echo "<div class='post-img'>";
+                        echo "<img class='img-format' src='photos/posts/{$post->getFoto()}'  alt='Imagem Post'>";
+                    echo "</div>";
+                    echo "<div class='flex-row-bet'>";
+                        echo "<img src='{$imgLike}' class='like' alt='Like'>";
 
-            </div>    
-            <div class="post">
-                
-                <div class="post-img">
-                    <img class="img-format" src="assets/img.jpg" alt="">
-                </div>
-                <img src="<?php echo $imgLike ?>" class="like" alt="">
+                        if($_GET['username'] == $_SESSION['nameSession']){
 
-            </div>
+                            //echo "<form action='config/deletePost.php' method='post' >";
+                              //  echo "<input type='submit' value='Delete Post' name='deletar' >";
+                            //echo "</form>";
+                            //$post->delete();
+                    }
+                    echo "</div>";
+
+                    echo "<p>{$post->getDescricao()}</p>";
+                    echo "<span>{$post->getData()}</span>";
+
+                   
+
+    
+                echo "</div>";
+            }
+        }else{
+            echo "Usuario sem publicações";
+        }
+        
+
+        ?>
+
 
         </div>
 </div>

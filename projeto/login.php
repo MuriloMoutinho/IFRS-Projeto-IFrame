@@ -23,6 +23,7 @@ if(isset($_POST['submit'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="css/commun.css">
     <title>Login</title>
 </head>

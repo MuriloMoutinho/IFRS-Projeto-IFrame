@@ -1,7 +1,7 @@
 <?php
 
-require 'ActiveRecord.php';
-require 'MySQL.php';
+require_once 'ActiveRecord.php';
+require_once 'MySQL.php';
 
 class User implements ActiveRecord{
 
