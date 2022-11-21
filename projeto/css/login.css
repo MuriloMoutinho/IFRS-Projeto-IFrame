@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 body{
-    background-image: url("../assets/back.jpg");
+    background-image: url("../assets/color-back3.jpg");
 }
 
 /*CONTAINER------------------------*/
@@ -25,7 +25,7 @@ body{
     width: 90%;
     border-radius: 0px;
     border: rgb(168, 168, 168) solid 1px;
-    background-color: rgb(215, 255, 250,0.8);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 

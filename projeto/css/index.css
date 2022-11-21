@@ -5,7 +5,9 @@ html{
 }
 
 body{
-    background-image: url("../assets/back.jpg");
+    background-image: url("../assets/color-back3.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 /*CONTAINER------------------------*/
@@ -28,7 +30,7 @@ body{
     align-items: center;
     justify-content: center;
     border: rgb(168, 168, 168) solid 1px;
-    background-color: rgb(215, 255, 250,0.8);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 @media all and (min-width:1167px){

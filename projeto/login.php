@@ -46,7 +46,7 @@ if(isset($_POST['submit'])){
                             </div>
 
                             <div class="cancel-login">
-                                <a href="index.php">Cancel</a>
+                                <a href="index.php">cancel</a>
                             </div>
                         </div>
                     </form>
