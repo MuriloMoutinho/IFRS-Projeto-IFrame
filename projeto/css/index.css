@@ -49,7 +49,6 @@ body{
 
 .text-info{
     font-size: 2vh;
-    
     justify-content: center;
     text-align: center;
     margin: 2vh;
@@ -107,7 +106,7 @@ body{
 
 .ops-funcional a{
     width: 100%;
-    cursor: pointer;  
+    cursor: pointer;
     background: #3d9db3;
     padding: 0.9vh 0.5vh;
     color: white;

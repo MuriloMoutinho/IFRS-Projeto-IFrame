@@ -1,7 +1,5 @@
 <?php
 if(isset($_POST['submit'])){
-
-
     require 'src/User.php';
 
     $u = new User();
@@ -32,23 +30,29 @@ if(isset($_POST['submit'])){
         <div class="column login-all-box">
             <div class="login-box">
 
-            
                 <div class="title-login">
                     <h1>Login</h1>
                 </div>
-            
                 <div class="input-box">
                     <form  action='login.php' method='post' class="column">
-                        <label>Email <input type="email" name='email' required></label>
-                        <label>Password <input type="password" name='password' required></label>
-                        <input type="submit" value="login" name='submit'>
-                        <a href="index.php">Back</a>
+                        <div class="input-text">
+                            <label>Email<input type="email" name='email' placeholder="Enter your email" required></label>
+                            <label>Password<input type="password" name='password' placeholder="Enter your password" required></label>
+                        </div>
+
+                        <div class="input-button">
+                            <div class="input-login">
+                                <input type="submit" value="login" name='submit'>
+                            </div>
+
+                            <div class="cancel-login">
+                                <a href="index.php">Cancel</a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
-    
 </body>
 </html>
