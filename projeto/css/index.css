@@ -63,14 +63,13 @@ body{
     height: 25%;
     display: flex;
     flex-direction: row;
-
 }
 
 @media all and (min-width:1167px){
     .container-funcional{
         height: 100%;
         flex-direction: row;
-        border-left: rgb(226, 226, 226) solid 1px;
+        border-left: rgb(173, 173, 173) solid 1px;
     }
 }
 
@@ -90,7 +89,6 @@ body{
     margin: 0.4vh 0px;
 }
 
-
 .ops-div a{
     display: flex;
     flex-direction: column;
@@ -99,7 +97,6 @@ body{
     justify-content: center;
     align-items: center;
     padding: 1vh;
-    
 }
 
 .ops-funcional{
@@ -120,7 +117,6 @@ body{
     border-radius: 5px;
     transition: all 0.2s linear;
     border: solid 1px rgb(22, 85, 128);
-    
 }
 
 .logo{
@@ -136,7 +132,6 @@ body{
 .ops-funcional a:hover{
     background: #61acbd;
     border: solid 1px #4b8592;
-
 }
 
 @media all and (min-width:1167px){
