@@ -69,7 +69,7 @@
 
     <main>
 
-    <div class="center"> 
+    <div class="center container"> 
         <div class="column login-box">
             
             <h1>Edit</h1>
@@ -79,7 +79,8 @@
                 echo "<label>User Name <input type='text' name='name' maxlength='25' minlength='2' value='{$usuarioConsulta->getNome()}' required></label>";
                 echo "<label>Email <input type='email' name='email' value='{$usuarioConsulta->getEmail()}' required></label>";
                 
-                echo "<label>Qual sua turma: <select name='turma'label>";
+                echo "<label for='turma'>Escolha a sua turma: </label>";
+                echo "<select id='turma' name='turma'>";
                 
                 $conexao = new MySQL();
                 $sql = "SELECT * FROM turma order by id asc";
@@ -91,16 +92,17 @@
                     }
                         
                 echo "</select>";
-                echo "<label> Biografia:<textarea name='bio' cols='20' rows='6' >{$usuarioConsulta->getBio()}</textarea> </label>";
-                        
+                echo "<label>Biografia: <textarea name='bio' cols='20' rows='6' >{$usuarioConsulta->getBio()}</textarea> </label>";
                 
                 ?>
-                <label> Foto: <input type='file' accept='image/*' name='foto'> </label>
+                <label for="foto" >Foto: </label>
+                <input type='file' accept='image/*' name='foto' id="foto"> 
                 <input type='submit' value='remove photo' name='remove'>
                 
-                
-                <label>Actual Password <input type='password' name='nowPassword' ></label>
-                <label>New Password <input type='password' minlength='3' name='newPassword' ></label>
+                <label for="currentPass">Write your current password:</label>
+                <input type='password' name='nowPassword' id="currentPass">
+                <label for="newPassword" >write your new password: </label>
+                <input type='password' minlength='3' name='newPassword' id="newPassword">
 
                 <input type='submit' value='Edit' name='submit'>
                 
