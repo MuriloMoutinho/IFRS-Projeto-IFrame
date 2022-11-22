@@ -177,7 +177,7 @@ select:invalid{
     border: solid 1px rgb(22, 85, 128);
     color: white;
     border-radius: 8px;
-    height: 4.5vh;
+    height: 5vh;
     cursor: pointer;
     font-size: 1.7vh;
 }
@@ -206,7 +206,7 @@ select:invalid{
     border: solid 1px rgb(128, 22, 22);
     color: white;
     border-radius: 8px;
-    height: 4.5vh;
+    height: 5vh;
 }
 
 .cancel-register a:hover{
