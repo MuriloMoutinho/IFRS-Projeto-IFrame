@@ -94,7 +94,7 @@ class Like implements ActiveRecord{
     //DELETE ------------------------------------------------
     public function delete():bool{
         $conexao = new MySQL();
-        $sql = "DELETE FROM post_curtida WHERE id = {$this->id}";
+        $sql = "DELETE FROM post_curtida WHERE post = '{$this->post}' AND usuario = '{$this->usuario}'";
         return $conexao->executa($sql);
     }
 

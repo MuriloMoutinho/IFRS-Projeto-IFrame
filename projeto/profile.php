@@ -1,7 +1,6 @@
 <?php
     require 'components/import.php';
     require 'src/User.php';
-    require 'src/Post.php';
 
     if(!isset($_GET['username'])){
         header("location: home.php");
