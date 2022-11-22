@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 body{
-    background-image: url("../assets/color-back3.jpg");
+    background: rgb(0,183,221);
+    background: linear-gradient(90deg, rgba(0,183,221,1) 0%, rgba(36,217,255,1) 100%);
 }
 
 /*CONTAINER------------------------*/
@@ -60,16 +61,16 @@ body{
 }
 
 .input-text input{
-    height: 3.5vh;
+    height: 5vh;
     border: solid rgb(44, 60, 99) 1px;
     border-radius: 5px;
     padding: 0px 10px;
     margin-bottom: 1vh;
-    font-size: 1.5vh;
+    font-size: 2vh;
 }
 
 .input-text input::-webkit-input-placeholder {
-    font-size: 1.5vh;
+    font-size: 2vh;
     font-family: Open Sans;
     filter: opacity(1);
     color: rgb(0, 0, 0);
@@ -100,7 +101,7 @@ body{
     border: solid 1px rgb(22, 85, 128);
     color: white;
     border-radius: 8px;
-    height: 4.5vh;
+    height: 5vh;
     cursor: pointer;
     font-size: 1.7vh;
 }
@@ -129,7 +130,7 @@ body{
     border: solid 1px rgb(128, 22, 22);
     color: white;
     border-radius: 8px;
-    height: 4.5vh;
+    height: 5vh;
 }
 
 .cancel-login a:hover{

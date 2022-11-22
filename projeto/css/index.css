@@ -5,9 +5,8 @@ html{
 }
 
 body{
-    background-image: url("../assets/color-back3.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
+    background: rgb(0,183,221);
+    background: linear-gradient(90deg, rgba(0,183,221,1) 0%, rgba(36,217,255,1) 100%);
 }
 
 /*CONTAINER------------------------*/
