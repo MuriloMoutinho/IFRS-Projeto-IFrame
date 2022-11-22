@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 body{
-    background-image: url("../assets/color-back3.jpg");
+    background: rgb(0,183,221);
+    background: linear-gradient(90deg, rgba(0,183,221,1) 0%, rgba(36,217,255,1) 100%);
 }
 
 /*CONTAINER------------------------*/
@@ -20,18 +21,17 @@ body{
 
 .register-box{
     padding: 4em;
-    height: 95%;
-    width: 90%;
+    height: 100%;
+    width: 100%;
     border-radius: 0px;
     border: rgb(168, 168, 168) solid 1px;
-    background-color: rgba(255, 255, 255, 0.8);
+    
+    /*background-color: rgba(255, 255, 255, 0.8);*/
 }
 
 .register-box{
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
     align-items: center;
     justify-content: center;
 }
@@ -51,7 +51,8 @@ body{
 /*INSERT---------------------------*/
 
 .input-box{
-    width: 30vh;
+    width: 100%;
+    height: 100%;
 }
 
 .input-box input{
@@ -65,15 +66,16 @@ body{
 .input-text label{
     color: rgb(0, 0, 0);
     font-family: Open Sans;
+    font-size: 2vh;
 }
 
 .input-text input{
-    height: 3.5vh;
+    height: 5vh;
     border: solid rgb(44, 60, 99) 1px;
     border-radius: 5px;
     padding: 0px 10px;
     margin-bottom: 1vh;
-    font-size: 1.5vh;
+    font-size: 2vh;
 }
 
 .input-text input::-webkit-input-placeholder {
@@ -98,7 +100,7 @@ body{
 
 .select select{
     width: 100%;
-    height: 3.5vh;
+    height: 5vh;
     border: solid rgb(44, 60, 99) 1px;
     border-radius: 5px;
     padding: 0px 10px;
@@ -235,11 +237,41 @@ select:invalid{
     .input-register{
         margin-right: 1vh;
     }
+
+    .register-box{
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    
+}
+
+@media all and (max-width:1167px){
+    .register-box{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .register-all-box{
+        width: 80%;
+        height: 100%;
+    }
+    
+    
 }
 
 @media all and (max-width:485px){
     .register-all-box{
         width: 100%;
         height: 100%;
+        
     }
+
+    .register-box{
+        background-color: rgba(255, 255, 255, 0);;
+    }
+
+    
+
+    
 }
