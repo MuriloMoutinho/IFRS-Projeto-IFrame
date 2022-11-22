@@ -2,6 +2,7 @@
 
 require_once 'ActiveRecord.php';
 require_once 'MySQL.php';
+require_once 'Post.php';
 
 class User implements ActiveRecord{
 
@@ -134,9 +135,16 @@ class User implements ActiveRecord{
     public function delete():bool{
         $conexao = new MySQL();
         unlink("../photos/profile/".$this->foto);
+
+        $postsProfile = Post::findProfilePost($this->nome);
+        if(count($postsProfile)){
+            foreach($postsProfile as $post){
+                $post->delete();
+            }
+        }
+
         $sql = "DELETE FROM usuario WHERE id = {$this->id}";
         return $conexao->executa($sql);
-    }
 
     //SALVAR ------------------------------------------------
     public function save():bool{
