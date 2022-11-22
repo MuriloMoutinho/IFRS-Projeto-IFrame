@@ -20,6 +20,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/commun.css">
     <link rel="stylesheet" href="css/profile.css">
+    <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <title>Profile</title>
 </head>
 <body>
@@ -87,7 +89,7 @@
                         echo "<img class='img-format' src='photos/posts/{$post->getFoto()}'  alt='Imagem Post'>";
                     echo "</div>";
                     echo "<div class='flex-row-bet'>";
-                        echo "<img src='{$imgLike}' class='like' alt='Like'>";
+                        echo "<button onclick='likePost({$post->getId()})'> <img src='{$imgLike}' class='like' alt='Like'></button>";
 
                         if($_GET['username'] == $_SESSION['nameSession']){
 
@@ -124,6 +126,12 @@
     <?php
     echo $footer;
     ?>   
+
+<script>
+   function likePost(idPost) {
+       $.post("config/likePost.php", {idPost:idPost});
+   }
+</script>
 
 </body>
 </html>
