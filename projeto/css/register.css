@@ -27,6 +27,15 @@ body{
     background-color: rgba(255, 255, 255, 0.8);
 }
 
+.register-box{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
 
 /*TITLE----------------------------*/
 
@@ -203,14 +212,7 @@ select:invalid{
     border: solid 1px #924b4b;
 }
 
-.register-box{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-}
+
 
 
 /*ACCESSIBILITY--------------------*/
