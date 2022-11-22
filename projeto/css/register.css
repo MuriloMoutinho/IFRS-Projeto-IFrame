@@ -79,7 +79,7 @@ body{
 }
 
 .input-text input::-webkit-input-placeholder {
-    font-size: 1.5vh;
+    font-size: 2vh;
     font-family: Open Sans;
     filter: opacity(1);
     color: rgb(0, 0, 0);
@@ -105,7 +105,7 @@ body{
     border-radius: 5px;
     padding: 0px 10px;
     margin-bottom: 1vh;
-    font-size: 1.5vh;
+    font-size: 2vh;
 }
 
 select:invalid{
