@@ -179,7 +179,7 @@ select:invalid{
     border-radius: 8px;
     height: 5vh;
     cursor: pointer;
-    font-size: 1.7vh;
+    font-size: 2vh;
 }
 
 .input-button input:hover{
@@ -194,7 +194,7 @@ select:invalid{
 .cancel-register{
     margin-top: 1vh;
     width: 50%;
-    font-size: 1.7vh;
+    font-size: 2vh;
 }
 
 .cancel-register a{

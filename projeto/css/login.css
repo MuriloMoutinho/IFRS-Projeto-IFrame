@@ -103,7 +103,7 @@ body{
     border-radius: 8px;
     height: 5vh;
     cursor: pointer;
-    font-size: 1.7vh;
+    font-size: 2vh;
 }
 
 .input-button input:hover{
@@ -118,7 +118,7 @@ body{
 .cancel-login{
     margin-top: 1vh;
     width: 50%;
-    font-size: 1.7vh;
+    font-size: 2vh;
 }
 
 .cancel-login a{
