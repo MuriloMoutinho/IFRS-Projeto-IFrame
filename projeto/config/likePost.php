@@ -6,7 +6,7 @@
     $l->setPost($_POST['idPost']);
     $l->setUsuario($_SESSION['idSession']);
 
-    if($l->save()){
+    if(!$l->save()){
         $l->delete();
     }
 

@@ -89,6 +89,7 @@
                     echo "</div>";
                     echo "<div class='flex-row-bet'>";
                         echo "<button onclick='likePost({$post->getId()})'> <img src='{$imgLike}' class='like' alt='Like'></button>";
+                        echo Like::countLikesPost($post->getId());
 
                         if($_GET['username'] == $_SESSION['nameSession']){
 
@@ -126,11 +127,6 @@
     echo $footer;
     ?>   
 
-<script>
-   function likePost(idPost) {
-       $.post("config/likePost.php", {idPost:idPost});
-   }
-</script>
-
+<script src="likesScrip.js"></script>
 </body>
 </html>

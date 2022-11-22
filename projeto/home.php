@@ -45,19 +45,20 @@
                     echo "<div class='post'>";    
 
                         echo "<div class='post-info'>";
-                            echo "<img src='photos/profile/{$post[0]->getFoto()}' alt='Foto de Perfil'>";
+                            echo "<img src='photos/profile/{$post['0']->getFoto()}' alt='Foto de Perfil'>";
                             echo "<div>";
-                                echo "<p>{$post[0]->getNome()}</p>";
-                                echo "<p>{$post[0]->getTurma()}</p>";
+                                echo "<p>{$post['0']->getNome()}</p>";
+                                echo "<p>{$post['0']->getTurma()}</p>";
                             echo "</div>";
                         echo "</div>";
 
                         echo "<div class='post-img'>";
-                            echo "<img class='img-format' src='photos/posts/{$post[1]->getFoto()}'  alt='Imagem Post'>";
+                            echo "<img class='img-format' src='photos/posts/{$post['1']->getFoto()}'  alt='Imagem Post'>";
                         echo "</div>";
-                        echo "<img src='{$imgLike}' class='like' alt='Like'>";
-                        echo "<p>{$post[1]->getDescricao()}</p>";
-                        echo "<span>{$post[1]->getData()}</span>";
+                        echo "<button onclick='likePost({$post['1']->getId()})'> <img src='{$imgLike}' class='like' alt='Like'></button>";
+                        echo Like::countLikesPost($post['1']->getId());
+                        echo "<p>{$post['1']->getDescricao()}</p>";
+                        echo "<span>{$post['1']->getData()}</span>";
 
                     echo "</div>";
                 }
@@ -79,5 +80,6 @@
         echo $footer;
     ?>   
 
+<script src="likesScrip.js"></script>
 </body>
 </html>

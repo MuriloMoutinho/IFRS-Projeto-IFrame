@@ -3,6 +3,9 @@
 require_once 'ActiveRecord.php';
 require_once 'MySQL.php';
 require_once 'Post.php';
+require_once 'Like.php';
+
+
 
 class User implements ActiveRecord{
 
@@ -95,14 +98,13 @@ class User implements ActiveRecord{
     //FINDPROFILE ------------------------------------------------
     public static function findProfile($nome):User{
         $conexao = new MySQL();
-        $sqlUser = "SELECT * FROM usuario WHERE nome = '{$nome}'";
+        $sqlUser = "SELECT nome,turma,bio,foto FROM usuario WHERE nome = '{$nome}'";
         $user = $conexao->consulta($sqlUser);
 
         $sqlClass = "SELECT curso FROM turma WHERE id = {$user['0']['turma']}";
         $turma = $conexao->consulta($sqlClass);
 
         $u = new User();
-        $u->setId($user[0]['id']);
         $u->setNome($user['0']['nome']);
         $u->setTurma($turma['0']['curso']); //retorna o nome da turma
         $u->setBio($user['0']['bio']);
@@ -130,22 +132,31 @@ class User implements ActiveRecord{
         return $u;
     }
 
-
     //DELETE ------------------------------------------------
     public function delete():bool{
         $conexao = new MySQL();
-        unlink("../photos/profile/".$this->foto);
 
+        unlink("../photos/profile/".$this->foto);
         $postsProfile = Post::findProfilePost($this->nome);
         if(count($postsProfile)){
             foreach($postsProfile as $post){
                 $post->delete();
             }
         }
+
+        $sqlLikes = "SELECT usuario FROM post_curtida WHERE usuario = '{$this->id}'";
+        $likesUser = $conexao->executa($sqlLikes);
+        if(count($likesUser)){
+            foreach($likesUser as $like){
+                $like->delete();
+            }
+        }
+
     
         $sql = "DELETE FROM usuario WHERE id = {$this->id}";
         return $conexao->executa($sql);
     }
+
     //SALVAR ------------------------------------------------
     public function save():bool{
         $conexao = new MySQL();

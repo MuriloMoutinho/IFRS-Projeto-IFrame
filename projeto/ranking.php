@@ -23,6 +23,7 @@
 
     echo $header;
     ?>
+
     <main>
         <div class="container">
             <h2>Ranking</h2>
@@ -30,119 +31,23 @@
 
             <hr>
             
-            <div class="flex-row-bet">
-                <div class="flex-row-bet">
+            <?php 
+            echo "<div class='flex-row-bet'>";
+                echo "<div class='flex-row-bet'>";
                     <img src="assets/istockphoto-1016744034-170667a.jpg"  class="profile-photo" alt="Foto de Perfil">
-                    <div>
+                    echo "<div>";
                         <p>Nome Perfil</p>
                         <span>Turma a1</span>
-                    </div>
-                </div>
-                <div>    
+                    echo "</div>";
+                echo "</div>";
+                echo "<div>";
                     <img src="<?php echo $imgLike ?>" alt="Likes" class="like">
                     xx
-                </div>
-            </div>
+                echo "</div>";
+            echo "</div>";
+            ?>
 
-            <div class="flex-row-bet">
-                <div class="flex-row-bet">
-                    <img src="assets/istockphoto-1016744034-170667a.jpg"  class="profile-photo" alt="Foto de Perfil">
-                    <div>
-                        <p>Nome Perfil</p>
-                        <span>Turma a1</span>
-                    </div>
-                </div>
-                <div>    
-                    <img src="<?php echo $imgLike ?>" alt="Likes" class="like">
-                    xx
-                </div>
-            </div>
 
-            <div class="flex-row-bet">
-                <div class="flex-row-bet">
-                    <img src="assets/istockphoto-1016744034-170667a.jpg"  class="profile-photo" alt="Foto de Perfil">
-                    <div>
-                        <p>Nome Perfil</p>
-                        <span>Turma a1</span>
-                    </div>
-                </div>
-                <div>    
-                    <img src="<?php echo $imgLike ?>" alt="Likes" class="like">
-                    xx
-                </div>
-            </div>
-
-            <hr>
-
-            <div class="flex-row-bet">
-                <div class="flex-row-bet">
-                    <img src="assets/istockphoto-1016744034-170667a.jpg"  class="profile-photo" alt="Foto de Perfil">
-                    <div>
-                        <p>Nome Perfil</p>
-                        <span>Turma a1</span>
-                    </div>
-                </div>
-                <div>    
-                    <img src="<?php echo $imgLike ?>" alt="Likes" class="like">
-                    xx
-                </div>
-            </div>
-
-            <div class="flex-row-bet">
-                <div class="flex-row-bet">
-                    <img src="assets/istockphoto-1016744034-170667a.jpg"  class="profile-photo" alt="Foto de Perfil">
-                    <div>
-                        <p>Nome Perfil</p>
-                        <span>Turma a1</span>
-                    </div>
-                </div>
-                <div>    
-                    <img src="<?php echo $imgLike ?>" alt="Likes" class="like">
-                    xx
-                </div>
-            </div>
-
-            <div class="flex-row-bet">
-                <div class="flex-row-bet">
-                    <img src="assets/istockphoto-1016744034-170667a.jpg"  class="profile-photo" alt="Foto de Perfil">
-                    <div>
-                        <p>Nome Perfil</p>
-                        <span>Turma a1</span>
-                    </div>
-                </div>
-                <div>    
-                    <img src="<?php echo $imgLike ?>" alt="Likes" class="like">
-                    xx
-                </div>
-            </div>
-
-            <div class="flex-row-bet">
-                <div class="flex-row-bet">
-                    <img src="assets/istockphoto-1016744034-170667a.jpg"  class="profile-photo" alt="Foto de Perfil">
-                    <div>
-                        <p>Nome Perfil</p>
-                        <span>Turma a1</span>
-                    </div>
-                </div>
-                <div>    
-                    <img src="<?php echo $imgLike ?>" alt="Likes" class="like">
-                    xx
-                </div>
-            </div>
-
-            <div class="flex-row-bet">
-                <div class="flex-row-bet">
-                    <img src="assets/istockphoto-1016744034-170667a.jpg"  class="profile-photo" alt="Foto de Perfil">
-                    <div>
-                        <p>Nome Perfil</p>
-                        <span>Turma a1</span>
-                    </div>
-                </div>
-                <div>    
-                    <img src="<?php echo $imgLike ?>" alt="Likes" class="like">
-                    xx
-                </div>
-            </div>
 
         </div>
 

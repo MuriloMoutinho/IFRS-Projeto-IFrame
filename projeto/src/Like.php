@@ -36,60 +36,71 @@ class Like implements ActiveRecord{
  
 
 
-    //FINDPROFILE ------------------------------------------------
-    public static function findAllPosts():array{
+    /*  //FINDGIVELIKES ------------------------------------------------
+    public static function findLikesGive($idUser):array{
         $conexao = new MySQL();
-        $sqlPosts = "SELECT * FROM post ORDER BY dataCriacao desc";
-        $postsBanco = $conexao->consulta($sqlPosts);
+
+        $sqlUserLikes = "SELECT usuario FROM post_curtidas WHERE post = '{$idPost}'";
+        $nomeUserLikes = $conexao->consulta($sqlUserLikes);
         
-        $postsProfile = array();
-        foreach($postsBanco as $post){
-            $sqlUser = "SELECT nome,turma,foto FROM usuario WHERE id = '{$post['criador']}' ";
-            $userBanco = $conexao->consulta($sqlUser);
+        $users = array();
+        foreach($nomeUserLikes as $idUser){
 
-            $sqlClass = "SELECT curso FROM turma WHERE id = {$userBanco['0']['turma']}";
-            $turmaUsuario = $conexao->consulta($sqlClass);
+            $sqlUser = "SELECT nome FROM usuario WHERE id = '{$idUser}'";
+            $nome = $conexao->consulta($sqlUser);
 
-            $u = new User();
-            $u->setNome($userBanco['0']['nome']);
-            $u->setTurma($turmaUsuario['0']['curso']);     
-            $u->setfoto($userBanco['0']['foto']);
-
-            $p = new Post($post['criador'],$post['foto']);
-            $p->setId($post['id']);
-            $p->setDescricao($post['descricao']);
-            $p->setData(strval($post['dataCriacao']));
-
-            $postsProfile[] = array($u,$p);
+            $u = User::findProfile($nome);
+            $users[] = $U;
         }
-        return $postsProfile;
-    }
+        return $users;
+    }*/
 
-    //FIND ----------------xxxx--------------------------------
-    public static function findProfilePost($nameCriador):array{
+    /*//FINDLIKESPOSTS ------------------------------------------------
+    public static function findProfileLikes($idPost):array{
+        $conexao = new MySQL();
+
+        $sqlUserLikes = "SELECT usuario FROM post_curtidas WHERE post = '{$idPost}'";
+        $nomeUserLikes = $conexao->consulta($sqlUserLikes);
+        
+        $users = array();
+        foreach($nomeUserLikes as $idUser){
+
+            $sqlUser = "SELECT nome FROM usuario WHERE id = '{$idUser}'";
+            $nome = $conexao->consulta($sqlUser);
+
+            $u = User::findProfile($nome);
+            $users[] = $U;
+        }
+        return $users;
+    }*/
+    
+    //count ------------------------------------------------
+    public static function countLikesProfile($userName):String{
         $conexao = new MySQL();
         
-        $sqlCriador = "SELECT id FROM usuario WHERE nome = '{$nameCriador}'";
+        $sqlCriador = "SELECT id FROM usuario WHERE nome = '{$userName}'";
         $idCriador = $conexao->consulta($sqlCriador);
 
-        $sqlPosts = "SELECT * FROM post WHERE criador = {$idCriador['0']['id']} ORDER BY dataCriacao desc";
+        $sqlPosts = "SELECT id FROM post WHERE criador = {$idCriador['0']['id']}";
         $postsBanco = $conexao->consulta($sqlPosts);
-        
-        $postsProfile = array();
+
+        $totalLikes = 0;
         foreach($postsBanco as $post){
-
-            $p = new Post($post['criador'],$post['foto']);
-            $p->setId($post['id']);
-            $p->setDescricao($post['descricao']);
-
-            $p->setData(strval($post['dataCriacao']));
-
-            $postsProfile[] = $p;
+            $totalLikes += $countLikesPost($post['id']);
         }
-        return $postsProfile;
-    }
-    
 
+        return $countLikes['0']['numeroLikes'];;
+    }
+
+    //count ------------------------------------------------
+    public static function countLikesPost($idPost):String{
+        $conexao = new MySQL();
+        
+        $sqlLikes = "SELECT COUNT(1) as numeroLikes FROM post_curtida WHERE post = '{$idPost}'";
+        $countLikes = $conexao->consulta($sqlLikes);
+
+        return $countLikes['0']['numeroLikes'];;
+    }
 
     //DELETE ------------------------------------------------
     public function delete():bool{
