@@ -142,10 +142,10 @@ class User implements ActiveRecord{
                 $post->delete();
             }
         }
-
+    
         $sql = "DELETE FROM usuario WHERE id = {$this->id}";
         return $conexao->executa($sql);
-
+    }
     //SALVAR ------------------------------------------------
     public function save():bool{
         $conexao = new MySQL();
