@@ -4,6 +4,8 @@
 body{
     background: rgb(0,183,221);
     background: linear-gradient(90deg, rgba(0,183,221,1) 0%, rgba(36,217,255,1) 100%);
+    position: fixed;
+    overflow: hidden;
 }
 
 /*CONTAINER------------------------*/
@@ -44,7 +46,7 @@ body{
     font-size: 2em;
     display: flex;
     flex-direction: row;
-    margin-bottom: 2vh;
+    margin-bottom: 0.3em;
 }
 
 
@@ -60,17 +62,17 @@ body{
 }
 
 .input-text{
-    margin-bottom: 3vh;
+    margin-bottom: 1em;
 }
 
 .input-text label{
     color: rgb(0, 0, 0);
     font-family: Open Sans;
-    font-size: 2vh;
+    font-size: 0.8em;
 }
 
 .input-text input{
-    height: 5vh;
+    height: 2.5em;
     border: solid rgb(44, 60, 99) 1px;
     border-radius: 5px;
     padding: 0px 10px;
@@ -122,6 +124,7 @@ select:invalid{
     border: solid rgb(44, 60, 99) 1px;
     border-radius: 5px;
     resize: none;
+    font-size: 2vh;
 }
 
 .user-photo{
@@ -225,7 +228,7 @@ select:invalid{
     }
 
     .register-all-box{
-        width: 35%;
+        width: 40%;
         height: 100%;
     }
 
@@ -253,7 +256,7 @@ select:invalid{
     }
 
     .register-all-box{
-        width: 80%;
+        width: 90%;
         height: 100%;
     }
     
@@ -262,16 +265,8 @@ select:invalid{
 
 @media all and (max-width:485px){
     .register-all-box{
-        width: 100%;
-        height: 100%;
+        width: 90%;
+        height: 95%;
         
-    }
-
-    .register-box{
-        background-color: rgba(255, 255, 255, 0);;
-    }
-
-    
-
-    
+    } 
 }
