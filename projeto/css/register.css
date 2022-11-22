@@ -18,8 +18,7 @@ body{
 
 /*BOX------------------------------*/
 
-.register-all-box{
-    background-color: rgb(119, 119, 119);
+.register-box{
     padding: 4em;
     height: 95%;
     width: 90%;
@@ -79,6 +78,73 @@ body{
 
 .input-text input:hover{
     border: solid rgb(39, 159, 180) 2px;    
+}
+
+.select{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1vh;
+}
+
+.select select{
+    width: 100%;
+    height: 3.5vh;
+    border: solid rgb(44, 60, 99) 1px;
+    border-radius: 5px;
+    padding: 0px 10px;
+    margin-bottom: 1vh;
+    font-size: 1.5vh;
+}
+
+select:invalid{
+    color: rgb(117, 117, 117);
+}
+
+.bio-input{
+    width: 100%;
+}
+
+.bio-input textarea{
+    font-family: Open Sans;
+    width: 100%;
+    border: solid rgb(44, 60, 99) 1px;
+    border-radius: 5px;
+    resize: none;
+}
+
+.user-photo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: solid rgb(44, 60, 99) 1px;
+    border-radius: 5px;
+}
+
+.user-photo input{
+    margin: 2vh 0vh;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.user-photo input:hover{
+    border: none;
+}
+
+.user-photo input::-webkit-file-upload-button{
+    border: solid rgb(90, 93, 102) 1px;
+    background-color: rgb(182, 182, 182);
+    border-radius: 5px;
+    justify-content: left;
+    height: 3vh;
+}
+
+.user-photo input::-webkit-file-upload-button:hover{
+    border: solid rgb(105, 108, 119) 1px;
+    background-color: rgb(216, 216, 216);
 }
 
 
@@ -156,7 +222,7 @@ body{
 
     .register-all-box{
         width: 35%;
-        height: 60%;
+        height: 80%;
     }
 
     .cancel-register{
@@ -166,5 +232,12 @@ body{
 
     .input-register{
         margin-right: 1vh;
+    }
+}
+
+@media all and (max-width:485px){
+    .register-all-box{
+        width: 100%;
+        height: 100%;
     }
 }

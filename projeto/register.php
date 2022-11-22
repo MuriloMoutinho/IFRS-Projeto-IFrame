@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
 <body>
     
     <div class="container-register"> 
-        <div class="column register-box">
+        <div class="column register-all-box">
             <div class="register-box">
             
                 <div class="title-register">
@@ -44,12 +44,13 @@ if(isset($_POST['submit'])){
                 <div class="input-box">
                     <form action="register.php" method="post" class="column" enctype="multipart/form-data">
                         <div class="input-text">
-                            <label>User Name <input type="text" name='name' minlength="2" maxlength="50" required></label>
-                            <label>Email <input type="email" name='email' required></label>
-                            <label>Password <input type="password" minlength="3" name='password' required></label>
-                            <label>Qual sua turma: <select name='turma' required>
+                            <label>User Name <input type="text" name='name' minlength="2" maxlength="50" placeholder="Enter your name" required></label>
+                            <label>Email <input type="email" name='email' placeholder="Enter your email" required></label>
+                            <label>Password <input type="password" minlength="3" name='password' placeholder="Enter your password" required></label>
+                            <div class="select">
+                            <label>Enter your class or position in IFRS<br> <select name='turma' required>
 
-                                <option value="" disabled selected>Chose your class</option>
+                                <option value="" disabled selected >Chose your class</option>
 
                                 <?php 
                     
@@ -64,15 +65,21 @@ if(isset($_POST['submit'])){
                                 ?>     
                                 </select>
                             </label>
-                
-                            <label> Biografia: <textarea name="bio" cols="20" rows="6" >Olá! Eu estou usando o Iframe.</textarea></label>
+                            </div>
+                            
+                            <div class="bio-input">
+                                <label>Biografia:<br><textarea name="bio" cols="20" rows="6" >Hi! I am using Iframe.</textarea></label>
+                            </div>
 
-                            <label>Photo <input type='file' accept="image/*" name='foto'></label>
+                            <label for="foto">Photo</label>
+                            <div class="user-photo">
+                                <input type='file' accept="image/*" name='foto'>
+                            </div> 
                         </div>
 
                         <div class="input-button">
                             <div class="input-register">
-                                <input type="submit" value="Register" name='submit'>
+                                <input type="submit" value="register" name='submit'>
                             </div>
 
                             <div class="cancel-register">
