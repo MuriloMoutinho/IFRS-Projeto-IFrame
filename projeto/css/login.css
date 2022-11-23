@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap');
 
 /*CONTAINER------------------------*/
 
 .container-login{
-    background: rgb(0,183,221);
-    background: linear-gradient(90deg, rgba(0,183,221,1) 0%, rgba(36,217,255,1) 100%);
+    background: linear-gradient(135deg, #154341, #141923);
     align-items: center;
     justify-content: center;
     display: flex;
     width: 100%;
     height: 100%;
+    font-family: 'Poppins', sans-serif;
 }
 
 
@@ -22,9 +22,9 @@
     padding: 4em;
     height: 100%;
     width: 90%;
-    border-radius: 0px;
+    border-radius: 15px;
     border: rgb(168, 168, 168) solid 1px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255);
 }
 
 
@@ -35,7 +35,9 @@
     font-size: 2em;
     display: flex;
     flex-direction: row;
-    margin-bottom: 2vh;
+    margin-bottom: 0.8em;
+    color: linear-gradient(135deg, #154341, #141923);
+    font-weight: bold;
 }
 
 
@@ -55,24 +57,25 @@
 
 .input-text label{
     color: rgb(0, 0, 0);
-    font-family: Open Sans;
     font-size: 90%;
+    font-weight: bold;
 }
 
 .input-text input{
-    height: 2.5em;
+    height: 2em;
     border: solid rgb(44, 60, 99) 1px;
-    border-radius: 2px;
+    border-radius: 10px;
     padding: 0px 10px;
     margin-bottom: 5%;
-    font-size: 80%;
+    font-size: 1.1rem;
+    background-color: rgb(219, 219, 219);
 }
 
 .input-text input::-webkit-input-placeholder {
     font-size: 100%;
-    font-family: Open Sans;
     filter: opacity(1);
     color: rgb(0, 0, 0);
+    text-shadow: rgb(233, 233, 233) 1px 1px 1px;
     align-items: center;
     justify-content: center;
 }
@@ -102,8 +105,8 @@
     height: 3em;
     cursor: pointer;
     font-size: 70%;
-    font-family: Open Sans;
     font-weight: bold;
+    font-family: 'Poppins', sans-serif;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -122,7 +125,6 @@
     width: 50%;
     font-size: 70%;
     font-weight: bold;
-    font-family: Open Sans; 
 }
 
 .cancel-login a{
@@ -133,7 +135,6 @@
     background: #3d9db3;
     border: solid 1px rgb(22, 85, 128);
     color: rgb(255, 255, 255);
-    text-shadow: rgb(14, 19, 90) 1px 1px 1px;
     height: 3em;
     cursor: pointer;
     border-radius: 5px;
@@ -164,7 +165,7 @@
 
     .login-all-box{
         width: 40%;
-        height: 100%;
+        height: 90%;
     }
 
     .cancel-login{
