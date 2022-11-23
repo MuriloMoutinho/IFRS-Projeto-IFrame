@@ -81,10 +81,6 @@ if(isset($_POST['submit'])){
                             <div class="input-register">
                                 <input type="submit" value="register" name='submit'>
                             </div>
-
-                            <div class="cancel-register">
-                                <a href="index.php">cancel</a>
-                            </div>
                         </div>
                     </form>
                 </div>
