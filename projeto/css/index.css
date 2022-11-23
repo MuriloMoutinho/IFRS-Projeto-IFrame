@@ -2,22 +2,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Autour+One&family=Dancing+Script:wght@700&family=Lobster&family=Poppins:ital,wght@1,100&display=swap');
 
-html{
-    font-family: 'Roboto';
-}
-
-body{
-    background: rgb(0,183,221);
-    background: linear-gradient(90deg, rgba(0,183,221,1) 0%, rgba(36,217,255,1) 100%);
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /*CONTAINER------------------------*/
 .container-inicial{
+    background: linear-gradient(135deg, #154341, #141923);
     display: flex;
     width: 100%;
-    height: 98vh;
+    height: 100%;
     justify-content: center;
     align-items: center;
+    font-family: 'Roboto';
 }
 
 
@@ -25,18 +25,20 @@ body{
 
 .inicial-box{
     width: 90%;
-    height: 80vh;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border: rgb(168, 168, 168) solid 1px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
 }
 
 @media all and (min-width:1167px){
+    
     .inicial-box{
-        height: 60vh;
+        height: 90%;
         flex-direction: row;
     }
 }
@@ -47,14 +49,14 @@ body{
 .container-info{
     width: 95%;
     height: 100%;
-    margin: 2vh;
+    margin: 2em;
 }
 
 .text-info{
-    font-size: 2vh;
+    font-size: 1em;
     justify-content: center;
     text-align: center;
-    margin: 2vh;
+    margin: 1em;
     text-align: justify;
 }
 
@@ -63,7 +65,7 @@ body{
 
 .container-funcional{
     width: 100%;
-    height: 25%;
+    height: 100%;
     display: flex;
     flex-direction: row;
 }
@@ -88,8 +90,8 @@ body{
 }
 
 .ops-div{
-    width: 80%;
-    margin: 0.4vh 0px;
+    width: 90%;
+
 }
 
 .ops-div a{
@@ -99,11 +101,11 @@ body{
     text-decoration: none;
     justify-content: center;
     align-items: center;
-    padding: 1vh;
+
 }
 
 .ops-funcional{
-    margin: 1vh 0.5vh;
+
     width: 100%;
 }
 
@@ -111,10 +113,9 @@ body{
     width: 100%;
     cursor: pointer;
     background: #3d9db3;
-    padding: 0.9vh 0.5vh;
     color: white;
-    font-size: 20px;   
-    margin-bottom: 1vh;  
+    font-size: 1.1rem;  
+    margin-bottom: 0.8em;  
     text-shadow: 0 1px 1px #333;
     -webkit-border-radius: 5px;
     border-radius: 5px;
@@ -129,7 +130,7 @@ body{
     display: flex;
     flex-direction: row;
     color: black;
-    font-size: 4vh;
+    font-size: 2em;
     font-family: 'Dancing Script';
     font-weight: bold;
 }
@@ -142,10 +143,10 @@ body{
 @media all and (min-width:1167px){
     .ops-funcional a{
         
-        padding: 2vh 0.5vh;
+        padding: 2em 0.5em;
     }
 }
 
 .img-logo{
-    width: 8vh;
+    width: 2em;
 }

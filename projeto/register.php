@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
     <title>Cadastrar</title>
 </head>
 <body>
-    
+<div class="container">
     <div class="container-register"> 
         <div class="column register-all-box">
             <div class="register-box">
@@ -87,5 +87,6 @@ if(isset($_POST['submit'])){
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>
