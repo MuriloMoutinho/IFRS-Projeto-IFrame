@@ -23,7 +23,7 @@ create table post(
     descricao varchar(200),
     dataCriacao timestamp not null,
     FOREIGN key (usuario) REFERENCES
-    usuario(id), 
+    usuario(id) ON DELETE CASCADE, 
     FOREIGN key (criador) REFERENCES
     usuario(id) ON DELETE CASCADE
 );

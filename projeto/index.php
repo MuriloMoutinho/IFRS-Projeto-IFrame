@@ -1,10 +1,10 @@
 <?php
+require 'components/inicial_index.php';
 
     session_start();
     if(isset($_SESSION['idSession'])){
         header("location:home.php");
     }
-    require 'components/inicial_index.php';
 ?>
 
 <!DOCTYPE html>

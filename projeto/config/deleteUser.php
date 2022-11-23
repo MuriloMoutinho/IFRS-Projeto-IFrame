@@ -2,7 +2,8 @@
     require 'loginCheck.php';
     require_once "../vendor/autoload.php";
 
-    $u = User::find($_SESSION['idSession']);
+    $u = new User();
+    $u->setId($_SESSION['idSession']);
     $u->delete();
 
     

@@ -1,11 +1,7 @@
 <?php
     require 'components/import.php';
-<<<<<<< Updated upstream
     require_once __DIR__."/vendor/autoload.php";
 
-=======
-    require 'src/User.php';
->>>>>>> Stashed changes
 
     $usuarioConsulta = User::find($_SESSION['idSession']);
 

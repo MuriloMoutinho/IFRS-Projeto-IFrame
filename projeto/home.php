@@ -43,13 +43,15 @@
                     
                     echo "<div class='post'>";    
 
-                        echo "<div class='post-info'>";
-                            echo "<img src='photos/profile/{$post['0']->getFoto()}' alt='Foto de Perfil'>";
-                            echo "<div>";
-                                echo "<p>{$post['0']->getNome()}</p>";
-                                echo "<p>{$post['0']->getTurma()}</p>";
+                        echo "<a href='profile.php?username={$post['0']->getNome()}'>";    
+                            echo "<div class='post-info'>";
+                                echo "<img src='photos/profile/{$post['0']->getFoto()}' alt='Foto de Perfil'>";
+                                echo "<div>";
+                                    echo "<p>{$post['0']->getNome()}</p>";
+                                    echo "<p>{$post['0']->getTurma()}</p>";
+                                echo "</div>";
                             echo "</div>";
-                        echo "</div>";
+                        echo "</a>";
 
                         echo "<div class='post-img'>";
                             echo "<img class='img-format' src='photos/posts/{$post['1']->getFoto()}'  alt='Imagem Post'>";
