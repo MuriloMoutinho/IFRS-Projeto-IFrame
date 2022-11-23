@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Autour+One&family=Dancing+Script:wght@700&family=Lobster&family=Poppins:ital,wght@1,100&display=swap');
 
 html{
     font-family: 'Roboto';
@@ -128,6 +130,8 @@ body{
     flex-direction: row;
     color: black;
     font-size: 4vh;
+    font-family: 'Dancing Script';
+    font-weight: bold;
 }
 
 .ops-funcional a:hover{
