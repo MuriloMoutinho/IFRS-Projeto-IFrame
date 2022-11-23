@@ -138,15 +138,6 @@
         width: 50%;
         height: 90%;
     }
-
-    .cancel-login{
-        margin-top: 0px;
-        margin-left: 1em;
-    }
-
-    .input-login{
-        margin-right: 1em;
-    }
 }
 
 @media all and (min-width:600px){
