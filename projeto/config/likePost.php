@@ -1,6 +1,6 @@
 <?php
     require 'loginCheck.php';
-    require '../src/Like.php';
+    require_once "../vendor/autoload.php";
 
     $l = new Like();
     $l->setPost($_POST['idPost']);

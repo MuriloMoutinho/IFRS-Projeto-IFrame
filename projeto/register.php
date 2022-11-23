@@ -1,7 +1,8 @@
 <?php 
+    require_once __DIR__."/vendor/autoload.php";
+    
 if(isset($_POST['submit'])){
 
-    require 'src/User.php';
 
     $u = new User();
     $u->setEmail($_POST['email']);
@@ -55,8 +56,6 @@ if(isset($_POST['submit'])){
 
                                 <?php 
                     
-                                    require 'src/MySQL.php';
-
                                     $conexao = new MySQL();
                                     $sql = "SELECT * FROM turma order by id asc";
                                     $turmas = $conexao->consulta($sql);
@@ -69,7 +68,7 @@ if(isset($_POST['submit'])){
                             </div>
                             
                             <div class="bio-input">
-                                <label>Biografia:<br><textarea name="bio" cols="20" rows="6" >Hi! I am using Iframe.</textarea></label>
+                                <label>Biografia:<br><textarea name="bio" cols="20" rows="3" >Hi! I am using Iframe.</textarea></label>
                             </div>
 
                             <label for="foto">Photo</label>

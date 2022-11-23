@@ -1,6 +1,7 @@
 <?php 
 
 require 'components/import.php';
+require_once __DIR__."/vendor/autoload.php";
 
 ?>
 
@@ -38,9 +39,6 @@ require 'components/import.php';
         <hr>
 
         <?php
-
-
-                require 'src/User.php';
 
                 if(isset($_GET['search'])){
                     $usuariosBuscados = User::findUser($_GET['search']);

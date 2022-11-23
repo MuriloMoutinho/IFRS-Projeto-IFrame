@@ -1,6 +1,6 @@
 <?php
     require 'loginCheck.php';
-    require '../src/Post.php';
+    require_once "../vendor/autoload.php";
 
     $p = new Post(0,'');
     $p->setId();

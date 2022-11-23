@@ -1,7 +1,6 @@
 <?php
     require 'components/import.php';
-    require 'src/Post.php';
-
+    require_once __DIR__."/vendor/autoload.php";
 
 ?>
 

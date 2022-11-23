@@ -23,9 +23,9 @@ create table post(
     descricao varchar(200),
     dataCriacao timestamp not null,
     FOREIGN key (usuario) REFERENCES
-    usuario(id),
+    usuario(id), 
     FOREIGN key (criador) REFERENCES
-    usuario(id)
+    usuario(id) ON DELETE CASCADE
 );
 
 create table post_curtida(
@@ -33,9 +33,9 @@ create table post_curtida(
     post int not null,
     usuario int not null,
     FOREIGN key (usuario) REFERENCES
-    usuario(id),
+    usuario(id) ON DELETE CASCADE,
     FOREIGN key (post) REFERENCES
-    post(id)
+    post(id) ON DELETE CASCADE
 );
 
 create table post_visualizacao(
@@ -53,7 +53,7 @@ create table post_comentario(
     post int not null,
     usuario int not null,
     conteudo varchar(200) not null,
-    data timestamp not null,
+    dataCriacao timestamp not null,
     FOREIGN key (usuario) REFERENCES
     usuario(id),
     FOREIGN key (post) REFERENCES

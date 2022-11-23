@@ -1,8 +1,7 @@
 <?php
 
-require_once 'ActiveRecord.php';
-require_once 'MySQL.php';
-require_once 'Post.php';
+require_once __DIR__."\Post.php";
+require_once __DIR__."\ActiveRecord.php";
 
 class Like implements ActiveRecord{
     

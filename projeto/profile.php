@@ -1,7 +1,8 @@
 <?php
     require 'components/import.php';
-    require 'src/User.php';
 
+    require_once __DIR__."/vendor/autoload.php";
+    
     if(!isset($_GET['username'])){
         header("location: home.php");
     }

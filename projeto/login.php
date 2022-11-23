@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['submit'])){
-    require 'src/User.php';
-
+    require_once __DIR__."/vendor/autoload.php";
+    
     $u = new User();
     $u->setEmail($_POST['email']);
     $u->setSenha($_POST['password']);

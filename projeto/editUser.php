@@ -1,7 +1,6 @@
 <?php
     require 'components/import.php';
-    require 'src/User.php';
-
+    require_once __DIR__."/vendor/autoload.php";
 
 
     $usuarioConsulta = User::find($_SESSION['idSession']);

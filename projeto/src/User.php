@@ -1,10 +1,7 @@
 <?php
 
-require_once 'ActiveRecord.php';
-require_once 'MySQL.php';
-require_once 'Post.php';
-require_once 'Like.php';
-
+require_once __DIR__."/MySQL.php";
+require_once __DIR__."/ActiveRecord.php";
 
 
 class User implements ActiveRecord{
@@ -136,23 +133,6 @@ class User implements ActiveRecord{
     public function delete():bool{
         $conexao = new MySQL();
 
-        unlink("../photos/profile/".$this->foto);
-        $postsProfile = Post::findProfilePost($this->nome);
-        if(count($postsProfile)){
-            foreach($postsProfile as $post){
-                $post->delete();
-            }
-        }
-
-        $sqlLikes = "SELECT usuario FROM post_curtida WHERE usuario = '{$this->id}'";
-        $likesUser = $conexao->executa($sqlLikes);
-        if(count($likesUser)){
-            foreach($likesUser as $like){
-                $like->delete();
-            }
-        }
-
-    
         $sql = "DELETE FROM usuario WHERE id = {$this->id}";
         return $conexao->executa($sql);
     }
