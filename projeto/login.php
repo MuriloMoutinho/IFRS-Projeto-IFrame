@@ -45,10 +45,6 @@ if(isset($_POST['submit'])){
                             <div class="input-login">
                                 <input type="submit" value="login" name='submit'>
                             </div>
-
-                            <div class="cancel-login">
-                                <a href="index.php">cancel</a>
-                            </div>
                         </div>
                     </form>
                 </div>
