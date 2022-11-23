@@ -154,7 +154,7 @@ main{
     gap: 0.5em;
 }
 
-.flex-row-short input{
+.flex-row-short {
     padding: 2vh;
     font-size: 2vh;
 }

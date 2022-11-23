@@ -1,17 +1,19 @@
 <?php
     require 'components/import.php';
+<<<<<<< Updated upstream
     require_once __DIR__."/vendor/autoload.php";
 
+=======
+    require 'src/User.php';
+>>>>>>> Stashed changes
 
     $usuarioConsulta = User::find($_SESSION['idSession']);
-
-
 
     if(isset($_POST['submit']) || isset($_POST['remove'])){
 
         $u = new User();
 
-        if(password_verify($_POST['nowPassword'],$usuarioConsulta->getSenha())){
+        if(password_verify($_POST['currentPass'],$usuarioConsulta->getSenha())){
             $u->setSenha($_POST['newPassword']);
         }
 
@@ -47,7 +49,6 @@
     ?>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,14 +71,15 @@
     <main>
 
     <div class="center container"> 
-        <div class="column login-box">
-            
+        <div class="login-box">
             <h1>Edit</h1>
             <form action="editUser.php" method="post" class="column" enctype="multipart/form-data">
                 <?php
 
-                echo "<label>User Name <input type='text' name='name' maxlength='25' minlength='2' value='{$usuarioConsulta->getNome()}' required></label>";
-                echo "<label>Email <input type='email' name='email' value='{$usuarioConsulta->getEmail()}' required></label>";
+                echo "<label for='userName'>UserName: </label>";
+                echo "<input type='text' name='name' id='userName' class='input' maxlength='25' minlength='2' value='{$usuarioConsulta->getNome()}' required>";
+                echo "<label for='email'>Email: </label>";
+                echo "<input type='email' name='email' id='email' value='{$usuarioConsulta->getEmail()}' required>";
                 
                 echo "<label for='turma'>Escolha a sua turma: </label>";
                 echo "<select id='turma' name='turma'>";
@@ -92,7 +94,8 @@
                     }
                         
                 echo "</select>";
-                echo "<label>Biografia: <textarea name='bio' cols='20' rows='6' >{$usuarioConsulta->getBio()}</textarea> </label>";
+                echo "<label for='biografia'>Biografia: </label>";
+                echo "<textarea name='bio' id='biografia' cols='20' rows='6' >{$usuarioConsulta->getBio()}</textarea>";
                 
                 ?>
                 <label for="foto" >Foto: </label>
@@ -100,7 +103,7 @@
                 <input type='submit' value='remove photo' name='remove'>
                 
                 <label for="currentPass">Write your current password:</label>
-                <input type='password' name='nowPassword' id="currentPass">
+                <input type='password' name='currentPass' id="currentPass">
                 <label for="newPassword" >write your new password: </label>
                 <input type='password' minlength='3' name='newPassword' id="newPassword">
 
