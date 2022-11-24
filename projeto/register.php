@@ -35,8 +35,7 @@ if(isset($_POST['submit'])){
     <title>Cadastrar</title>
 </head>
 <body>
-<div class="container">
-    <div class="container-register"> 
+<div class="container-register">
         <div class="column register-all-box">
             <div class="register-box">
             
@@ -46,13 +45,13 @@ if(isset($_POST['submit'])){
                 <div class="input-box">
                     <form action="register.php" method="post" class="column" enctype="multipart/form-data">
                         <div class="input-text">
-                            <label>User Name <input type="text" name='name' minlength="2" maxlength="50" placeholder="Enter your name" required></label>
-                            <label>Email <input type="email" name='email' placeholder="Enter your email" required></label>
-                            <label>Password <input type="password" minlength="3" name='password' placeholder="Enter your password" required></label>
+                            <label>User Name <input type="text" name='name' minlength="2" maxlength="50" required></label>
+                            <label>Email <input type="email" name='email' required></label>
+                            <label>Password <input type="password" minlength="3" name='password' required></label>
                             <div class="select">
                             <label>Enter your class or position in IFRS<br> <select name='turma' required>
 
-                                <option value="" disabled selected >Chose your class</option>
+                                <option value="" disabled selected >Select...</option>
 
                                 <?php 
                     
@@ -86,7 +85,6 @@ if(isset($_POST['submit'])){
                 </div>
             </div>
         </div>
-    </div>
 </div>
 </body>
 </html>

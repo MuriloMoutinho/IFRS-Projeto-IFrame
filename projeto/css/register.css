@@ -1,45 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap');
 
 /*CONTAINER------------------------*/
 
-.container-register{
-    align-items: center;
-    justify-content: center;
-    display: flex;
+*{
+    width: 100%;
+    
+}
+
+html,body{
+    margin: 0px;
+    padding: 0px;
     width: 100%;
     height: 100%;
 }
+
+.container-register{
+    background: linear-gradient(135deg, #154341, #141923);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+}
+
 
 /*BOX------------------------------*/
 
-.register-box{
+.register-all-box{
+    background-color: rgb(119, 119, 119);
     padding: 4em;
-    height: 100%;
-    width: 100%;
-    border-radius: 0px;
+    height: 90%;
+    width: 95%;
+    border-radius: 15px;
     border: rgb(168, 168, 168) solid 1px;
-    
-    /*background-color: rgba(255, 255, 255, 0.8);*/
-}
-
-.register-box{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    background-color: rgba(255, 255, 255);
+    margin: 3% 0px;
 }
 
 
 /*TITLE----------------------------*/
 
-.title-register{
+.title-register h1{
     text-align: center;
-    font-size: 2em;
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 0.3em;
+    font-size: 195%;
+    color: linear-gradient(135deg, #154341, #141923);
 }
 
 
@@ -47,7 +52,6 @@
 
 .input-box{
     width: 100%;
-    height: 100%;
 }
 
 .input-box input{
@@ -55,103 +59,28 @@
 }
 
 .input-text{
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
 }
 
 .input-text label{
     color: rgb(0, 0, 0);
-    font-family: Open Sans;
-    font-size: 0.8em;
+    font-size: 90%;
+    font-weight: bold;
 }
 
 .input-text input{
-    height: 2.5em;
+    height: 2em;
     border: solid rgb(44, 60, 99) 1px;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 0px 10px;
-    margin-bottom: 1vh;
-    font-size: 2vh;
+    margin-bottom: 5%;
+    font-size: 1.1rem;
+    background-color: rgb(219, 219, 219);
 }
 
-.input-text input::-webkit-input-placeholder {
-    font-size: 2vh;
-    font-family: Open Sans;
-    filter: opacity(1);
-    color: rgb(0, 0, 0);
-    align-items: center;
-    justify-content: center;
-}
 
 .input-text input:hover{
     border: solid rgb(39, 159, 180) 2px;    
-}
-
-.select{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1vh;
-}
-
-.select select{
-    width: 100%;
-    height: 5vh;
-    border: solid rgb(44, 60, 99) 1px;
-    border-radius: 5px;
-    padding: 0px 10px;
-    margin-bottom: 1vh;
-    font-size: 2vh;
-}
-
-select:invalid{
-    color: rgb(117, 117, 117);
-}
-
-.bio-input{
-    width: 100%;
-}
-
-.bio-input textarea{
-    font-family: Open Sans;
-    width: 100%;
-    border: solid rgb(44, 60, 99) 1px;
-    border-radius: 5px;
-    resize: none;
-    font-size: 2vh;
-}
-
-.user-photo{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border: solid rgb(44, 60, 99) 1px;
-    border-radius: 5px;
-}
-
-.user-photo input{
-    margin: 2vh 0vh;
-    border: none;
-    width: 100%;
-    height: 100%;
-}
-
-.user-photo input:hover{
-    border: none;
-}
-
-.user-photo input::-webkit-file-upload-button{
-    border: solid rgb(90, 93, 102) 1px;
-    background-color: rgb(182, 182, 182);
-    border-radius: 5px;
-    justify-content: left;
-    height: 3vh;
-}
-
-.user-photo input::-webkit-file-upload-button:hover{
-    border: solid rgb(105, 108, 119) 1px;
-    background-color: rgb(216, 216, 216);
 }
 
 
@@ -171,11 +100,14 @@ select:invalid{
     display: flex;
     background: #3d9db3;
     border: solid 1px rgb(22, 85, 128);
-    color: white;
-    border-radius: 8px;
-    height: 5vh;
+    color: rgb(255, 255, 255);
+    height: 2.4em;
     cursor: pointer;
-    font-size: 2vh;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 .input-button input:hover{
@@ -183,83 +115,88 @@ select:invalid{
     border: solid 1px #4b8592;
 }
 
-.input-register{
-    width: 50%;
+.input-login{
+    width: 100%;
 }
 
-.cancel-register{
-    margin-top: 1vh;
-    width: 50%;
-    font-size: 2vh;
-}
-
-.cancel-register a{
-    text-decoration: none;
+.login-box{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
     align-items: center;
     justify-content: center;
+}
+
+.select{
+    width: 100%;
     display: flex;
-    background: #b33d3d;
-    border: solid 1px rgb(128, 22, 22);
-    color: white;
-    border-radius: 8px;
-    height: 5vh;
+    flex-direction: column;
+    margin-bottom: 1em;
 }
 
-.cancel-register a:hover{
-    background: #bd6161;
-    border: solid 1px #924b4b;
+.select select{
+    width: 100%;
+    height: 100%;
+    border: solid rgb(44, 60, 99) 1px;
+    border-radius: 5px;
+    padding: 0px 10px;
+    font-size: 1em;
+    height: 2.4em;
 }
 
+select:invalid{
+    color: rgb(117, 117, 117);
+}
 
+.bio-input{
+    width: 100%;
+}
+
+.bio-input textarea{
+    font-family: Open Sans;
+    width: 100%;
+    border: solid rgb(44, 60, 99) 1px;
+    border-radius: 5px;
+    resize: none;
+    font-size: 1.1rem;
+}
+
+.user-photo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: solid rgb(44, 60, 99) 1px;
+    border-radius: 5px;
+}
+
+.user-photo input{
+    margin: 1em 0em;
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.user-photo input:hover{
+    border: none;
+}
+
+.user-photo input::-webkit-file-upload-button{
+    border: solid rgb(90, 93, 102) 1px;
+    background-color: rgb(201, 201, 201);
+    border-radius: 5px;
+    justify-content: left;
+    height: 100%;
+}
+
+.user-photo input::-webkit-file-upload-button:hover{
+    border: solid rgb(105, 108, 119) 1px;
+    background-color: rgb(255, 255, 255);
+}
 
 
 /*ACCESSIBILITY--------------------*/
 
-@media all and (min-width:1167px){
-    .input-button{
-        flex-direction: row;
-    }
-
-    .register-all-box{
-        width: 40%;
-        height: 100%;
-    }
-
-    .cancel-register{
-        margin-top: 0vh;
-        margin-left: 1vh;
-    }
-
-    .input-register{
-        margin-right: 1vh;
-    }
-
-    .register-box{
-        background-color: rgba(255, 255, 255, 0.8);
-    }
-
-    
-}
-
-@media all and (max-width:1167px){
-    .register-box{
-        width: 100%;
-        height: 100%;
-        background-color: rgba(255, 255, 255, 0.8);
-    }
-
-    .register-all-box{
-        width: 90%;
-        height: 100%;
-    }
-    
-    
-}
-
-@media all and (max-width:485px){
-    .register-all-box{
-        width: 90%;
-        height: 95%;
-        
-    } 
-}

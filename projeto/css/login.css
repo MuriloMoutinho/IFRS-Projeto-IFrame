@@ -4,9 +4,16 @@
 
 /*CONTAINER------------------------*/
 
+*{
+    width: 100%;
+    
+}
+
 html,body{
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
 }
 
 .container-login{
@@ -14,9 +21,8 @@ html,body{
     align-items: center;
     justify-content: center;
     display: flex;
-    width: 100%;
-    height: 100%;
     font-family: 'Poppins', sans-serif;
+    height: 100%;
 }
 
 
@@ -30,19 +36,16 @@ html,body{
     border-radius: 15px;
     border: rgb(168, 168, 168) solid 1px;
     background-color: rgba(255, 255, 255);
+    margin: 3% 0px;
 }
 
 
 /*TITLE----------------------------*/
 
-.title-login{
+.title-login h1{
     text-align: center;
-    font-size: 2em;
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 0.8em;
+    font-size: 195%;
     color: linear-gradient(135deg, #154341, #141923);
-    font-weight: bold;
 }
 
 
@@ -57,7 +60,7 @@ html,body{
 }
 
 .input-text{
-    margin-bottom: 3vh;
+    margin-bottom: 1.5em;
 }
 
 .input-text label{
@@ -76,14 +79,6 @@ html,body{
     background-color: rgb(219, 219, 219);
 }
 
-.input-text input::-webkit-input-placeholder {
-    font-size: 100%;
-    filter: opacity(1);
-    color: rgb(0, 0, 0);
-    text-shadow: rgb(233, 233, 233) 1px 1px 1px;
-    align-items: center;
-    justify-content: center;
-}
 
 .input-text input:hover{
     border: solid rgb(39, 159, 180) 2px;    
@@ -136,18 +131,3 @@ html,body{
 
 
 /*ACCESSIBILITY--------------------*/
-
-@media all and (min-width:1167px){
-
-    .login-all-box{
-        width: 50%;
-        height: 90%;
-    }
-}
-
-@media all and (min-width:600px){
-
-    .login-all-box{
-        width: 50%;
-    }
-}
