@@ -132,6 +132,14 @@ class User implements ActiveRecord{
     //DELETE ------------------------------------------------
     public function delete():bool{
         $conexao = new MySQL();
+        
+        unlink("../photos/profile/".$this->foto);
+        $postsProfile = Post::findProfilePost($this->nome);
+        if(count($postsProfile)){
+            foreach($postsProfile as $post){
+                $post->delete();
+            }
+        }
 
         $sql = "DELETE FROM usuario WHERE id = {$this->id}";
         return $conexao->executa($sql);
