@@ -23,16 +23,16 @@ if(isset($_POST['submit'])){
     <link rel="stylesheet" href="css/login.css">
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="css/commun.css">
-    <title>Login</title>
+    <title>Sign in</title>
 </head>
 <body>
 
     <div class="container-login"> 
-        <div class="column login-all-box">
+        <div class="login-all-box">
             <div class="login-box">
 
                 <div class="title-login">
-                    <h1>Login</h1>
+                    <h1>Sign in</h1>
                 </div>
                 <div class="input-box">
                     <form  action='login.php' method='post' class="column">

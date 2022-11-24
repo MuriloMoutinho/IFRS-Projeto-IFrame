@@ -32,15 +32,15 @@ if(isset($_POST['submit'])){
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="css/commun.css">
     <link rel="stylesheet" href="css/register.css">
-    <title>Cadastrar</title>
+    <title>Sign up  </title>
 </head>
 <body>
 <div class="container-register">
-        <div class="column register-all-box">
+        <div class="register-all-box">
             <div class="register-box">
             
                 <div class="title-register">
-                    <h1>Registration</h1>
+                    <h1>Sign up</h1>
                 </div>
                 <div class="input-box">
                     <form action="register.php" method="post" class="column" enctype="multipart/form-data">
