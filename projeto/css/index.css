@@ -123,7 +123,7 @@ html,body{
 }
 @media all and (min-width:1320px){
     .inicial-all-box{
-        margin: 0em 28em;
+        margin: 1em 24em;
         padding: 3em;
     }
     .text-info{

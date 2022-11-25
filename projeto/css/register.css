@@ -23,7 +23,7 @@ html,body{
 /*BOX------------------------------*/
 .register-all-box{
     background-color: rgb(119, 119, 119);
-    padding: 20% 2em;
+    padding: 20% 1em;
     width: 100%;
     border-radius: 15px;
     border: rgb(168, 168, 168) solid 1px;
@@ -165,7 +165,7 @@ select:valid{
     border-radius: 5px;
     justify-content: left;
     height: 100%;
-    padding: 0.2em 0.8em;
+    padding: 1% 8%;
 }
 .user-photo input::-webkit-file-upload-button:hover{
     border: solid rgb(131, 131, 131) 1px;
@@ -175,7 +175,7 @@ select:valid{
 /*ACCESSIBILITY--------------------*/
 @media all and (min-width:1167px){
     .register-all-box{
-        padding: 2em 2em;
+        padding: 1em 1em;
         margin: 4% 30%;
     }
     .register-box{

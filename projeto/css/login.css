@@ -24,7 +24,7 @@ html,body{
 /*BOX------------------------------*/
 .login-all-box{
     background-color: rgb(119, 119, 119);
-    padding: 20% 2em;
+    padding: 20% 1em;
     width: 100%;
     border-radius: 15px;
     border: rgb(168, 168, 168) solid 1px;
@@ -107,7 +107,7 @@ html,body{
 /*ACCESSIBILITY--------------------*/
 @media all and (min-width:1167px){
     .login-all-box{
-        padding: 2em 2em;
+        padding: 0em 1em;
         margin: 4% 30%;
     }
     .login-box{
