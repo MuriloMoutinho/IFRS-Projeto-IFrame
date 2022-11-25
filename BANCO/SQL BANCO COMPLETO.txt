@@ -43,9 +43,9 @@ create table post_visualizacao(
     post int not null,
     usuario int not null,
     FOREIGN key (usuario) REFERENCES
-    usuario(id),
+    usuario(id) ON DELETE CASCADE,
     FOREIGN key (post) REFERENCES
-    post(id)
+    post(id) ON DELETE CASCADE
 );
 
 create table post_comentario(
@@ -55,9 +55,9 @@ create table post_comentario(
     conteudo varchar(200) not null,
     dataCriacao timestamp not null,
     FOREIGN key (usuario) REFERENCES
-    usuario(id),
+    usuario(id) ON DELETE CASCADE,
     FOREIGN key (post) REFERENCES
-    post(id)
+    post(id) ON DELETE CASCADE
 );
 
 create table post_marcacao(
@@ -65,9 +65,9 @@ create table post_marcacao(
     post int not null,
     usuario int not null,
     FOREIGN key (usuario) REFERENCES
-    usuario(id),
+    usuario(id) ON DELETE CASCADE,
     FOREIGN key (post) REFERENCES
-    post(id)
+    post(id) ON DELETE CASCADE
 );
 
 insert into turma (id, curso) values
