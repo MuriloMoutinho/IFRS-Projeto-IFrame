@@ -14,15 +14,15 @@ html,body{
     padding: 0px;
     width: 100%;
     height: 100%;
+    display: grid;
 }
 
 .container-login{
     background: linear-gradient(135deg, #154341, #141923);
-    align-items: center;
     justify-content: center;
     display: flex;
     font-family: 'Poppins', sans-serif;
-    height: 100%;
+    width: 100%;
 }
 
 
@@ -30,13 +30,13 @@ html,body{
 
 .login-all-box{
     background-color: rgb(119, 119, 119);
-    padding: 4em;
-    height: 90%;
-    width: 90%;
+    padding: 20% 2em;
+    width: 100%;
     border-radius: 15px;
     border: rgb(168, 168, 168) solid 1px;
     background-color: rgba(255, 255, 255);
-    margin: 3% 0px;
+    margin: 2em 2em;
+    display: flex;
 }
 
 
@@ -74,14 +74,14 @@ html,body{
     border: solid rgb(44, 60, 99) 1px;
     border-radius: 10px;
     padding: 0px 10px;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     font-size: 1.1rem;
-    background-color: rgb(219, 219, 219);
+    background-color: rgb(230, 230, 230);
 }
 
 
 .input-text input:hover{
-    border: solid rgb(39, 159, 180) 2px;    
+    border: solid rgb(39, 159, 180) 1px;     
 }
 
 
@@ -102,9 +102,9 @@ html,body{
     background: #3d9db3;
     border: solid 1px rgb(22, 85, 128);
     color: rgb(255, 255, 255);
-    height: 2.4em;
+    height: 3em;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1em;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
     cursor: pointer;
@@ -115,11 +115,6 @@ html,body{
     background: #61acbd;
     border: solid 1px #4b8592;
 }
-
-.input-login{
-    width: 100%;
-}
-
 .login-box{
     display: flex;
     flex-direction: column;
@@ -131,3 +126,31 @@ html,body{
 
 
 /*ACCESSIBILITY--------------------*/
+@media all and (min-width:1167px){
+    .login-all-box{
+        padding: 2em 2em;
+        margin: 4% 30%;
+    }
+    .login-box{
+        margin: 1em 5em;
+    }
+}
+@media all and (max-width:1167px){
+    .login-all-box{
+        margin: 1em 5em;
+        padding: 5em 2em;
+        align-items: center;
+    }
+    .login-box{
+        padding: 0;
+    }
+}
+@media all and (max-width:620px){
+    .login-all-box{
+        padding: 10% 1em;
+        margin: 2em 1em;
+    }
+    .input-text label{
+        font-size: 80%;
+    }
+}
