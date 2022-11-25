@@ -21,12 +21,12 @@ require 'components/inicial_index.php';
 <body>
 
     <div class="container-inicial">
-        <div class="inicial-box">
-            <div class="container-info">
-                
+        <div class="inicial-all-box">
+            <div class="inicial-box">
+                <div class="container-info">
                     <div class='logo'>
-                        <img class="img-logo" src='assets/icos/logo_ico1.png' alt='Iframe logo'>
-                        <h1>IFrame</h1> 
+                        
+                        <h1 class="title-logo"><img class="img-logo" src='assets/icos/logo_ico1.png' alt='Iframe logo'>IFrame</h1> 
                     </div>
 
                     <div class="text-info">
@@ -44,16 +44,17 @@ require 'components/inicial_index.php';
 
                 <div class="ops-funcional" >
                     <div class="ops-div">
-                        <a href="login.php">Logar</a>
+                        <a href="login.php">Sign in</a>
                     </div>
 
                     <div class="ops-div">
-                        <a href="register.php">Criar conta</a>  
+                        <a href="register.php">Create account</a>  
                     </div>    
                 </div>
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>
 
