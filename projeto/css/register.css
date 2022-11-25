@@ -65,7 +65,7 @@ html,body{
     background-color: rgb(230, 230, 230);
 }
 .input-text input:hover{
-    border: solid rgb(39, 159, 180) 2px;    
+    border: solid rgb(39, 159, 180) 1px;    
 }
 
 /*BUTTON---------------------------*/
@@ -121,6 +121,12 @@ html,body{
     font-size: 1rem;
     height: 2.4em;
     background-color: rgb(230, 230, 230);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.select select:hover{
+    border: solid rgb(39, 159, 180) 1px;
 }
 select:invalid{
     color: rgb(117, 117, 117);
@@ -140,6 +146,9 @@ select:valid{
     font-size: 1.1rem;
     background-color: rgb(230, 230, 230);
 }
+.bio-input textarea:hover{
+    border: solid rgb(39, 159, 180) 1px;
+}
 .user-photo{
     display: flex;
     flex-direction: row;
@@ -148,6 +157,9 @@ select:valid{
     background-color: rgb(230, 230, 230);
     border: solid rgb(44, 60, 99) 1px;
     border-radius: 5px;
+}
+.user-photo:hover{
+    border: solid rgb(39, 159, 180) 1px;    
 }
 .user-photo input{
     margin: 10% 0%;
