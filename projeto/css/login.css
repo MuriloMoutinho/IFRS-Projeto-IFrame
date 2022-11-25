@@ -1,12 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap');
-
 /*CONTAINER------------------------*/
-
 *{
     width: 100%;
-    
 }
 
 html,body{
@@ -25,9 +22,7 @@ html,body{
     width: 100%;
 }
 
-
 /*BOX------------------------------*/
-
 .login-all-box{
     background-color: rgb(119, 119, 119);
     padding: 20% 2em;
@@ -39,36 +34,28 @@ html,body{
     display: flex;
 }
 
-
 /*TITLE----------------------------*/
-
 .title-login h1{
     text-align: center;
     font-size: 195%;
     color: linear-gradient(135deg, #154341, #141923);
 }
 
-
 /*INSERT---------------------------*/
-
 .input-box{
     width: 100%;
 }
-
 .input-box input{
     width: 100%;
 }
-
 .input-text{
     margin-bottom: 1.5em;
 }
-
 .input-text label{
     color: rgb(0, 0, 0);
     font-size: 90%;
     font-weight: bold;
 }
-
 .input-text input{
     height: 2em;
     border: solid rgb(44, 60, 99) 1px;
@@ -78,15 +65,11 @@ html,body{
     font-size: 1.1rem;
     background-color: rgb(230, 230, 230);
 }
-
-
 .input-text input:hover{
     border: solid rgb(39, 159, 180) 1px;     
 }
 
-
 /*BUTTON---------------------------*/
-
 .input-button{
     display: flex;
     flex-direction: column;
@@ -94,7 +77,6 @@ html,body{
     justify-content: center;
     width: 100%;
 }
-
 .input-button input{
     align-items: center;
     justify-content: center;
@@ -110,7 +92,6 @@ html,body{
     cursor: pointer;
     border-radius: 5px;
 }
-
 .input-button input:hover{
     background: #61acbd;
     border: solid 1px #4b8592;
@@ -123,7 +104,6 @@ html,body{
     align-items: center;
     justify-content: center;
 }
-
 
 /*ACCESSIBILITY--------------------*/
 @media all and (min-width:1167px){
