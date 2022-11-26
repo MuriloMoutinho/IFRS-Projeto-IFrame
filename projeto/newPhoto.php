@@ -48,7 +48,9 @@
                 </label>
 
                 <input type="file" accept="image/*" name="newPhoto" class="input-img" id="input-img" >
-                <label>Description <input type="text" maxlength="100" name="descricao" /></label>
+                
+                <label for='desc'>Descrição:</label>
+                <textarea name="descricao" id='desc' cols="20" rows="3" ></textarea>                 
 
 
                 <button type="submit" name="submit" class="button-publish" >Publicar</button>

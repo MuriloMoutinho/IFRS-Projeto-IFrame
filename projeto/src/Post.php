@@ -42,7 +42,19 @@ class Post implements ActiveRecord{
         return $this->descricao;
     }
  
+    //FINDPOST ------------------------------------------------
 
+    public static function findPost($id):Post{
+        $conexao = new MySQL();
+        $sqlPost = "SELECT criador,foto,dataCriacao,descricao FROM post WHERE id = '{$id}'";
+        $post = $conexao->consulta($sqlPosts);
+
+        $p = new Post($post['0']['criador'],$post['0']['foto']);
+        $p->setData($post['0']['dataCriacao']);
+        $p->setDescricao($post['0']['descricao']);
+        
+        return $p;
+    }
 
     //FINDPROFILE ------------------------------------------------
     public static function findAllPosts():array{

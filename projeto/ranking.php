@@ -1,5 +1,6 @@
 <?php
     require 'components/import.php';
+    require_once __DIR__."/vendor/autoload.php";
 
 ?>
 
@@ -32,19 +33,28 @@
             <hr>
             
             <?php 
-            echo "<div class='flex-row-bet'>";
-                echo "<div class='flex-row-bet'>";
-                    <img src="assets/istockphoto-1016744034-170667a.jpg"  class="profile-photo" alt="Foto de Perfil">
-                    echo "<div>";
-                        <p>Nome Perfil</p>
-                        <span>Turma a1</span>
-                    echo "</div>";
-                echo "</div>";
-                echo "<div>";
-                    <img src="<?php echo $imgLike ?>" alt="Likes" class="like">
-                    xx
-                echo "</div>";
-            echo "</div>";
+
+        $usuariosBuscados = User::findUser('',15);
+
+        foreach($usuariosBuscados as $usuario){
+
+            echo "
+            <a href='profile.php?username={$usuario->getNome()}'>
+            <div class='flex-row-bet profile-case'>
+                    <div class='flex-row-bet'>
+                        <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Foto de Perfil'>
+                        <div>
+                            <span>{$usuario->getNome()}</span>
+                            <span>{$usuario->getTurma()}</span>
+                        </div>
+                    </div>
+                    <div>
+                        <img src='{$imgLike}' alt='Likes' class='like'>
+                        {$usuario->countLikesProfile()}
+                    </div>
+                </div>
+                </a>";
+            }
             ?>
 
 

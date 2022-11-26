@@ -35,61 +35,25 @@ class Like implements ActiveRecord{
  
 
 
-    /*  //FINDGIVELIKES ------------------------------------------------
-    public static function findLikesGive($idUser):array{
-        $conexao = new MySQL();
-
-        $sqlUserLikes = "SELECT usuario FROM post_curtidas WHERE post = '{$idPost}'";
-        $nomeUserLikes = $conexao->consulta($sqlUserLikes);
-        
-        $users = array();
-        foreach($nomeUserLikes as $idUser){
-
-            $sqlUser = "SELECT nome FROM usuario WHERE id = '{$idUser}'";
-            $nome = $conexao->consulta($sqlUser);
-
-            $u = User::findProfile($nome);
-            $users[] = $U;
-        }
-        return $users;
-    }*/
-
-    /*//FINDLIKESPOSTS ------------------------------------------------
+    //FINDLIKESPOSTS ------------------------------------------------
     public static function findProfileLikes($idPost):array{
         $conexao = new MySQL();
 
-        $sqlUserLikes = "SELECT usuario FROM post_curtidas WHERE post = '{$idPost}'";
+        $sqlUserLikes = "SELECT usuario FROM post_curtida WHERE post = '{$idPost}'";
         $nomeUserLikes = $conexao->consulta($sqlUserLikes);
-        
+
         $users = array();
         foreach($nomeUserLikes as $idUser){
-
-            $sqlUser = "SELECT nome FROM usuario WHERE id = '{$idUser}'";
+            
+            $sqlUser = "SELECT nome FROM usuario WHERE id = '{$idUser['usuario']}'";
             $nome = $conexao->consulta($sqlUser);
 
-            $u = User::findProfile($nome);
-            $users[] = $U;
+            $u = User::findProfile($nome['0']['nome']);
+            $users[] = $u;
         }
         return $users;
-    }*/
-    
-    //count ------------------------------------------------
-    public static function countLikesProfile($userName):String{
-        $conexao = new MySQL();
-        
-        $sqlCriador = "SELECT id FROM usuario WHERE nome = '{$userName}'";
-        $idCriador = $conexao->consulta($sqlCriador);
-
-        $sqlPosts = "SELECT id FROM post WHERE criador = {$idCriador['0']['id']}";
-        $postsBanco = $conexao->consulta($sqlPosts);
-
-        $totalLikes = 0;
-        foreach($postsBanco as $post){
-            $totalLikes += $countLikesPost($post['id']);
-        }
-
-        return $countLikes['0']['numeroLikes'];;
     }
+    
 
     //count ------------------------------------------------
     public static function countLikesPost($idPost):String{
@@ -100,6 +64,7 @@ class Like implements ActiveRecord{
 
         return $countLikes['0']['numeroLikes'];;
     }
+
 
     //DELETE ------------------------------------------------
     public function delete():bool{

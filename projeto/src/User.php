@@ -53,7 +53,7 @@ class User implements ActiveRecord{
         return $this->bio;
     }
     //TURMA ------------------------------------------------
-    public function setTurma( $turma):void{
+    public function setTurma($turma):void{
     $this->turma = $turma;
     }
     public function getTurma(){
@@ -68,12 +68,16 @@ class User implements ActiveRecord{
     }
 
     //FINDPROFILE ------------------------------------------------
-    public static function findUser($nome):array{
-
+    public static function findUser($nome, $limit):array{
         $userSearch = "%".trim($nome)."%";
+        
+        if($limit == 0){
+            $sqlUser = "SELECT nome,foto,turma FROM usuario WHERE nome like '{$userSearch}'";
+        }else{
+            $sqlUser = "SELECT nome,foto,turma FROM usuario WHERE nome like '{$userSearch}' LIMIT {$limit}";
+        }
 
         $conexao = new MySQL();
-        $sqlUser = "SELECT nome,foto,turma FROM usuario WHERE nome like '{$userSearch}'";
         $usuariosBanco = $conexao->consulta($sqlUser);
         
         $usuarios = array();
@@ -128,6 +132,25 @@ class User implements ActiveRecord{
 
         return $u;
     }
+
+    //count ------------------------------------------------
+    public function countLikesProfile():String{
+        $conexao = new MySQL();
+
+        $sqlCriador = "SELECT id FROM usuario WHERE nome = '{$this->nome}'";
+        $idCriador = $conexao->consulta($sqlCriador);
+
+        $sqlPosts = "SELECT id FROM post WHERE criador = {$idCriador['0']['id']}";
+        $postsBanco = $conexao->consulta($sqlPosts);
+
+        $totalLikes = 0;
+        foreach($postsBanco as $post){
+            $totalLikes += Like::countLikesPost($post['id']);
+        }
+
+        return $totalLikes;
+    }
+
 
     //DELETE ------------------------------------------------
     public function delete():bool{

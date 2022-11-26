@@ -67,10 +67,11 @@ if(isset($_POST['submit'])){
                             </div>
                             
                             <div class="bio-input">
-                                <label>Biografia:<br><textarea name="bio" cols="20" rows="3" >Hi! I am using Iframe.</textarea></label>
+                                <label for='bio'>Biografia:</label>
+                                <textarea name="bio" id='id' cols="20" rows="3" >Hi! I am using Iframe.</textarea>
                             </div>
 
-                            <label for="foto">Photo</label>
+                            <label for="foto">Photo</label>A
                             <div class="user-photo">
                                 <input type='file' accept="image/*" name='foto'>
                             </div> 

@@ -46,24 +46,23 @@
 
                
                 <?php 
-                    echo "<div class='flex-row-short'>";
-                    echo "<img src='photos/profile/{$u->getFoto()}' class='profile-photo' alt='Foto de Perfil'>";
-                    echo "<div class='column'>";
+                echo "<div class='flex-row-short'>
+                        <img src='photos/profile/{$u->getFoto()}' class='profile-photo' alt='Foto de Perfil'>
+                        <div class='column'>
 
-                    echo "<h2>{$u->getNome()}</h2>";
-                    echo "<span>{$u->getTurma()}</span>";
+                            <h2>{$u->getNome()}</h2>
+                            <span>{$u->getTurma()}</span>
 
-                    echo "<div>    
-                        <img src='$imgLike' alt='Likes' class='like'>
-                        xx
-                        </div>";
+                            <div>    
+                                <img src='$imgLike' alt='Likes' class='like'>
+                                {$u->countLikesProfile()}
+                            </div>
+                        </div>
+                    </div>
 
-                    echo "</div>";
-                    echo "</div>";
-
-                    echo "<div class='profile-bio'>                     
-                            <p>{$u->getBio()}</p>
-                        </div>";
+                    <div class='profile-bio'>                     
+                        <p>{$u->getBio()}</p>
+                    </div>";
                     ?>
 
 
@@ -89,24 +88,32 @@
                         echo "<img class='img-format' src='photos/posts/{$post->getFoto()}'  alt='Imagem Post'>";
                     echo "</div>";
                     echo "<div class='flex-row-bet'>";
-                        echo "<button onclick='likePost({$post->getId()})'> <img src='{$imgLike}' class='like' alt='Like'></button>";
-                        echo Like::countLikesPost($post->getId());
+                    echo "<button onclick='likePost({$post->getId()})'> <img src='{$imgLike}' class='like' alt='Like'></button>";
+                        echo "<a href='postLikes.php?post={$post->getId()}'>";
+                            echo Like::countLikesPost($post->getId());
+                        echo "</a>";
 
                         if($_GET['username'] == $_SESSION['nameSession']){
 
                             //echo "<form action='config/deletePost.php' method='post' >";
                               //  echo "<input type='submit' value='Delete Post' name='deletar' >";
                             //echo "</form>";
+                            
                             //$post->delete();
+
+                            //session
+                            //post
+                            //get
+
                     }
                     echo "</div>";
 
                     echo "<p>{$post->getDescricao()}</p>";
                     echo "<span>{$post->getData()}</span>";
 
-                   
+                    echo "<a href='postComments.php?post={$post->getId()}'>Ver todos os ".Comment::countCommentPost($post->getId())." comentarios </a>";
 
-    
+
                 echo "</div>";
             }
         }else{

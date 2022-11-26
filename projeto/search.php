@@ -36,15 +36,16 @@ require_once __DIR__."/vendor/autoload.php";
                     <span>Pesquisar</span>
                 </button>
         </main>
+        
         <hr>
 
         <?php
 
                 if(isset($_GET['search'])){
-                    $usuariosBuscados = User::findUser($_GET['search']);
+                    $usuariosBuscados = User::findUser($_GET['search'],0);
                 }else{
                     echo "<h2>Sugestões</h2>";
-                    $usuariosBuscados = User::findUser('');
+                    $usuariosBuscados = User::findUser('',25);
                 }
                 
                 foreach($usuariosBuscados as $usuario){

@@ -57,9 +57,13 @@
                             echo "<img class='img-format' src='photos/posts/{$post['1']->getFoto()}'  alt='Imagem Post'>";
                         echo "</div>";
                         echo "<button onclick='likePost({$post['1']->getId()})'> <img src='{$imgLike}' class='like' alt='Like'></button>";
-                        echo Like::countLikesPost($post['1']->getId());
+                            echo "<a href='postLikes.php?post={$post['1']->getId()}'>";
+                                echo Like::countLikesPost($post['1']->getId());
+                            echo "</a>";
                         echo "<p>{$post['1']->getDescricao()}</p>";
                         echo "<span>{$post['1']->getData()}</span>";
+
+                        echo "<a href='postComments.php?post={$post['1']->getId()}'>Ver todos os ".Comment::countCommentPost($post['1']->getId())." comentarios </a>";
 
                     echo "</div>";
                 }
