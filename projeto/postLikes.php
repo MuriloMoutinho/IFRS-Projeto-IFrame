@@ -32,11 +32,12 @@
     <div class="container ">
 
         <h1>Perfils que deram likes</h1>
-
+        <hr>
         <?php 
 
         $profilesLike = Like::findProfileLikes($_GET['post']);
 
+        if(count($profilesLike)){
         foreach($profilesLike as $usuario){
             echo "
             <a href='profile.php?username={$usuario->getNome()}'>
@@ -49,6 +50,9 @@
                 </div>
             </a>";      
         }
+    }else{
+        echo "no one liked";
+    }
        
        ?>
     </div>
