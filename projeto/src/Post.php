@@ -64,15 +64,14 @@ class Post implements ActiveRecord{
         
         $postsProfile = array();
         foreach($postsBanco as $post){
-            $sqlUser = "SELECT nome,turma,foto FROM usuario WHERE id = '{$post['criador']}' ";
-            $userBanco = $conexao->consulta($sqlUser);
 
-            $sqlClass = "SELECT curso FROM turma WHERE id = {$userBanco['0']['turma']}";
-            $turmaUsuario = $conexao->consulta($sqlClass);
+            $sqlUser = "SELECT usuario.nome,turma.curso,usuario.foto FROM usuario, turma WHERE usuario.turma = turma.id AND usuario.id = '{$post['criador']}'";
+            
+            $userBanco = $conexao->consulta($sqlUser);
 
             $u = new User();
             $u->setNome($userBanco['0']['nome']);
-            $u->setTurma($turmaUsuario['0']['curso']);     
+            $u->setTurma($userBanco['0']['curso']);     
             $u->setfoto($userBanco['0']['foto']);
 
             $p = new Post($post['criador'],$post['foto']);
@@ -88,11 +87,9 @@ class Post implements ActiveRecord{
     //FIND ----------------xxxx--------------------------------
     public static function findProfilePost($nameCriador):array{
         $conexao = new MySQL();
-        
-        $sqlCriador = "SELECT id FROM usuario WHERE nome = '{$nameCriador}'";
-        $idCriador = $conexao->consulta($sqlCriador);
 
-        $sqlPosts = "SELECT * FROM post WHERE criador = {$idCriador['0']['id']} ORDER BY dataCriacao desc";
+        $sqlPosts = "SELECT post.* FROM usuario, post WHERE nome = '{$nameCriador}' AND post.criador = usuario.id ORDER BY post.dataCriacao desc";
+
         $postsBanco = $conexao->consulta($sqlPosts);
         
         $postsProfile = array();

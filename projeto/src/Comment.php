@@ -60,16 +60,12 @@ class Comment implements ActiveRecord{
         
         $commentsProfile = array();
         foreach($comments as $comment){
-
-            $sqlUser = "SELECT nome,turma,foto FROM usuario WHERE id = '{$comment['usuario']}' ";
+            $sqlUser = "SELECT usuario.nome,turma.curso,usuario.foto FROM usuario, turma WHERE usuario.turma = turma.id AND usuario.id = '{$comment['usuario']}'";
             $userBanco = $conexao->consulta($sqlUser);
-
-            $sqlClass = "SELECT curso FROM turma WHERE id = {$userBanco['0']['turma']}";
-            $turmaUsuario = $conexao->consulta($sqlClass);
 
             $u = new User();
             $u->setNome($userBanco['0']['nome']);
-            $u->setTurma($turmaUsuario['0']['curso']);     
+            $u->setTurma($userBanco['0']['curso']);     
             $u->setfoto($userBanco['0']['foto']);
 
             $c = new Comment();

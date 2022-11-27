@@ -67,6 +67,37 @@ class User implements ActiveRecord{
         return $this->foto;
     }
 
+
+        //FINDPROFILE ------------------------------------------------
+        public static function findUsersRanking():array{
+            $conexao = new MySQL();
+            
+            $sqlUser = "SELECT usuario.nome,usuario.foto,usuario.turma, COUNT(post_curtida.id) as numeroLikes
+            FROM usuario 
+            INNER JOIN post ON post.criador = usuario.id
+            INNER JOIN post_curtida ON post_curtida.post = post.id
+            GROUP BY usuario.nome
+            ORDER BY numeroLikes DESC
+            LIMIT 15";
+
+            $usuariosBanco = $conexao->consulta($sqlUser);
+            
+            $usuarios = array();
+            foreach($usuariosBanco as $usuario){
+    
+                $sqlClass = "SELECT curso FROM turma WHERE id = {$usuario['turma']}";
+                $turmaUsuario = $conexao->consulta($sqlClass);
+    
+                $u = new User();
+                $u->setNome($usuario['nome']);
+                $u->setTurma($turmaUsuario['0']['curso']); //retorna o nome da turma        
+                $u->setfoto($usuario['foto']);
+    
+                $usuarios[] = $u;
+            }
+            return $usuarios;
+        }
+
     //FINDPROFILE ------------------------------------------------
     public static function findUser($nome, $limit):array{
         $userSearch = "%".trim($nome)."%";
@@ -98,16 +129,15 @@ class User implements ActiveRecord{
 
     //FINDPROFILE ------------------------------------------------
     public static function findProfile($nome):User{
-        $conexao = new MySQL();
-        $sqlUser = "SELECT nome,turma,bio,foto FROM usuario WHERE nome = '{$nome}'";
-        $user = $conexao->consulta($sqlUser);
 
-        $sqlClass = "SELECT curso FROM turma WHERE id = {$user['0']['turma']}";
-        $turma = $conexao->consulta($sqlClass);
+        $conexao = new MySQL();
+        $sqlUser = "SELECT usuario.nome,turma.curso,usuario.bio,usuario.foto FROM usuario, turma WHERE usuario.turma = turma.id AND nome = '{$nome}'";
+
+        $user = $conexao->consulta($sqlUser);
 
         $u = new User();
         $u->setNome($user['0']['nome']);
-        $u->setTurma($turma['0']['curso']); //retorna o nome da turma
+        $u->setTurma($user['0']['curso']); //retorna o nome da turma
         $u->setBio($user['0']['bio']);
         
         $u->setfoto($user['0']['foto']);
@@ -117,6 +147,7 @@ class User implements ActiveRecord{
     //FIND ----------------xxxx--------------------------------
     public static function find($id):User{
         $conexao = new MySQL();
+
         $sql = "SELECT * FROM usuario WHERE id = {$id}";
         $resultado = $conexao->consulta($sql);
         
@@ -137,10 +168,7 @@ class User implements ActiveRecord{
     public function countLikesProfile():String{
         $conexao = new MySQL();
 
-        $sqlCriador = "SELECT id FROM usuario WHERE nome = '{$this->nome}'";
-        $idCriador = $conexao->consulta($sqlCriador);
-
-        $sqlPosts = "SELECT id FROM post WHERE criador = {$idCriador['0']['id']}";
+        $sqlPosts = "SELECT post.id FROM usuario, post WHERE usuario.id = post.criador AND nome = '{$this->nome}'";
         $postsBanco = $conexao->consulta($sqlPosts);
 
         $totalLikes = 0;

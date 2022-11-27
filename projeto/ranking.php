@@ -34,7 +34,7 @@
             
             <?php 
 
-        $usuariosBuscados = User::findUser('',15);
+        $usuariosBuscados = User::findUsersRanking();
 
         foreach($usuariosBuscados as $usuario){
 
