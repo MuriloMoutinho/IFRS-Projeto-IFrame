@@ -67,6 +67,34 @@ html,body{
 .input-text input:hover{
     border: solid rgb(39, 159, 180) 1px;     
 }
+.voltar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.6em;
+}
+.voltar a{  
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background: #b33d3d;
+    border: solid 1px rgb(128, 22, 22);
+    color: rgb(255, 255, 255);
+    height: 2.5em;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.voltar a:hover{
+    background: #bd6161;
+    border: solid 1px #924b4b;
+}
 
 /*BUTTON---------------------------*/
 .input-button{
@@ -83,7 +111,7 @@ html,body{
     background: #3d9db3;
     border: solid 1px rgb(22, 85, 128);
     color: rgb(255, 255, 255);
-    height: 3em;
+    height: 2.5em;
     cursor: pointer;
     font-size: 1em;
     font-weight: bold;
@@ -113,6 +141,12 @@ html,body{
     }
     .login-box{
         margin: 1em 5em;
+    }
+    .voltar{
+        width: 60%;
+    }
+    .input-login{
+        width: 60%;
     }
 }
 @media all and (max-width:1167px){

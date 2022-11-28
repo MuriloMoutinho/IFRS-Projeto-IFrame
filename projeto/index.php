@@ -19,34 +19,26 @@ require 'components/inicial_index.php';
 </head>
 
 <body>
-
     <div class="container-inicial">
         <div class="inicial-all-box">
             <div class="inicial-box">
                 <div class="container-info">
                     <div class='logo'>
-                        
                         <h1 class="title-logo"><img class="img-logo" src='assets/icos/logo_ico1.png' alt='Iframe logo'>IFrame</h1> 
                     </div>
-
                     <div class="text-info">
                         <?php echo $text_intro_proj?>
                         <br>
                         <br>
                         <?php echo $text_info_index?>
                     </div>
-                
-                
-
             </div>
 
             <div class="container-funcional" >
-
                 <div class="ops-funcional" >
                     <div class="ops-div">
                         <a href="login.php">Sign in</a>
                     </div>
-
                     <div class="ops-div">
                         <a href="register.php">Create account</a>  
                     </div>    
