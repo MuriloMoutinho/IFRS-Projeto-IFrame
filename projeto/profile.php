@@ -39,7 +39,6 @@
             <?php 
             if($_GET['username'] == $_SESSION['nameSession']){
                 echo "<a href='editUser.php'>Edit</a>";
-                echo "<a href='config/logout.php'> Logout</a>";
             }
             ?>
             

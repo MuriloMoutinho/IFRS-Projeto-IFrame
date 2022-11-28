@@ -4,14 +4,11 @@
 $menu =
     "
     <div class='menu-div'>
-
     <div class='container_menu'>
-
     <div class='menu-title'>
         <img src='{$imglogo}' alt='Iframe logo'>
         <h1>IFrame</h1> 
     </div>
-
 
     <nav>
         <ul>
@@ -28,7 +25,6 @@ $menu =
                     </div>
                 </a>
             </li>
-            
 
             <li>
                 <a href='search.php'>
@@ -44,7 +40,6 @@ $menu =
                 </a>
             </li>
 
-
             <li>
                 <a href='ranking.php'>
                     <div class='menu_ops'>
@@ -59,7 +54,6 @@ $menu =
                 </a>
             </li>
 
-
             <li>
                 <a href='newPhoto.php'>
                     <div class='menu_ops'>
@@ -73,7 +67,6 @@ $menu =
                     </div>
                 </a>
             </li>
-
 
             <li>
             <a href='profile.php?username={$_SESSION['nameSession']} '>
@@ -90,9 +83,15 @@ $menu =
             </li>
         </ul>
     </nav>
+            <div class='logout'>
+                <a href='config/logout.php'><img src='assets/icos/out_ico1.png' alt=''>Sign out</a>
+            </div>
 </div>
 </div>
 "
+
+
+
 
 ?>
 

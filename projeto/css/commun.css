@@ -287,7 +287,7 @@ main{
     white-space: nowrap;
     color: black; 
 
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 
 .container_menu a:hover{
