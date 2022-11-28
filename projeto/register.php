@@ -81,6 +81,9 @@ if(isset($_POST['submit'])){
                             <div class="input-register">
                                 <input type="submit" value="register" name='submit'>
                             </div>
+                            <div class="voltar" >
+                                <a href="index.php">Cancelar</a>
+                            </div>
                         </div>
                     </form>
                 </div>
