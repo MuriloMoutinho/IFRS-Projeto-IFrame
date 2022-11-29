@@ -1,0 +1,25 @@
+.header{
+    position: sticky;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 3em;
+    display: flex;
+    align-items: center;
+    background-color: aqua;
+    /*
+    background-color: var(--bkgraund);
+    border: var(--border) solid 1px;
+    color: var(--colorPrinc);
+    */
+}
+
+.container-header{
+    position: fixed;
+}
+
+.flex-row-short{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
