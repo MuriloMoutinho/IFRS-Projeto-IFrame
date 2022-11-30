@@ -42,7 +42,7 @@
             header("location: editUser.php");
         }
     }
-    ?>
+?>
 
 
 <!DOCTYPE html>
@@ -91,12 +91,12 @@
                     echo "<label for='biografia'>Biografia: </label>";
                     echo "<textarea name='bio' id='biografia' cols='20' rows='6' >{$usuarioConsulta->getBio()}</textarea>";
                     ?>
-                    <label for="foto" >Foto: </label>
+                    <label for="foto">Foto: </label>
                     <input type='file' accept='image/*' name='foto' id="foto"> 
                     <input type='submit' value='remove photo' name='remove'>
                     <label for="currentPass">Write your current password:</label>
                     <input type='password' name='currentPass' id="currentPass">
-                    <label for="newPassword" >write your new password: </label>
+                    <label for="newPassword">write your new password: </label>
                     <input type='password' minlength='3' name='newPassword' id="newPassword">
                     <input type='submit' value='Edit' name='submit'>
                 </form>

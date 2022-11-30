@@ -29,11 +29,6 @@
     align-items: center;
 }
 
-.header-logout{
-    display: flex;
-    align-items: center;
-}
-
 .header-icon{
     height: 25px;
     margin-right: 5px;

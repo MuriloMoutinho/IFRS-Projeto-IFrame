@@ -1,24 +1,37 @@
+/*GERAL---------------------------------------------------GERAL*/
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-/*VAR---------------------------------------------------*/
+body{
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main{
+    display: flex;
+    flex-grow: 5;
+}
+
+a{
+   text-decoration: none;
+   color: var(--colorPrinc)
+}
+/*GERAL---------------------------------------------------GERAL*/
+
+/*VAR------------------------------------------------------VAR*/
 :root{
     --fontPrimary: 'Roboto', sans-serif;
     --bkgraund: #000000;
     --border: #2b2b2b ;
     --colorPrinc: #ffffff;
 }
-body{
-    height: 100vh;
-}
-main{
-    display: flex;
-    flex-grow: 1;
-}
-
+/*VAR------------------------------------------------------VAR*/
 .menu-div{
     display: none;
 }
@@ -27,7 +40,6 @@ main{
     margin: 0 auto;
     width: 90%;
     max-width: 480px;
-    padding: 0;
 }
 
 .center{
@@ -51,7 +63,3 @@ main{
     justify-content: center;
 }
 /*POR EM UMA PASTA LOGIN*/
-
-/*POR EM UMA PASTA MENU*/
-
-/*POR EM UMA PASTA MENU*/
