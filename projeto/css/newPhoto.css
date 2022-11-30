@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap');
 .box-photo{
     border: 1px solid black;
     border-radius: 10px;
@@ -17,13 +18,5 @@
 }
 
 
-.button-publish{
-    padding: 1em;
-    border-radius: 10px;
-    border: 1px solid   black;
-    text-align: center;
-    margin: 1em 0;
-    font-size: 1.2em;
-    font-weight: bolder;
-    width: 100%;
-}
+
+

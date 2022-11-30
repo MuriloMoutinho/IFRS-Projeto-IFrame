@@ -49,11 +49,13 @@
 
                 <input type="file" accept="image/*" name="newPhoto" class="input-img" id="input-img" >
                 
-                <label for='desc'>Descrição:</label>
-                <textarea name="descricao" id='desc' cols="20" rows="3" ></textarea>                 
-
-
-                <button type="submit" name="submit" class="button-publish" >Publicar</button>
+                <div class="desc-post">
+                    <label for='desc'>Description  :</label>
+                    <textarea name="descricao" id='desc' cols="20" rows="3" ></textarea>                 
+                </div>
+                <div class="submit-post">
+                    <button type="submit" name="submit" class="button-publish" >Publish</button>
+                </div>
             </form>
 
         </div>
@@ -64,8 +66,8 @@
         const labelcontent = document.querySelector("#img-content");
         const contentDefault = `
         <img src="<?php echo $imgNewPostInvert ?>" alt="" class="like">
-        <h2>Adicionar fotos</h2>
-        <span>Clique aqui para adicionar uma nova foto</span>`
+        <h2>Add photo</h2>
+        <span>Click here to add a new photo</span>`
         labelcontent.innerHTML = contentDefault;
         const inputFile = document.querySelector("#input-img");
 

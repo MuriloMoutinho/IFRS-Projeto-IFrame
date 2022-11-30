@@ -309,6 +309,28 @@ main{
     color: rgb(172, 172, 172);
     font-size: 80%;
 }
+.desc-post{
+    margin-top: 1em;
+}
+.desc-post textarea{
+    resize: none;
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 2px;
+    border-radius: 10px;
+}
+.button-publish{
+    display: flex;
+    border-radius: 10px;
+    border: 1px solid   black;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+.button-publish:hover{
+    background-color: #ddd;
+}
 
 /*IMG---------------------------------------------------*/
 .like{
