@@ -32,7 +32,7 @@ if(isset($_POST['submit'])){
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="css/commun.css">
     <link rel="stylesheet" href="css/register.css">
-    <title>Sign up  </title>
+    <title>Sign up</title>
 </head>
 <body>
 <div class="container-register">

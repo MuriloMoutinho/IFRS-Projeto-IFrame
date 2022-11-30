@@ -84,5 +84,4 @@ insert into turma (id, curso) values
 (10, "TMA-3"),
 (11, "TMA-4"),
 (12, "SUPERIOR"),
-(13, "SERVIDOR"),
-(14, "PROFESSOR");
+(13, "SERVIDOR");
