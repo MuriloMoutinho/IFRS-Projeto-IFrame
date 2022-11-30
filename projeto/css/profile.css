@@ -3,5 +3,13 @@
     margin: 1em 0;
 }
 .profile-bio{
-    margin-top: 0.7em;
+    margin: 0.7em 0em;
+    word-break: break-all;
+}
+
+.like-total-user img{
+    margin-top: 0;
+}
+.like-total-user div{
+    align-items: center;
 }
