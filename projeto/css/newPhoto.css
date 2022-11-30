@@ -16,7 +16,29 @@
 .input-img{
     display: none;
 }
-
+.submit-post{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-family: ;
+}
+.submit-post button{
+    width: 100%;
+    height: 4em;
+    display: flex;
+    border-radius: 10px;
+    border: 1px solid   black;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+}
+.submit-post button:hover{
+    background-color: #ddd;
+    
+}
 
 
 

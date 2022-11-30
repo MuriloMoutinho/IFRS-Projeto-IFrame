@@ -54,7 +54,7 @@
                     <textarea name="descricao" id='desc' cols="20" rows="3" ></textarea>                 
                 </div>
                 <div class="submit-post">
-                    <button type="submit" name="submit" class="button-publish" >Publish</button>
+                    <button type="submit" name="submit">Publish</button>
                 </div>
             </form>
 
