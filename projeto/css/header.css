@@ -6,20 +6,35 @@
     height: 3em;
     display: flex;
     align-items: center;
-    background-color: aqua;
-    /*
+    padding: 10px;
     background-color: var(--bkgraund);
     border: var(--border) solid 1px;
     color: var(--colorPrinc);
-    */
 }
 
 .container-header{
-    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .flex-row-short{
     display: flex;
     align-items: center;
     gap: 0.5em;
+}
+
+.header-logo{
+    display: flex;
+    align-items: center;
+}
+
+.header-logout{
+    display: flex;
+    align-items: center;
+}
+
+.header-icon{
+    height: 25px;
+    margin-right: 5px;
 }
