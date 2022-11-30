@@ -5,11 +5,11 @@ $menu =
     "
     <div class='menu-div'>
     <div class='container_menu'>
-    <div class='menu-title'>
+    <a class='title-link' href='home.php'><div class='menu-title'>
         <img src='{$imglogo}' alt='Iframe logo'>
         <h1>IFrame</h1> 
-    </div>
-
+    </div></a>
+<div class='container-menu2'>
     <nav>
         <ul>
             <li>
@@ -83,6 +83,7 @@ $menu =
             </li>
         </ul>
     </nav>
+    </div>
             <div class='logout'>
                 <a href='config/logout.php'><img src='assets/icos/out_ico1.png' alt=''>Sign out</a>
             </div>

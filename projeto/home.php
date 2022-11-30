@@ -1,4 +1,5 @@
 <?php
+use function CommonMark\Render\HTML;
     require 'components/import.php';
     require_once __DIR__."/vendor/autoload.php";
 
@@ -18,73 +19,61 @@
     <title>IFrame</title>
 </head>
 <body>
-
-
     <?php
     echo $menu;
  
     echo $header;
     ?>
-
-
     <main>
         <div class="container">
-
         <div class="menu-div">
-
             <div class="container-posts">
-
             <?php 
-            
             $postsProfile = Post::findAllPosts();
 
             if(count($postsProfile)){
                 foreach($postsProfile as $post){
                     
-                    echo "<div class='post'>";    
+                    echo "<div class='post'>
+                            <a href='profile.php?username={$post['0']->getNome()}'>
+                                <div class='post-info'>
+                                    <img src='photos/profile/{$post['0']->getFoto()}' alt='Foto de Perfil'>
+                                        <div>
+                                            <p class='profile-name'>{$post['0']->getNome()}</p>
+                                            <p class='profile-turma'>{$post['0']->getTurma()}</p>
+                                        </div>
+                                </div>
+                            </a>
 
-                        echo "<a href='profile.php?username={$post['0']->getNome()}'>";    
-                            echo "<div class='post-info'>";
-                                echo "<img src='photos/profile/{$post['0']->getFoto()}' alt='Foto de Perfil'>";
-                                echo "<div>";
-                                    echo "<p>{$post['0']->getNome()}</p>";
-                                    echo "<p>{$post['0']->getTurma()}</p>";
-                                echo "</div>";
-                            echo "</div>";
-                        echo "</a>";
-
-                        echo "<div class='post-img'>";
-                            echo "<img class='img-format' src='photos/posts/{$post['1']->getFoto()}'  alt='Imagem Post'>";
-                        echo "</div>";
-                        echo "<button onclick='likePost({$post['1']->getId()})'> <img src='{$imgLike}' class='like' alt='Like'></button>";
-                            echo "<a href='postLikes.php?post={$post['1']->getId()}'>";
+                        <div class='post-img'>
+                            <img class='img-format' src='photos/posts/{$post['1']->getFoto()}'  alt='Imagem Post'>
+                        </div>
+                        
+                        <span class='date'>{$post['1']->getData()}</span>
+                        <div class='desc'>
+                                    <p>{$post['1']->getDescricao()}</p>
+                                </div>
+                                <div class='like-botao-desc'>
+                                    <button class='botao-like' onclick='likePost({$post['1']->getId()})'><img src='{$imgLike}' class='like' alt='Like'></button>
+                                    <a href='postLikes.php?post={$post['1']->getId()}'>";
                                 echo Like::countLikesPost($post['1']->getId());
-                            echo "</a>";
-                        echo "<p>{$post['1']->getDescricao()}</p>";
-                        echo "<span>{$post['1']->getData()}</span>";
-
-                        echo "<a href='postComments.php?post={$post['1']->getId()}'>Ver todos os ".Comment::countCommentPost($post['1']->getId())." comentarios </a>";
-
-                    echo "</div>";
+                            echo "</a>
+                            <div class='coment-div'>
+                                <a href='postComments.php?post={$post['1']->getId()}'><img class='coments-img' src='assets/icos/coment_ico1.png' alt=''><div class='comment'>".Comment::countCommentPost($post['1']->getId())."</div>⠀Comments</a>
+                            </div>
+                            
+                    </div><br><br><hr><br><br>";
                 }
             }else{
                 echo "Sem publicações disponiveis";
             }
-            
             ?>
-
-
-
         </div>
-
-        
     </div>
     </main>
-
     <?php
         echo $footer;
     ?>   
-
 <script src="likesScrip.js"></script>
 </body>
 </html>

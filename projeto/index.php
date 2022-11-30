@@ -27,10 +27,10 @@ require 'components/inicial_index.php';
                         <h1 class="title-logo"><img class="img-logo" src='assets/icos/logo_ico1.png' alt='Iframe logo'>IFrame</h1> 
                     </div>
                     <div class="text-info">
-                        <?php echo $text_intro_proj?>
+                        <?php echo $text_intro_proj_en?>
                         <br>
                         <br>
-                        <?php echo $text_info_index?>
+                        <?php echo $text_info_index_en?>
                     </div>
             </div>
 
