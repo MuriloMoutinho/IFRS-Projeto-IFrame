@@ -41,11 +41,6 @@
     filter: invert(1);
 }
 
-.footer-fake{
-    height: 3.5em;
-    margin-top: 1em;
-}
-
 @media all and (min-width:1168px){
     .footer{
         display: none;

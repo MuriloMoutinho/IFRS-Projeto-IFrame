@@ -2,7 +2,7 @@
 
 $header = "
 <header class='header'>
-    <div class='container-header flex-row-short'>
+    <div class='container container-header'>
         <div class='header-logo'>
             <img src='$imglogo' alt='Iframe logo' class='header-icon'>
             <span>IFrame<span>

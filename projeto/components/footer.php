@@ -2,9 +2,6 @@
 
 
 $footer = "
-<div class='footer-fake'>
-</div>
-
 <footer class='footer'>
     <nav class='container'>
         <ul class='flex-row-bet'>

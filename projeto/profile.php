@@ -18,8 +18,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/commun.css">
-    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/communFabio.css">
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <title>Profile</title>
@@ -28,28 +29,23 @@
     
     <?php
     echo $menu;
-
     echo $header;
     ?>
 
     <main>
-
         <div class="container">
-            
+
             <?php 
             if($_GET['username'] == $_SESSION['nameSession']){
                 echo "<a href='editUser.php'>Edit</a>";
             }
             ?>
-            
 
-               
-                <?php 
-                echo "<div class='flex-row-short'>
-                        <img src='photos/profile/{$u->getFoto()}' class='profile-photo' alt='Foto de Perfil'>
-                        <div class='column'>
-
-                            <h2>{$u->getNome()}</h2>
+            <?php 
+            echo "<div class='flex-row-short'>
+                <img src='photos/profile/{$u->getFoto()}' class='profile-photo' alt='Foto de Perfil'>
+                <div class='column'>
+                        <h2>{$u->getNome()}</h2>
                             <span>{$u->getTurma()}</span>
 
                             <div>    
