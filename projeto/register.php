@@ -74,8 +74,50 @@ if(isset($_POST['submit'])){
                             <p>User photo</p>
                             <label for='foto' class="user-photo">Add your profile photo</label>
                                 <input type='file' accept="image/*" name='foto'  id='foto' class="input_photo">
-                            </div> 
+                            </div>
+                            <div class="max-width">
+                            <div class="imageContainer">
+                                <img src="photos/profile/profileDefault.jpg" id="imgPhoto">
+                            </div>
                         </div>
+                        </div>
+                        <script>
+
+                            let photo = document.getElementById('imgPhoto');
+                            let file = document.getElementById('foto');
+
+                            
+
+                            file.addEventListener('change', () => {
+
+                            if (file.files.length <= 0) {
+                            return;
+                            }
+
+                            let reader = new FileReader();
+
+                            reader.onload = () => {
+                            photo.src = reader.result;
+                            }
+
+                            reader.readAsDataURL(file.files[0]);
+                            });
+
+                            </script>
+                            <style>
+                                input[type='file'] img{
+                                display: none;
+                                }
+                                .imageContainer{
+                                    display: flex;
+                                    justify-content: center;
+                                }
+                                .imageContainer img{
+                                    border-radius: 50%;
+                                    width: 5em;
+                                    height: 5em;
+                                }
+                            </style>
 
                         <div class="input-button">
                             <div class="input-register">

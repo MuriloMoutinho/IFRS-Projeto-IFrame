@@ -219,6 +219,7 @@ select:valid{
 .input_photo{
     display: none;
 }
+
 /*ACCESSIBILITY--------------------*/
 @media all and (min-width:1167px){
     .register-all-box{
