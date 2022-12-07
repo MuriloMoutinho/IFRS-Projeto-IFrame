@@ -12,6 +12,8 @@
 <body>
     
     <?php
+    require 'components/import.php';
+
     echo $menu;
 
     echo $header;
@@ -24,7 +26,6 @@
             <h1>Edit</h1>
 
 <?php
-require 'components/import.php';
 require_once __DIR__."/vendor/autoload.php";
 
 
