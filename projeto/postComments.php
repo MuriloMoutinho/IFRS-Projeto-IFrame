@@ -56,21 +56,21 @@
          if(count($comments)){
             foreach($comments as $comment){
                 
-                echo "<div class='column'>";
-                    echo "<a href='profile.php?username={$comment['0']->getNome()}'>";    
-                        echo "<div class='post-info'>";
-                            echo "<img src='photos/profile/{$comment['0']->getFoto()}' alt='Foto de Perfil'>";
-                            echo "<div>";
-                                echo "<p>{$comment['0']->getNome()}</p>";
-                                echo "<p>{$comment['0']->getTurma()}</p>";
-                            echo "</div>";
-                        echo "</div>";
-                    echo "</a>";
+                echo "<div class='column'>
+                    <a href='profile.php?username={$comment['0']->getNome()}'>
+                        <div class='post-info'>
+                            <img src='photos/profile/{$comment['0']->getFoto()}' alt='Foto de Perfil'>
+                            <div>
+                                <p>{$comment['0']->getNome()}</p>
+                                <p>{$comment['0']->getTurma()}</p>
+                            </div>
+                        </div>
+                    </a>";
 
                    
-                   echo "<span>{$comment['1']->getConteudo()}</span>";
-                   echo "<span>{$comment['1']->getData()}</span>";
-                   echo "</div>";
+                   echo "<span>{$comment['1']->getConteudo()}</span>
+                   <span>{$comment['1']->getData()}</span>
+                   </div>";
 
                    if($comment['1']->getUsuario() == $_SESSION['idSession']){
                     //echo "<input type='submit' value='delete comment' name='delete' >";
@@ -80,16 +80,13 @@
 
             }
         }else{
-            echo "Sem publicações disponiveis";
+            echo "No comments, be the first to comment something!";
         }
-        
-
+    
          ?>
          
     </div>   
     </main>
-
-
     
     <?php
     echo $footer;

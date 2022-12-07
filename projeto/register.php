@@ -1,27 +1,4 @@
-<?php 
-    require_once __DIR__."/vendor/autoload.php";
-    
-if(isset($_POST['submit'])){
 
-
-    $u = new User();
-    $u->setEmail($_POST['email']);
-    $u->setSenha($_POST['password']);
-    $u->setNome($_POST['name']);
-    $u->setTurma($_POST['turma']);
-
-    $u->setBio($_POST['bio']);
-    $u->setFoto($_FILES['foto']['name']);
-
-    if($u->validate()){
-
-        $u->save();
-        header("location: login.php");
-    }else{
-        header("location: register.php");
-    }
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,6 +20,29 @@ if(isset($_POST['submit'])){
                     <h1>Sign up</h1>
                 </div>
                 <div class="input-box">
+
+<?php 
+    require_once __DIR__."/vendor/autoload.php";
+    
+if(isset($_POST['submit'])){
+
+    $u = new User();
+    $u->setNome(filter_var($_POST['name'], FILTER_SANITIZE_STRING));
+    $u->setEmail(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
+    $u->setBio(filter_var($_POST['bio'], FILTER_SANITIZE_STRING)); 
+
+    $u->setSenha($_POST['password']);
+    $u->setTurma($_POST['turma']);
+    $u->setFoto($_FILES['foto']['name']);
+
+    if($u->validate()){
+        $u->save();
+        header("location: login.php");
+    }else{
+        echo"<div class='error'><span>Name or email is already in use. </span></div>";
+    }
+}
+?>
                     <form action="register.php" method="post" class="column" enctype="multipart/form-data">
                         <div class="input-text">
                             <label>User Name <input type="text" name='name' minlength="2" placeholder="min : 2 characters" maxlength="50" required></label>

@@ -20,6 +20,14 @@ main{
     padding: 1em 0 ;
 }
 
+/*ERRO*/
+.error{
+    color: red;
+    margin: 0.3em, 0;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
 /*SCROLLBAR---------------------------------------------------*/
 ::-webkit-scrollbar{
     width: 10px;

@@ -244,14 +244,18 @@ class User implements ActiveRecord{
         $sql = "SELECT id,senha,nome FROM usuario WHERE email = '{$this->email}'";
         $resultados = $conexao->consulta($sql);
 
-        if(password_verify($this->senha,$resultados['0']['senha'])){
-            session_start();
-            $_SESSION['idSession'] = $resultados['0']['id'];
-            $_SESSION['nameSession'] = $resultados['0']['nome'];
-
-            return true;
-        }else{
+        if(empty($resultados)){
             return false;
+        }else{
+            if(password_verify($this->senha,$resultados['0']['senha'])){
+                session_start();
+                $_SESSION['idSession'] = $resultados['0']['id'];
+                $_SESSION['nameSession'] = $resultados['0']['nome'];
+    
+                return true;   
+            }else{
+                return false;
+            }
         }
     }
     
