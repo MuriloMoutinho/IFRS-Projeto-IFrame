@@ -45,13 +45,13 @@ if(isset($_POST['submit'])){
                 <div class="input-box">
                     <form action="register.php" method="post" class="column" enctype="multipart/form-data">
                         <div class="input-text">
-                            <label>User Name <input type="text" name='name' minlength="2" maxlength="50" required></label>
-                            <label>Email <input type="email" name='email' required></label>
-                            <label>Password <input type="password" minlength="3" name='password' required></label>
+                            <label>User Name <input type="text" name='name' minlength="2" placeholder="min : 2 characters" maxlength="50" required></label>
+                            <label>Email <input type="email" placeholder="example@email.com" name='email' required></label>
+                            <label>Password <input type="password" minlength="3" name='password' placeholder="min : 3 characters" required></label>
                             <div class="select">
                             <label>Enter your class or position in IFRS<br> <select name='turma' required>
 
-                                <option value="" disabled selected >Select...</option>
+                                <option value="" disabled selected >Select . . .</option>
 
                                 <?php 
                     
@@ -67,13 +67,13 @@ if(isset($_POST['submit'])){
                             </div>
                             
                             <div class="bio-input">
-                                <label for='bio'>Biografia:</label>
-                                <textarea name="bio" id='id' cols="20" rows="3" >Hi! I am using Iframe.</textarea>
+                                <label for='bio'>Biography:</label>
+                                <textarea name="bio" id='id' cols="20" rows="3" placeholder="Your biography...">Hi! I am using Iframe.</textarea>
                             </div>
 
-                            <label for="foto">Photo</label>A
-                            <div class="user-photo">
-                                <input type='file' accept="image/*" name='foto'>
+                            <p>User photo</p>
+                            <label for='foto' class="user-photo">Add your profile photo</label>
+                                <input type='file' accept="image/*" name='foto'  id='foto' class="input_photo">
                             </div> 
                         </div>
 
@@ -82,7 +82,7 @@ if(isset($_POST['submit'])){
                                 <input type="submit" value="register" name='submit'>
                             </div>
                             <div class="voltar">
-                                <a href="index.php">Cancelar</a>
+                                <a href="index.php">Cancel</a>
                             </div>
                         </div>
                     </form>

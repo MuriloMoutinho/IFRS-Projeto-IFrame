@@ -37,8 +37,8 @@ if(isset($_POST['submit'])){
                 <div class="input-box">
                     <form  action='login.php' method='post' class="column">
                         <div class="input-text">
-                            <label>Email<input type="email" name='email' required></label>
-                            <label>Password<input type="password" name='password' required></label>
+                            <label>Email<input type="email" name='email' placeholder="example@email.com" required></label>
+                            <label>Password<input type="password" name='password' placeholder="min : 3 characters" required></label>
                         </div>
 
                         <div class="input-button">

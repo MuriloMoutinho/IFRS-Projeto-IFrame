@@ -73,7 +73,7 @@
                 <?php
 
                 echo "<label for='userName'>UserName: </label>";
-                echo "<input type='text' name='name' id='userName' class='input' maxlength='25' minlength='2' value='{$usuarioConsulta->getNome()}' required>";
+                echo "<input type='text' name='name' id='userName' class='input' maxlength='50' minlength='2' value='{$usuarioConsulta->getNome()}' required>";
                 echo "<label for='email'>Email: </label>";
                 echo "<input type='email' name='email' id='email' value='{$usuarioConsulta->getEmail()}' required>";
                 

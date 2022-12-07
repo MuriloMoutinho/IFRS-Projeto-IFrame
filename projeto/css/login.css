@@ -67,6 +67,12 @@ html,body{
 .input-text input:hover{
     border: solid rgb(39, 159, 180) 1px;     
 }
+.input-box input::placeholder{
+    color: rgb(161, 161, 161);
+    font-family: 'poppins';
+    font-size: 80%;
+    font-weight: bold;
+}
 .voltar{
     display: flex;
     flex-direction: column;
@@ -94,6 +100,10 @@ html,body{
 .voltar a:hover{
     background: #bd6161;
     border: solid 1px #924b4b;
+}
+input:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
 }
 
 /*BUTTON---------------------------*/

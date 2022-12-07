@@ -4,7 +4,7 @@
 }
 .profile-bio{
     margin: 0.7em 0em;
-    word-break: break-all;
+    word-wrap: break-word;
 }
 
 .like-total-user img{
@@ -12,4 +12,8 @@
 }
 .like-total-user div{
     align-items: center;
+}
+
+h2{
+    word-break: break-all;
 }
