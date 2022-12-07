@@ -1,50 +1,3 @@
-<?php
-    require 'components/import.php';
-    require_once __DIR__."/vendor/autoload.php";
-
-
-    $usuarioConsulta = User::find($_SESSION['idSession']);
-
-    if(isset($_POST['submit']) || isset($_POST['remove'])){
-
-        $u = new User();
-
-        if(password_verify($_POST['currentPass'],$usuarioConsulta->getSenha())){
-            $u->setSenha($_POST['newPassword']);
-        }
-
-        $u->setEmail($_POST['email']);
-        $u->setId($_SESSION['idSession']);
-        $u->setNome($_POST['name']);
-        $u->setBio($_POST['bio']);
-        $u->setTurma($_POST['turma']);
-      
-        if(isset($_POST['remove'])){
-            if($usuarioConsulta->getFoto() != "profileDefault.jpg"){
-                unlink("photos/profile/".$usuarioConsulta->getFoto());
-            }
-            $u->setFoto("profileDefault.jpg");
-        }
-
-        if(isset($_POST['submit'])){
-            if(!empty($_FILES['foto']['name'])){
-                if($usuarioConsulta->getFoto() != "profileDefault.jpg"){
-                    unlink("photos/profile/".$usuarioConsulta->getFoto());
-                }
-                $u->setFoto($_FILES['foto']['name']);
-            }
-        }
-
-        if($u->validate()){
-            $u->save();
-            header("location: profile.php?username={$u->getNome()}");
-        }else{
-            header("location: editUser.php");
-        }
-    }
-    ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,16 +22,65 @@
     <div class="center container"> 
         <div class="login-box">
             <h1>Edit</h1>
+
+<?php
+require 'components/import.php';
+require_once __DIR__."/vendor/autoload.php";
+
+
+$usuarioConsulta = User::find($_SESSION['idSession']);
+
+if(isset($_POST['submit']) || isset($_POST['remove'])){
+
+$u = new User();
+
+if(password_verify($_POST['currentPass'],$usuarioConsulta->getSenha())){
+    $u->setSenha($_POST['newPassword']);
+}else{
+    echo"<div class='error'><span>Wrong password. </span></div>";
+}
+
+$u->setEmail($_POST['email']);
+$u->setId($_SESSION['idSession']);
+$u->setNome($_POST['name']);
+$u->setBio($_POST['bio']);
+$u->setTurma($_POST['turma']);
+
+if(isset($_POST['remove'])){
+    if($usuarioConsulta->getFoto() != "profileDefault.jpg"){
+        unlink("photos/profile/".$usuarioConsulta->getFoto());
+    }
+    $u->setFoto("profileDefault.jpg");
+}
+
+if(isset($_POST['submit'])){
+    if(!empty($_FILES['foto']['name'])){
+        if($usuarioConsulta->getFoto() != "profileDefault.jpg"){
+            unlink("photos/profile/".$usuarioConsulta->getFoto());
+        }
+        $u->setFoto($_FILES['foto']['name']);
+    }
+}
+
+if($u->validate()){
+    $u->save();
+    header("location: profile.php?username={$u->getNome()}");
+}else{
+    echo"<div class='error'><span>Name or email is already in use. </span></div>";
+}
+}
+?>
+
             <form action="editUser.php" method="post" class="column" enctype="multipart/form-data">
                 <?php
 
-                echo "<label for='userName'>UserName: </label>";
-                echo "<input type='text' name='name' id='userName' class='input' maxlength='25' minlength='2' value='{$usuarioConsulta->getNome()}' required>";
-                echo "<label for='email'>Email: </label>";
-                echo "<input type='email' name='email' id='email' value='{$usuarioConsulta->getEmail()}' required>";
+                echo "<label for='userName'>UserName: </label>
+                <input type='text' name='name' id='userName' class='input' maxlength='50' minlength='2' value='{$usuarioConsulta->getNome()}' required>
+                <label for='email'>Email: </label>
+                <input type='email' name='email' id='email' value='{$usuarioConsulta->getEmail()}' required>
                 
-                echo "<label for='turma'>Escolha a sua turma: </label>";
-                echo "<select id='turma' name='turma'>";
+                <label for='turma'>Escolha a sua turma: </label>
+                <select id='turma' name='turma'>";
                 
                 $conexao = new MySQL();
                 $sql = "SELECT * FROM turma order by id asc";
@@ -89,9 +91,9 @@
                     echo "<option ".($turma['id'] == $usuarioConsulta->getTurma() ? "selected":"")." value='{$turma['id']}'>{$turma['curso']}</option>";
                     }
                         
-                echo "</select>";
-                echo "<label for='biografia'>Biografia: </label>";
-                echo "<textarea name='bio' id='biografia' cols='20' rows='6' >{$usuarioConsulta->getBio()}</textarea>";
+                echo "</select>
+                <label for='biografia'>Biografia: </label>
+                <textarea name='bio' id='biografia' cols='20' rows='6' >{$usuarioConsulta->getBio()}</textarea>";
                 
                 ?>
                 <label for="foto" >Foto: </label>

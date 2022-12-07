@@ -1,19 +1,3 @@
-<?php
-if(isset($_POST['submit'])){
-    require_once __DIR__."/vendor/autoload.php";
-    
-    $u = new User();
-    $u->setEmail($_POST['email']);
-    $u->setSenha($_POST['password']);
-
-    if($u->authenticate()){
-        header("location: home.php");
-    }else{
-        header("location: login.php");
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +19,22 @@ if(isset($_POST['submit'])){
                     <h1>Sign in</h1>
                 </div>
                 <div class="input-box">
+
+<?php
+if(isset($_POST['submit'])){
+    require_once __DIR__."/vendor/autoload.php";
+    
+    $u = new User();
+    $u->setEmail($_POST['email']);
+    $u->setSenha($_POST['password']);
+
+    if($u->authenticate()){
+        header("location: home.php");
+    }else{
+        echo"<div class='error'><span>Wrong email or password. </span></div>";
+    }
+}
+?>
                     <form  action='login.php' method='post' class="column">
                         <div class="input-text">
                             <label>Email<input type="email" name='email' required></label>
@@ -46,7 +46,7 @@ if(isset($_POST['submit'])){
                                 <input type="submit" value="login" name='submit'>
                             </div>
                             <div class="voltar">
-                                <a href="index.php">Cancelar</a>
+                                <a href="index.php">Cancel</a>
                             </div>
                         </div>
                     </form>
