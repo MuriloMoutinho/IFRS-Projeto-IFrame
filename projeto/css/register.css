@@ -179,6 +179,13 @@ select:valid{
 .bio-input textarea:hover{
     border: solid rgb(39, 159, 180) 1px;
 }
+.div-user-photo{
+    display: flex;
+    justify-content: left;
+}
+.div-user-photo label{
+    height: 5em;
+}
 .user-photo{
     display: flex;
     flex-direction: row;
@@ -187,6 +194,8 @@ select:valid{
     background-color: rgb(230, 230, 230);
     border: solid rgb(44, 60, 99) 1px;
     border-radius: 5px;
+    height: 5em;
+    text-align: center;
 }
 .user-photo:hover{
     border: solid rgb(39, 159, 180) 1px;    
@@ -212,12 +221,23 @@ select:valid{
     font-size: 0.9rem;
     font-weight: bold;
 }
-.user-photo input::-webkit-file-upload-button:hover{
-    border: solid rgb(131, 131, 131) 1px;
-    background-color: rgb(161, 161, 161);
+.div-user-photo label:hover{
+    border: solid rgb(141, 141, 141) 1px;
+    background-color: rgb(223, 223, 223);
 }
 .input_photo{
     display: none;
+}
+.imgUser{
+    align-items: top;
+    display: flex;
+    justify-content: center;
+    
+}
+.imgUser img{
+    border-radius: 50%;
+    width: 5em;
+    height: 5em;
 }
 
 /*ACCESSIBILITY--------------------*/
