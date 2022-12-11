@@ -64,8 +64,11 @@ if(isset($_POST['submit'])){
 }
 
 if($u->validate()){
-    $u->save();
-    header("location: profile.php?username={$u->getNome()}");
+    if($u->save()){
+        header("location: profile.php?username={$u->getNome()}");
+    }else{
+        echo "<div class='error'><span>We only accept files that are images</span></div>";
+    }
 }else{
     echo"<div class='error'><span>Name or email is already in use. </span></div>";
 }

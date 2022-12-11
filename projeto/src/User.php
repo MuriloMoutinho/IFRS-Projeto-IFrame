@@ -205,10 +205,15 @@ class User implements ActiveRecord{
         }
 
         if(!empty($this->foto) && $this->foto != "profileDefault.jpg"){
+            $typesImg = array("JPG", "JPEG", "GIF", "PNG", "SVG", "PSD", "WEBP", "RAW", "TIFF", "BMP", "jpg", "gif", "png", "svg", "psd", "webp", "raw", "tiff", "bmp", "jpeg");
+
             $diretorio = "photos/profile/";
             $nome_arquivo = $this->foto;
             $info_name = explode(".",$nome_arquivo);
             $extensao = end($info_name);
+            if(!in_array($extensao, $typesImg)){
+                return false;
+            }
             $this->foto = uniqid().".".$extensao;
             move_uploaded_file($_FILES["foto"]["tmp_name"], $diretorio.$this->foto);
         } 
