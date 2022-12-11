@@ -42,10 +42,13 @@
         <?php 
 
         echo "<form action='postComments.php?post={$_GET['post']}' method='post'>
+                <div class='desc-post'>
+
                 <label for='comment'>
                 <textarea name='comentario' id='comment' maxlength='100' cols='20' rows='3' required ></textarea>
-
+                
                 <input type='submit' value='Post comment' name='submit' >
+                </div>
             </form>
 
          <hr >";

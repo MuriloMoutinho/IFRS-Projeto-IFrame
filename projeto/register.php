@@ -74,22 +74,21 @@ if(isset($_POST['submit'])){
                                 <textarea name="bio" id='id' cols="20" rows="3" placeholder="Your biography...">Hi! I am using Iframe.</textarea>
                             </div>
 
-                            <div>
-                                <label>User photo</label>
-                            </div>
+                            <p>User photo</p>
+
                             <div class="div-user-photo">
                                 <label for='foto' class="user-photo">Add your profile photo</label>
                                 
                                 <div class="imgUser">
-                                <img src="photos/profile/profileDefault.jpg" id="imgPhoto">
-                            </div>
-                                <input type='file' accept="image/*" name='foto'  id='foto' class="input_photo">
+                                    <img src="photos/profile/profileDefault.jpg" id="imgPhoto">
+                                    </div>
+                                        <input type='file' accept="image/*" name='foto'  id='foto' class="input_photo">
+                                    </div>
                                 </div>
-                            </div>
                             <div class="max-width">
                                 
                             
-                        </div>
+                            </div>
                         </div>
                         <script>
 
