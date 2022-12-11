@@ -54,6 +54,18 @@ class Like implements ActiveRecord{
         return $users;
     }
     
+    public static function checkLikePost($idPost):String{
+        $conexao = new MySQL();
+        
+        $sqlLikes = "SELECT id as 'like' 
+        FROM post_curtida 
+        WHERE 
+        post = '{$idPost}' AND
+        usuario = '{$_SESSION['idSession']}'";
+        $like = $conexao->consulta($sqlLikes);
+
+        return !empty($like['0']['like']);
+    }
 
     //count ------------------------------------------------
     public static function countLikesPost($idPost):String{

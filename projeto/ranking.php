@@ -43,7 +43,7 @@
             <div class='flex-row-bet profile-case'>
                     <div class='flex-row-bet'>
                         <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Foto de Perfil'>
-                        <div>
+                        <div class='column'>
                             <span>{$usuario->getNome()}</span>
                             <span>{$usuario->getTurma()}</span>
                         </div>
@@ -56,7 +56,7 @@
                 </a>";
             }
             ?>
-
+   
 
 
         </div>
