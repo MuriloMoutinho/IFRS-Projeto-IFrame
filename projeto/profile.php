@@ -98,9 +98,11 @@
                     </div>
 
                     <div class='like-botao-desc'>
-                        <button class='botao-like' onclick='likePost({$post->getId()})'> <img src='{$imgLike}' class='like' alt='Like'></button>
+                    <button class='botao-like' onclick='likePost({$post->getId()}); toggleElements(this)'>
+                    <img src='{$imgLike}' class='like ". ((Like::checkLikePost($post->getId())) ?  'like-ativo' : '') . " ' id='img-like' alt='Like'>
+                    </button>
                         <a href='postLikes.php?post={$post->getId()}'>";
-                        echo Like::countLikesPost($post->getId());
+                        echo "<span id='numeroLikes'>". Like::countLikesPost($post->getId()) ."</span>";
                         echo "</a>
 
                         <div class='coment-div'>
