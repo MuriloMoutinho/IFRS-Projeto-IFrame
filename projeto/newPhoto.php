@@ -2,16 +2,6 @@
     require 'components/import.php';
     require_once __DIR__."/vendor/autoload.php";
     
-    if(isset($_POST['submit'])){
-        if(!empty($_FILES['newPhoto']['name'])){
-
-            $post = new Post($_SESSION['idSession'],$_FILES['newPhoto']['name']);
-            $post->setDescricao($_POST['descricao']);
-            $post->save();
-
-            header("location: profile.php?username={$_SESSION['nameSession']}");
-        }
-    }
 ?>
 
 
@@ -39,6 +29,24 @@
     <main>
         <div class="container ">
 
+<?php 
+
+if(isset($_POST['submit'])){
+    if(!empty($_FILES['newPhoto']['name'])){
+
+        $post = new Post($_SESSION['idSession'],$_FILES['newPhoto']['name']);
+        $post->setDescricao($_POST['descricao']);
+        if($post->save()){
+            header("location: profile.php?username={$_SESSION['nameSession']}");    
+        }else{
+            echo "<div class='error'><span>We only accept files that are images</span></div>";
+        }
+        
+    }
+}
+
+?>
+
             <form action="newPhoto.php" method="post" enctype="multipart/form-data">
 
                 <label for="input-img" class="box-photo center">
@@ -47,7 +55,7 @@
                     </div>
                 </label>
 
-                <input type="file" accept="image/*" name="newPhoto" class="input-img" id="input-img" >
+                <input type="file" accept="image/*" name="newPhoto" required class="input-img" id="input-img" >
                 
                 <div class="desc-post">
                     <label for='desc'>Description  :</label>
