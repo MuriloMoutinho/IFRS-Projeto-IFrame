@@ -50,4 +50,17 @@ h2{
     margin-right: 5px;
 }
 
+.delete_post{
+    border: 1px solid black;
+    color: white;
 
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    padding: 3px ;
+    background-color: rgba(175, 31, 31, 0.705);
+}
+
+.delete_post img{
+    width: 1.3em;
+}

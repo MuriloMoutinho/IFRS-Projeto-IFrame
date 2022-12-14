@@ -82,15 +82,7 @@
                 if($_GET['username'] == $_SESSION['nameSession']){
                             
                             
-                    echo "<div class='delete-photo'>
-                    <form action='config/deletePost.php' method='POST' >
-                        <input type='text' value='{$post->getId()}' hidden name='idPost' >
-                        <input type='text' value='{$post->getFoto()}' hidden name='foto' >
-                        <button type='submit' name='submitDelet'><img src='assets/icos/delete_ico1.png' alt=''>Delete Post</button>
-                    </form>
-                    </div>
-
-                    <div class='post-img'>
+                    echo "<div class='post-img'>
                         <img class='img-format' src='photos/posts/{$post->getFoto()}'  alt='Imagem Post'>
                     </div>
 
@@ -120,7 +112,7 @@
                         ";
                         if($_GET['username'] == $_SESSION['nameSession']){
 
-                            echo "<a class='delete_post' href='config/deletePost.php?idPost={$post->getId()}&foto={$post->getFoto()}'>Delete Post</a>";
+                            echo "<a class='delete_post' href='config/deletePost.php?idPost={$post->getId()}&foto={$post->getFoto()}'><img src='assets/icos/delete_ico1.png' alt='delete post'>Delete Post</a>";
 
                     }
                     echo "</div>
