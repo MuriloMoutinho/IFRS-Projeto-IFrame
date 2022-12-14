@@ -29,11 +29,11 @@ require_once __DIR__."/vendor/autoload.php";
         <main>
             <form action="search.php" method="get">
 
-                <input type="search" class="search-input" required placeholder="Pesquisar" name="search">
+                <input type="search" class="search-input" required placeholder="Search" name="search">
 
                 <button type="submit" class='flex-row-short'>
                     <img src="<?php echo $imgSearchInvert ?>" class="like" alt="">
-                    <span>Pesquisar</span>
+                    <span>Search</span>
                 </button>
         </main>
         
@@ -44,7 +44,7 @@ require_once __DIR__."/vendor/autoload.php";
                 if(isset($_GET['search'])){
                     $usuariosBuscados = User::findUser($_GET['search'],0);
                 }else{
-                    echo "<h2>Sugestões</h2>";
+                    echo "<h2>Suggestion</h2>";
                     $usuariosBuscados = User::findUser('',25);
                 }
                 

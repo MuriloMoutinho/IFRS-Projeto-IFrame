@@ -8,7 +8,6 @@ create table usuario(
     email varchar(200) unique not null,
     senha varchar(200) not null,
     nome varchar(200) not null,
-    likes int not null default 0,
     foto varchar(200) default "profileDefault.jpg",
     bio varchar(400),
     turma int not null,
@@ -19,9 +18,12 @@ create table usuario(
 create table post(
     id int not null primary key auto_increment,
     criador int not null,
+    usuario int not null,
     foto varchar(200) not null,
     descricao varchar(200),
-    dataCriacao timestamp not null, 
+    dataCriacao timestamp not null,
+    FOREIGN key (usuario) REFERENCES
+    usuario(id) ON DELETE CASCADE, 
     FOREIGN key (criador) REFERENCES
     usuario(id) ON DELETE CASCADE
 );
@@ -29,22 +31,42 @@ create table post(
 create table post_curtida(
     id int not null primary key auto_increment,
     post int not null,
-    criador int not null,
-    FOREIGN key (criador) REFERENCES
+    usuario int not null,
+    FOREIGN key (usuario) REFERENCES
     usuario(id) ON DELETE CASCADE,
     FOREIGN key (post) REFERENCES
     post(id) ON DELETE CASCADE
 );
 
 
+create table post_visualizacao(
+    id int not null primary key auto_increment,
+    post int not null,
+    usuario int not null,
+    FOREIGN key (usuario) REFERENCES
+    usuario(id) ON DELETE CASCADE,
+    FOREIGN key (post) REFERENCES
+    post(id) ON DELETE CASCADE
+);
+
 
 create table post_comentario(
     id int not null primary key auto_increment,
     post int not null,
-    criador int not null,
+    usuario int not null,
     conteudo varchar(200) not null,
     dataCriacao timestamp not null,
-    FOREIGN key (criador) REFERENCES
+    FOREIGN key (usuario) REFERENCES
+    usuario(id) ON DELETE CASCADE,
+    FOREIGN key (post) REFERENCES
+    post(id) ON DELETE CASCADE
+);
+
+create table post_marcacao(
+    id int not null primary key auto_increment,
+    post int not null,
+    usuario int not null,
+    FOREIGN key (usuario) REFERENCES
     usuario(id) ON DELETE CASCADE,
     FOREIGN key (post) REFERENCES
     post(id) ON DELETE CASCADE
@@ -63,23 +85,5 @@ insert into turma (id, curso) values
 (9, "TMA-2"),
 (10, "TMA-3"),
 (11, "TMA-4"),
-(12, "Undergraduate"),
-(13, "Servant");
-
-
-
-
-DELIMITER $$
-
-CREATE OR REPLACE TRIGGER tr_atualizarLikesInsert
-AFTER INSERT ON post_curtida
-FOR EACH ROW 
-BEGIN
-	UPDATE usuario SET likes= (usuario.likes+1) 
-    WHERE 
-    usuario.id = post.criador AND 
-    post.id = NEW.post;
-    
-END$$
-
-DELIMITER ;
+(12, "SUPERIOR"),
+(13, "SERVIDOR");

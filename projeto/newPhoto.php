@@ -63,7 +63,7 @@ if(isset($_POST['submit'])){
                     <textarea name="descricao" id='desc' cols="20" rows="3" ></textarea>                 
                 </div>
                 <div class="submit-post">
-                    <button type="submit" name="submit">Publish</button>
+                    <button type="submit" name="submit">Post</button>
                 </div>
             </form>
 

@@ -28,7 +28,7 @@
     <main>
         <div class="container">
             <h2>Ranking</h2>
-            <p>Perfis com mais curitdas</p>
+            <p>Most liked profiles!</p>
 
             <hr>
             

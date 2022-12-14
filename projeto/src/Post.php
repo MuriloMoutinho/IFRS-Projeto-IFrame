@@ -140,7 +140,7 @@ class Post implements ActiveRecord{
         $this->foto = uniqid().".".$extensao;
         move_uploaded_file($_FILES["newPhoto"]["tmp_name"], $diretorio.$this->foto);
 
-        $sql = "INSERT INTO post (criador,usuario,foto,descricao,dataCriacao) VALUES ('{$this->criador}','{$this->criador}','{$this->foto}','{$this->descricao}',CURRENT_TIMESTAMP())";
+        $sql = "INSERT INTO post (usuario,foto,descricao,dataCriacao) VALUES ('{$this->criador}','{$this->foto}','{$this->descricao}',CURRENT_TIMESTAMP())";
         
         
         return $conexao->executa($sql);
