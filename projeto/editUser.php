@@ -87,7 +87,8 @@ if($u->validate()){
                     <label for='email'>Email</label>
                     <input type='email' name='email' placeholder='example@email.com' id='email' value='{$usuarioConsulta->getEmail()}' required>
                 
-                    <label for='turma'>Enter your class or position in IFRS</label>
+                    <div class='select'>
+                    <label for='turma'>Enter your class or position in IFRS<br>
                     <select id='turma' name='turma' required>";
                 
                 $conexao = new MySQL();
@@ -99,7 +100,7 @@ if($u->validate()){
                     echo "<option ".($turma['id'] == $usuarioConsulta->getTurma() ? "selected":"")." value='{$turma['id']}'>{$turma['curso']}</option>";
                     }
                         
-                echo "</select>
+                echo "</select></label></div>
 
                 <div class='bio-input'>
                     <label for='bio'>Bio:</label>

@@ -58,7 +58,7 @@ html,body{
 .input-text input{
     height: 2em;
     border: solid rgb(44, 60, 99) 1px;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 0px 10px;
     margin-bottom: 3%;
     font-size: 1.1rem;

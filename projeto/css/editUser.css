@@ -4,7 +4,6 @@
 /*CONTAINER------------------------*/
 
 .container-editUser{
-    background-color: gray;
     justify-content: center;
     display: flex;
     font-family: 'Poppins', sans-serif;
@@ -13,11 +12,10 @@
 
 /*BOX------------------------------*/
 .editUser-all-box{
-    background-color: rgb(119, 119, 119);
+    align-items: top;
     padding: 20% 1em;
     width: 100%;
     border-radius: 15px;
-    border: rgb(168, 168, 168) solid 1px;
     background-color: rgba(255, 255, 255);
     margin: 2em 20em;
     display: flex;
