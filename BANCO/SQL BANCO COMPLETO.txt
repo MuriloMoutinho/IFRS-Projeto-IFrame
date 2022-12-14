@@ -29,8 +29,8 @@ create table post(
 create table post_curtida(
     id int not null primary key auto_increment,
     post int not null,
-    criador int not null,
-    FOREIGN key (criador) REFERENCES
+    usuario int not null,
+    FOREIGN key (usuario) REFERENCES
     usuario(id) ON DELETE CASCADE,
     FOREIGN key (post) REFERENCES
     post(id) ON DELETE CASCADE
@@ -41,10 +41,10 @@ create table post_curtida(
 create table post_comentario(
     id int not null primary key auto_increment,
     post int not null,
-    criador int not null,
+    usuario int not null,
     conteudo varchar(200) not null,
     dataCriacao timestamp not null,
-    FOREIGN key (criador) REFERENCES
+    FOREIGN key (usuario) REFERENCES
     usuario(id) ON DELETE CASCADE,
     FOREIGN key (post) REFERENCES
     post(id) ON DELETE CASCADE
