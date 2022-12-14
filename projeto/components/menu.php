@@ -1,6 +1,4 @@
 <?php
-
-
 $menu =
     "
     <div class='menu-div'>
@@ -90,9 +88,4 @@ $menu =
 </div>
 </div>
 "
-
-
-
-
 ?>
-

@@ -26,7 +26,7 @@ a{
     padding-top: 1.2em;
     border-radius: 5px;
     cursor: pointer;
-    width: 22%;
+    width: 35%;
     border: solid 1px rgb(146, 146, 146);
     font-family: 'Poppins';
     font-weight: bold;
@@ -35,7 +35,6 @@ a{
 .botao_search:hover{
     filter: invert(1);
 }
-
 .search-img-botao{
     width: 1.5em;
     margin-bottom: 3px;
@@ -55,4 +54,7 @@ input:focus{
 }
 .hr_division_search{
     margin: 1em 0em;
+}
+.ops-search{
+    background-color: rgb(53, 53, 53);
 }

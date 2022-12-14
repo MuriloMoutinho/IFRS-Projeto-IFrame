@@ -1,5 +1,4 @@
 <?php
-
 $header = "
     <header class='header'>
         <div class='container-header'>
@@ -13,3 +12,4 @@ $header = "
                 </div> 
         </div>
     </header>";
+?>

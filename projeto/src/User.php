@@ -281,5 +281,4 @@ class User implements ActiveRecord{
             return false;
         }
     }
-
 }

@@ -120,11 +120,8 @@ if($u->validate()){
 
     </main>
 
-
-    
     <?php
     echo $footer;
     ?>   
-
 </body>
 </html>

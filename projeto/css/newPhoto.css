@@ -4,10 +4,8 @@
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
-
     max-height: 550px;
     min-height: 340px;
-
     transition: background-color 0.3s ease;
 }
 .box-photo:hover{
@@ -23,13 +21,14 @@
     width: 100%;
 }
 .submit-post button{
+    margin-top: 1em;
     height: 3em;
     border-radius: 5px;
     cursor: pointer;
     width: 50%;
-    border: solid 1px rgb(146, 146, 146);
     font-family: 'Poppins';
     font-weight: bold;
+    border: solid 1px rgb(146, 146, 146);
     background-color: rgb(228, 228, 228);
 }
 .submit-post button:hover{
@@ -42,4 +41,7 @@
 input,textarea:focus{
     box-shadow: 0 0 0 0;
     outline: 0;
+}
+.ops-newP{
+    background-color: rgb(53, 53, 53);
 }

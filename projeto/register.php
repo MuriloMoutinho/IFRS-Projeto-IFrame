@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,15 +85,12 @@ if(isset($_POST['submit'])){
                                 </div>
                             <div class="max-width">
                                 
-                            
                             </div>
                         </div>
                         <script>
 
                             let photo = document.getElementById('imgPhoto');
                             let file = document.getElementById('foto');
-
-                            
 
                             file.addEventListener('change', () => {
 
@@ -113,8 +108,6 @@ if(isset($_POST['submit'])){
                             });
 
                             </script>
-                            
-
                         <div class="input-button">
                             <div class="input-register">
                                 <input type="submit" value="register" name='submit'>

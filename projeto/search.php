@@ -67,13 +67,10 @@ require_once __DIR__."/vendor/autoload.php";
             }
         
         ?>
-
     </div>
 
-  
 <?php
 echo $footer;
 ?>     
-
 </body>
 </html>

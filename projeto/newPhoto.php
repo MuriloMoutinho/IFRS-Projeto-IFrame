@@ -106,10 +106,8 @@ if(isset($_POST['submit'])){
 
     </script>
 
-
     <?php
     echo $footer;
     ?>  
-
 </body>
 </html>
