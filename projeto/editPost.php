@@ -2,7 +2,6 @@
     require 'components/import.php';
     require_once __DIR__."/vendor/autoload.php";
 
-
     $post = Post::findPost($_SESSION['idPostSession']);
 
     if(isset($_POST['edit'])){
@@ -20,7 +19,6 @@
     }
 
     ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +65,6 @@
 
     <?php
     echo $footer;
-    ?>   
-
+    ?>  
 </body>
 </html>

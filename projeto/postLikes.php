@@ -8,7 +8,6 @@
     
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,12 +57,9 @@
     </div>
 
     </main>
-
-
     
     <?php
     echo $footer;
     ?>   
-
 </body>
 </html>

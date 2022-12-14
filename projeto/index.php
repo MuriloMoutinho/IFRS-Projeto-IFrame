@@ -49,4 +49,3 @@ require 'components/inicial_index.php';
 </div>
 </body>
 </html>
-

@@ -58,3 +58,6 @@ input:focus{
 .profile-case img{
     margin-right: 1em;
 }
+.ops-rank{
+    background-color: rgb(53, 53, 53);
+}

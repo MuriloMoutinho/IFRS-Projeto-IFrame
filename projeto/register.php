@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +68,7 @@ if(isset($_POST['submit'])){
                             </div>
                             
                             <div class="bio-input">
-                                <label for='bio'>Bio:</label>
+                                <label for='bio'>Bio</label>
                                 <textarea name="bio" id='id' cols="20" rows="3" placeholder="Your biography...">Hi! I am using Iframe.</textarea>
                             </div>
 
@@ -87,15 +85,12 @@ if(isset($_POST['submit'])){
                                 </div>
                             <div class="max-width">
                                 
-                            
                             </div>
                         </div>
                         <script>
 
                             let photo = document.getElementById('imgPhoto');
                             let file = document.getElementById('foto');
-
-                            
 
                             file.addEventListener('change', () => {
 
@@ -113,8 +108,6 @@ if(isset($_POST['submit'])){
                             });
 
                             </script>
-                            
-
                         <div class="input-button">
                             <div class="input-register">
                                 <input type="submit" value="Register" name='submit'>

@@ -55,12 +55,9 @@
             }
             ?>
    
-
-
         </div>
 
     </main>
-
 
     <?php
         echo $footer;

@@ -5,29 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/commun.css">
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/editUser.css">
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
-    <title>Profile</title>
+    <title>Profile - Edit</title>
 </head>
 <body>
-    
     <?php
     require 'components/import.php';
-
     echo $menu;
-
     echo $header;
     ?>
 
-    <main>
 
-    <div class="center container"> 
-        <div class="login-box">
-            <h1>Edit</h1>
+<main>
+<div class="container-editUser">
+    <div class="editUser-all-box">
+        <div class="editUser-box">
+
+        <div class="title-editUser">
+            <h1>Edit Profile</h1>
+        </div>
+        <div class="input-box">
 
 <?php
-require_once __DIR__."/vendor/autoload.php";
-
+    require_once __DIR__."/vendor/autoload.php";
 
 $usuarioConsulta = User::find($_SESSION['idSession']);
 
@@ -79,13 +80,16 @@ if($u->validate()){
                 <?php
 
 
-                echo "<label for='userName'>UserName: </label>
-                <input type='text' name='name' id='userName' class='input' maxlength='50' minlength='2' value='{$usuarioConsulta->getNome()}' required>
-                <label for='email'>Email: </label>
-                <input type='email' name='email' id='email' value='{$usuarioConsulta->getEmail()}' required>
+                echo "
+                <div class='input-text'>
+                    <label for='userName'>User Name </label>
+                    <input type='text' name='name' id='userName' placeholder='min : 2 characters' class='input' maxlength='50' minlength='2' value='{$usuarioConsulta->getNome()}' required>
+                    <label for='email'>Email</label>
+                    <input type='email' name='email' placeholder='example@email.com' id='email' value='{$usuarioConsulta->getEmail()}' required>
                 
-                <label for='turma'>Escolha a sua turma: </label>
-                <select id='turma' name='turma'>";
+                    <div class='select'>
+                    <label for='turma'>Enter your class or position in IFRS<br>
+                    <select id='turma' name='turma' required>";
                 
                 $conexao = new MySQL();
                 $sql = "SELECT * FROM turma order by id asc";
@@ -96,10 +100,13 @@ if($u->validate()){
                     echo "<option ".($turma['id'] == $usuarioConsulta->getTurma() ? "selected":"")." value='{$turma['id']}'>{$turma['curso']}</option>";
                     }
                         
-                echo "</select>
-                <label for='biografia'>Bio: </label>
-                <textarea name='bio' id='biografia' cols='20' rows='6' >{$usuarioConsulta->getBio()}</textarea>";
-                
+                echo "</select></label></div>
+
+                <div class='bio-input'>
+                    <label for='bio'>Bio:</label>
+                    <textarea name='bio' id='biografia' cols='20' rows='6' placeholder='Your biography...'>{$usuarioConsulta->getBio()}</textarea>
+                </div>";
+
                 ?>
                 <label for="foto" >Foto: </label>
                 <input type='file' accept='image/*' name='foto' id="foto"> 
@@ -117,14 +124,13 @@ if($u->validate()){
             <a href="index.php">Back</a>
         </div>
     </div>
-
-    </main>
-
+    </div>
+    </div>
 
     
+    </main>
     <?php
     echo $footer;
     ?>   
-
 </body>
 </html>

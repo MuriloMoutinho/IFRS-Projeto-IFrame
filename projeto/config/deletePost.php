@@ -8,7 +8,3 @@
     
     header("location:../profile.php?username={$_SESSION['nameSession']}");
 ?>
-
-
-
-

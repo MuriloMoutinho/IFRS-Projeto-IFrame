@@ -11,7 +11,6 @@
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,9 +35,6 @@
 
         <div class="container">
             
-            
-
-               
                 <?php 
                 echo "<div class='flex-row-short'>
                         <img src='photos/profile/{$u->getFoto()}' class='profile-photo' alt='Foto de Perfil'>
@@ -56,9 +52,6 @@
 
                     <div class='profile-bio'>                     
                         <p>{$u->getBio()}</p>";
-
-                        
-
                         
                     echo "</div>";
                     ?>
@@ -69,8 +62,6 @@
                                     </div>";
                         }
                     ?>
-
-
         </div>
 
         <hr class="division">
@@ -79,15 +70,26 @@
         <div class="container-posts">
 
         <?php 
-        
 
         $postsProfile = Post::findProfilePost($_GET['username']);
     
         if(count($postsProfile)){
             foreach($postsProfile as $post){
 
-                echo "<div class='post'>  
+                echo "
+                <div class='post'> ";
     
+                if($_GET['username'] == $_SESSION['nameSession']){
+                            
+                            
+                    echo "<div class='delete-photo'>
+                    <form action='config/deletePost.php' method='POST' >
+                        <input type='text' value='{$post->getId()}' hidden name='idPost' >
+                        <input type='text' value='{$post->getFoto()}' hidden name='foto' >
+                        <button type='submit' name='submitDelet'><img src='assets/icos/delete_ico1.png' alt=''>Delete Post</button>
+                    </form>
+                    </div>
+
                     <div class='post-img'>
                         <img class='img-format' src='photos/posts/{$post->getFoto()}'  alt='Imagem Post'>
                     </div>
@@ -115,7 +117,6 @@
                             <a href='postComments.php?post={$post->getId()}'><img class='coments-img' src='assets/icos/coment_ico1.png' alt=''><div class='comment'>".Comment::countCommentPost($post->getId())."</div>⠀Comments</a>
                         </div>
                         
-                        
                         ";
                         if($_GET['username'] == $_SESSION['nameSession']){
 
@@ -129,27 +130,27 @@
                     <br>";
 
                     
-
                     
-
-
+                    
+                    
+                }
+                    
+                echo "</div><hr class='hr_division'>";
                 echo "</div>";
             }
+            
+
         }else{
             echo "No posts";
         }
         
-
         ?>
-
 
         </div>
 </div>
 
     </main>
 
-
-    
     <?php
     echo $footer;
     ?>   

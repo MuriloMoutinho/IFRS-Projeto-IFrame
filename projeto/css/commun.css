@@ -66,18 +66,12 @@ main{
 .header img{
     width: 2em;
 }
-@media all and (min-width:1168px){
-    .header{
-        display: none;
-    }
-}
 .container-header{
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
 }
-
 .logout-header a{
     display: flex;
     align-items: center;
@@ -97,13 +91,11 @@ main{
     justify-content: right;
 }
 .title-header{
-    
     left: 0;
 }
 .logout-header img{
     width: 1.3em;
 }
-
 .logout a{
     display: flex;
     align-items: center;
@@ -136,20 +128,22 @@ main{
 .logout img{
     width: 1.3em;
 }
+
 /*FOOTER---------------------------------------------------*/
 .footer{
     background-color: var(--bkgraund);
     border-top: var(--border) solid 1px;
- 
     display: flex;
     align-items: center;
-
     position: fixed;
     left: 0;
     bottom: 0;
-    
-    height: 3.5em;
+    height: 3em;
     width: 100%;
+}
+.ul-class{
+    display: flex;
+    flex-direction: row;
 }
 .footer ul{
     text-decoration: none;
@@ -159,19 +153,35 @@ main{
     width: 2em;
 }
 .option-footer{
-    background-color: var(--bkgraund);
-    border-radius: 5px;
+    width: 100%;
+    display: flex;
     padding: 0.1em 0.5em;
-
-    transition: filter 0.3s ease;
+    align-items: center;
 }
-.option-footer:hover{
-    filter: invert(1);
+li.option-footer.ops-home{
+    width: 100%;
+    height: 3em;
 }
-@media all and (min-width:1168px){
-    .footer{
-        display: none;
-    }
+.ops-botao a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 3em;
+}
+.ops-botao li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 3em;
+}
+.ops-botao{
+    display: flex;
+    width: 20%;
+    height: 3em;
+    justify-content: center;
+    align-items: center;
 }
 
 /*CONTAINERS---------------------------------------------------*/
@@ -180,7 +190,6 @@ main{
     width: 90%;
     max-width: 480px;
     padding: 0;
-
 }
 .container-posts{
     width: 100%;
@@ -261,11 +270,7 @@ main{
 .hr_division{
     margin: 2.5em 0em;
 }
-@media all and (min-width:1168px){
-    .post{
-        margin-bottom: 2vh;
-    }
-}
+
 .post-info{
     display: flex;
     align-items: center;
@@ -277,7 +282,6 @@ main{
     width: 3em;
     height: 3em;
     object-fit: cover;
-
 }
 .img-format{
     border: none;
@@ -294,7 +298,6 @@ main{
     width: 5%;
     margin-left: 2%;
 }
-
 .desc{
     width: 100%;
 }
@@ -313,7 +316,6 @@ main{
     text-align: center;
     font-size: 100%;
     flex-direction: column;
-    
 }
 .coment-div a{
     align-items: center;
@@ -326,7 +328,6 @@ main{
     width: 1.4em;
     margin-top: 0.2em;
     margin-right: 2%;
-    
 }
 .date{
     color: rgb(172, 172, 172);
@@ -344,7 +345,6 @@ main{
     border-radius: 10px;
     font-family: var(--fontPrimary);
 }
-    
 
 /*IMG---------------------------------------------------*/
 .like{
@@ -367,7 +367,6 @@ main{
     margin-left: 0.8em;
     text-decoration: none;
     color: rgb(0, 0, 0);
-    
 }
 /*MENU------------------------------------------------- */
 .container_menu{
@@ -439,8 +438,28 @@ main{
     border-radius: 5px;
     color: white;
 }
+
+/*ACCESSIBILITY--------------------*/
 @media all and (max-width:1167px){
     .container_menu{
+        display: none;
+    }
+}
+@media all and (min-width:1168px){
+    .post{
+        margin-bottom: 2vh;
+    }
+}
+@media all and (min-width:1168px){
+    .footer{
+        display: none;
+    }
+}
+@media all and (min-width:1168px){
+    .header{
+        display: none;
+    }
+    .void{
         display: none;
     }
 }
