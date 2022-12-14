@@ -255,7 +255,7 @@ main{
     border: none;
 }
 .hr_division{
-    margin: 4em 0em;
+    margin: 2.5em 0em;
 }
 @media all and (min-width:1168px){
     .post{
@@ -298,6 +298,9 @@ main{
     width: 100%;
     word-wrap: break-word;
 }
+.comment{
+    margin-left: 0.7em;
+}
 .coment-div{
     display: flex;
     flex-direction: row;
@@ -306,6 +309,7 @@ main{
     text-align: center;
     font-size: 100%;
     flex-direction: column;
+    
 }
 .coment-div a{
     align-items: center;
@@ -323,6 +327,7 @@ main{
 .date{
     color: rgb(172, 172, 172);
     font-size: 80%;
+    font-weight: bold;
 }
 .desc-post{
     margin-top: 1em;
@@ -354,10 +359,11 @@ main{
     text-align: center;
 }
 .like-botao-desc a{
+    margin-right: 0.4em;
     margin-left: 0.8em;
     text-decoration: none;
     color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
+    
 }
 .edit-div{
     border-top: solid 1px rgb(224, 224, 224);

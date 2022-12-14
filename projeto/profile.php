@@ -108,11 +108,11 @@
                         
                         echo "</button>
                         <a href='postLikes.php?post={$post->getId()}'>";
-                        echo "<span id='numeroLikes'>". Like::countLikesPost($post->getId()) ."</span>";
+                        echo "<span id='numeroLikes'>". Like::countLikesPost($post->getId()) ." Likes</span>";
                         echo "</a>
 
                         <div class='coment-div'>
-                            <a href='postComments.php?post={$post->getId()}'><img class='coments-img' src='assets/icos/coment_ico1.png' alt=''><div class='comment'>".Comment::countCommentPost($post->getId())."</div> Comments</a>
+                            <a href='postComments.php?post={$post->getId()}'><img class='coments-img' src='assets/icos/coment_ico1.png' alt=''><div class='comment'>".Comment::countCommentPost($post->getId())."</div>⠀Comments</a>
                         </div>
                         
                         

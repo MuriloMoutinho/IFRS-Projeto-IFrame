@@ -39,7 +39,7 @@ require_once __DIR__."/vendor/autoload.php";
                 </div>
         </main>
         
-        <hr>
+        <hr class='hr_division_search'>
 
         <?php
 

@@ -4,8 +4,6 @@
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +26,7 @@
     <main>
         <div class="container">
             <h2>Ranking</h2>
-            <p>Perfis com mais curitdas</p>
+            <p>Profiles with the most likes</p>
 
             <hr>
             
@@ -44,13 +42,13 @@
                     <div class='flex-row-bet'>
                         <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Foto de Perfil'>
                         <div class='column'>
-                            <span>{$usuario->getNome()}</span>
-                            <span>{$usuario->getTurma()}</span>
+                            <span class='user_name_search'>{$usuario->getNome()}</span>
+                            <span class='user_type_search'>{$usuario->getTurma()}</span>
                         </div>
                     </div>
-                    <div>
+                    <div class='like-div'>
                         <img src='{$imgLike}' alt='Likes' class='like'>
-                        {$usuario->countLikesProfile()}
+                        {$usuario->countLikesProfile()} Likes
                     </div>
                 </div>
                 </a>";
