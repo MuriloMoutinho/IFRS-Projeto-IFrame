@@ -65,7 +65,7 @@ use function CommonMark\Render\HTML;
                                 <a href='postComments.php?post={$post['1']->getId()}'><img class='coments-img' src='assets/icos/coment_ico1.png' alt=''><div class='comment'>".Comment::countCommentPost($post['1']->getId())."</div>⠀Comments</a>
                             </div>
                             
-                    </div><br><br><hr><br><br>";
+                    </div><hr class='hr_division'>";
                 }
             }else{
                 echo "Sem publicações disponiveis";
