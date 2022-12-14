@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="css/commun.css">
     <link rel="stylesheet" href="css/profile.css">
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <title>Coments</title>
 </head>
 <body>
@@ -39,9 +40,9 @@
     <main>
     <div class='container'>
         
-        <?php 
+        
 
-        echo "<form action='postComments.php?post={$_GET['post']}' method='post'>
+        <form <?php echo "action='postComments.php?post={$_GET['post']}'"; ?> method='post'>
                 <div class='desc-post'>
 
                 <label for='comment'>
@@ -51,9 +52,9 @@
                 </div>
             </form>
 
-         <hr >";
+         <hr >
 
-
+         <?php 
          $comments = Comment::findPostComment($_GET['post']);
 
          if(count($comments)){
@@ -76,10 +77,8 @@
                    </div>";
 
                    if($comment['1']->getUsuario() == $_SESSION['idSession']){
-                    //echo "<input type='submit' value='delete comment' name='delete' >";
-                   }
-
-                   ;
+                        echo "<a class='delete_comment' href='config/deleteComment.php?idComment={$comment['1']->getId()}&idPost={$_GET['post']}'>Delete Comment</a>";
+                    }
 
             }
         }else{
@@ -95,5 +94,6 @@
     echo $footer;
     ?>   
 
+<script src="scripts.js"></script>
 </body>
 </html>

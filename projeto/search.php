@@ -30,7 +30,7 @@ require_once __DIR__."/vendor/autoload.php";
             <form action="search.php" method="get">
 
 
-                <input type="search" class="search-input" required placeholder="user search" name="search">
+                <input type="search" class="search-input" required placeholder="User search" name="search">
 
                 <div class="div-botao-search">
                 <button type="submit" class='botao_search flex-row-short'>

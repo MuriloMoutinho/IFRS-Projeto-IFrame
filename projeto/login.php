@@ -43,7 +43,7 @@ if(isset($_POST['submit'])){
 
                         <div class="input-button">
                             <div class="input-login">
-                                <input type="submit" value="login" name='submit'>
+                                <input type="submit" value="Login" name='submit'>
                             </div>
                             <div class="voltar">
                                 <a href="index.php">Cancel</a>

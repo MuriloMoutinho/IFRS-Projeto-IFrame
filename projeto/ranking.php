@@ -48,7 +48,7 @@
                     </div>
                     <div class='like-div'>
                         <img src='{$imgLike}' alt='Likes' class='like'>
-                        {$usuario->countLikesProfile()} Likes
+                        {$usuario->getLikes()} Likes
                     </div>
                 </div>
                 </a>";

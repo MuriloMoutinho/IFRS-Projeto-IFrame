@@ -68,17 +68,26 @@ insert into turma (id, curso) values
 
 
 
-
 DELIMITER $$
 
 CREATE OR REPLACE TRIGGER tr_atualizarLikesInsert
 AFTER INSERT ON post_curtida
-FOR EACH ROW 
+FOR EACH ROW
 BEGIN
-	UPDATE usuario SET likes= (usuario.likes+1) 
-    WHERE 
-    usuario.id = post.criador AND 
-    post.id = NEW.post;
+  UPDATE usuario SET likes = likes + 1
+  WHERE id = (SELECT criador FROM post WHERE id = NEW.post);
+    
+END$$
+
+
+DELIMITER $$
+
+CREATE OR REPLACE TRIGGER tr_atualizarLikesDelete
+AFTER DELETE ON post_curtida
+FOR EACH ROW
+BEGIN
+  UPDATE usuario SET likes = likes - 1
+  WHERE id = (SELECT criador FROM post WHERE id = OLD.post);
     
 END$$
 

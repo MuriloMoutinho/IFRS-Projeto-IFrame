@@ -31,6 +31,8 @@
     font-family: 'Poppins';
     font-weight: bold;
     background-color: rgb(228, 228, 228);
+
+    transition: filter 0.5s ease;
 }
 .submit-post button:hover{
     filter: invert(1);

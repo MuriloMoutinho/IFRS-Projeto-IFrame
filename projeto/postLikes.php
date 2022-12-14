@@ -31,7 +31,7 @@
     <main>
     <div class="container ">
 
-        <h1>Perfils que deram likes</h1>
+        <h1>Profiles that liked</h1>
         <hr>
         <?php 
 
@@ -51,7 +51,7 @@
             </a>";      
         }
     }else{
-        echo "no one liked";
+        echo "No likes";
     }
        
        ?>

@@ -69,6 +69,7 @@ class Comment implements ActiveRecord{
             $u->setfoto($userBanco['0']['foto']);
 
             $c = new Comment();
+            $c->setId($comment['id']);
             $c->setUsuario($comment['usuario']);
             $c->setConteudo($comment['conteudo']);
             $c->setData(strval($comment['dataCriacao']));
@@ -91,7 +92,10 @@ class Comment implements ActiveRecord{
     //DELETE ------------------------------------------------
     public function delete():bool{
         $conexao = new MySQL();
-        $sql = "DELETE FROM post_comentario WHERE id = '{$this->id}'";
+        $sql = "DELETE FROM post_comentario
+        WHERE post_comentario.usuario = {$_SESSION['idSession']} AND 
+        post_comentario.id = '{$this->id}'";
+        
         return $conexao->executa($sql);
     }
 

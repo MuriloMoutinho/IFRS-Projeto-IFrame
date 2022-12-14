@@ -118,8 +118,20 @@ class Post implements ActiveRecord{
     //DELETE ------------------------------------------------
     public function delete():bool{
         $conexao = new MySQL();
+
+        $sqlVerifica = "SELECT 1 as existe
+        FROM post
+        WHERE 
+        post.criador = {$_SESSION['idSession']} AND 
+        post.id = {$this->id}";
+
+        $verificadorPermissaoExclusao = $conexao->consulta($sqlVerifica);
+
+        if(empty($verificadorPermissaoExclusao)){
+           return false;
+        }
+        $sql = "DELETE FROM post WHERE post.id = '{$this->id}'";
         unlink("../photos/posts/".$this->foto);
-        $sql = "DELETE FROM post WHERE id = {$this->id}";
         return $conexao->executa($sql);
     }
 

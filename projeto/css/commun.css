@@ -208,7 +208,6 @@ main{
     gap: 0.5em;
 }
 .flex-row-short {
-    padding: 2vh;
     font-size: 2vh;
 }
 .column{
@@ -232,6 +231,11 @@ main{
     padding: 0.5em;
     border-radius: 5px;
     box-shadow: rgb(196, 196, 196) 3px 3px 3px;
+    transition: background-color 0.5s ease;
+}
+.profile-case:hover{
+    background-color: #bbbbbb;
+
 }
 
 /*POSTS---------------------------------------------------*/
@@ -365,30 +369,6 @@ main{
     color: rgb(0, 0, 0);
     
 }
-.edit-div{
-    border-top: solid 1px rgb(224, 224, 224);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: left;
-}
-.edit-div a{
-    margin-top: 1em;
-    font-family: 'Roboto';
-    text-decoration: none;
-    background-color: white;
-    color: black;
-    border-radius: 15px;
-    padding: 0.2em 0.4em;
-    font-weight: normal;
-}
-.edit-div a:hover{
-    background-color: #cfcfcf;
-}
-.edit-div img{
-    width: 1em;
-    margin-right: 5px;
-}
 /*MENU------------------------------------------------- */
 .container_menu{
     float: left;
@@ -445,10 +425,14 @@ main{
     flex-direction: row;
     white-space: nowrap;
     color: black; 
-    transition: all 0.1s ease;
+    transition: all 0.5s ease;
 }
 .container-menu2 a:hover{
     filter: invert(1);
+}
+.container_menu li{
+    transition: all 0.5s ease;
+
 }
 .container_menu li:hover{
     background-color: black;

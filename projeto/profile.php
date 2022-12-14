@@ -49,7 +49,7 @@
                             <span>{$u->getTurma()}</span>
                         </div>
                             <div class='like-total-user'>    
-                                <img src='$imgLike' alt='Likes' class='like'>{$u->countLikesProfile()}
+                                <img src='$imgLike' alt='Likes' class='like'>{$u->getLikes()}
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                         
                         echo "</button>
                         <a href='postLikes.php?post={$post->getId()}'>";
-                        echo "<span id='numeroLikes'>". Like::countLikesPost($post->getId()) ." Likes</span>";
+                        echo "<span id='numeroLikes'>". Like::countLikesPost($post->getId()) ."</span> Likes";
                         echo "</a>
 
                         <div class='coment-div'>
@@ -119,15 +119,14 @@
                         ";
                         if($_GET['username'] == $_SESSION['nameSession']){
 
-                            echo "<form action='config/deletePost.php' method='POST' >
-                                <input type='text' value='{$post->getId()}' hidden name='idPost' >
-                                <input type='text' value='{$post->getFoto()}' hidden name='foto' >
-                                <input type='submit' value='Delete Post' name='submitDelet' >
-                            </form>";
-                        
-            
+                            echo "<a class='delete_post' href='config/deletePost.php?idPost={$post->getId()}&foto={$post->getFoto()}'>Delete Post</a>";
+
                     }
-                    echo "</div><br><br><hr><br>";
+                    echo "</div>
+                    <br>
+                    <br>
+                    <hr>
+                    <br>";
 
                     
 
@@ -155,6 +154,6 @@
     echo $footer;
     ?>   
 
-<script src="likesScrip.js"></script>
+<script src="scripts.js"></script>
 </body>
 </html>
