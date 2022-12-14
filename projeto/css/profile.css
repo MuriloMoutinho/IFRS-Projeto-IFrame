@@ -24,3 +24,36 @@ h2{
 .ops-profile{
     background-color: rgb(53, 53, 53);
 }
+.footer{
+    position: fixed;
+}
+.hr_division{
+    margin: 2.5em 0em;
+}
+.super-post{
+    display: flex;
+    flex-direction: column;
+}
+.delete-photo{
+    display: flex;
+    align-items: center;
+    
+}
+.delete-photo button[type=submit]{
+    padding: 0.5em;
+    display: flex;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    margin: 0.2em 0.5em;
+    border-radius: 3px;
+    background-color: white;
+}
+.delete-photo button[type=submit]:hover{
+    background-color: #ff9898;
+}
+.delete-photo img{
+    
+    width: 1.1em;
+    margin-right: 5px;
+}

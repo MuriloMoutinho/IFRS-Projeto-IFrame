@@ -476,4 +476,7 @@ li.option-footer.ops-home{
     .header{
         display: none;
     }
+    .void{
+        display: none;
+    }
 }

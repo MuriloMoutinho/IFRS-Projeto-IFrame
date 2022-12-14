@@ -76,8 +76,20 @@
         if(count($postsProfile)){
             foreach($postsProfile as $post){
 
-                echo "<div class='post'>  
+                echo "
+                <div class='post'> ";
     
+                if($_GET['username'] == $_SESSION['nameSession']){
+                            
+                            
+                    echo "<div class='delete-photo'>
+                    <form action='config/deletePost.php' method='POST' >
+                        <input type='text' value='{$post->getId()}' hidden name='idPost' >
+                        <input type='text' value='{$post->getFoto()}' hidden name='foto' >
+                        <button type='submit' name='submitDelet'><img src='assets/icos/delete_ico1.png' alt=''>Delete Post</button>
+                    </form>
+                    </div>
+
                     <div class='post-img'>
                         <img class='img-format' src='photos/posts/{$post->getFoto()}'  alt='Imagem Post'>
                     </div>
@@ -106,18 +118,18 @@
                         </div>
                         
                         ";
-                        if($_GET['username'] == $_SESSION['nameSession']){
-
-                            echo "<form action='config/deletePost.php' method='POST' >
-                                <input type='text' value='{$post->getId()}' hidden name='idPost' >
-                                <input type='text' value='{$post->getFoto()}' hidden name='foto' >
-                                <input type='submit' value='Delete Post' name='submitDelet' >
-                            </form>";
                         
-                    }
-                    echo "</div><br><br><hr><br>";
+                    
+                    
+                    
+                    
+                }
+                    
+                echo "</div><hr class='hr_division'>";
                 echo "</div>";
             }
+            
+
         }else{
             echo "No posts";
         }
