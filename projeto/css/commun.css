@@ -229,7 +229,8 @@ main{
     border: 1px solid black;
     margin: 0.5em 0;
     padding: 0.5em;
-    border-radius: 2px;
+    border-radius: 5px;
+    box-shadow: rgb(196, 196, 196) 3px 3px 3px;
 }
 
 /*POSTS---------------------------------------------------*/
@@ -286,7 +287,6 @@ main{
     width: 5%;
     margin-left: 2%;
 }
-
 
 .desc{
     width: 100%;

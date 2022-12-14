@@ -29,12 +29,14 @@ require_once __DIR__."/vendor/autoload.php";
         <main>
             <form action="search.php" method="get">
 
-                <input type="search" class="search-input" required placeholder="Pesquisar" name="search">
+                <input type="search" class="search-input" required placeholder="user search" name="search">
 
-                <button type="submit" class='flex-row-short'>
-                    <img src="<?php echo $imgSearchInvert ?>" class="like" alt="">
-                    <span>Pesquisar</span>
+                <div class="div-botao-search">
+                <button type="submit" class='botao_search flex-row-short'>
+                    <img src="<?php echo $imgSearchInvert ?>" class="search-img-botao" alt="">
+                    <span>Search</span>
                 </button>
+                </div>
         </main>
         
         <hr>
@@ -44,7 +46,7 @@ require_once __DIR__."/vendor/autoload.php";
                 if(isset($_GET['search'])){
                     $usuariosBuscados = User::findUser($_GET['search'],0);
                 }else{
-                    echo "<h2>Sugestões</h2>";
+                    echo "<h2>Suggestions</h2>";
                     $usuariosBuscados = User::findUser('',25);
                 }
                 
@@ -54,8 +56,8 @@ require_once __DIR__."/vendor/autoload.php";
                         <div class='flex-row-short profile-case'>
                             <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Foto de Perfil'>
                             <div class='column'>
-                                <span>{$usuario->getNome()}</span>
-                                <span>{$usuario->getTurma()}</span>
+                                <span class='user_name_search'>{$usuario->getNome()}</span>
+                                <span class='user_type_search'>{$usuario->getTurma()}</span>
                             </div>
                         </div>
                     </a>";      
