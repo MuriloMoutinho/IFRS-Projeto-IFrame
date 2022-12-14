@@ -71,7 +71,6 @@ if(isset($_POST['submit'])){
     </main>
     
     <script>
-
         const labelcontent = document.querySelector("#img-content");
         const contentDefault = `
         <img src="<?php echo $imgNewPostInvert ?>" alt="" class="like">

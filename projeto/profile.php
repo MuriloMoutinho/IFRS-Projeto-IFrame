@@ -98,7 +98,7 @@
                         
                         echo "</button>
                         <a href='postLikes.php?post={$post->getId()}'>";
-                        echo "<span id='numeroLikes'>". Like::countLikesPost($post->getId()) ." Likes</span>";
+                        echo "<span id='numeroLikes'>". Like::countLikesPost($post->getId()) ."⠀Likes</span>";
                         echo "</a>
 
                         <div class='coment-div'>

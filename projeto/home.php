@@ -65,7 +65,7 @@ use function CommonMark\Render\HTML;
                                     
                                     echo "</button>
                                     <a href='postLikes.php?post={$post['1']->getId()}'>";
-                                echo "<span id='numeroLikes'>". Like::countLikesPost($post['1']->getId()) ." Likes</span>";
+                                echo "<span id='numeroLikes'>". Like::countLikesPost($post['1']->getId()) ."⠀Likes</span>";
                                  
                             echo "</a>
                             <div class='coment-div'>
