@@ -5,8 +5,9 @@ require_once __DIR__."\ActiveRecord.php";
 
 class Post implements ActiveRecord{
 
-    public function __construct(private int $criador, private $foto){
+    public function __construct(private $foto){
     }
+    private int $criador;
     private string $data;
     private int $id;
     private string $descricao;
@@ -27,6 +28,9 @@ class Post implements ActiveRecord{
         return $this->data;
     }
     //criador ------------------------------------------------
+    public function setCriador(string $criador):void{
+        $this->criador = $criador;
+    }
     public function getCriador():string{
         return $this->criador;
     }
@@ -49,7 +53,8 @@ class Post implements ActiveRecord{
         $sqlPost = "SELECT criador,foto,dataCriacao,descricao FROM post WHERE id = '{$id}'";
         $post = $conexao->consulta($sqlPosts);
 
-        $p = new Post($post['0']['criador'],$post['0']['foto']);
+        $p = new Post($post['0']['foto']);
+        $p->setCriador($post['0']['criador']);
         $p->setData($post['0']['dataCriacao']);
         $p->setDescricao($post['0']['descricao']);
         
@@ -74,7 +79,8 @@ class Post implements ActiveRecord{
             $u->setTurma($userBanco['0']['curso']);     
             $u->setfoto($userBanco['0']['foto']);
 
-            $p = new Post($post['criador'],$post['foto']);
+            $p = new Post($post['foto']);
+            $p->setCriador($post['criador']);
             $p->setId($post['id']);
             $p->setDescricao($post['descricao']);
             $p->setData(strval($post['dataCriacao']));
@@ -95,7 +101,8 @@ class Post implements ActiveRecord{
         $postsProfile = array();
         foreach($postsBanco as $post){
 
-            $p = new Post($post['criador'],$post['foto']);
+            $p = new Post($post['foto']);
+            $p->setCriador($post['criador']);
             $p->setId($post['id']);
             $p->setDescricao($post['descricao']);
 

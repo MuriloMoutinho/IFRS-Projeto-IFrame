@@ -98,30 +98,34 @@
                     </div>
 
                     <div class='like-botao-desc'>
-                    <button class='botao-like' onclick='likePost({$post->getId()}); toggleElements(this)'>
-                    <img src='{$imgLike}' class='like ". ((Like::checkLikePost($post->getId())) ?  'like-ativo' : '') . " ' id='img-like' alt='Like'>
-                    </button>
+                    <button class='botao-like' onclick='likePost({$post->getId()}); toggleElements(this)'>";
+
+                        if(Like::checkLikePost($post->getId())){
+                            echo "<img src='{$imgLikeGiv}' class='like like-ativo' ' id='img-like' alt='Like'>";
+                        }else{
+                            echo "<img src='{$imgLike}' class='like' ' id='img-like' alt='Like'>";
+                        }
+                        
+                        echo "</button>
                         <a href='postLikes.php?post={$post->getId()}'>";
                         echo "<span id='numeroLikes'>". Like::countLikesPost($post->getId()) ."</span>";
                         echo "</a>
 
                         <div class='coment-div'>
-                            <a href='postComments.php?post={$post->getId()}'><img class='coments-img' src='assets/icos/coment_ico1.png' alt=''><div class='comment'>".Comment::countCommentPost($post->getId())."</div>⠀Comments</a>
+                            <a href='postComments.php?post={$post->getId()}'><img class='coments-img' src='assets/icos/coment_ico1.png' alt=''><div class='comment'>".Comment::countCommentPost($post->getId())."</div> Comments</a>
                         </div>
+                        
                         
                         ";
                         if($_GET['username'] == $_SESSION['nameSession']){
 
-                            //echo "<form action='config/deletePost.php' method='post' >";
-                              //  echo "<input type='submit' value='Delete Post' name='deletar' >";
-                            //echo "</form>";
-                            
-                            //$post->delete();
-
-                            //session
-                            //post
-                            //get
-
+                            echo "<form action='config/deletePost.php' method='POST' >
+                                <input type='text' value='{$post->getId()}' hidden name='idPost' >
+                                <input type='text' value='{$post->getFoto()}' hidden name='foto' >
+                                <input type='submit' value='Delete Post' name='submitDelet' >
+                            </form>";
+                        
+            
                     }
                     echo "</div><br><br><hr><br>";
 

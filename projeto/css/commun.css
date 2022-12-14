@@ -224,6 +224,7 @@ main{
     border-radius: 50%;
     width: 5em;
     height: 5em;
+    object-fit: cover;
 }
 .profile-case{
     border: 1px solid black;
@@ -271,6 +272,8 @@ main{
     border-radius: 50%;
     width: 3em;
     height: 3em;
+    object-fit: cover;
+
 }
 .img-format{
     border: none;

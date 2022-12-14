@@ -34,7 +34,8 @@
 if(isset($_POST['submit'])){
     if(!empty($_FILES['newPhoto']['name'])){
 
-        $post = new Post($_SESSION['idSession'],$_FILES['newPhoto']['name']);
+        $post = new Post($_FILES['newPhoto']['name']);
+        $post->setCriador($_SESSION['idSession']);
         $post->setDescricao($_POST['descricao']);
         if($post->save()){
             header("location: profile.php?username={$_SESSION['nameSession']}");    
