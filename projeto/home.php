@@ -54,9 +54,15 @@ use function CommonMark\Render\HTML;
                                     <p>{$post['1']->getDescricao()}</p>
                                 </div>
                                 <div class='like-botao-desc'>
-                                    <button class='botao-like' onclick='likePost({$post['1']->getId()}); toggleElements(this)'>
-                                    <img src='{$imgLike}' class='like ". ((Like::checkLikePost($post['1']->getId())) ?  'like-ativo' : '') . " ' id='img-like' alt='Like'>
-                                    </button>
+                                    <button class='botao-like' onclick='likePost({$post['1']->getId()}); toggleElements(this)'>";
+
+                                    if(Like::checkLikePost($post['1']->getId())){
+                                        echo "<img src='{$imgLikeGiv}' class='like like-ativo' ' id='img-like' alt='Like'>";
+                                    }else{
+                                        echo "<img src='{$imgLike}' class='like' ' id='img-like' alt='Like'>";
+                                    }
+                                    
+                                    echo "</button>
                                     <a href='postLikes.php?post={$post['1']->getId()}'>";
                                 echo "<span id='numeroLikes'>". Like::countLikesPost($post['1']->getId()) ."</span>";
                                  

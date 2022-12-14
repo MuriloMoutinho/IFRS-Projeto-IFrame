@@ -15,6 +15,7 @@ $imgProfile = 'assets/icos/user_ico1.png';
 $imgProfileFooter = 'assets/icos/user_ico2.png';
 
 $imgLike = 'assets/icos/like_ico1.png';
+$imgLikeGiv = 'assets/icos/like_ico3.png';
 
 $imgRanking = 'assets/icos/rank_ico2.png';
 
