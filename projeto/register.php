@@ -70,7 +70,7 @@ if(isset($_POST['submit'])){
                             </div>
                             
                             <div class="bio-input">
-                                <label for='bio'>Biography:</label>
+                                <label for='bio'>Bio:</label>
                                 <textarea name="bio" id='id' cols="20" rows="3" placeholder="Your biography...">Hi! I am using Iframe.</textarea>
                             </div>
 

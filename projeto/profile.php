@@ -137,7 +137,7 @@
                 echo "</div>";
             }
         }else{
-            echo "User without posts";
+            echo "No posts";
         }
         
 

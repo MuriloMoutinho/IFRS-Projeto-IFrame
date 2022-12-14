@@ -97,7 +97,7 @@ if($u->validate()){
                     }
                         
                 echo "</select>
-                <label for='biografia'>Biografia: </label>
+                <label for='biografia'>Bio: </label>
                 <textarea name='bio' id='biografia' cols='20' rows='6' >{$usuarioConsulta->getBio()}</textarea>";
                 
                 ?>

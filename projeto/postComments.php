@@ -83,7 +83,7 @@
 
             }
         }else{
-            echo "No comments, be the first to comment something!";
+            echo "No comments, be the first to make a comment!";
         }
     
          ?>

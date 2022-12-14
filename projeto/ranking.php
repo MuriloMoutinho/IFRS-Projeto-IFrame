@@ -26,7 +26,7 @@
     <main>
         <div class="container">
             <h2>Ranking</h2>
-            <p>Profiles with the most likes</p>
+            <p>Most liked profiles!</p>
 
             <hr>
             

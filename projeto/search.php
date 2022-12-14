@@ -29,6 +29,7 @@ require_once __DIR__."/vendor/autoload.php";
         <main>
             <form action="search.php" method="get">
 
+
                 <input type="search" class="search-input" required placeholder="user search" name="search">
 
                 <div class="div-botao-search">
@@ -46,7 +47,9 @@ require_once __DIR__."/vendor/autoload.php";
                 if(isset($_GET['search'])){
                     $usuariosBuscados = User::findUser($_GET['search'],0);
                 }else{
+
                     echo "<h2>Suggestions</h2>";
+
                     $usuariosBuscados = User::findUser('',25);
                 }
                 
