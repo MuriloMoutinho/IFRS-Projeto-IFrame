@@ -50,7 +50,7 @@
                 echo "<div class='flex-row-short'>
                         <img src='photos/profile/{$u->getFoto()}' class='profile-photo' alt='Foto de Perfil'>
                         <div class='column'>
-                            <div>
+                            <div class='name-div'>
                                 <h2>{$u->getNome()}</h2>
                                 <span>{$u->getTurma()}</span>
                             </div>

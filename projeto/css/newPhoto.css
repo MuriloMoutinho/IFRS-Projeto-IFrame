@@ -21,24 +21,24 @@
     width: 100%;
 }
 .submit-post button{
-    margin-top: 1em;
     height: 3em;
     border-radius: 5px;
     cursor: pointer;
-    width: 50%;
+    width: 35%;
+    border: solid 1px rgb(146, 146, 146);
     font-family: 'Poppins';
     font-weight: bold;
-    border: solid 1px rgb(146, 146, 146);
     background-color: rgb(228, 228, 228);
-
-    transition: filter 0.5s ease;
+    margin-top: 1em;
+    transition: filter 0.4s ease;
 }
 .submit-post button:hover{
     filter: invert(1);
 }
 .desc-post textarea{
     padding: 5px;
-    font-family: 'Roboto';
+    font-family: Open Sans, sans-serif;
+    font-weight: bold;
 }
 input,textarea:focus{
     box-shadow: 0 0 0 0;

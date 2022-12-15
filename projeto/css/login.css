@@ -56,13 +56,14 @@ html,body{
     font-weight: bold;
 }
 .input-text input{
-    height: 2em;
+    height: 2.5em;
     border: solid rgb(44, 60, 99) 1px;
     border-radius: 5px;
     padding: 0px 10px;
     margin-bottom: 3%;
     font-size: 1.1rem;
     background-color: rgb(230, 230, 230);
+    font-family: Open Sans, sans-serif;
 }
 .input-text input:hover{
     border: solid rgb(39, 159, 180) 1px;     
@@ -104,6 +105,7 @@ html,body{
 input:focus{
     box-shadow: 0 0 0 0;
     outline: 0;
+    font-weight: bold;
 }
 
 /*BUTTON---------------------------*/

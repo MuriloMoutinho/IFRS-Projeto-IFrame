@@ -31,7 +31,7 @@ a{
     font-weight: bold;
     background-color: rgb(228, 228, 228);
 
-    transition: filter 0.8s ease;
+    transition: filter 0.4s ease;
 }
 .botao_search:hover{
     filter: invert(1);

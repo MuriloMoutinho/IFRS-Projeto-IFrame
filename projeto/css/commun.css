@@ -335,9 +335,9 @@ li.option-footer.ops-home{
     margin-right: 2%;
 }
 .date{
-    color: rgb(172, 172, 172);
+    color: rgb(190, 190, 190);
     font-size: 80%;
-    font-weight: bold;
+    font-family: 'Roboto';
 }
 .desc-post{
     margin-top: 1em;

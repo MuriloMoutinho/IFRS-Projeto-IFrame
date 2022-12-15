@@ -1,3 +1,7 @@
+.name-div h2{
+   
+    word-wrap: break-word;
+}
 .division{
     margin: 1em 0;
 }
@@ -5,31 +9,24 @@
     margin: 0.7em 0em;
     word-wrap: break-word;
 }
-
 .like-total-user img{
     margin-top: 0;
 }
 .like-total-user div{
     align-items: center;
 }
-
 h2{
     word-break: break-all;
 }
-
 .comment{
     margin-left: 0.7em;
 }
-
-
-
 .edit-div{
     border-top: solid 1px rgb(224, 224, 224);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: left;
-
 }
 .edit-div a{
     margin-top: 1em;
@@ -40,8 +37,11 @@ h2{
     border-radius: 5px;
     padding: 0.2em 0.4em;
     font-weight: normal;
-
     transition: filter 0.5s ease;
+    cursor: pointer;
+    border: solid 1px rgb(146, 146, 146);
+    background-color: rgb(228, 228, 228);
+    transition: filter 0.4s ease;
 }
 .edit-div a:hover{
     filter: invert(1);
@@ -50,7 +50,6 @@ h2{
     width: 1em;
     margin-right: 5px;
 }
-
 .delete_post{
     display: flex;
     font-size: 0.9em;
@@ -71,4 +70,8 @@ h2{
 }
 .ops-profile{
     background-color: rgb(53, 53, 53);
+}
+.desc-post textarea{
+    padding: 5px;
+    font-family: 'Roboto';
 }

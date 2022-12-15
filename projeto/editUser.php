@@ -103,19 +103,19 @@
                 echo "</select></label></div>
 
                 <div class='bio-input'>
-                    <label for='bio'>Bio:</label>
+                    <label for='bio'>Bio</label>
                     <textarea name='bio' id='biografia' cols='20' rows='6' placeholder='Your biography...'>{$usuarioConsulta->getBio()}</textarea>
                 </div>";
 
                 ?>
-                <label for="foto" >Foto: </label>
+                <label for="foto" >User photo</label>
                 <input type='file' accept='image/*' name='foto' id="foto"> 
                 <input type='submit' value='Remove photo' name='remove'>
                 
                 <div id=''>
-                    <label for="currentPass">Write your current password:</label>
+                    <label for="currentPass">Write your current password</label>
                     <input type='password' name='currentPass' id="currentPass">
-                    <label for="newPassword" >write your new password: </label>
+                    <label for="newPassword" >Write your new password</label>
                     <input type='password' minlength='3' name='newPassword' id="newPassword">
                 </div>
 
