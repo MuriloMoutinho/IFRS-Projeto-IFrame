@@ -92,7 +92,7 @@ END$$
 
 
 CREATE OR REPLACE TRIGGER tr_excluiLikesPostDeletado
-AFTER DELETE ON post
+BEFORE DELETE ON post
 FOR EACH ROW
 BEGIN
 	DELETE FROM post_curtida WHERE post_curtida.post = OLD.id;
