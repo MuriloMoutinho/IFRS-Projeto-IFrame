@@ -39,11 +39,10 @@
                 echo "<div class='flex-row-short'>
                         <img src='photos/profile/{$u->getFoto()}' class='profile-photo' alt='Foto de Perfil'>
                         <div class='column'>
-
-                        <div>
-                            <h2>{$u->getNome()}</h2>
-                            <span>{$u->getTurma()}</span>
-                        </div>
+                            <div>
+                                <h2>{$u->getNome()}</h2>
+                                <span>{$u->getTurma()}</span>
+                            </div>
                             <div class='like-total-user'>    
                                 <img src='$imgLike' alt='Likes' class='like'>{$u->getLikes()}
                             </div>
@@ -51,16 +50,14 @@
                     </div>
 
                     <div class='profile-bio'>                     
-                        <p>{$u->getBio()}</p>";
-                        
-                    echo "</div>";
-                    ?>
-                    <?php 
-                        if($_GET['username'] == $_SESSION['nameSession']){
-                            echo "<div class='edit-div'>
-                                        <a href='editUser.php'><img src='assets/icos/edit_ico1.png' alt=''>Edit</a>
-                                    </div>";
-                        }
+                        <p>{$u->getBio()}</p>
+                    </div>";
+   
+                    if($_GET['username'] == $_SESSION['nameSession']){
+                    echo "<div class='edit-div'>
+                            <a href='editUser.php'><img src='assets/icos/edit_ico1.png' alt='Icon Edit'>Edit</a>
+                        </div>";
+                    }
                     ?>
         </div>
 
@@ -69,74 +66,60 @@
     <div class="container">
         <div class="container-posts">
 
-        <?php 
+            <?php 
 
-        $postsProfile = Post::findProfilePost($_GET['username']);
-    
-        if(count($postsProfile)){
-            foreach($postsProfile as $post){
+            $postsProfile = Post::findProfilePost($_GET['username']);
+        
+            if(count($postsProfile)){
+                foreach($postsProfile as $post){
 
-                echo "
-                <div class='post'> ";
-    
-                if($_GET['username'] == $_SESSION['nameSession']){
-                    if($_GET['username'] == $_SESSION['nameSession']){
-
-                        echo "<div class='delete-post'><a class='delete_post' href='config/deletePost.php?idPost={$post->getId()}&foto={$post->getFoto()}'><img src='assets/icos/delete_ico1.png' alt='delete post'>Delete Post</a></div>";
-
-                }
-                            
-                    echo "<div class='post-img'>
-                        <img class='img-format' src='photos/posts/{$post->getFoto()}'  alt='Imagem Post'>
-                    </div>
-
-                    <span class='date'>{$post->getData()}</span>
-                    <div class='desc'>
-                        <p>{$post->getDescricao()}</p>
-                    </div>
-
-                    <div class='like-botao-desc'>
-                    <button class='botao-like' onclick='likePost({$post->getId()}); toggleElements(this)'>";
-
-                        if(Like::checkLikePost($post->getId())){
-                            echo "<img src='{$imgLikeGiv}' class='like like-ativo' ' id='img-like' alt='Like'>";
-                        }else{
-                            echo "<img src='{$imgLike}' class='like' ' id='img-like' alt='Like'>";
+                    echo "<div class='post'>";
+        
+                        if($_GET['username'] == $_SESSION['nameSession']){
+                            echo "<a class='delete_post' href='config/deletePost.php?idPost={$post->getId()}&foto={$post->getFoto()}'><img src='assets/icos/delete_ico1.png' alt='delete post'>Delete Post</a>";
                         }
-                        
-                        echo "</button>
-                        <a href='postLikes.php?post={$post->getId()}'>";
-                        echo "<span id='numeroLikes'>". Like::countLikesPost($post->getId()) ."</span>⠀Likes";
-                        echo "</a>
-
-                        <div class='coment-div'>
-                            <a href='postComments.php?post={$post->getId()}'><img class='coments-img' src='assets/icos/coment_ico1.png' alt=''><div class='comment'>".Comment::countCommentPost($post->getId())."</div>⠀Comments</a>
+                                
+                        echo "<div class='post-img'>
+                            <img class='img-format' src='photos/posts/{$post->getFoto()}'  alt='Imagem Post'>
                         </div>
-                        
-                        ";
-                        
-                    echo "</div>
-                    ";
 
+                        <span class='date'>{$post->getData()}</span>
+                        <div class='desc'>
+                            <p>{$post->getDescricao()}</p>
+                        </div>
+
+                        <div class='like-botao-desc'>
+                            <button class='botao-like' onclick='likePost({$post->getId()}); toggleElements(this)'>";
+
+                            if(Like::checkLikePost($post->getId())){
+                                echo "<img src='{$imgLikeGiv}' class='like like-ativo' ' id='img-like' alt='Like'>";
+                            }else{
+                                echo "<img src='{$imgLike}' class='like' ' id='img-like' alt='Like'>";
+                            }
+                            
+                            echo "</button>";
+
+                            echo "<a href='postLikes.php?post={$post->getId()}'>
+                                <span id='numeroLikes'>". Like::countLikesPost($post->getId()) ."</span>⠀Likes
+                            </a>
+
+                            <div class='coment-div'>
+                                <a href='postComments.php?post={$post->getId()}'><img class='coments-img' src='assets/icos/coment_ico1.png' alt=''><div class='comment'>".Comment::countCommentPost($post->getId())."</div>⠀Comments</a>
+                            </div>
+                        </div>";  
                     
-                    
-                    
-                    
+                    echo "</div>
+                    <hr class='hr_division'>";
+;
                 }
-                    
-                echo "</div><hr class='hr_division'>";
-                echo "</div>";
+            }else{
+                echo "<span>No posts</span>";
             }
             
-
-        }else{
-            echo "No posts";
-        }
-        
-        ?>
+            ?>
 
         </div>
-</div>
+    </div>
 
     </main>
 

@@ -25,9 +25,9 @@
 if(isset($_POST['submit'])){
 
     $u = new User();
-    $u->setNome(filter_var($_POST['name'], FILTER_SANITIZE_STRING));
-    $u->setEmail(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
-    $u->setBio(filter_var($_POST['bio'], FILTER_SANITIZE_STRING)); 
+    $u->setNome($_POST['name']);
+    $u->setEmail($_POST['email']);
+    $u->setBio($_POST['bio']); 
 
     $u->setSenha($_POST['password']);
     $u->setTurma($_POST['turma']);

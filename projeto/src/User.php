@@ -41,7 +41,7 @@ class User implements ActiveRecord{
 
     //EMAIL ------------------------------------------------
     public function setEmail($email):void{
-        $this->email = $email;
+        $this->email = filter_var($email, FILTER_SANITIZE_EMAIL);
     }
     public function getEmail():string{
         return $this->email;
@@ -49,14 +49,14 @@ class User implements ActiveRecord{
 
     //NOME ------------------------------------------------
     public function setNome(string $nome):void{
-        $this->nome = $nome;
+        $this->nome = filter_var($nome, FILTER_SANITIZE_STRING);
     }
     public function getNome():string{
         return $this->nome;
     }
     //BIO ------------------------------------------------
     public function setBio(string $bio):void{
-        $this->bio = $bio;
+        $this->bio = filter_var($bio, FILTER_SANITIZE_STRING);
     }
     public function getBio():string{
         return $this->bio;

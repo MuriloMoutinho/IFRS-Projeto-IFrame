@@ -80,8 +80,6 @@ BEGIN
 END$$
 
 
-DELIMITER $$
-
 CREATE OR REPLACE TRIGGER tr_atualizarLikesDelete
 AFTER DELETE ON post_curtida
 FOR EACH ROW

@@ -40,10 +40,9 @@ if(password_verify($_POST['currentPass'],$usuarioConsulta->getSenha())){
     $u->setSenha($_POST['newPassword']);
 }else{
     echo"<div class='error'><span>Wrong password. </span></div>";
-}
-$u->setNome(filter_var($_POST['name'], FILTER_SANITIZE_STRING));
-$u->setEmail(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
-$u->setBio(filter_var($_POST['bio'], FILTER_SANITIZE_STRING)); 
+$u->setNome($_POST['name']);
+$u->setEmail($_POST['eil']);
+$u->setBio($_POST['bio']); 
 
 $u->setId($_SESSION['idSession']);
 $u->setTurma($_POST['turma']);
