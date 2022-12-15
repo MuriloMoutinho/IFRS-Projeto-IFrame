@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="css/commun.css">
-    <title>Sign in</title>
+    <title>IFrame - Sign in</title>
 </head>
 <body>
 

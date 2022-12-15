@@ -14,7 +14,7 @@ require_once __DIR__."/vendor/autoload.php";
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="css/commun.css">
     <link rel="stylesheet" href="css/search.css">
-    <title>Search</title>
+    <title>IFrame - Search</title>
 </head>
 <body>
 
@@ -34,7 +34,7 @@ require_once __DIR__."/vendor/autoload.php";
 
                 <div class="div-botao-search">
                 <button type="submit" class='botao_search flex-row-short'>
-                    <img src="<?php echo $imgSearchInvert ?>" class="search-img-botao" alt="">
+                    <img src="<?php echo $imgSearchInvert ?>" class="search-img-botao" alt="Search icon">
                     <span>Search</span>
                 </button>
                 </div>
@@ -58,7 +58,7 @@ require_once __DIR__."/vendor/autoload.php";
                         echo "
                         <a href='profile.php?username={$usuario->getNome()}'>
                             <div class='flex-row-short profile-case'>
-                                <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Foto de Perfil'>
+                                <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Profile picture'>
                                 <div class='column'>
                                     <span class='user_name_search'>{$usuario->getNome()}</span>
                                     <span class='user_type_search'>{$usuario->getTurma()}</span>

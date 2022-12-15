@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="css/profile.css">
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-    <title>Comments</title>
+    <title>IFrame - Comments</title>
 </head>
 <body>
     
@@ -62,7 +62,7 @@
                 echo "<div class='column'>
                     <a href='profile.php?username={$comment['0']->getNome()}'>
                         <div class='post-info'>
-                            <img src='photos/profile/{$comment['0']->getFoto()}' alt='Foto de Perfil'>
+                            <img src='photos/profile/{$comment['0']->getFoto()}' alt='Profile picture'>
                             <div>
                                 <p>{$comment['0']->getNome()}</p>
                                 <p>{$comment['0']->getTurma()}</p>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/commun.css">
     <link rel="stylesheet" href="css/editUser.css">
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
-    <title>Profile - Edit</title>
+    <title>IFrame - Profile - Edit</title>
 </head>
 <body>
     <?php
@@ -112,12 +112,14 @@
                 <input type='file' accept='image/*' name='foto' id="foto"> 
                 <input type='submit' value='Remove photo' name='remove'>
                 
-                <div id=''>
+                <details class='change-password'>
+                    <summary>Do you want to change your password?</summary>
+                    
                     <label for="currentPass">Write your current password</label>
                     <input type='password' name='currentPass' id="currentPass">
                     <label for="newPassword" >Write your new password</label>
                     <input type='password' minlength='3' name='newPassword' id="newPassword">
-                </div>
+                </details>
 
                 <input type='submit' value='Edit profile' name='submit'>
                 
@@ -125,7 +127,7 @@
 
             <div class='blur hide' id='blurDeleteUser'></div>
             <div class='modal_confirm hide' id='modalDeleteUser'>
-                <img src='assets/icos/error.png' alt='ico error'>
+                <img src='assets/icos/error.png' alt='Error icon'>
                 <h3>Are you sure?</h3>
                 <p>Do you really want to delete your account? This process cannot be undone</p>
                 <a class='delete-button buttonEdit' href="config/deleteUser.php">Confirm</a>

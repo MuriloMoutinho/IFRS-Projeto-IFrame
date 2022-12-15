@@ -70,6 +70,13 @@ textarea:focus, input:focus, select:focus {
 }
 
 /*BUTTON---------------------------*/
+.change-password{
+    margin-bottom: 3%;
+    background-color: #90909080;
+    padding: 0.3em;
+    border-radius: 5px;
+    cursor: pointer;
+}
 .input-editUser{
     width: 100%;
 }

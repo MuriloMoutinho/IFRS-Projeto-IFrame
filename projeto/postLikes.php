@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/commun.css">
     <link rel="stylesheet" href="css/profile.css">
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
-    <title>Coments</title>
+    <title>IFrame - Likes</title>
 </head>
 <body>
     
@@ -41,7 +41,7 @@
             echo "
             <a href='profile.php?username={$usuario->getNome()}'>
                 <div class='flex-row-short profile-case'>
-                    <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Foto de Perfil'>
+                    <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Profile picture'>
                     <div class='column'>
                         <span>{$usuario->getNome()}</span>
                         <span>{$usuario->getTurma()}</span>

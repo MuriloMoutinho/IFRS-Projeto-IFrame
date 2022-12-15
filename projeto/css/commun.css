@@ -30,7 +30,7 @@ main{
 
 /*SCROLLBAR---------------------------------------------------*/
 ::-webkit-scrollbar{
-    width: 10px;
+    width: 13px;
     background-color: #181818;
 }
 ::-webkit-scrollbar-thumb{
@@ -298,10 +298,9 @@ li.option-footer.ops-home{
     border-radius: 10px;
 }
 .botao-like{
-    background-color: white;
+    background-color: transparent;
     border: none;
-    width: 5%;
-    margin-left: 2%;
+    width: 2em;
 }
 .desc{
     width: 100%;
@@ -310,29 +309,15 @@ li.option-footer.ops-home{
     width: 100%;
     word-wrap: break-word;
 }
-.comment{
-    margin-left: 0.7em;
-}
-.coment-div{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 100%;
-    flex-direction: column;
-}
+
 .coment-div a{
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-direction: row;
     display: flex;
+    align-items: center;
+    gap: 0.7em;
 }
 .coments-img{
     width: 1.4em;
-    margin-top: 0.2em;
-    margin-right: 2%;
+
 }
 .date{
     color: rgb(190, 190, 190);
@@ -354,7 +339,6 @@ li.option-footer.ops-home{
 /*IMG---------------------------------------------------*/
 .like{
     width: 2em;
-    margin-top: 3px;
     cursor: pointer;
 }
 .footer-fake{
@@ -363,15 +347,13 @@ li.option-footer.ops-home{
 }
 .like-botao-desc{
     display: flex;
-    flex-direction: row;
     align-items: center;
-    text-align: center;
+    gap: 0.7em;
+    margin-top: 0.5em;
+    color: black;
 }
 .like-botao-desc a{
-    margin-right: 0.4em;
-    margin-left: 0.8em;
     text-decoration: none;
-    color: rgb(0, 0, 0);
 }
 /*MENU------------------------------------------------- */
 .container_menu{
@@ -452,6 +434,7 @@ li.option-footer.ops-home{
     gap: 0.4em;
 
     text-align: center;
+    min-width: 20em;
     max-width: 35em;
     max-height: 30em;
     top: 50%;

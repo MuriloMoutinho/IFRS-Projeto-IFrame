@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/profile.css">
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-    <title>Profile</title>
+    <title>IFrame - Profile</title>
 </head>
 <body>
     
@@ -35,7 +35,7 @@
         
     <div class='blur hide' id='blurDeletePost'></div>
     <div class='modal_confirm hide' id='modalDeletePost'>
-        <img src='assets/icos/error.png' alt='ico error'>
+        <img src='assets/icos/error.png' alt='Error icon'>
         <h3>Are you sure?</h3>
         <p>Do you really want to delete your post? This process cannot be undone</p>
         <a class='delete-button buttonEdit' id='confirmDeletePost'>Confirm</a>
@@ -48,14 +48,14 @@
                 if($u){
 
                 echo "<div class='flex-row-short'>
-                        <img src='photos/profile/{$u->getFoto()}' class='profile-photo' alt='Foto de Perfil'>
+                        <img src='photos/profile/{$u->getFoto()}' class='profile-photo' alt='Profile picture'>
                         <div class='column'>
                             <div class='name-div'>
                                 <h2>{$u->getNome()}</h2>
                                 <span>{$u->getTurma()}</span>
                             </div>
                             <div class='like-total-user'>    
-                                <img src='$imgLike' alt='Likes' class='like'>{$u->getLikes()}
+                                <img src='$imgLike' alt='Like icon' class='like'>{$u->getLikes()}
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
    
                     if($_GET['username'] == $_SESSION['nameSession']){
                     echo "<div class='edit-div'>
-                            <a href='editUser.php'><img src='assets/icos/edit_ico1.png' alt='Icon Edit'>Edit</a>
+                            <a href='editUser.php'><img src='assets/icos/edit_ico1.png' alt='Edit icon'>Edit</a>
                         </div>";
                     }
 
@@ -85,11 +85,11 @@
                     echo "<div class='post'>";
         
                         if($_GET['username'] == $_SESSION['nameSession']){
-                            echo "<span class='delete_post' onclick='confirmDeletePost(`{$post->getId()}`,`{$post->getFoto()}`)'><img src='assets/icos/delete_ico1.png' alt='delete post'>Delete Post</span>";
+                            echo "<span class='delete_post' onclick='confirmDeletePost(`{$post->getId()}`,`{$post->getFoto()}`)'><img src='assets/icos/delete_ico1.png' alt='Delete post'>Delete Post</span>";
                         }
                                 
                         echo "<div class='post-img'>
-                            <img class='img-format' src='photos/posts/{$post->getFoto()}'  alt='Imagem Post'>
+                            <img class='img-format' src='photos/posts/{$post->getFoto()}'  alt='Post Image'>
                         </div>
 
                         <span class='date'>{$post->getData()}</span>
@@ -101,19 +101,19 @@
                             <button class='botao-like' onclick='likePost({$post->getId()}); toggleElements(this)'>";
 
                             if(Like::checkLikePost($post->getId())){
-                                echo "<img src='{$imgLikeGiv}' class='like like-ativo' ' id='img-like' alt='Like'>";
+                                echo "<img src='{$imgLikeGiv}' class='like like-ativo' ' id='img-like' alt='Like icon'>";
                             }else{
-                                echo "<img src='{$imgLike}' class='like' ' id='img-like' alt='Like'>";
+                                echo "<img src='{$imgLike}' class='like' ' id='img-like' alt='Like icon'>";
                             }
                             
                             echo "</button>";
 
                             echo "<a href='postLikes.php?post={$post->getId()}'>
-                                <span id='numeroLikes'>". Like::countLikesPost($post->getId()) ."</span>⠀Likes
+                                <span id='numeroLikes'>". Like::countLikesPost($post->getId()) ."</span> Likes
                             </a>
 
                             <div class='coment-div'>
-                                <a href='postComments.php?post={$post->getId()}'><img class='coments-img' src='assets/icos/coment_ico1.png' alt=''><div class='comment'>".Comment::countCommentPost($post->getId())."</div>⠀Comments</a>
+                                <a href='postComments.php?post={$post->getId()}'><img class='coments-img' src='assets/icos/coment_ico1.png' alt='Comment icon'>".Comment::countCommentPost($post->getId())." Comments</a>
                             </div>
                         </div>";  
                     

@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="css/commun.css">
     <link rel="stylesheet" href="css/ranking.css">
-    <title>IFrame</title>
+    <title>IFrame - Ranking</title>
 </head>
 <body>
 
@@ -40,14 +40,14 @@
             <a href='profile.php?username={$usuario->getNome()}'>
             <div class='flex-row-bet profile-case'>
                     <div class='flex-row-bet'>
-                        <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Foto de Perfil'>
+                        <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Profile picture'>
                         <div class='column'>
                             <span class='user_name_search'>{$usuario->getNome()}</span>
                             <span class='user_type_search'>{$usuario->getTurma()}</span>
                         </div>
                     </div>
                     <div class='like-div'>
-                        <img src='{$imgLike}' alt='Likes' class='like'>
+                        <img src='{$imgLike}' alt='Like icon' class='like'>
                         {$usuario->getLikes()} Likes
                     </div>
                 </div>

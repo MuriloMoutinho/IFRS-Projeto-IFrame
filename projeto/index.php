@@ -24,7 +24,7 @@ require 'components/inicial_index.php';
             <div class="inicial-box">
                 <div class="container-info">
                     <div class='logo'>
-                        <h1 class="title-logo"><img class="img-logo" src='assets/icos/logo_ico1.png' alt='Iframe logo'>IFrame</h1> 
+                        <h1 class="title-logo"><img class="img-logo" src='assets/icos/logo_ico1.png' alt='IFrame logo'>IFrame</h1> 
                     </div>
                     <div class="text-info">
                         <?php echo $text_intro_proj_en?>

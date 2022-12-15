@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/commun.css">
     <link rel="stylesheet" href="css/newPhoto.css">
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
-    <title>IFrame</title>
+    <title>IFrame - New Post</title>
 </head>
 <body>
 
@@ -73,7 +73,7 @@ if(isset($_POST['submit'])){
     <script>
         const labelcontent = document.querySelector("#img-content");
         const contentDefault = `
-        <img src="<?php echo $imgNewPostInvert ?>" alt="" class="like">
+        <img src="<?php echo $imgNewPostInvert ?>" alt="New Post icon" class="like">
         <h2>Add photo</h2>
         <span>Click here to add a new photo</span>`
         labelcontent.innerHTML = contentDefault;

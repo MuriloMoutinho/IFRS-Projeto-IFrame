@@ -37,7 +37,7 @@
                     echo "<div class='post'>
                             <a href='profile.php?username={$post['0']->getNome()}'>
                                 <div class='post-info'>
-                                    <img src='photos/profile/{$post['0']->getFoto()}' alt='Foto de Perfil'>
+                                    <img src='photos/profile/{$post['0']->getFoto()}' alt='Profile picture'>
                                         <div>
                                             <p class='profile-name'>{$post['0']->getNome()}</p>
                                             <p class='profile-turma'>{$post['0']->getTurma()}</p>
@@ -46,7 +46,7 @@
                             </a>
 
                         <div class='post-img'>
-                            <img class='img-format' src='photos/posts/{$post['1']->getFoto()}'  alt='Imagem Post'>
+                            <img class='img-format' src='photos/posts/{$post['1']->getFoto()}'  alt='Post image'>
                         </div>
                         
                         <span class='date'>{$post['1']->getData()}</span>
@@ -54,21 +54,22 @@
                                     <p>{$post['1']->getDescricao()}</p>
                                 </div>
                                 <div class='like-botao-desc'>
+                                
                                     <button class='botao-like' onclick='likePost({$post['1']->getId()}); toggleElements(this)'>";
 
                                     if(Like::checkLikePost($post['1']->getId())){
-                                        echo "<img src='{$imgLikeGiv}' class='like like-ativo' ' id='img-like' alt='Like'>";
+                                        echo "<img src='{$imgLikeGiv}' class='like like-ativo' ' id='img-like' alt='Like icon'>";
                                     }else{
-                                        echo "<img src='{$imgLike}' class='like' ' id='img-like' alt='Like'>";
+                                        echo "<img src='{$imgLike}' class='like' ' id='img-like' alt='Like icon'>";
                                     }
                                     
                                     echo "</button>
                                     <a href='postLikes.php?post={$post['1']->getId()}'>";
-                                echo "<span id='numeroLikes'>". Like::countLikesPost($post['1']->getId()) ."</span>⠀Likes";
+                                echo "<span id='numeroLikes'>". Like::countLikesPost($post['1']->getId()) ."</span> Likes </a>";
                                  
-                            echo "</a>
+                            echo "
                             <div class='coment-div'>
-                                <a href='postComments.php?post={$post['1']->getId()}'><img class='coments-img' src='assets/icos/coment_ico1.png' alt=''><div class='comment'>".Comment::countCommentPost($post['1']->getId())."</div>⠀Comments</a>
+                                <a href='postComments.php?post={$post['1']->getId()}'><img class='coments-img' src='assets/icos/coment_ico1.png' alt='Comments icon'>".Comment::countCommentPost($post['1']->getId())." Comments</a>
                             </div>
                             
                     </div><hr class='hr_division'>";
