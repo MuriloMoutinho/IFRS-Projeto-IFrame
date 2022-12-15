@@ -112,13 +112,15 @@
                 <input type='file' accept='image/*' name='foto' id="foto"> 
                 <input type='submit' value='Remove photo' name='remove'>
                 
-                <details class='change-password'>
-                    <summary>Do you want to change your password?</summary>
-                    
+                <details>
+                    <summary class='change-password-button'><u>Do you want to change your password?</u></summary>
+
+                    <div class='change-password'>
                     <label for="currentPass">Write your current password</label>
                     <input type='password' name='currentPass' id="currentPass">
                     <label for="newPassword" >Write your new password</label>
                     <input type='password' minlength='3' name='newPassword' id="newPassword">
+                    </div>
                 </details>
 
                 <input type='submit' value='Edit profile' name='submit'>

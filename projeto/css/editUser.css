@@ -70,6 +70,9 @@ textarea:focus, input:focus, select:focus {
 }
 
 /*BUTTON---------------------------*/
+.change-password-button{
+    margin-bottom: 3%;
+}
 .change-password{
     margin-bottom: 3%;
     background-color: #90909080;
