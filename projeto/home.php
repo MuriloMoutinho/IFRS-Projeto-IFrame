@@ -65,7 +65,7 @@ use function CommonMark\Render\HTML;
                                     
                                     echo "</button>
                                     <a href='postLikes.php?post={$post['1']->getId()}'>";
-                                echo "<span id='numeroLikes'>". Like::countLikesPost($post['1']->getId()) ."</span> Likes";
+                                echo "<span id='numeroLikes'>". Like::countLikesPost($post['1']->getId()) ."</span>⠀Likes";
                                  
                             echo "</a>
                             <div class='coment-div'>
@@ -75,7 +75,7 @@ use function CommonMark\Render\HTML;
                     </div><hr class='hr_division'>";
                 }
             }else{
-                echo "Sem publicações disponiveis";
+                echo "No posts";
             }
             ?>
         </div>

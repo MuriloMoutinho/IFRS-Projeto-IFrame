@@ -36,14 +36,14 @@ h2{
     text-decoration: none;
     background-color: white;
     color: black;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 0.2em 0.4em;
     font-weight: normal;
 
     transition: filter 0.5s ease;
 }
 .edit-div a:hover{
-    filter: invert(1);
+    background-color: rgb(209, 209, 209);
 }
 .edit-div img{
     width: 1em;
@@ -51,16 +51,19 @@ h2{
 }
 
 .delete_post{
-    border: 1px solid black;
-    color: white;
-
-    border-radius: 3px;
     display: flex;
+    font-size: 0.9em;
+    border-radius: 3px;
     align-items: center;
-    padding: 3px ;
-    background-color: rgba(175, 31, 31, 0.705);
+    padding: 3px;
+    width: 20%;
 }
-
+.delete_post a{
+    width: 10%;
+}
+.delete_post:hover{
+    background-color: rgb(206, 79, 79);
+}
 .delete_post img{
-    width: 1.3em;
+    width: 1em;
 }

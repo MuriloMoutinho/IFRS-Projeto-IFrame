@@ -268,7 +268,10 @@ li.option-footer.ops-home{
     border: none;
 }
 .hr_division{
-    margin: 2.5em 0em;
+    height: 1px;
+    background-color: rgb(209, 209, 209);
+    border: none;
+    margin: 1.5em 0em;
 }
 
 .post-info{

@@ -80,7 +80,11 @@
                 <div class='post'> ";
     
                 if($_GET['username'] == $_SESSION['nameSession']){
-                            
+                    if($_GET['username'] == $_SESSION['nameSession']){
+
+                        echo "<div class='delete-post'><a class='delete_post' href='config/deletePost.php?idPost={$post->getId()}&foto={$post->getFoto()}'><img src='assets/icos/delete_ico1.png' alt='delete post'>Delete Post</a></div>";
+
+                }
                             
                     echo "<div class='post-img'>
                         <img class='img-format' src='photos/posts/{$post->getFoto()}'  alt='Imagem Post'>
@@ -102,7 +106,7 @@
                         
                         echo "</button>
                         <a href='postLikes.php?post={$post->getId()}'>";
-                        echo "<span id='numeroLikes'>". Like::countLikesPost($post->getId()) ."</span> Likes";
+                        echo "<span id='numeroLikes'>". Like::countLikesPost($post->getId()) ."</span>⠀Likes";
                         echo "</a>
 
                         <div class='coment-div'>
@@ -110,16 +114,9 @@
                         </div>
                         
                         ";
-                        if($_GET['username'] == $_SESSION['nameSession']){
-
-                            echo "<a class='delete_post' href='config/deletePost.php?idPost={$post->getId()}&foto={$post->getFoto()}'><img src='assets/icos/delete_ico1.png' alt='delete post'>Delete Post</a>";
-
-                    }
+                        
                     echo "</div>
-                    <br>
-                    <br>
-                    <hr>
-                    <br>";
+                    ";
 
                     
                     
