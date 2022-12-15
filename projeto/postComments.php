@@ -47,7 +47,7 @@
                 <label for='comment'>
                 <textarea name='comentario' id='comment' maxlength='100' cols='20' rows='3' required ></textarea>
                 
-                <input type='submit' value='Post comment' name='submit' >
+                <input class="post-comment-input" type='submit' value='Post comment' name='submit' >
                 </div>
             </form>
 
