@@ -239,6 +239,7 @@ select:valid{
     border-radius: 50%;
     width: 5em;
     height: 5em;
+    object-fit: cover;
 }
 
 /*ACCESSIBILITY--------------------*/

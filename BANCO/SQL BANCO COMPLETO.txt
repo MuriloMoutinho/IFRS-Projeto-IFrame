@@ -33,7 +33,7 @@ create table post_curtida(
     FOREIGN key (usuario) REFERENCES
     usuario(id) ON DELETE CASCADE,
     FOREIGN key (post) REFERENCES
-    post(id) ON DELETE CASCADE
+    post(id)
 );
 
 
@@ -70,6 +70,7 @@ insert into turma (id, curso) values
 
 DELIMITER $$
 
+
 CREATE OR REPLACE TRIGGER tr_atualizarLikesInsert
 AFTER INSERT ON post_curtida
 FOR EACH ROW
@@ -89,4 +90,15 @@ BEGIN
     
 END$$
 
+
+CREATE OR REPLACE TRIGGER tr_excluiLikesPostDeletado
+AFTER DELETE ON post
+FOR EACH ROW
+BEGIN
+	DELETE FROM post_curtida WHERE post_curtida.post = OLD.id;
+END$$
+
+
 DELIMITER ;
+
+
