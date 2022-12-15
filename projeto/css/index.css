@@ -138,6 +138,7 @@ html,body{
 }
 @media all and (min-width:1720px){
     .inicial-all-box{
-        margin: 1em 34em;
+        max-width: 700px;
+        
     }
 }
