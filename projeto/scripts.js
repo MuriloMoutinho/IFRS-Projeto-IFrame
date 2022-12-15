@@ -2,6 +2,40 @@ function likePost(idPost) {
     $.post("config/likePost.php", {idPost:idPost});
 }
 
+function confirmDeleteUser(){
+    const blur = document.getElementById('blurDeleteUser')
+    const modal = document.getElementById('modalDeleteUser')
+
+    blur.classList.remove('hide')
+    modal.classList.remove('hide')
+
+    const cancel = document.getElementById('cancelDeleteUser')
+    cancel.addEventListener('click',function(){
+        blur.classList.add('hide')
+        modal.classList.add('hide')
+    })
+}
+
+
+function confirmDeletePost(idPost, foto){
+    const blur = document.getElementById('blurDeletePost')
+    const modal = document.getElementById('modalDeletePost')
+
+    blur.classList.remove('hide')
+    modal.classList.remove('hide')
+
+    const confirm = document.getElementById('confirmDeletePost')
+    confirm.addEventListener('click',function(){
+        confirm.setAttribute('href',`config/deletePost.php?idPost=${idPost}&foto=${foto}}`)
+    })
+    
+    const cancel = document.getElementById('cancelDeletePost')
+    cancel.addEventListener('click',function(){
+        blur.classList.add('hide')
+        modal.classList.add('hide')
+    })
+}
+
 function toggleElements(e){
 
     e.children[0].classList.toggle("like-ativo");

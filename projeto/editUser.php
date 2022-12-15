@@ -12,6 +12,8 @@
 <body>
     <?php
     require 'components/import.php';
+    require_once __DIR__."/vendor/autoload.php";
+
     echo $menu;
     echo $header;
     ?>
@@ -28,51 +30,50 @@
         <div class="input-box">
 
 <?php
-    require_once __DIR__."/vendor/autoload.php";
 
-$usuarioConsulta = User::find($_SESSION['idSession']);
+    $usuarioConsulta = User::find($_SESSION['idSession']);
 
-if(isset($_POST['submit']) || isset($_POST['remove'])){
+    if(isset($_POST['submit']) || isset($_POST['remove'])){
 
-$u = new User();
+        $u = new User();
 
-if(password_verify($_POST['currentPass'],$usuarioConsulta->getSenha())){
-    $u->setSenha($_POST['newPassword']);
-}else{
-    echo"<div class='error'><span>Wrong password. </span></div>";
-$u->setNome($_POST['name']);
-$u->setEmail($_POST['eil']);
-$u->setBio($_POST['bio']); 
+        if(password_verify($_POST['currentPass'],$usuarioConsulta->getSenha())){
+            $u->setSenha($_POST['newPassword']);
+        }else{
+            echo"<div class='error'><span>Wrong password. </span></div>";
+            $u->setNome($_POST['name']);
+            $u->setEmail($_POST['email']);
+            $u->setBio($_POST['bio']); 
 
-$u->setId($_SESSION['idSession']);
-$u->setTurma($_POST['turma']);
+            $u->setId($_SESSION['idSession']);
+            $u->setTurma($_POST['turma']);
 
-if(isset($_POST['remove'])){
-    if($usuarioConsulta->getFoto() != "profileDefault.jpg"){
-        unlink("photos/profile/".$usuarioConsulta->getFoto());
-    }
-    $u->setFoto("profileDefault.jpg");
-}
-
-if(isset($_POST['submit'])){
-    if(!empty($_FILES['foto']['name'])){
-        if($usuarioConsulta->getFoto() != "profileDefault.jpg"){
-            unlink("photos/profile/".$usuarioConsulta->getFoto());
+            if(isset($_POST['remove'])){
+                if($usuarioConsulta->getFoto() != "profileDefault.jpg"){
+                    unlink("photos/profile/".$usuarioConsulta->getFoto());
+                }
+                $u->setFoto("profileDefault.jpg");
         }
-        $u->setFoto($_FILES['foto']['name']);
-    }
-}
 
-if($u->validate()){
-    if($u->save()){
-        header("location: profile.php?username={$u->getNome()}");
-    }else{
-        echo "<div class='error'><span>We only accept files that are images</span></div>";
-    }
-}else{
-    echo"<div class='error'><span>Name or email is already in use. </span></div>";
-}
-}
+        if(isset($_POST['submit'])){
+            if(!empty($_FILES['foto']['name'])){
+                if($usuarioConsulta->getFoto() != "profileDefault.jpg"){
+                    unlink("photos/profile/".$usuarioConsulta->getFoto());
+                }
+                $u->setFoto($_FILES['foto']['name']);
+            }
+        }
+
+        if($u->validate()){
+            if($u->save()){
+                header("location: profile.php?username={$u->getNome()}");
+            }else{
+                echo "<div class='error'><span>We only accept files that are images</span></div>";
+            }
+        }else{
+            echo"<div class='error'><span>Name or email is already in use. </span></div>";
+        }
+        }}
 ?>
 
             <form action="editUser.php" method="post" class="column" enctype="multipart/form-data">
@@ -109,18 +110,32 @@ if($u->validate()){
                 ?>
                 <label for="foto" >Foto: </label>
                 <input type='file' accept='image/*' name='foto' id="foto"> 
-                <input type='submit' value='remove photo' name='remove'>
+                <input type='submit' value='Remove photo' name='remove'>
                 
-                <label for="currentPass">Write your current password:</label>
-                <input type='password' name='currentPass' id="currentPass">
-                <label for="newPassword" >write your new password: </label>
-                <input type='password' minlength='3' name='newPassword' id="newPassword">
+                <div id=''>
+                    <label for="currentPass">Write your current password:</label>
+                    <input type='password' name='currentPass' id="currentPass">
+                    <label for="newPassword" >write your new password: </label>
+                    <input type='password' minlength='3' name='newPassword' id="newPassword">
+                </div>
 
-                <input type='submit' value='Edit' name='submit'>
+                <input type='submit' value='Edit profile' name='submit'>
                 
             </form>
-            <a href="config/deleteUser.php">Deletar conta</a>
-            <a href="index.php">Back</a>
+
+            <div class='blur hide' id='blurDeleteUser'></div>
+            <div class='modal_confirm hide' id='modalDeleteUser'>
+                <img src='assets/icos/error.png' alt='ico error'>
+                <h3>Are you sure?</h3>
+                <p>Do you really want to delete your account? This process cannot be undone</p>
+                <a class='delete-button buttonEdit' href="config/deleteUser.php">Confirm</a>
+                <span class='back-button buttonEdit' id='cancelDeleteUser' >Cancel</span>
+            </div>
+            
+            <div class='flex-row-short'>
+            <span class='delete-button buttonEdit' onclick="confirmDeleteUser()">Deletar conta</span>
+            <a href="index.php" class='back-button buttonEdit'>Back</a>
+            </div>
         </div>
     </div>
     </div>
@@ -131,5 +146,6 @@ if($u->validate()){
     <?php
     echo $footer;
     ?>   
+<script src="scripts.js"></script>
 </body>
 </html>

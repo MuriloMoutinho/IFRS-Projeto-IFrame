@@ -441,6 +441,77 @@ li.option-footer.ops-home{
     border-radius: 5px;
     color: white;
 }
+.modal_confirm{
+    position: fixed;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4em;
+
+    text-align: center;
+    max-width: 35em;
+    max-height: 30em;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    padding: 2em;
+    border-radius: 5px;
+    box-shadow: 0 0 1em black;
+}
+.modal_confirm h3{
+    font-size: 1.3em;
+    color: red;
+}
+.modal_confirm img{
+    width: 100px;
+}
+.blur{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(1px);
+    z-index: 2;
+}
+.hide{
+    display: none;
+}
+.buttonEdit{
+    text-decoration: none;
+    height: 2em;
+    width: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+
+    transition: all 0.5s ease;
+}
+.delete-button{
+    border: solid 1px rgb(128, 22, 22);
+    background-color: #b33d3d;
+}
+.delete-button:hover{
+    background-color: #ce6d6d;
+    border: solid 1px #924b4b;
+}
+.back-button{
+    background-color: #3d76b3;
+    border: solid 1px #165280;
+}
+.back-button:hover{
+    background-color: #71a2d6;
+    border: solid 1px #215e8d;
+}
 
 /*ACCESSIBILITY--------------------*/
 @media all and (max-width:1167px){

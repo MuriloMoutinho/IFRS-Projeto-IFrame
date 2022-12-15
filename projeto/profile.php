@@ -6,10 +6,8 @@
     if(!isset($_GET['username'])){
         header("location: home.php");
     }
-
-    $u = User::findProfile($_GET['username']);
-
-?>
+    
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,15 +25,28 @@
     
     <?php
     echo $menu;
-
+    
     echo $header;
     ?>
 
-    <main>
+<main>
+    
+    <div class="container">
+        
+    <div class='blur hide' id='blurDeletePost'></div>
+    <div class='modal_confirm hide' id='modalDeletePost'>
+        <img src='assets/icos/error.png' alt='ico error'>
+        <h3>Are you sure?</h3>
+        <p>Do you really want to delete your post? This process cannot be undone</p>
+        <a class='delete-button buttonEdit' id='confirmDeletePost'>Confirm</a>
+        <span class='back-button buttonEdit' id='cancelDeletePost'>Cancel</span>
+    </div>
+        <?php 
 
-        <div class="container">
-            
-                <?php 
+                $u = User::findProfile($_GET['username']);
+
+                if($u){
+
                 echo "<div class='flex-row-short'>
                         <img src='photos/profile/{$u->getFoto()}' class='profile-photo' alt='Foto de Perfil'>
                         <div class='column'>
@@ -58,15 +69,13 @@
                             <a href='editUser.php'><img src='assets/icos/edit_ico1.png' alt='Icon Edit'>Edit</a>
                         </div>";
                     }
-                    ?>
+
+        echo "
         </div>
+        <hr class='division'>
+        <div class='container'>
+        <div class='container-posts'>";
 
-        <hr class="division">
-
-    <div class="container">
-        <div class="container-posts">
-
-            <?php 
 
             $postsProfile = Post::findProfilePost($_GET['username']);
         
@@ -76,7 +85,7 @@
                     echo "<div class='post'>";
         
                         if($_GET['username'] == $_SESSION['nameSession']){
-                            echo "<a class='delete_post' href='config/deletePost.php?idPost={$post->getId()}&foto={$post->getFoto()}'><img src='assets/icos/delete_ico1.png' alt='delete post'>Delete Post</a>";
+                            echo "<span class='delete_post' onclick='confirmDeletePost(`{$post->getId()}`,`{$post->getFoto()}`)'><img src='assets/icos/delete_ico1.png' alt='delete post'>Delete Post</span>";
                         }
                                 
                         echo "<div class='post-img'>
@@ -116,6 +125,11 @@
                 echo "<span>No posts</span>";
             }
             
+
+        }else{
+            echo "<h2>No user found</h2>";
+        }
+
             ?>
 
         </div>

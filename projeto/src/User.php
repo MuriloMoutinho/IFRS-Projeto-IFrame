@@ -135,20 +135,23 @@ class User implements ActiveRecord{
     }
 
     //FINDPROFILE ------------------------------------------------
-    public static function findProfile($nome):User{
+    public static function findProfile($nome){
 
         $conexao = new MySQL();
         $sqlUser = "SELECT usuario.nome,turma.curso,usuario.bio,usuario.foto,usuario.likes FROM usuario, turma WHERE usuario.turma = turma.id AND nome = '{$nome}'";
 
         $user = $conexao->consulta($sqlUser);
 
-        $u = new User();
-        $u->setNome($user['0']['nome']);
-        $u->setTurma($user['0']['curso']); //retorna o nome da turma
-        $u->setBio($user['0']['bio']);
-        $u->setLikes($user['0']['likes']);
-        $u->setfoto($user['0']['foto']);
-        return $u;
+        if(!empty($user)){
+            $u = new User();
+            $u->setNome($user['0']['nome']);
+            $u->setTurma($user['0']['curso']); //retorna o nome da turma
+            $u->setBio($user['0']['bio']);
+            $u->setLikes($user['0']['likes']);
+            $u->setfoto($user['0']['foto']);
+            return $u;
+        }
+        return false;
     }
 
     //FIND ----------------xxxx--------------------------------

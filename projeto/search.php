@@ -53,18 +53,22 @@ require_once __DIR__."/vendor/autoload.php";
                     $usuariosBuscados = User::findUser('',25);
                 }
                 
-                foreach($usuariosBuscados as $usuario){
-                    echo "
-                    <a href='profile.php?username={$usuario->getNome()}'>
-                        <div class='flex-row-short profile-case'>
-                            <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Foto de Perfil'>
-                            <div class='column'>
-                                <span class='user_name_search'>{$usuario->getNome()}</span>
-                                <span class='user_type_search'>{$usuario->getTurma()}</span>
+                if(count($usuariosBuscados)){
+                    foreach($usuariosBuscados as $usuario){
+                        echo "
+                        <a href='profile.php?username={$usuario->getNome()}'>
+                            <div class='flex-row-short profile-case'>
+                                <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Foto de Perfil'>
+                                <div class='column'>
+                                    <span class='user_name_search'>{$usuario->getNome()}</span>
+                                    <span class='user_type_search'>{$usuario->getTurma()}</span>
+                                </div>
                             </div>
-                        </div>
-                    </a>";      
-            }
+                        </a>";      
+                    }
+                }else{
+                    echo "<h3>No user found</h3>";
+                }
         
         ?>
     </div>

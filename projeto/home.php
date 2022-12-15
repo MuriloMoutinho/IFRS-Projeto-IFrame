@@ -1,5 +1,4 @@
 <?php
-use function CommonMark\Render\HTML;
     require 'components/import.php';
     require_once __DIR__."/vendor/autoload.php";
 
@@ -75,7 +74,7 @@ use function CommonMark\Render\HTML;
                     </div><hr class='hr_division'>";
                 }
             }else{
-                echo "No posts";
+                echo "<h2>No posts</h2>";
             }
             ?>
         </div>
