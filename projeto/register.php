@@ -80,7 +80,7 @@ if(isset($_POST['submit'])){
                                 <div class="imgUser">
                                     <img src="photos/profile/profileDefault.jpg" id="imgPhoto">
                                     </div>
-                                        <input type='file' accept="image/*" name='foto'  id='foto' class="input_photo">
+                                        <input type='file' accept="image/*" name='foto'  id='foto' hidden class="input_photo">
                                     </div>
                                 </div>
                             <div class="max-width">

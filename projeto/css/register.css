@@ -228,9 +228,7 @@ select:valid{
     border: solid rgb(141, 141, 141) 1px;
     background-color: rgb(223, 223, 223);
 }
-.input_photo{
-    display: none;
-}
+
 .imgUser{
     align-items: top;
     display: flex;

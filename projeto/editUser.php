@@ -108,8 +108,9 @@
                 </div>";
 
                 ?>
-                <label for="foto" >User photo</label>
-                <input type='file' accept='image/*' name='foto' id="foto"> 
+                <p>User Photo</p>
+                <label for="foto">Change your profile photo here</label>
+                    <input type='file' accept='image/*' hidden name='foto' id="foto"> 
                 <input type='submit' value='Remove photo' name='remove'>
                 
                 <details>
