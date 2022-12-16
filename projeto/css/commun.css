@@ -401,8 +401,8 @@ li.option-footer.ops-home{
 .btns a{
     width: 20%;
     background-color: rgb(221, 221, 221);
-    border-radius: 3px;
     color: black;
+    border: gray 1px solid;
 }
 .btns a:hover{
     background-color: rgb(209, 209, 209);

@@ -315,6 +315,13 @@ select:valid{
     width: 60%;
     margin: 0.5em 0.5em;
     height: 2.5em;
+    background-color: rgb(75, 160, 194);
+    color: white;
+    border: rgb(28, 103, 146) 1px solid;
+}
+.btns a:hover{
+    background-color: rgb(114, 183, 211);
+    border: rgb(28, 103, 146) 1px solid;
 }
 .btns span{
     width: 60%;
@@ -322,6 +329,8 @@ select:valid{
     text-align: center;
     height: 2.5em;
 }
+
+
 
 
 /*ACCESSIBILITY--------------------*/
