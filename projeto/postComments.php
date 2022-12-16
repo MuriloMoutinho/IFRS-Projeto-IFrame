@@ -46,8 +46,9 @@
 
                 <label for='comment'>
                 <textarea name='comentario' id='comment' maxlength='100' cols='20' rows='3' required ></textarea>
-                
-                <input class="post-comment-input" type='submit' value='Post comment' name='submit' >
+                <div class='post-comment-input-div'>
+                    <input class="post-comment-input" type='submit' value='Post comment' name='submit' >
+                </div>
                 </div>
             </form>
 
@@ -59,20 +60,20 @@
          if(count($comments)){
             foreach($comments as $comment){
                 
-                echo "<div class='column'>
+                echo "<div class='column links-delete'>
                     <a href='profile.php?username={$comment['0']->getNome()}'>
                         <div class='post-info'>
                             <img src='photos/profile/{$comment['0']->getFoto()}' alt='Profile picture'>
                             <div>
-                                <p>{$comment['0']->getNome()}</p>
-                                <p>{$comment['0']->getTurma()}</p>
+                                <p class='user_name_search'>{$comment['0']->getNome()}</p>
+                                <p class='user_type_search'>{$comment['0']->getTurma()}</p>
                             </div>
                         </div>
                     </a>";
 
                    
                    echo "<span>{$comment['1']->getConteudo()}</span>
-                   <span>{$comment['1']->getData()}</span>
+                   <span class='date'>{$comment['1']->getData()}</span>
                    </div>";
 
                    if($comment['1']->getUsuario() == $_SESSION['idSession']){

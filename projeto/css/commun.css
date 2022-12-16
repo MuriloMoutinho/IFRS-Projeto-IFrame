@@ -332,6 +332,66 @@ li.option-footer.ops-home{
     border-radius: 10px;
     font-family: var(--fontPrimary);
 }
+.post-comment-input-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.post-comment-input-div:hover{
+    filter: invert(1);
+}
+.post-comment-input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:60%;
+    height: 3em;
+    border: 1px solid rgb(160, 160, 160);    
+    border-radius: 3px;
+    padding-left: 0.5em;
+    margin-bottom: 1em;
+    background-color: rgb(245, 245, 245);
+    font-family: 'Poppins';
+    font-weight: bold;
+    cursor: pointer;
+}
+.delete_comment{
+    margin-top: 1em;
+    font-family: 'Roboto';
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 0.2em 0.4em;
+    font-weight: normal;
+    transition: filter 0.5s ease;
+    cursor: pointer;
+    border: solid 1px rgb(146, 146, 146);
+    background-color: rgb(228, 228, 228);
+    transition: filter 0.4s ease;
+    margin: 2em 0em;
+}
+.delete_comment:hover{
+    background-color: rgb(209, 111, 111);
+}
+.links-delete{
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+.links-delete a{
+    text-decoration: none;
+    color: black;
+}
+.user_name_search{
+    font-size: 1.3em;
+    font-weight: bold;
+    font-family: Open Sans, sans-serif;
+}
+.user_type_search{
+    font-family: 'Roboto';
+    font-weight: normal;
+    font-size: 0.8em;
+}
 
 /*IMG---------------------------------------------------*/
 .like{
