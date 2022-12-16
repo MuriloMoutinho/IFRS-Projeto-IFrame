@@ -26,7 +26,7 @@ function confirmDeletePost(idPost, foto){
 
     const confirm = document.getElementById('confirmDeletePost')
     confirm.addEventListener('click',function(){
-        confirm.setAttribute('href',`config/deletePost.php?idPost=${idPost}&foto=${foto}}`)
+        confirm.setAttribute('href',`config/deletePost.php?idPost=${idPost}&foto=${foto}`)
     })
     
     const cancel = document.getElementById('cancelDeletePost')

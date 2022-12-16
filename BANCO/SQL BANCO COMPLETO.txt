@@ -71,7 +71,7 @@ insert into turma (id, curso) values
 DELIMITER $$
 
 
-CREATE OR REPLACE TRIGGER tr_atualizarLikesInsert
+CREATE TRIGGER tr_atualizarLikesInsert
 AFTER INSERT ON post_curtida
 FOR EACH ROW
 BEGIN
@@ -81,7 +81,7 @@ BEGIN
 END$$
 
 
-CREATE OR REPLACE TRIGGER tr_atualizarLikesDelete
+CREATE TRIGGER tr_atualizarLikesDelete
 AFTER DELETE ON post_curtida
 FOR EACH ROW
 BEGIN
@@ -91,7 +91,7 @@ BEGIN
 END$$
 
 
-CREATE OR REPLACE TRIGGER tr_excluiLikesPostDeletado
+CREATE TRIGGER tr_excluiLikesPostDeletado
 BEFORE DELETE ON post
 FOR EACH ROW
 BEGIN
