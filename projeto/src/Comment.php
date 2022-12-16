@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__."\Post.php";
-require_once __DIR__."\ActiveRecord.php";
+require_once __DIR__."/Post.php";
+require_once __DIR__."/ActiveRecord.php";
 
 class Comment implements ActiveRecord{
     
