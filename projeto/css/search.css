@@ -15,11 +15,13 @@ a{
 }
 .user_name_search{
     font-size: 1.3em;
+    font-weight: bold;
+    font-family: Open Sans, sans-serif;
 }
 .user_type_search{
     font-family: 'Roboto';
     font-weight: normal;
-    font-size: 1em;
+    font-size: 0.8em;
 }
 .botao_search{
     height: 3em;

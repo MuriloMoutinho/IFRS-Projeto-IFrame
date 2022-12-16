@@ -2,13 +2,25 @@ a{
     text-decoration: none;
     color: black;
 }
+.profile-case{
+   display: flex;
+   flex-direction: row;
+    word-wrap: break-word;
+}
+.profile-case-int{
+    display: flex;
+    flex-direction: column;
+}
 .user_name_search{
     font-size: 1.0em;
+    font-weight: bold;
+    font-family: Open Sans, sans-serif;
 }
 .user_type_search{
     font-family: 'Roboto';
     font-weight: normal;
     font-size: 0.8em;
+    word-wrap: break-word;
 }
 .botao_search{
     height: 3em;

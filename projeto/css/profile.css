@@ -1,5 +1,4 @@
 .name-div h2{
-   
     word-wrap: break-word;
 }
 .division{
@@ -16,7 +15,7 @@
     align-items: center;
 }
 h2{
-    word-break: break-all;
+    word-break: break-word;
 }
 .comment{
     margin-left: 0.7em;
@@ -63,7 +62,7 @@ h2{
     width: 10%;
 }
 .delete_post:hover{
-    background-color: rgb(206, 79, 79);
+    background-color: rgb(209, 111, 111);
 }
 .delete_post img{
     width: 1em;
@@ -79,7 +78,4 @@ textarea:focus, input:focus, select:focus {
     box-shadow: 0 0 0 0;
     outline: 0;
     font-weight: bold;
-}
-.post-comment-input{
-    
 }

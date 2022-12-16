@@ -75,11 +75,13 @@ textarea:focus, input:focus, select:focus {
     margin-bottom: 3%;
 }
 .change-password{
+    border: solid 1px rgb(184, 184, 184);
     margin-bottom: 3%;
-    background-color: #90909080;
+    background-color: #ffffff;
     padding: 0.3em;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: rgb(202, 202, 202) 3px 3px 3px;
 }
 .input-editUser{
     width: 100%;
@@ -186,6 +188,7 @@ select:valid{
 .div-user-photo{
     display: flex;
     justify-content: left;
+    margin-bottom: 0.5em;
 }
 .div-user-photo label{
     height: 5em;
@@ -232,17 +235,92 @@ select:valid{
 .input_photo{
     display: none;
 }
+.new-pass summary{
+    cursor: pointer;
+}
+.div-user-photo{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
 .imgUser{
+    width: 50%;
     align-items: top;
     display: flex;
-    justify-content: center;
-    
+    justify-content: center; 
+}
+.div-user-photo label{
+    padding: 0em 1em;
+    cursor: pointer;
+    border: solid 1px rgb(146, 146, 146);
 }
 .imgUser img{
     border-radius: 50%;
     width: 5em;
     height: 5em;
+    object-fit: cover;
 }
+
+.botao-edits{
+    height: 3.5em;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 45%;
+    border: solid 1px rgb(146, 146, 146);
+    font-family: 'Poppins';
+    font-weight: bold;
+    background-color: rgb(228, 228, 228);
+    transition: filter 0.3s ease;
+}
+.botao-edits:hover{
+    filter: invert(1);
+}
+.botao-removes{
+    height: 3em;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 35%;
+    border: solid 1px rgb(146, 146, 146);
+    font-family: 'Poppins';
+    font-weight: bold;
+    background-color: rgb(228, 228, 228);
+    transition: filter 0.4s ease;
+}
+.botao-removes:hover{
+    border: solid rgb(141, 141, 141) 1px;
+    background-color: rgb(223, 223, 223);
+}
+.remove-photo-div{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 1em;
+}
+.edit-photo-div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 1em 0em;
+}
+.btns{
+    align-items: center;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.btns a{
+    width: 60%;
+    margin: 0.5em 0.5em;
+    height: 2.5em;
+}
+.btns span{
+    width: 60%;
+    margin: 0.5em 0.5em;
+    text-align: center;
+    height: 2.5em;
+}
+
 
 /*ACCESSIBILITY--------------------*/
 @media all and (min-width:1167px){

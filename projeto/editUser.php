@@ -109,11 +109,45 @@
 
                 ?>
                 <p>User Photo</p>
-                <label for="foto">Change your profile photo here</label>
-                    <input type='file' accept='image/*' hidden name='foto' id="foto"> 
-                <input type='submit' value='Remove photo' name='remove'>
+                     
                 
-                <details>
+
+                <div class="div-user-photo">
+                    <label for='foto' class="user-photo">Change your profile photo here</label>
+                                
+                        <div class="imgUser">
+                            <img src="photos/profile/profileDefault.jpg" id="imgPhoto">
+                        </div>
+                            <input type='file' accept="image/*" name='foto'  id='foto' hidden class="input_photo">
+                            
+                        </div>
+                       
+                        <script>
+
+                            let photo = document.getElementById('imgPhoto');
+                            let file = document.getElementById('foto');
+
+                            file.addEventListener('change', () => {
+
+                            if (file.files.length <= 0) {
+                            return;
+                            }
+
+                            let reader = new FileReader();
+
+                            reader.onload = () => {
+                            photo.src = reader.result;
+                            }
+
+                            reader.readAsDataURL(file.files[0]);
+                            });
+
+                            </script>
+                            <div class="remove-photo-div">
+                                <button class="botao-removes" type='submit' value='' name='remove'>Remove photo</button>
+                            </div>
+                <div>
+                <details class="new-pass">
                     <summary class='change-password-button'><u>Do you want to change your password?</u></summary>
 
                     <div class='change-password'>
@@ -123,9 +157,12 @@
                     <input type='password' minlength='3' name='newPassword' id="newPassword">
                     </div>
                 </details>
-
-                <input type='submit' value='Edit profile' name='submit'>
+                </div>
                 
+                <div class="edit-photo-div">
+                    <button class="botao-edits" type='submit' name='submit'>Edit profile</button>
+                </div>
+
             </form>
 
             <div class='blur hide' id='blurDeleteUser'></div>
@@ -137,9 +174,9 @@
                 <span class='back-button buttonEdit' id='cancelDeleteUser' >Cancel</span>
             </div>
             
-            <div class='flex-row-short'>
-            <span class='delete-button buttonEdit' onclick="confirmDeleteUser()">Deletar conta</span>
-            <a href="index.php" class='back-button buttonEdit'>Back</a>
+            <div class='btns'>
+                <span class='delete-button buttonEdit' onclick="confirmDeleteUser()">Delete account</span>
+                <a href="index.php" class='back-button buttonEdit'>Back</a>
             </div>
         </div>
     </div>

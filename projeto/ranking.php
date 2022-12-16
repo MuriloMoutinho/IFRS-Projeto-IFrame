@@ -25,8 +25,8 @@
 
     <main>
         <div class="container">
-            <h2>Ranking</h2>
-            <p>Most liked profiles!</p>
+            <h2 class="profile-name">Ranking</h2>
+            <p class="profile-turma">Most liked profiles!</p>
 
             <hr>
             
@@ -39,6 +39,7 @@
             echo "
             <a href='profile.php?username={$usuario->getNome()}'>
             <div class='flex-row-bet profile-case'>
+                <div class='profile-case-int'>
                     <div class='flex-row-bet'>
                         <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Profile picture'>
                         <div class='column'>
@@ -50,7 +51,9 @@
                         <img src='{$imgLike}' alt='Like icon' class='like'>
                         {$usuario->getLikes()} Likes
                     </div>
+                    </div>
                 </div>
+                
                 </a>";
             }
             ?>

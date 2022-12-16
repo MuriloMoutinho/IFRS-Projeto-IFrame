@@ -62,7 +62,6 @@ main{
 }
 .header h1{
     font-family: 'Roboto';
-
 }
 .header img{
     width: 2em;
@@ -242,11 +241,10 @@ li.option-footer.ops-home{
     padding: 0.5em;
     border-radius: 5px;
     box-shadow: rgb(196, 196, 196) 3px 3px 3px;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.3s ease;
 }
 .profile-case:hover{
-    background-color: #bbbbbb;
-
+    background-color: rgb(223, 223, 223);
 }
 
 /*POSTS---------------------------------------------------*/
@@ -273,9 +271,8 @@ li.option-footer.ops-home{
     height: 1px;
     background-color: rgb(209, 209, 209);
     border: none;
-    margin: 0.5em 0em;
+    margin: 1em 0em;
 }
-
 .post-info{
     display: flex;
     align-items: center;
@@ -308,8 +305,8 @@ li.option-footer.ops-home{
 .desc p{
     width: 100%;
     word-wrap: break-word;
+    font-family: Open Sans, sans-serif;
 }
-
 .coment-div a{
     display: flex;
     align-items: center;
