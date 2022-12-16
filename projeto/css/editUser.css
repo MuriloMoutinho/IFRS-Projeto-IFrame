@@ -73,6 +73,8 @@ textarea:focus, input:focus, select:focus {
 
 .change-password-button{
     margin-bottom: 3%;
+    cursor: pointer;
+
 }
 .change-password{
     border: solid 1px rgb(184, 184, 184);
