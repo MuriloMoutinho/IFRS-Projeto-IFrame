@@ -392,6 +392,21 @@ li.option-footer.ops-home{
     font-weight: normal;
     font-size: 0.8em;
 }
+.btns{
+    align-items: left;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.btns a{
+    width: 20%;
+    background-color: rgb(221, 221, 221);
+    border-radius: 3px;
+    color: black;
+}
+.btns a:hover{
+    background-color: rgb(209, 209, 209);
+}
 
 /*IMG---------------------------------------------------*/
 .like{

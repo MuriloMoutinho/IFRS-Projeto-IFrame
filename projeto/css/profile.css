@@ -79,3 +79,35 @@ textarea:focus, input:focus, select:focus {
     outline: 0;
     font-weight: bold;
 }
+.user_name_search{
+    font-size: 1.0em;
+    font-weight: bold;
+    font-family: Open Sans, sans-serif;
+}
+.user_type_search{
+    font-family: 'Roboto';
+    font-weight: normal;
+    font-size: 0.8em;
+    word-wrap: break-word;
+}
+.user_name_search span{
+    font-size: 1.0em;
+    font-weight: bold;
+    font-family: Open Sans, sans-serif;
+}
+.user_type_search span{
+    text-decoration: none;
+}
+.user-data span{
+    text-decoration: none;
+}
+.profile-case{
+    text-decoration: underline rgb(255, 255, 255);
+    color: black;
+}
+.hr_division{
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    margin: 0.5em 0em;
+}

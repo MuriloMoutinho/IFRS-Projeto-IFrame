@@ -30,6 +30,10 @@
     <main>
     <div class="container ">
 
+    <div class='btns'>
+        <a href="index.php" class='back-button buttonEdit'>Back</a>
+    </div>
+    <hr class="hr_division">
         <h1>Profiles that liked</h1>
         <hr>
         <?php 
@@ -42,9 +46,9 @@
             <a href='profile.php?username={$usuario->getNome()}'>
                 <div class='flex-row-short profile-case'>
                     <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Profile picture'>
-                    <div class='column'>
-                        <span>{$usuario->getNome()}</span>
-                        <span>{$usuario->getTurma()}</span>
+                    <div class='column user-data'>
+                        <h2 class='user_name_search'>{$usuario->getNome()}</p>
+                        <p class='user_type_search'>{$usuario->getTurma()}</p>
                     </div>
                 </div>
             </a>";      

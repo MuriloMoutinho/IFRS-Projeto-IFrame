@@ -39,7 +39,9 @@
     <main>
     <div class='container'>
         
-        
+    <div class='btns'>
+        <a href="index.php" class='back-button buttonEdit'>Back</a>
+    </div>
 
         <form <?php echo "action='postComments.php?post={$_GET['post']}'"; ?> method='post'>
                 <div class='desc-post'>
@@ -49,6 +51,7 @@
                 <div class='post-comment-input-div'>
                     <input class="post-comment-input" type='submit' value='Post comment' name='submit' >
                 </div>
+                
                 </div>
             </form>
 
