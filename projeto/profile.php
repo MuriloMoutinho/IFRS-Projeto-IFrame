@@ -72,7 +72,7 @@
 
         echo "
         </div>
-        <hr class='division'>
+        <hr class='hr_division'>
         <div class='container'>
         <div class='container-posts'>";
 

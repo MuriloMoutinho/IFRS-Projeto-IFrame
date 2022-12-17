@@ -196,7 +196,8 @@ li.option-footer.ops-home{
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 0.5em;
+    
 }
 
 /*STYLES---------------------------------------------------*/
@@ -224,11 +225,6 @@ li.option-footer.ops-home{
     display: flex;
     flex-direction: column;
 }
-.division hr{
-    display: flex;
-    padding: 5px;
-    margin: 50px;
-}
 .profile-photo{
     border-radius: 50%;
     width: 5em;
@@ -248,9 +244,7 @@ li.option-footer.ops-home{
 }
 
 /*POSTS---------------------------------------------------*/
-.container-posts{
-    margin-bottom: 5em;
-}
+
 .post{
     display: flex;
     flex-direction: column;
@@ -262,17 +256,13 @@ li.option-footer.ops-home{
     font-family: 'Roboto';
     font-weight: normal;
 }
-.post hr{
+.hr_division{
     height: 1px;
+    margin: 1em 0;
     background-color: rgb(226, 226, 226);
     border: none;
 }
-.hr_division{
-    height: 1px;
-    background-color: rgb(209, 209, 209);
-    border: none;
-    margin: 1em 0em;
-}
+
 .post-info{
     display: flex;
     align-items: center;
@@ -412,6 +402,20 @@ li.option-footer.ops-home{
 .like{
     width: 2em;
     cursor: pointer;
+}
+.like-ativo{
+    animation: likesAnimation 0.5s ease;
+}
+@keyframes likesAnimation {
+    0%{
+        transform: scale(1) rotateY(0);
+    }
+    50%{
+        transform: scale(1.3) rotate(10deg);
+    }
+    100%{
+        transform: scale(1) rotateY(0);
+    }
 }
 .footer-fake{
     height: 3.5em;
@@ -574,11 +578,6 @@ li.option-footer.ops-home{
 @media all and (max-width:1167px){
     .container_menu{
         display: none;
-    }
-}
-@media all and (min-width:1168px){
-    .post{
-        margin-bottom: 2vh;
     }
 }
 @media all and (min-width:1168px){
