@@ -61,7 +61,7 @@
                     </div>
 
                     <div class='profile-bio'>                     
-                        <p>{$u->getBio()}</p>
+                        <pre>{$u->getBio()}</pre>
                     </div>";
    
                     if($_GET['username'] == $_SESSION['nameSession']){

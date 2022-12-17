@@ -1,12 +1,19 @@
 .name-div h2{
-    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
 }
 .division{
     margin: 1em 0;
 }
 .profile-bio{
     margin: 0.7em 0em;
+}
+.profile-bio pre{
+    font-family: 'Roboto';
+    overflow-x: auto;
+    white-space: pre-wrap;
     word-wrap: break-word;
+
 }
 .like-total-user img{
     margin-top: 0;
@@ -14,9 +21,7 @@
 .like-total-user div{
     align-items: center;
 }
-h2{
-    word-break: break-word;
-}
+
 .comment{
     margin-left: 0.7em;
 }
