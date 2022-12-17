@@ -1,9 +1,5 @@
 <h1>IFrame</h1>
 
-<h2>Status</h2>
-<p>⚠️Em desenvolvimento⚠️</p>
-<hr>
-
 <h2>🧧 Sobre</h2>
 <p>O projeto IFrame se resume em uma rede social de compartilhamento de fotos, feita com o proposito de funcionar em redes locais, como em prédios, escolas, universidades, empresas, ou até mesmo praças. O projeto possui inspirações como Instagram, Fotolog e Pinterest. Nela é possível cadastrar um perfil, customizá-los, publicar fotos para outros perfis visualizarem, comentar em publicações, curtir publicações, além de um sistema de ranqueamento dos perfis que possuem um maior número de likes totais em suas fotos, para um maior engajamento e movimentação da rede social. O IFrame não possui um sistema de seguidores, portanto não existe um controle sobre as postagens que irão aparecer, todas as fotos inseridas na rede social são apresentadas para todos os usuários.<p>
 <hr>
@@ -34,6 +30,17 @@
 
 </div>
 
+<hr>
+
+<details>
+<summary> <h2>▶️ Como Executar</h2> </summary>
+<ol>
+<li>Hospedar um banco MYSQL chamado "iframe-app" contendo as 5 tabelas necessárias, "usuario", "turma", "post" , "post_curtida", "post_comentario" presentes no SQL do projeto</li>
+<li>Hospedar em um servidor o back-end em PHP integrado ao banco de dados MYSQL criado anteriormente</li> 
+<ol>
+  
+</details>
+ 
 <hr>
 
  <h2>💻 Tecnologias usadas</h2>
