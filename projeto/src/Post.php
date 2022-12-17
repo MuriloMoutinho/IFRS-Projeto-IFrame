@@ -139,9 +139,9 @@ class Post implements ActiveRecord{
     public function save():bool{
         $conexao = new MySQL();
         
-        $typesImg = array("JPG", "JPEG", "GIF", "PNG", "SVG", "PSD", "WEBP", "RAW", "TIFF", "BMP", "jpg", "gif", "png", "svg", "psd", "webp", "raw", "tiff", "bmp", "jpeg");
+        $typesImg = array("JPG", "JPEG", "GIF", "PNG", "SVG", "PSD", "WEBP", "RAW", "TIFF", "BMP","JFIF", "jpg", "gif", "png", "svg", "psd", "webp", "raw", "tiff", "bmp", "jpeg","jfif");
 
-        $diretorio = "photos/posts/";
+        $diretorio = __DIR__."/../photos/posts/";
         $nome_foto = $this->foto;
         $info_name = explode(".",$nome_foto);
         $extensao = end($info_name);
