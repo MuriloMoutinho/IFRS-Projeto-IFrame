@@ -13,6 +13,26 @@
 <hr>
 
 <h2>📷 Previa</h2>
+<h3>Home - Mobile</h3>
+<div align="center"> 
+
+![image](https://user-images.githubusercontent.com/104277785/208255654-1ffcc794-00eb-47a3-857e-9143cc36c89a.png)
+
+</div>
+
+<h3>Ranking - Mobile</h3>
+<div align="center"> 
+
+![image](https://user-images.githubusercontent.com/104277785/208255664-a5d69b37-943b-4ffe-a42b-84fe39574b7c.png)
+
+</div>
+
+<h3>Perfil - Desktop</h3>
+<div align="center"> 
+
+![image](https://user-images.githubusercontent.com/104277785/208255674-1c21a2fd-0087-4d9c-b5c6-ca6b1e62bfe0.png)
+
+</div>
 
 <hr>
 
