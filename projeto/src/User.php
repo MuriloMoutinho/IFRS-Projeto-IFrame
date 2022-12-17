@@ -201,7 +201,7 @@ class User implements ActiveRecord{
         }
 
         if(!empty($this->foto) && $this->foto != "profileDefault.jpg"){
-            $typesImg = array("JPG", "JPEG", "GIF", "PNG", "SVG", "PSD", "WEBP", "RAW", "TIFF", "BMP", "jpg", "gif", "png", "svg", "psd", "webp", "raw", "tiff", "bmp", "jpeg");
+            $typesImg = array("JPG", "JPEG", "GIF", "PNG", "SVG", "PSD", "WEBP", "RAW", "TIFF", "BMP","JFIF", "jpg", "gif", "png", "svg", "psd", "webp", "raw", "tiff", "bmp", "jpeg","jfif");
 
             $diretorio = "photos/profile/";
             $nome_arquivo = $this->foto;
