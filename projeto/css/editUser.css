@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap');
-/*CONTAINER------------------------*/
 
+/*CONTAINER------------------------*/
 .container-editUser{
     justify-content: center;
     display: flex;
@@ -70,7 +70,6 @@ textarea:focus, input:focus, select:focus {
 }
 
 /*BUTTON---------------------------*/
-
 .change-password-button{
     margin-bottom: 3%;
     cursor: pointer;
@@ -245,7 +244,6 @@ select:valid{
     align-items: center;
     justify-items: center;
 }
-
 .imgUser{
     width: 50%;
     align-items: top;
@@ -263,7 +261,6 @@ select:valid{
     height: 5em;
     object-fit: cover;
 }
-
 .botao-edits{
     height: 3.5em;
     border-radius: 5px;
@@ -329,9 +326,6 @@ select:valid{
     text-align: center;
     height: 2.5em;
 }
-
-
-
 
 /*ACCESSIBILITY--------------------*/
 @media all and (min-width:1167px){

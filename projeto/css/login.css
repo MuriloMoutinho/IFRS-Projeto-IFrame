@@ -66,12 +66,15 @@ html,body{
     font-family: Open Sans, sans-serif;
 }
 .input-text input:hover{
-    border: solid rgb(39, 159, 180) 1px;     
+    border: solid rgb(161, 161, 161) 1px;    
 }
 .input-box input::placeholder{
+    justify-content: center;
+    align-items: center;
+    display: flex;
     color: rgb(161, 161, 161);
     font-family: 'poppins';
-    font-size: 80%;
+    font-size: 1rem;
     font-weight: bold;
 }
 .voltar{

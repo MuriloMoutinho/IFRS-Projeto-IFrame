@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap');
+
+/*CONTAINER------------------------*/
 * {
     padding: 0;
     margin: 0;
@@ -197,7 +199,6 @@ li.option-footer.ops-home{
     display: flex;
     flex-direction: column;
     gap: 0.5em;
-    
 }
 
 /*STYLES---------------------------------------------------*/
@@ -244,7 +245,6 @@ li.option-footer.ops-home{
 }
 
 /*POSTS---------------------------------------------------*/
-
 .post{
     display: flex;
     flex-direction: column;
@@ -262,7 +262,6 @@ li.option-footer.ops-home{
     background-color: rgb(226, 226, 226);
     border: none;
 }
-
 .post-info{
     display: flex;
     align-items: center;
@@ -431,6 +430,7 @@ li.option-footer.ops-home{
 .like-botao-desc a{
     text-decoration: none;
 }
+
 /*MENU------------------------------------------------- */
 .container_menu{
     float: left;
@@ -503,12 +503,10 @@ li.option-footer.ops-home{
 }
 .modal_confirm{
     position: fixed;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.4em;
-
     text-align: center;
     min-width: 20em;
     max-width: 35em;
@@ -554,7 +552,6 @@ li.option-footer.ops-home{
     font-size: 1em;
     border-radius: 5px;
     cursor: pointer;
-
     transition: all 0.5s ease;
 }
 .delete-button{

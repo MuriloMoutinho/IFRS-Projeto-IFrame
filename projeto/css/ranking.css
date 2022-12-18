@@ -36,7 +36,6 @@ a{
 .botao_search:hover{
     filter: invert(1);
 }
-
 .search-img-botao{
     width: 1.5em;
     margin-bottom: 3px;
