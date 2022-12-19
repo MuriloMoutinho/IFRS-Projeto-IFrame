@@ -27,10 +27,8 @@ require 'components/inicial_index.php';
                         <h1 class="title-logo"><img class="img-logo" src='assets/icos/logo_ico1.png' alt='IFrame logo'>IFrame</h1> 
                     </div>
                     <div class="text-info">
-                        <?php echo $text_intro_proj_en?>
-                        <br>
-                        <br>
-                        <?php echo $text_info_index_en?>
+                        <p>IFrame is basically an image-sharing social network based on Instagram and Fotolog for interaction among everyone who attends IFRS Feliz.</p>
+                        <p> As a final project for the 3rd Year of the Computer Technician High School course, it was proposed that we used all we learned throughout the year to develop a project that would have some impact and could be used by everyone. With that in mind, our choice was to make a social network.</p>
                     </div>
             </div>
 
