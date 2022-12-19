@@ -49,7 +49,7 @@
 
                 echo "<div class='flex-row-short container-user'>
                         
-                        <div class='column'>
+                        <div class='column container2'>
                             <div class='name-div'>
                                 <div class='photo-p'>
                                     <img src='photos/profile/{$u->getFoto()}' class='profile-photo' alt='Profile picture'>
