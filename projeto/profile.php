@@ -47,21 +47,29 @@
 
                 if($u){
 
-                echo "<div class='flex-row-short'>
-                        <img src='photos/profile/{$u->getFoto()}' class='profile-photo' alt='Profile picture'>
+                echo "<div class='flex-row-short container-user'>
+                        
                         <div class='column'>
                             <div class='name-div'>
-                                <h2>{$u->getNome()}</h2>
-                                <span>{$u->getTurma()}</span>
+                                <div class='photo-p'>
+                                    <img src='photos/profile/{$u->getFoto()}' class='profile-photo' alt='Profile picture'>
+                                    <div>
+                                    <h2>{$u->getNome()}</h2>
+                                    <span>{$u->getTurma()}</span>
+                                    <div class='like-total-user'>
+                                        <img src='$imgLike' alt='Like icon' class='like'>
+                                        <p>{$u->getLikes()}</p>
+                                    </div>
+                                </div>
+                                </div>
+                                
+                                
                             </div>
-                            <div class='like-total-user'>    
-                                <img src='$imgLike' alt='Like icon' class='like'>{$u->getLikes()}
-                            </div>
-                        </div>
+                            
+                            <div class='profile-bio'>                     
+                            <pre>{$u->getBio()}</pre>
                     </div>
-
-                    <div class='profile-bio'>                     
-                        <pre>{$u->getBio()}</pre>
+                        </div>
                     </div>";
    
                     if($_GET['username'] == $_SESSION['nameSession']){
@@ -89,7 +97,7 @@
                         }
                                 
                         echo "<div class='post-img'>
-                            <img class='img-format' src='photos/posts/{$post->getFoto()}'  alt='Post Image'>
+                            <img class='img-format' src='photos/posts/{$post->getFoto()}' alt='Post Image'>
                         </div>
 
                         <span class='date'>{$post->getData()}</span>
@@ -119,7 +127,6 @@
                     
                     echo "</div>
                     <hr class='hr_division'>";
-;
                 }
             }else{
                 echo "<span>No posts</span>";

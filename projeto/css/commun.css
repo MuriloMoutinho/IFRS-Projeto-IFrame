@@ -33,12 +33,11 @@ main{
 /*SCROLLBAR---------------------------------------------------*/
 ::-webkit-scrollbar{
     width: 13px;
-    background-color: #181818;
+    background-color: #1a1a1a;
 }
 ::-webkit-scrollbar-thumb{
     width: 8px;
     background-color: #AAAAAA;
-    border-radius: 5px;
 }
 
 /*VAR---------------------------------------------------*/
