@@ -16,7 +16,7 @@
     padding: 0 1em;
     width: 100%;
     border-radius: 15px;
-    background-color: rgba(255, 255, 255);
+    background-color: rgb(230, 230, 230);
     margin: 0 20em;
     display: flex;
 }
@@ -55,12 +55,12 @@ textarea:focus, input:focus, select:focus {
     padding: 0px 10px;
     margin-bottom: 3%;
     font-size: 1.1rem;
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(255, 255, 255);
     font-family: Open Sans, sans-serif;
     
 }
 .input-text input:hover{
-    border: solid rgb(39, 159, 180) 1px;    
+    border: solid rgb(161, 161, 161) 1px;   
 }
 .input-box input::placeholder{
     color: rgb(161, 161, 161);
@@ -82,7 +82,7 @@ textarea:focus, input:focus, select:focus {
     padding: 0.3em;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: rgb(202, 202, 202) 3px 3px 3px;
+    box-shadow: rgb(216, 216, 216) 3px 3px 3px;
 }
 .input-editUser{
     width: 100%;
@@ -154,7 +154,7 @@ textarea:focus, input:focus, select:focus {
     padding: 0px 10px;
     font-size: 1rem;
     height: 2.7em;
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(255, 255, 255);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -164,7 +164,7 @@ select:invalid{
     font-weight: bold;
 }
 .select select:hover{
-    border: solid rgb(39, 159, 180) 1px;
+    border: solid rgb(161, 161, 161) 1px;
 }
 select:valid{
     color: rgb(0, 0, 0);
@@ -175,16 +175,15 @@ select:valid{
 .bio-input textarea{
     padding: 1px 5px;
     font-family: Open Sans, sans-serif;
-    
     width: 100%;
     border: solid rgb(44, 60, 99) 1px;
     border-radius: 5px;
     resize: none;
     font-size: 1.1rem;
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(255, 255, 255);
 }
 .bio-input textarea:hover{
-    border: solid rgb(39, 159, 180) 1px;
+    border: solid rgb(161, 161, 161) 1px;
 }
 .div-user-photo{
     display: flex;
@@ -193,6 +192,7 @@ select:valid{
 }
 .div-user-photo label{
     height: 5em;
+    background-color: white;
 }
 .user-photo{
     display: flex;
@@ -269,7 +269,7 @@ select:valid{
     border: solid 1px rgb(146, 146, 146);
     font-family: 'Poppins';
     font-weight: bold;
-    background-color: rgb(228, 228, 228);
+    background-color: rgb(255, 255, 255);
     transition: filter 0.3s ease;
 }
 .botao-edits:hover{
@@ -283,7 +283,7 @@ select:valid{
     border: solid 1px rgb(146, 146, 146);
     font-family: 'Poppins';
     font-weight: bold;
-    background-color: rgb(228, 228, 228);
+    background-color: rgb(255, 255, 255);
     transition: filter 0.4s ease;
 }
 .botao-removes:hover{
