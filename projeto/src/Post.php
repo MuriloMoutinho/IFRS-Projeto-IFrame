@@ -141,7 +141,7 @@ class Post implements ActiveRecord{
         
         $typesImg = array("JPG", "JPEG", "GIF", "PNG", "SVG", "PSD", "WEBP", "RAW", "TIFF", "BMP","JFIF", "jpg", "gif", "png", "svg", "psd", "webp", "raw", "tiff", "bmp", "jpeg","jfif");
 
-        $diretorio = __DIR__."/../photos/posts/";
+        $diretorio = __DIR__ . "/../photos/posts/";
         $nome_foto = $this->foto;
         $info_name = explode(".",$nome_foto);
         $extensao = end($info_name);
@@ -150,7 +150,7 @@ class Post implements ActiveRecord{
             return false;
         }
         $this->foto = uniqid().".".$extensao;
-        move_uploaded_file($_FILES["newPhoto"]["tmp_name"], $diretorio.$this->foto);
+        move_uploaded_file($_FILES["newPhoto"]["tmp_name"], $diretorio . $this->foto);
 
         $sql = "INSERT INTO post (criador,foto,descricao,dataCriacao) VALUES ('{$this->criador}','{$this->foto}','{$this->descricao}',CURRENT_TIMESTAMP())";
         
