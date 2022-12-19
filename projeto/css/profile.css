@@ -1,3 +1,6 @@
+.container2{
+    width: 100%;
+}
 .name-div{
     display: flex;
     flex-direction: column;
@@ -36,9 +39,6 @@
 .profile-photo{
     margin: 0em 1em;
 }
-.profile-photo img{
-    width: 5em;
-}
 .profile-bio{
     padding: 1em;
     border-bottom: solid 1px rgb(224, 224, 224);
@@ -50,6 +50,7 @@
     overflow-x: auto;
     white-space: pre-wrap;
     word-wrap: break-word;
+    font-size: 0.9rem;
 }
 .like-total-user div{
     align-items: center;
