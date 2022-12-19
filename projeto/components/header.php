@@ -2,9 +2,11 @@
 $header = "
     <header class='header'>
         <div class='container-header'>
+                <a class='title-header-link' href='home.php'>
                  <div class='title-header flex-row-short'>
                     <img src='$imglogo' alt='Iframe logo'>
                     <h1>IFrame</h1>
+                    </a>
                 </div>
 
                 <div class='logout-header flex-row-short'>

@@ -61,6 +61,12 @@ main{
     border: var(--border) solid 1px;
     color: var(--colorPrinc);
 }
+.title-header-link{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+}
 .header h1{
     font-family: 'Roboto';
 }
