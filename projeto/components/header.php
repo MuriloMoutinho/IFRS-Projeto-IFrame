@@ -1,17 +1,18 @@
 <?php
-$header = "
-    <header class='header'>
-        <div class='container-header'>
-                <a class='title-header-link' href='home.php'>
-                 <div class='title-header flex-row-short'>
-                    <img src='$imglogo' alt='Iframe logo'>
-                    <h1>IFrame</h1>
-                    </div>
-                </a>
 
-                <div class='logout-header flex-row-short'>
-                    <a href='config/logout.php'><img src='assets/icos/out_ico2.png' alt=''>Sign out</a>
-                </div> 
+$header = "
+<header class='header'>
+    <div class='container container-header'>
+        <div class='header-logo'>
+            <img src='$imglogo' alt='Iframe logo' class='header-icon'>
+            <span>IFrame<span>
         </div>
-    </header>";
-?>
+        <div class='header-logout'>
+            <a href='config/logout.php' class='header-logo'>
+                <img src='assets/icos/out_ico2.png' alt='Sign out' class='header-icon'>
+                <span>Sign out</span>
+            </a>
+        </div> 
+    </div>
+</header>";
+ 
