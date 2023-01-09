@@ -1,7 +1,6 @@
 <?php
     require 'components/import.php';
     require_once __DIR__."/vendor/autoload.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -10,17 +9,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/commun.css">
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/commun.css">
     <link rel="stylesheet" href="css/home.css">
     <script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-
     <title>IFrame</title>
 </head>
 <body>
     <?php
-    echo $menu;
- 
     echo $header;
     ?>
     <main>

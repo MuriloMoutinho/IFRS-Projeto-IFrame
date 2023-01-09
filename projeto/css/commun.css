@@ -7,8 +7,10 @@
     --fontPrimary: 'Poppins', sans-serif;
     --primary-background: #000000;
     --secondary-background: #ffffff;
-    --border: #2b2b2b ;
-    --colorPrinc: #ffffff;
+    --opacityColor: rgba(0, 0, 0, 0.539);
+    --border: #2b2b2b;
+    --colorPrimary: #ffffff;
+    --colorSecondary: black;
     --red: red;
     --sizeLarge: large;
     --sizeMedium: medium;
@@ -63,21 +65,24 @@ main{
     height: 10%;
     background-color: var(--primary-background);
     border: var(--border) solid 1px;
-    color: var(--colorPrinc);
+    color: var(--colorPrimary);
 }
 .container-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.flex-row-short{
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-}
 .header-logo{
     display: flex;
     align-items: center;
+    color: var(--colorPrimary);
+}
+.header-logout{
+    display: none;
+    align-items: center;
+}
+.editProfile{
+    display: none;
 }
 .img-logo{
     height: 2em;
@@ -97,49 +102,22 @@ main{
     height: 3em;
     width: 100%;
 }
-.ul-class{
+.footer-nav{
     display: flex;
-    flex-direction: row;
-}
-.footer ul{
-    text-decoration: none;
-    list-style-type: none;
-}
-.footer img{
-    width: 2em;
-}
-.option-footer{
-    width: 100%;
-    display: flex;
-    padding: 0.1em 0.5em;
     align-items: center;
+    justify-content: space-between;
 }
-li.option-footer.ops-home{
-    width: 100%;
+.nav-item{
     height: 3em;
-}
-.ops-botao a{
+    width: 3em;
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 3em;
 }
-.ops-botao li{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 3em;
+.nav-img{
+    height: 2.5em;
+    width: 2.5em;
 }
-.ops-botao{
-    display: flex;
-    width: 20%;
-    height: 3em;
-    justify-content: center;
-    align-items: center;
-}
-
 
 /*SCROLLBAR---------------------------------------------------*/
 ::-webkit-scrollbar{
@@ -196,7 +174,7 @@ li.option-footer.ops-home{
 }
 .button{
     height: 3em;
-    color: var(--colorPrinc);
+    color: var(--colorPrimary);
     background-color: var(--primary-background);
     display: flex;
     border-radius: .5em;
@@ -211,7 +189,7 @@ li.option-footer.ops-home{
 }
 
 
-/*DETALHES*/
+/*DETALHES---------------------------------------------- */
 .paragrafo{
     margin-top: .5em;
 }
@@ -287,6 +265,9 @@ li.option-footer.ops-home{
     border-radius: 5px;
     color: white;
 }
+
+
+/*MODAL------------------------------------------------- */
 .modal_confirm{
     position: fixed;
     display: flex;
@@ -294,8 +275,7 @@ li.option-footer.ops-home{
     align-items: center;
     gap: 0.4em;
     text-align: center;
-    min-width: 20em;
-    max-width: 35em;
+    max-width: 90%;
     max-height: 30em;
     top: 50%;
     left: 50%;
@@ -310,8 +290,8 @@ li.option-footer.ops-home{
     font-size: 1.3em;
     color: red;
 }
-.modal_confirm img{
-    width: 100px;
+.modal_confirm .error-img{
+    width: 7em;
 }
 .blur{
     position: fixed;
@@ -326,37 +306,12 @@ li.option-footer.ops-home{
 .hide{
     display: none;
 }
-.buttonEdit{
-    text-decoration: none;
-    height: 2em;
-    width: 10em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: bold;
-    font-size: 1em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.5s ease;
-}
-.delete-button{
-    border: solid 1px rgb(128, 22, 22);
-    background-color: #b33d3d;
-}
-.delete-button:hover{
-    background-color: #ce6d6d;
-    border: solid 1px #924b4b;
-}
-.back-button{
-    background-color: #3d76b3;
-    border: solid 1px #165280;
-}
-.back-button:hover{
-    background-color: #71a2d6;
-    border: solid 1px #215e8d;
-}
 
+@media (min-width: 480px) {
+    .modal_confirm{
+        max-width: 480px;
+    }
+}
 
 /*POSTS---------------------------------------------------*/
 .post{
@@ -494,21 +449,6 @@ li.option-footer.ops-home{
     font-family: 'Roboto';
     font-weight: normal;
     font-size: 0.8em;
-}
-.btns{
-    align-items: left;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-}
-.btns a{
-    width: 20%;
-    background-color: rgb(221, 221, 221);
-    color: black;
-    border: gray 1px solid;
-}
-.btns a:hover{
-    background-color: rgb(209, 209, 209);
 }
 
 

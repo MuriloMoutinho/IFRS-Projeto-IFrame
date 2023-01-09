@@ -40,8 +40,15 @@ textarea{
     line-height: var(--sizeNormal);
     font-family: var(--fontPrimary);
     letter-spacing: var(--sizeNormal);
+    margin-bottom: .5em;
 }
 .profile-img{
-    width: 7em;
+    width: 8em;
     border-radius: 7em;
+    margin-top: .5em;
+}
+.user-photo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

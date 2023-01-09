@@ -1,47 +1,26 @@
 <?php
-$footer = "
-<div class='footer-fake'>
-</div>
+$footer ="
+<div class='footer-fake'></div>
 
 <footer class='footer'>
-    <nav class='container'>
-        <ul class='ul-class'>
-            <div class='ops-botao ops-home'>
-            <a href='home.php'>
-                <li class='option-footer'>
-                        <img src='{$imgHome}' alt='icon home'>
-                </li>
+    <div class='container'>
+        <nav class='footer-nav'>
+            <a href='home.php' class='nav-item'>
+                <img src='{$imgHome}' alt='icon home' class='nav-img'>
             </a>
-            </div>
-            <div class='ops-botao ops-search'>
-            <a href='search.php'> 
-                <li class='option-footer'>
-                    <img src='{$imgSearch}' alt='icon search'>
-                </li>
+            <a href='search.php' class='nav-item'> 
+                <img src='{$imgSearch}' alt='icon search' class='nav-img'>
             </a>
-            </div>
-            <div class='ops-botao ops-rank'>
-            <a href='ranking.php'>
-                <li class='option-footer'>
-                    <img src='{$imgRanking}' alt='icon ranking'>
-                </li>
+            <a href='ranking.php' class='nav-item'>
+                <img src='{$imgRanking}' alt='icon ranking' class='nav-img'>
             </a>
-            </div>
-            <div class='ops-botao ops-newP'>
-            <a href='newPhoto.php'>
-                <li class='option-footer'>
-                    <img src='{$imgNewPost}' alt='icon newPhoto'>
-                </li>
+            <a href='newPhoto.php' class='nav-item'>
+                <img src='{$imgNewPost}' alt='icon newPhoto' class='nav-img'>
             </a>
-            </div>
-            <div class='ops-botao ops-profile'>
-            <a href='profile.php?username={$_SESSION['nameSession']} '>
-                <li class='option-footer'>
-                    <img src='{$imgProfileFooter}' alt='icon profile'>
-                </li>
+            <a href='profile.php?username={$_SESSION['nameSession']}' class='nav-item'>
+                <img src='{$imgProfileFooter}' alt='icon profile' class='nav-img'>
             </a>
-            </div>
-        </ul>
-    </nav>
+        </nav>
+    </div>
 </footer>";
 ?>

@@ -72,8 +72,9 @@
                 <label for='bio'>Bio</label>
                 <textarea name="bio" id='bio' placeholder="Your biography...">Hi! I am using Iframe.</textarea>
 
-                <label for='foto' class="user-photo">Add your profile photo</label>
-                <img src="photos/profile/profileDefault.jpg" id="imgPhoto" class="profile-img">
+                <label for='foto' class="user-photo">Add your profile photo
+                    <img src="photos/profile/profileDefault.jpg" id="imgPhoto" class="profile-img">
+                </label>
                 <input type='file' accept="image/*" name='foto'  id='foto' hidden class="input_photo">
 
                 <script>
