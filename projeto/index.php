@@ -18,25 +18,27 @@
     <title>IFrame</title>
 </head>
 <body>
+    <header class="header">
+        <div class="container container-header">
+            <div class="header-logo">
+                <img class="img-logo" src='assets/icos/logo_ico2_1.ico' alt='IFrame logo'>
+                <h1 class="title-logo">IFrame</h1>
+            </div>
+        </div>
+    </header>
     <main>
-        <img class="img-logo" src='assets/icos/logo_ico1.png' alt='IFrame logo'>
-        <h1 class="title-logo">IFrame</h1>
-
-        <p>
-            IFrame is basically an image-sharing social network based on Instagram and Fotolog for interaction  among everyone
-            who attends IFRS Feliz.
-        </p>
-        <p>
-            As a final project for the 3rd Year of the Computer Technician High School course, it was proposed  that we used
-            all we learned throughout the year to develop a project that would have some impact and could be used   by
-            everyone. With that in mind, our choice was to make a social network.
-        </p>
-
-        <a href="login.php">Sign in</a>
-
-        <a href="register.php">Create account</a>
-
-        </main>
-    
+        <div class="container">
+            <p class="paragrafo">
+                IFrame is basically an image-sharing social network based on Instagram and Fotolog for interaction  among everyone who attends IFRS Feliz.
+            </p>
+            <p class="paragrafo">
+                As a final project for the 3rd Year of the Computer Technician High School course, it was proposed that we used all we learned throughout the year to develop a project that would have some impact and could be used by everyone. With that in mind, our choice was to make a social network.
+            </p>
+            <div class="button-div">
+                <a href="login.php" class="button">Sign in</a>
+                <a href="register.php" class="button">Create account</a>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

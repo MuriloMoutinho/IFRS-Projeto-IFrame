@@ -10,116 +10,93 @@
     <title>IFrame - Sign up</title>
 </head>
 <body>
-<div class="container-register">
-        <div class="register-all-box">
-            <div class="register-box">
-            
-                <div class="title-register">
-                    <h1>Sign up</h1>
-                </div>
-                <div class="input-box">
-
-<?php 
-    require_once __DIR__."/vendor/autoload.php";
-    
-if(isset($_POST['submit'])){
-
-    $u = new User();
-    $u->setNome($_POST['name']);
-    $u->setEmail($_POST['email']);
-    $u->setBio($_POST['bio']); 
-
-    $u->setSenha($_POST['password']);
-    $u->setTurma($_POST['turma']);
-    $u->setFoto($_FILES['foto']['name']);
-
-    if($u->validate()){
-        if($u->save()){
-            header("location: login.php");
-        }else{
-            echo "<div class='error'><span>We only accept files that are images</span></div>";
-        }
-    }else{
-        echo"<div class='error'><span>Name or email is already in use. </span></div>";
-    }
-}
-?>
-                    <form action="register.php" method="post" class="column" enctype="multipart/form-data">
-                        <div class="input-text">
-                            <label>User Name <input type="text" name='name' minlength="2" placeholder="min : 2 characters" maxlength="50" required></label>
-                            <label>Email <input type="email" placeholder="example@email.com" name='email' required></label>
-                            <label>Password <input type="password" minlength="3" name='password' placeholder="min : 3 characters" required></label>
-                            <div class="select">
-                            <label>Enter your class or position in IFRS<br> <select name='turma' required>
-
-                                <option value="" disabled selected >Select . . .</option>
-
-                                <?php 
-                    
-                                    $conexao = new MySQL();
-                                    $sql = "SELECT * FROM turma order by id asc";
-                                    $turmas = $conexao->consulta($sql);
-                                    foreach($turmas as $turma){
-                                    echo "<option value='{$turma['id']}'>{$turma['curso']}</option>";
-                                    }
-                                ?>     
-                                </select>
-                            </label>
-                            </div>
-                            
-                            <div class="bio-input">
-                                <label for='bio'>Bio</label>
-                                <textarea name="bio" id='id' cols="20" rows="3" placeholder="Your biography...">Hi! I am using Iframe.</textarea>
-                            </div>
-
-                            <p>User photo</p>
-
-                            <div class="div-user-photo">
-                                <label for='foto' class="user-photo">Add your profile photo</label>
-                                
-                                <div class="imgUser">
-                                    <img src="photos/profile/profileDefault.jpg" id="imgPhoto">
-                                    </div>
-                                        <input type='file' accept="image/*" name='foto'  id='foto' hidden class="input_photo">
-                                    </div>
-                                </div>
-                            <div class="max-width">
-                                
-                            </div>
-                        </div>
-                        <script>
-
-                            let photo = document.getElementById('imgPhoto');
-                            let file = document.getElementById('foto');
-
-                            file.addEventListener('change', () => {
-
-                            if (file.files.length <= 0) {
-                            return;
-                            }
-
-                            let reader = new FileReader();
-
-                            reader.onload = () => {
-                            photo.src = reader.result;
-                            }
-
-                            reader.readAsDataURL(file.files[0]);
-                            });
-
-                            </script>
-                        <div class="input-button">
-                            <div class="input-register">
-                                <input type="submit" value="Register" name='submit'>
-                            </div>
-                            <div class="voltar">
-                                <a href="index.php">Cancel</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+    <header class="header">
+        <div class="container container-header">
+            <div class="header-logo">
+                <img class="img-logo" src='assets/icos/logo_ico2_1.ico' alt='IFrame logo'>
+                <h1 class="title-logo">IFrame</h1>
             </div>
+            <h1>Sign up</h1>
         </div>
-</div>
+    </header>
+    <main>
+        <div class="container">
+            <?php 
+            require_once __DIR__."/vendor/autoload.php";
+
+            if(isset($_POST['submit'])){
+            
+                $u = new User();
+                $u->setNome($_POST['name']);
+                $u->setEmail($_POST['email']);
+                $u->setBio($_POST['bio']); 
+            
+                $u->setSenha($_POST['password']);
+                $u->setTurma($_POST['turma']);
+                $u->setFoto($_FILES['foto']['name']);
+            
+                if($u->validate()){
+                    if($u->save()){
+                        header("location: login.php");
+                    }else{
+                        echo "<div class='error'><span>We only accept files that are images</span></div>";
+                    }
+                }else{
+                    echo"<div class='error'><span>Name or email is already in use. </span></div>";
+                }
+            }
+            ?>
+            <form action="register.php" method="post" class="form" enctype="multipart/form-data">
+                <label for="name">User Name</label>
+                <input type="text" name='name' id="name" minlength="2" placeholder="min: 2 characters"  maxlength="50" required>
+
+                <label for="email">Email</label>
+                <input type="email" name='email' id="email" placeholder="example@email.com" required>
+
+                <label for="password">Password</label>
+                <input type="password" name='password' id="password" minlength="3" placeholder="min: 3 characters" required>
+
+                <label for="turma">Enter your class or position in IFRS</label>
+                <select name='turma' id="turma" required>
+                    <option value="" disabled selected >Select . . .</option>
+                    <?php 
+                    $conexao = new MySQL();
+                    $sql = "SELECT * FROM turma order by id asc";
+                    $turmas = $conexao->consulta($sql);
+                    foreach($turmas as $turma){
+                        echo "<option value='{$turma['id']}'>{$turma['curso']}</option>";
+                    }
+                    ?>
+                </select>
+
+                <label for='bio'>Bio</label>
+                <textarea name="bio" id='bio' placeholder="Your biography...">Hi! I am using Iframe.</textarea>
+
+                <label for='foto' class="user-photo">Add your profile photo</label>
+                <img src="photos/profile/profileDefault.jpg" id="imgPhoto" class="profile-img">
+                <input type='file' accept="image/*" name='foto'  id='foto' hidden class="input_photo">
+
+                <script>
+                let photo = document.getElementById('imgPhoto');
+                let file = document.getElementById('foto');
+                file.addEventListener('change', () => {
+                if (file.files.length <= 0) {
+                    return;
+                }
+                let reader = new FileReader();
+                reader.onload = () => {
+                    photo.src = reader.result;
+                }
+                reader.readAsDataURL(file.files[0]);
+                });
+                </script>
+
+                <div class="button-div">
+                    <input type="submit" value="Register" name='submit' class="button">
+                    <a href="index.php" class="button">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </main>
 </body>
 </html>
