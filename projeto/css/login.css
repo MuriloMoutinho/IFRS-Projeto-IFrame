@@ -20,10 +20,3 @@ input:not(input[type="submit"]), select{
     font-weight: bold;
     margin-bottom: .5em;
 }
-.button-div{
-    padding: .5em 0em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: .5em;
-}

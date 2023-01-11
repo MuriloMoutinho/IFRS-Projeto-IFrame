@@ -119,7 +119,7 @@
                     <input type='password' minlength='3' name='newPassword' id="newPassword">
                 </details>
 
-                <button class="button" type='submit' name='submit'>Edit profile</button>
+                <button class="button button-accept" type='submit' name='submit'>Edit profile</button>
 
             </form>
             <div class='blur hide' id='blurDeleteUser'></div>

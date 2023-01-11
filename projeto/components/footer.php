@@ -3,7 +3,7 @@ $footer ="
 <div class='footer-fake'></div>
 
 <footer class='footer'>
-    <div class='container'>
+    <div class='container container-footer'>
         <nav class='footer-nav'>
             <a href='home.php' class='nav-item'>
                 <img src='{$imgHome}' alt='icon home' class='nav-img'>

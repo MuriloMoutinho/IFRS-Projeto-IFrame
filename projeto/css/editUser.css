@@ -9,13 +9,6 @@
     gap: .2em;
     padding-bottom: 1em;
 }
-.button-div{
-    padding: .5em 0em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: .5em;
-}
 input:not(input[type="submit"], input[type="button"]), select{
     font-size: var(--sizeNormal);
     line-height: var(--sizeNormal);
@@ -58,10 +51,6 @@ textarea{
 }
 .button-modal{
     min-width: 18em;
-}
-.button-waring{
-    background-color: var(--red);
-    color: var(--colorSecondary);
 }
 .details{
     display: flex;
