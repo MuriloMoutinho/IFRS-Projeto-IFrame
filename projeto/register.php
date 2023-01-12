@@ -94,7 +94,7 @@
 
                 <div class="button-div">
                     <input type="submit" value="Register" name='submit' class="button">
-                    <a href="index.php" class="button">Cancel</a>
+                    <a href="index.php" class="button button-waring">Cancel</a>
                 </div>
             </form>
         </div>

@@ -1,7 +1,6 @@
 <?php
     require 'components/import.php';
     require_once __DIR__."/vendor/autoload.php";
-    
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +49,7 @@
                 <input type="file" accept="image/*" name="newPhoto" id="input-img" class="input-img" required >
                 
                 <label for='desc'>Description</label>
-                <textarea name="descricao" id='desc' cols="20" rows="4" ></textarea>    
+                <textarea name="descricao" id='desc' placeholder="write your post description here"></textarea>    
 
                 <input type="submit" name="submit" value="Post" class="button button-accept">
 

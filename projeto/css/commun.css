@@ -33,7 +33,7 @@ html{
 html, body{
     height: 100%;
     width: 100%;
-    line-height: normal;
+    line-height: var(--sizeNormal);
     font-family: var(--fontPrimary);
     font-weight: bold;
 }
@@ -50,7 +50,6 @@ main{
     height: 100%;
 }
 .container-posts{
-    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0.5em;
@@ -83,6 +82,9 @@ main{
     align-items: center;
 }
 .editProfile{
+    display: none;
+}
+.ranking{
     display: none;
 }
 .img-logo{
@@ -216,77 +218,13 @@ main{
 }
 
 
-/*MENU------------------------------------------------- */
-.container_menu{
-    float: left;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 20%;
-    height: 100%;
-    border-right: var(--border) solid 1px;
-    background-color: white;
+/*DIVISORIA------------------------------------------------- */
+.hr_division{
+    height: 1px;
+    margin: 1em 0;
+    background-color: rgb(226, 226, 226);
+    border: none;
 }
-.menu-title{
-    background-color: black;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    color: white;
-    padding: 2vh;
-}
-.menu-title{
-    font-family: 'Roboto';
-}
-.title-link{
-    width: 100%;
-}
-.title-link:hover{
-    background-color: black;
-    color: white;
-}
-.menu-title img{
-    width: 2em;
-}
-.menu_ops{
-    display: flex;
-    flex-direction: row-reverse;
-    margin: 5vh 3vh;
-    align-items: center;
-    width: 30%;
-    justify-content: left;
-    padding: 2vh;
-}
-.menu_img img{
-    width: 20px;
-    margin-right: 1em;
-}
-.container_menu ul{
-    list-style: none;
-}
-.container_menu a{
-    text-decoration: none;
-    flex-direction: row;
-    white-space: nowrap;
-    color: black; 
-    transition: all 0.5s ease;
-}
-.container-menu2 a:hover{
-    filter: invert(1);
-}
-.container_menu li{
-    transition: all 0.5s ease;
-
-}
-.container_menu li:hover{
-    background-color: black;
-    border-radius: 5px;
-    color: white;
-}
-
 
 /*MODAL------------------------------------------------- */
 .modal_confirm{
@@ -302,14 +240,14 @@ main{
     left: 50%;
     z-index: 3;
     transform: translate(-50%,-50%);
-    background-color: white;
+    background-color: var(--secondary-background);
     padding: 2em;
     border-radius: 5px;
     box-shadow: 0 0 1em black;
 }
 .modal_confirm h3{
     font-size: 1.3em;
-    color: red;
+    color: var(--red);
 }
 .modal_confirm .error-img{
     width: 7em;
@@ -338,25 +276,25 @@ main{
 .post{
     display: flex;
     flex-direction: column;
-    color: black;
+    gap: .5em;
+    color: var(--colorSecondary);
 }
 .post a{
-    text-decoration: none;
     color: black;
     font-family: 'Roboto';
     font-weight: normal;
-}
-.hr_division{
-    height: 1px;
-    margin: 1em 0;
-    background-color: rgb(226, 226, 226);
-    border: none;
 }
 .post-info{
     display: flex;
     align-items: center;
     gap: 0.5em;
-    margin-bottom: 3px;
+}
+.post-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 111%;
 }
 .post-info img{
     border-radius: 50%;
@@ -370,8 +308,6 @@ main{
     max-height: 550px;
     min-height: 340px;
     object-fit: cover;
-    border: rgb(218, 218, 218) solid 2px;
-    border-radius: 10px;
 }
 .botao-like{
     background-color: transparent;
@@ -380,28 +316,19 @@ main{
 }
 .desc{
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .desc p{
     width: 100%;
     word-wrap: break-word;
     font-family: Open Sans, sans-serif;
 }
-.coment-div a{
-    display: flex;
-    align-items: center;
-    gap: 0.7em;
-}
-.coments-img{
-    width: 1.4em;
-
-}
 .date{
     color: rgb(190, 190, 190);
     font-size: 80%;
     font-family: 'Roboto';
-}
-.desc-post{
-    margin-top: 1em;
 }
 .desc-post textarea{
     resize: none;
@@ -410,6 +337,14 @@ main{
     padding: 2px;
     border-radius: 10px;
     font-family: var(--fontPrimary);
+}
+.coment-div a{
+    display: flex;
+    align-items: center;
+    gap: 0.7em;
+}
+.coments-img{
+    width: 1.4em;
 }
 .post-comment-input-div{
     display: flex;
@@ -509,7 +444,6 @@ main{
     display: flex;
     align-items: center;
     gap: 0.7em;
-    margin-top: 0.5em;
     color: black;
 }
 .like-botao-desc a{

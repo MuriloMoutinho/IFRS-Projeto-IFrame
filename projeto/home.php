@@ -43,9 +43,8 @@
                             <img class='img-format' src='photos/posts/{$post['1']->getFoto()}'  alt='Post image'>
                         </div>
                         
-                        <span class='date'>{$post['1']->getData()}</span>
                         <div class='desc'>
-                                    <p>{$post['1']->getDescricao()}</p>
+                            <p>{$post['1']->getDescricao()}</p>
                         </div>
                         <div class='like-botao-desc'>
                         
@@ -64,10 +63,12 @@
                             echo "
                             <div class='coment-div'>
                                 <a href='postComments.php?post={$post['1']->getId()}'><img class='coments-img' src='assets/icos/coment_ico1.png' alt='Comments icon'>".Comment::countCommentPost($post['1']->getId())." Comments</a>
-                            </div>
-                            
+                            </div>  
+                        </div>
+                        <span class='date'>{$post['1']->getData()}</span>
                     </div>
-                    </div><hr class='hr_division'>";
+
+                    <hr class='hr_division'>";
                 }
             }else{
                 echo "<h2>No posts</h2>";

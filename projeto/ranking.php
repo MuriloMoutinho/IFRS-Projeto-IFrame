@@ -1,7 +1,6 @@
 <?php
     require 'components/import.php';
     require_once __DIR__."/vendor/autoload.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -18,48 +17,40 @@
 <body>
 
     <?php
-    echo $menu;
-
     echo $header;
     ?>
 
     <main>
         <div class="container">
-            <h2 class="profile-name">Ranking</h2>
-            <p class="profile-turma">Most liked profiles!</p>
 
-            <hr>
+            <h2 class="profile-turma">Most liked profiles!</h2>
+            <hr class="hr_division">
             
             <?php 
-
-        $usuariosBuscados = User::findUsersRanking();
-
-        foreach($usuariosBuscados as $usuario){
-
-            echo "
-            <a href='profile.php?username={$usuario->getNome()}'>
-            <div class='flex-row-bet profile-case'>
-                <div class='profile-case-int'>
-                    <div class='flex-row-bet'>
-                        <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Profile picture'>
-                        <div class='column'>
-                            <span class='user_name_search'>{$usuario->getNome()}</span>
-                            <span class='user_type_search'>{$usuario->getTurma()}</span>
+            $usuariosBuscados = User::findUsersRanking();
+            foreach($usuariosBuscados as $usuario){
+                echo "
+                <a href='profile.php?username={$usuario->getNome()}'>
+                <div class='flex-row-bet profile-case'>
+                    <div class='profile-case-int'>
+                        <div class='flex-row-bet'>
+                            <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Profile picture'>
+                            <div class='column'>
+                                <span class='user_name_search'>{$usuario->getNome()}</span>
+                                <span class='user_type_search'>{$usuario->getTurma()}</span>
+                            </div>
+                        </div>
+                        <div class='like-div'>
+                            <img src='{$imgLike}' alt='Like icon' class='like'>
+                            {$usuario->getLikes()} Likes
                         </div>
                     </div>
-                    <div class='like-div'>
-                        <img src='{$imgLike}' alt='Like icon' class='like'>
-                        {$usuario->getLikes()} Likes
-                    </div>
-                    </div>
                 </div>
-                
                 </a>";
             }
             ?>
-   
-        </div>
 
+        </div>
     </main>
 
     <?php

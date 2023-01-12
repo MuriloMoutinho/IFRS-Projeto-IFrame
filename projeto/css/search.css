@@ -1,63 +1,22 @@
-.search-input{
-    width:100%;
-    height: 3em;
-    border: 1px solid rgb(160, 160, 160);    
-    border-radius: 3px;
-    padding-left: 0.5em;
-    margin-bottom: 1em;
-    background-color: rgb(245, 245, 245);
-    font-family: 'Poppins';
-    font-weight: bold;
-}
-a{
-    text-decoration: none;
-    color: black;
-}
-.user_name_search{
-    font-size: 1.3em;
-    font-weight: bold;
-    font-family: Open Sans, sans-serif;
-}
-.user_type_search{
-    font-family: 'Roboto';
-    font-weight: normal;
-    font-size: 0.8em;
-}
-.botao_search{
-    height: 3em;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 35%;
-    border: solid 1px rgb(146, 146, 146);
-    font-family: 'Poppins';
-    font-weight: bold;
-    background-color: rgb(228, 228, 228);
-
-    transition: filter 0.4s ease;
-}
-.botao_search:hover{
-    filter: invert(1);
-}
-.search-img-botao{
-    width: 1.5em;
-    margin-bottom: 3px;
-    cursor: pointer;
-}
-.div-botao-search{
+.form{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: .5em;
+    padding-bottom: 1em;
 }
-.div-botao-search button{
-    display: flex;
-    justify-content: center;
-}
-input:focus{
-    box-shadow: 0 0 0 0;
-    outline: 0;
-}
-.hr_division_search{
-    margin: 1em 0em;
-}
-.ops-search{
-    background-color: rgb(53, 53, 53);
+input:not(input[type="submit"], input[type="button"]), select{
+    font-size: var(--sizeNormal);
+    line-height: var(--sizeNormal);
+    font-family: var(--fontPrimary);
+    letter-spacing: var(--sizeNormal);
+    outline: none;
+    height: 2.8em;
+    padding: 0.5em;
+    border-radius: .4em;
+    border: 2px solid var(--border);
+    min-width: 20em;
+    font-weight: bold;
+    margin-bottom: .5em;
 }

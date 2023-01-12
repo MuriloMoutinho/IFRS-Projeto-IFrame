@@ -14,6 +14,7 @@ $header = "
             </a>
         </div> 
         <span class='editProfile'>Edit Profile</span>
+        <span class='ranking'>Ranking</span>
     </div>
 </header>";
  

@@ -1,8 +1,6 @@
 <?php 
-
 require 'components/import.php';
 require_once __DIR__."/vendor/autoload.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -19,62 +17,52 @@ require_once __DIR__."/vendor/autoload.php";
 <body>
 
     <?php
-    echo $menu;
-
     echo $header;
-    ?>     
-    
-    <div class="container">
+    ?>
 
-        <main>
-            <form action="search.php" method="get">
+    <main>
+        <div class="container">
+            <form action="search.php" method="get" class="form">
 
+                <input type="search" name="search" placeholder="User search" required>
 
-                <input type="search" class="search-input" required placeholder="User search" name="search">
+                <button type="submit" class='button'>Search</button>
+            </form>
 
-                <div class="div-botao-search">
-                <button type="submit" class='botao_search flex-row-short'>
-                    <img src="<?php echo $imgSearchInvert ?>" class="search-img-botao" alt="Search icon">
-                    <span>Search</span>
-                </button>
-                </div>
-        </main>
-        
-        <hr class='hr_division_search'>
+            <hr class="hr_division">
 
-        <?php
+            <?php
 
-                if(isset($_GET['search'])){
-                    $usuariosBuscados = User::findUser($_GET['search'],0);
-                }else{
-
-                    echo "<h2>Suggestions</h2>";
-
-                    $usuariosBuscados = User::findUser('',25);
-                }
-                
-                if(count($usuariosBuscados)){
-                    foreach($usuariosBuscados as $usuario){
-                        echo "
-                        <a href='profile.php?username={$usuario->getNome()}'>
-                            <div class='flex-row-short profile-case'>
-                                <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Profile picture'>
-                                <div class='column'>
-                                    <span class='user_name_search'>{$usuario->getNome()}</span>
-                                    <span class='user_type_search'>{$usuario->getTurma()}</span>
-                                </div>
+            if(isset($_GET['search'])){
+                $usuariosBuscados = User::findUser($_GET['search'],0);
+            }else{
+                echo "<h2>Suggestions</h2>";
+                $usuariosBuscados = User::findUser('',25);
+            }
+            
+            if(count($usuariosBuscados)){
+                foreach($usuariosBuscados as $usuario){
+                    echo "
+                    <a href='profile.php?username={$usuario->getNome()}'>
+                        <div class='flex-row-short profile-case'>
+                            <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Profile picture'>
+                            <div class='column'>
+                                <span class='user_name_search'>{$usuario->getNome()}</span>
+                                <span class='user_type_search'>{$usuario->getTurma()}</span>
                             </div>
-                        </a>";      
-                    }
-                }else{
-                    echo "<h3>No user found</h3>";
+                        </div>
+                    </a>";     
                 }
-        
-        ?>
-    </div>
+            }else{
+                echo "<h3>No user found</h3>";
+            }
+            ?>
 
-<?php
-echo $footer;
-?>     
+        </div>
+    </main>
+
+    <?php
+    echo $footer;
+    ?>    
 </body>
 </html>
