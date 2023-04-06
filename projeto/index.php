@@ -8,6 +8,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="theme-color" content="#f9f9f9">
+
+    <link rel="canonical" href="http://192.168.103.223/user5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="edson iOS">
+    <link rel="apple-touch-icon" href="assets/favicon-32x32.png">
+    <link rel="manifest" href="manifest.json" /> 
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +26,24 @@
 </head>
 
 <body>
+    <script>
+        register service worker
+        if ("serviceWorker" in navigator) {
+        if (navigator.serviceWorker.controller) {
+        console.log("[PWA Builder] active service worker found, no need to register");
+        } else {
+        navigator.serviceWorker
+        .register("pwabuilder-sw.js", {
+        scope: "./"
+        })
+        .then(function (reg) {
+        console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+        });
+        }
+        }
+    </script>
+
+
     <div class="container-inicial">
         <div class="inicial-all-box">
             <div class="inicial-box">

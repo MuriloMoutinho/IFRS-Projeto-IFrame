@@ -50,7 +50,7 @@ require_once __DIR__."/vendor/autoload.php";
 
                     echo "<h2>Suggestions</h2>";
 
-                    $usuariosBuscados = User::findUser('',25);
+                    $usuariosBuscados = User::findUser('',100);
                 }
                 
                 if(count($usuariosBuscados)){
