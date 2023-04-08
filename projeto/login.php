@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +10,10 @@
     <link rel="stylesheet" href="css/commun.css">
     <title>IFrame - Sign in</title>
 </head>
+
 <body>
 
-    <div class="container-login"> 
+    <div class="container-login">
         <div class="login-all-box">
             <div class="login-box">
 
@@ -20,22 +22,22 @@
                 </div>
                 <div class="input-box">
 
-<?php
-if(isset($_POST['submit'])){
-    require_once __DIR__."/vendor/autoload.php";
-    
-    $u = new User();
-    $u->setEmail($_POST['email']);
-    $u->setSenha($_POST['password']);
+                    <?php
+                    if (isset($_POST['submit'])) {
+                        require_once __DIR__ . "/vendor/autoload.php";
 
-    if($u->authenticate()){
-        header("location: home.php");
-    }else{
-        echo"<div class='error'><span>Wrong email or password. </span></div>";
-    }
-}
-?>
-                    <form  action='login.php' method='post' class="column">
+                        $u = new User();
+                        $u->setEmail($_POST['email']);
+                        $u->setSenha($_POST['password']);
+
+                        if ($u->authenticate()) {
+                            header("location: home.php");
+                        } else {
+                            echo "<div class='error'><span>Wrong email or password. </span></div>";
+                        }
+                    }
+                    ?>
+                    <form action='login.php' method='post' class="column">
                         <div class="input-text">
                             <label>Email<input type="email" name='email' placeholder="example@email.com" required></label>
                             <label>Password<input type="password" name='password' placeholder="min : 3 characters" required></label>
@@ -55,4 +57,5 @@ if(isset($_POST['submit'])){
         </div>
     </div>
 </body>
+
 </html>

@@ -1,81 +1,46 @@
-// This is the service worker with the Cache-first network
+importScripts(
+  "https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js"
+);
 
-const CACHE = "pwabuilder-precache";
-const precacheFiles = [
-  /* Add an array of files to precache for your app */
-];
+const CACHE = "pwabuilder-page";
 
-self.addEventListener("install", function (event) {
-  console.log("[PWA Builder] Install Event processing");
+const offlineFallbackPage = "offline.html";
 
-  console.log("[PWA Builder] Skip waiting on install");
-  self.skipWaiting();
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
+});
 
+self.addEventListener("install", async (event) => {
   event.waitUntil(
-    caches.open(CACHE).then(function (cache) {
-      console.log("[PWA Builder] Caching pages during install");
-      return cache.addAll(precacheFiles);
-    })
+    caches.open(CACHE).then((cache) => cache.add(offlineFallbackPage))
   );
 });
 
-self.addEventListener("activate", function (event) {
-  console.log("[PWA Builder] Claiming clients for current page");
-  event.waitUntil(self.clients.claim());
-});
-
-self.addEventListener("fetch", function (event) { 
-  if (event.request.method !== "GET") return;
-
-  event.respondWith(
-    fromCache(event.request).then(
-      function (response) {
-        // The response was found in the cache so we responde with it and update the entry
-
-        // This is where we call the server to get the newest version of the
-        // file to use the next time we show view
-        event.waitUntil(
-          fetch(event.request).then(function (response) {
-            return updateCache(event.request, response);
-          })
-        );
-
-        return response;
-      },
-      function () {
-        // The response was not found in the cache so we look for it on the server
-        return fetch(event.request)
-          .then(function (response) {
-            // If request was success, add or update it in the cache
-            event.waitUntil(updateCache(event.request, response.clone()));
-
-            return response;
-          })
-          .catch(function (error) {
-            console.log("[PWA Builder] Network request failed and no cache." + error);
-          });
-      }
-    )
-  );
-});
-
-function fromCache(request) {
-  // Check to see if you have it in the cache
-  // Return response
-  // If not in the cache, then return
-  return caches.open(CACHE).then(function (cache) {
-    return cache.match(request).then(function (matching) {
-      if (!matching || matching.status === 404) {
-        return Promise.reject("no-match");
-      }
-
-      return matching;
-    });
-  });
+if (workbox.navigationPreload.isSupported()) {
+  workbox.navigationPreload.enable();
 }
 
-function updateCache(request, response) {
-  return caches.open(CACHE).then(function (cache) {
-    return cache.put(request, response);
-  });
-}
+self.addEventListener("fetch", (event) => {
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      (async () => {
+        try {
+          const preloadResp = await event.preloadResponse;
+
+          if (preloadResp) {
+            return preloadResp;
+          }
+
+          const networkResp = await fetch(event.request);
+          return networkResp;
+        } catch (error) {
+          const cache = await caches.open(CACHE);
+          const cachedResp = await cache.match(offlineFallbackPage);
+          return cachedResp;
+        }
+      })()
+    );
+  }
+});

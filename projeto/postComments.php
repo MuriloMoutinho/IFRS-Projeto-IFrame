@@ -1,23 +1,20 @@
 <?php
-    require 'components/import.php';
-    require_once __DIR__."/vendor/autoload.php";
-    
-    if(isset($_POST['submit'])){
-        $c = new Comment();
-        $c->setConteudo($_POST['comentario']);
-        $c->setUsuario($_SESSION['idSession']);
-        $c->setPost($_GET['post']);
+require 'components/import.php';
+require_once __DIR__ . "/vendor/autoload.php";
 
-        $c->save();
-    }
-    if(isset($_POST['delete'])){
-        $c->setId();
-        $c->deletar();
-    }
+if (isset($_POST['submit'])) {
+    $c = new Comment();
+    $c->setConteudo($_POST['comentario']);
+    $c->setUsuario($_SESSION['idSession']);
+    $c->setPost($_GET['post']);
+
+    $c->save();
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,8 +25,9 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <title>IFrame - Comments</title>
 </head>
+
 <body>
-    
+
     <?php
     echo $menu;
 
@@ -37,33 +35,33 @@
     ?>
 
     <main>
-    <div class='container'>
-        
-    <div class='btns'>
-        <a href="index.php" class='back-button buttonEdit'>Back</a>
-    </div>
+        <div class='container'>
 
-        <form <?php echo "action='postComments.php?post={$_GET['post']}'"; ?> method='post'>
+            <div class='btns'>
+                <a href="index.php" class='back-button buttonEdit'>Back</a>
+            </div>
+
+            <form <?php echo "action='postComments.php?post={$_GET['post']}'"; ?> method='post'>
                 <div class='desc-post'>
 
-                <label for='comment'>
-                <textarea name='comentario' id='comment' maxlength='100' cols='20' rows='3' required ></textarea>
-                <div class='post-comment-input-div'>
-                        <input class="post-comment-input" type='submit' value='Post comment' name='submit'>
-                </div>
-                
+                    <label for='comment'>
+                        <textarea name='comentario' id='comment' maxlength='100' cols='20' rows='3' required></textarea>
+                        <div class='post-comment-input-div'>
+                            <input class="post-comment-input" type='submit' value='Post comment' name='submit'>
+                        </div>
+
                 </div>
             </form>
 
-         <hr >
+            <hr>
 
-         <?php 
-         $comments = Comment::findPostComment($_GET['post']);
+            <?php
+            $comments = Comment::findPostComment($_GET['post']);
 
-         if(count($comments)){
-            foreach($comments as $comment){
-                
-                echo "<div class='column links-delete'>
+            if (count($comments)) {
+                foreach ($comments as $comment) {
+
+                    echo "<div class='column links-delete'>
                     <a href='profile.php?username={$comment['0']->getNome()}'>
                         <div class='post-info'>
                             <img src='photos/profile/{$comment['0']->getFoto()}' alt='Profile picture'>
@@ -74,29 +72,29 @@
                         </div>
                     </a>";
 
-                   
-                   echo "<span>{$comment['1']->getConteudo()}</span>
+
+                    echo "<span>{$comment['1']->getConteudo()}</span>
                    <span class='date'>{$comment['1']->getData()}</span>
                    </div>";
 
-                   if($comment['1']->getUsuario() == $_SESSION['idSession']){
+                    if ($comment['1']->getUsuario() == $_SESSION['idSession']) {
                         echo "<a class='delete_comment' href='config/deleteComment.php?idComment={$comment['1']->getId()}&idPost={$_GET['post']}'>Delete Comment</a>";
                     }
-
+                }
+            } else {
+                echo "No comments, be the first to make a comment!";
             }
-        }else{
-            echo "No comments, be the first to make a comment!";
-        }
-    
-         ?>
-         
-    </div>   
+
+            ?>
+
+        </div>
     </main>
-    
+
     <?php
     echo $footer;
-    ?>   
+    ?>
 
-<script src="scripts.js"></script>
+    <script src="scripts.js"></script>
 </body>
+
 </html>

@@ -3,4 +3,3 @@
     if(!isset($_SESSION['idSession'])){
         header("location:login.php");
     }
-?>

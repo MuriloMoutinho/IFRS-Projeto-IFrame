@@ -1,11 +1,15 @@
 <?php
 
-require_once __DIR__."/User.php";
-require_once __DIR__."/ActiveRecord.php";
 
-class Post implements ActiveRecord{
+require_once __DIR__ . "/User.php";
+require_once __DIR__ . "/ActiveRecord.php";
+require_once __DIR__ . '/../config/filterStrings.php';
 
-    public function __construct(private $foto){
+class Post implements ActiveRecord
+{
+
+    public function __construct(private $foto)
+    {
     }
     private int $criador;
     private string $data;
@@ -13,70 +17,81 @@ class Post implements ActiveRecord{
     private string $descricao;
 
     //ID ------------------------------------------------
-    public function setId(int $id):void{
+    public function setId(int $id): void
+    {
         $this->id = $id;
     }
-    public function getId():int{
+    public function getId(): int
+    {
         return $this->id;
     }
 
     //data ------------------------------------------------
-    public function setData(string $data):void{
+    public function setData(string $data): void
+    {
         $this->data = $data;
     }
-    public function getData():string{
+    public function getData(): string
+    {
         return $this->data;
     }
     //criador ------------------------------------------------
-    public function setCriador(string $criador):void{
+    public function setCriador(string $criador): void
+    {
         $this->criador = $criador;
     }
-    public function getCriador():string{
+    public function getCriador(): string
+    {
         return $this->criador;
     }
     //foto ------------------------------------------------
-    public function getFoto():string{
+    public function getFoto(): string
+    {
         return $this->foto;
     }
     //descricao ------------------------------------------------
-    public function setDescricao($descricao):void{
-        $this->descricao = $descricao;
+    public function setDescricao($descricao): void
+    {
+        $this->descricao = filterString($descricao);
     }
-    public function getDescricao():string{
+    public function getDescricao(): string
+    {
         return $this->descricao;
     }
- 
+
     //FINDPOST ------------------------------------------------
 
-    public static function findPost($id):Post{
+    public static function findPost($id): Post
+    {
         $conexao = new MySQL();
         $sqlPost = "SELECT criador,foto,dataCriacao,descricao FROM post WHERE id = '{$id}'";
-        $post = $conexao->consulta($sqlPosts);
+        $post = $conexao->consulta($sqlPost);
 
         $p = new Post($post['0']['foto']);
         $p->setCriador($post['0']['criador']);
         $p->setData($post['0']['dataCriacao']);
         $p->setDescricao($post['0']['descricao']);
-        
+
         return $p;
     }
 
     //FINDPROFILE ------------------------------------------------
-    public static function findAllPosts():array{
+    public static function findAllPostsPageable($inicio, $limite): array
+    {
         $conexao = new MySQL();
-        $sqlPosts = "SELECT * FROM post ORDER BY dataCriacao desc";
+        $sqlPosts = "SELECT * FROM post ORDER BY dataCriacao desc LIMIT {$inicio}, {$limite}";
         $postsBanco = $conexao->consulta($sqlPosts);
-        
+
         $postsProfile = array();
-        foreach($postsBanco as $post){
+        foreach ($postsBanco as $post) {
 
             $sqlUser = "SELECT usuario.nome,turma.curso,usuario.foto FROM usuario, turma WHERE usuario.turma = turma.id AND usuario.id = '{$post['criador']}'";
-            
+
             $userBanco = $conexao->consulta($sqlUser);
 
             $u = new User();
             $u->setNome($userBanco['0']['nome']);
-            $u->setTurma($userBanco['0']['curso']);     
+            $u->setTurma($userBanco['0']['curso']);
             $u->setfoto($userBanco['0']['foto']);
 
             $p = new Post($post['foto']);
@@ -85,21 +100,34 @@ class Post implements ActiveRecord{
             $p->setDescricao($post['descricao']);
             $p->setData(strval($post['dataCriacao']));
 
-            $postsProfile[] = array($u,$p);
+            $postsProfile[] = array($u, $p);
         }
         return $postsProfile;
     }
 
-    //FIND ----------------xxxx--------------------------------
-    public static function findProfilePost($nameCriador):array{
+    //COUNTPOSTS ------------------------------------------------
+    public static function countPagesPosts($limite): int
+    {
+        $conexao = new MySQL();
+        $sqlPosts = "SELECT COUNT(1) FROM post";
+        $quantidadePostsBanco = $conexao->consulta($sqlPosts);
+
+        $quantidadeDePaginas = ceil($quantidadePostsBanco['0']['0'] / $limite);
+
+        return $quantidadeDePaginas;
+    }
+
+    //FIND ---------------------------------------------------
+    public static function findProfilePost($nameCriador): array
+    {
         $conexao = new MySQL();
 
         $sqlPosts = "SELECT post.* FROM usuario, post WHERE nome = '{$nameCriador}' AND post.criador = usuario.id ORDER BY post.dataCriacao desc";
 
         $postsBanco = $conexao->consulta($sqlPosts);
-        
+
         $postsProfile = array();
-        foreach($postsBanco as $post){
+        foreach ($postsBanco as $post) {
 
             $p = new Post($post['foto']);
             $p->setCriador($post['criador']);
@@ -112,11 +140,12 @@ class Post implements ActiveRecord{
         }
         return $postsProfile;
     }
-    
+
 
 
     //DELETE ------------------------------------------------
-    public function delete():bool{
+    public function delete(): bool
+    {
         $conexao = new MySQL();
 
         $sqlVerifica = "SELECT 1 as existe
@@ -127,34 +156,35 @@ class Post implements ActiveRecord{
 
         $verificadorPermissaoExclusao = $conexao->consulta($sqlVerifica);
 
-        if(empty($verificadorPermissaoExclusao)){
-           return false;
+        if (empty($verificadorPermissaoExclusao)) {
+            return false;
         }
         $sql = "DELETE FROM post WHERE post.id = '{$this->id}'";
-        unlink("../photos/posts/".$this->foto);
+        unlink("../photos/posts/" . $this->foto);
         return $conexao->executa($sql);
     }
 
     //SALVAR ------------------------------------------------
-    public function save():bool{
+    public function save(): bool
+    {
         $conexao = new MySQL();
-        
-        $typesImg = array("JPG", "JPEG", "GIF", "PNG", "SVG", "PSD", "WEBP", "RAW", "TIFF", "BMP","JFIF", "jpg", "gif", "png", "svg", "psd", "webp", "raw", "tiff", "bmp", "jpeg","jfif");
+
+        $typesImg = array("JPG", "JPEG", "GIF", "PNG", "SVG", "PSD", "WEBP", "RAW", "TIFF", "BMP", "JFIF", "jpg", "gif", "png", "svg", "psd", "webp", "raw", "tiff", "bmp", "jpeg", "jfif");
 
         $diretorio = __DIR__ . "/../photos/posts/";
         $nome_foto = $this->foto;
-        $info_name = explode(".",$nome_foto);
+        $info_name = explode(".", $nome_foto);
         $extensao = end($info_name);
 
-        if(!in_array($extensao, $typesImg)){
+        if (!in_array($extensao, $typesImg)) {
             return false;
         }
-        $this->foto = uniqid().".".$extensao;
+        $this->foto = uniqid() . "." . $extensao;
         move_uploaded_file($_FILES["newPhoto"]["tmp_name"], $diretorio . $this->foto);
 
         $sql = "INSERT INTO post (criador,foto,descricao,dataCriacao) VALUES ('{$this->criador}','{$this->foto}','{$this->descricao}',CURRENT_TIMESTAMP())";
-        
-        
+
+
         return $conexao->executa($sql);
     }
 }

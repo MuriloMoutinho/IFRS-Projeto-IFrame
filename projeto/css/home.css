@@ -7,3 +7,14 @@
 .profile-turma{
     font-size: 0.9em;
 }
+.paginacao{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    justify-content: center;
+
+}
+.paginacao > a{
+    color: black;
+}

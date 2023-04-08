@@ -1,16 +1,18 @@
 <?php
-    require 'components/import.php';
+require 'components/import.php';
 
-    require_once __DIR__."/vendor/autoload.php";
-    
-    if(!isset($_GET['username'])){
-        header("location: home.php");
-    }
-    
-    ?>
+require_once __DIR__ . "/vendor/autoload.php";
+require_once __DIR__ . "/config/filterStrings.php";
+
+if (!isset($_GET['username'])) {
+    header("location: home.php");
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,31 +23,34 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <title>IFrame - Profile</title>
 </head>
+
 <body>
-    
+
     <?php
     echo $menu;
-    
+
     echo $header;
     ?>
 
-<main>
-    
-    <div class="container">
-        
-    <div class='blur hide' id='blurDeletePost'></div>
-    <div class='modal_confirm hide' id='modalDeletePost'>
-        <img src='assets/icos/error.png' alt='Error icon'>
-        <h3>Are you sure?</h3>
-        <p>Do you really want to delete your post? This process cannot be undone</p>
-        <a class='delete-button buttonEdit' id='confirmDeletePost'>Confirm</a>
-        <span class='back-button buttonEdit' id='cancelDeletePost'>Cancel</span>
-    </div>
-        <?php 
+    <main>
 
-                $u = User::findProfile($_GET['username']);
+        <div class="container">
 
-                if($u){
+            <div class='blur hide' id='blurDeletePost'></div>
+            <div class='modal_confirm hide' id='modalDeletePost'>
+                <img src='assets/icos/error.png' alt='Error icon'>
+                <h3>Are you sure?</h3>
+                <p>Do you really want to delete your post? This process cannot be undone</p>
+                <a class='delete-button buttonEdit' id='confirmDeletePost'>Confirm</a>
+                <span class='back-button buttonEdit' id='cancelDeletePost'>Cancel</span>
+            </div>
+            <?php
+            
+            $username = filterString($_GET['username']);
+
+            $u = User::findProfile($username);
+
+            if (!empty($u)) {
 
                 echo "<div class='flex-row-short container-user'>
                         
@@ -71,31 +76,32 @@
                     </div>
                         </div>
                     </div>";
-   
-                    if($_GET['username'] == $_SESSION['nameSession']){
+
+
+                if ($u->getId() == $_SESSION['idSession']) {
                     echo "<div class='edit-div'>
                             <a href='editUser.php'><img src='assets/icos/edit_ico1.png' alt='Edit icon'>Edit</a>
                         </div>";
-                    }
+                }
 
-        echo "
+                echo "
         </div>
         <hr class='hr_division'>
         <div class='container'>
         <div class='container-posts'>";
 
 
-            $postsProfile = Post::findProfilePost($_GET['username']);
-        
-            if(count($postsProfile)){
-                foreach($postsProfile as $post){
+                $postsProfile = Post::findProfilePost($username);
 
-                    echo "<div class='post'>";
-        
-                        if($_GET['username'] == $_SESSION['nameSession']){
+                if (count($postsProfile)) {
+                    foreach ($postsProfile as $post) {
+
+                        echo "<div class='post'>";
+
+                        if ($_GET['username'] == $_SESSION['nameSession']) {
                             echo "<span class='delete_post' onclick='confirmDeletePost(`{$post->getId()}`,`{$post->getFoto()}`)'><img src='assets/icos/delete_ico1.png' alt='Delete post'>Delete Post</span>";
                         }
-                                
+
                         echo "<div class='post-img'>
                             <img class='img-format' src='photos/posts/{$post->getFoto()}' alt='Post Image'>
                         </div>
@@ -108,46 +114,45 @@
                         <div class='like-botao-desc'>
                             <button class='botao-like' onclick='likePost({$post->getId()}); toggleElements(this)'>";
 
-                            if(Like::checkLikePost($post->getId())){
-                                echo "<img src='{$imgLikeGiv}' class='like like-ativo' ' id='img-like' alt='Like icon'>";
-                            }else{
-                                echo "<img src='{$imgLike}' class='like' ' id='img-like' alt='Like icon'>";
-                            }
-                            
-                            echo "</button>";
+                        if (Like::checkLikePost($post->getId())) {
+                            echo "<img src='{$imgLikeGiv}' class='like like-ativo' ' id='img-like' alt='Like icon'>";
+                        } else {
+                            echo "<img src='{$imgLike}' class='like' ' id='img-like' alt='Like icon'>";
+                        }
 
-                            echo "<a href='postLikes.php?post={$post->getId()}'>
-                                <span id='numeroLikes'>". Like::countLikesPost($post->getId()) ."</span> Likes
+                        echo "</button>";
+
+                        echo "<a href='postLikes.php?post={$post->getId()}'>
+                                <span id='numeroLikes'>" . Like::countLikesPost($post->getId()) . "</span> Likes
                             </a>
 
                             <div class='coment-div'>
-                                <a href='postComments.php?post={$post->getId()}'><img class='coments-img' src='assets/icos/coment_ico1.png' alt='Comment icon'>".Comment::countCommentPost($post->getId())." Comments</a>
+                                <a href='postComments.php?post={$post->getId()}'><img class='coments-img' src='assets/icos/coment_ico1.png' alt='Comment icon'>" . Comment::countCommentPost($post->getId()) . " Comments</a>
                             </div>
-                        </div>";  
-                    
-                    echo "</div>
-                    <hr class='hr_division'>";
-                }
-            }else{
-                echo "<span>No posts</span>";
-            }
-            
+                        </div>";
 
-        }else{
-            echo "<h2>No user found</h2>";
-        }
+                        echo "</div>
+                    <hr class='hr_division'>";
+                    }
+                } else {
+                    echo "<span>No posts</span>";
+                }
+            } else {
+                echo "<h2>No user found</h2>";
+            }
 
             ?>
 
         </div>
-    </div>
+        </div>
 
     </main>
 
     <?php
     echo $footer;
-    ?>   
+    ?>
 
-<script src="scripts.js"></script>
+    <script src="scripts.js"></script>
 </body>
+
 </html>

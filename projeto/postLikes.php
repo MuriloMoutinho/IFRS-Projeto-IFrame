@@ -1,15 +1,16 @@
 <?php
-    require 'components/import.php';
-    require_once __DIR__."/vendor/autoload.php";
-    
-    if(!isset($_GET['post'])){
-        header("location: home.php");
-    }
-    
+require 'components/import.php';
+require_once __DIR__ . "/vendor/autoload.php";
+
+if (!isset($_GET['post'])) {
+    header("location: home.php");
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,8 +20,9 @@
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
     <title>IFrame - Likes</title>
 </head>
+
 <body>
-    
+
     <?php
     echo $menu;
 
@@ -28,21 +30,21 @@
     ?>
 
     <main>
-    <div class="container ">
+        <div class="container ">
 
-    <div class='btns'>
-        <a href="index.php" class='back-button buttonEdit'>Back</a>
-    </div>
-    <hr class="hr_division">
-        <h1>Profiles that liked</h1>
-        <hr>
-        <?php 
+            <div class='btns'>
+                <a href="index.php" class='back-button buttonEdit'>Back</a>
+            </div>
+            <hr class="hr_division">
+            <h1>Profiles that liked</h1>
+            <hr>
+            <?php
 
-        $profilesLike = Like::findProfileLikes($_GET['post']);
+            $profilesLike = Like::findProfileLikes($_GET['post']);
 
-        if(count($profilesLike)){
-        foreach($profilesLike as $usuario){
-            echo "
+            if (count($profilesLike)) {
+                foreach ($profilesLike as $usuario) {
+                    echo "
             <a href='profile.php?username={$usuario->getNome()}'>
                 <div class='flex-row-short profile-case'>
                     <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Profile picture'>
@@ -51,19 +53,20 @@
                         <p class='user_type_search'>{$usuario->getTurma()}</p>
                     </div>
                 </div>
-            </a>";      
-        }
-    }else{
-        echo "No likes";
-    }
-       
-       ?>
-    </div>
+            </a>";
+                }
+            } else {
+                echo "No likes";
+            }
+
+            ?>
+        </div>
 
     </main>
-    
+
     <?php
     echo $footer;
-    ?>   
+    ?>
 </body>
+
 </html>

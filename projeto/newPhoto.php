@@ -1,11 +1,12 @@
 <?php
-    require 'components/import.php';
-    require_once __DIR__."/vendor/autoload.php";
-    
+require 'components/import.php';
+require_once __DIR__ . "/vendor/autoload.php";
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,36 +16,36 @@
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
     <title>IFrame - New Post</title>
 </head>
+
 <body>
 
 
     <?php
     echo $menu;
-    
+
     echo $header;
     ?>
 
     <main>
         <div class="container ">
 
-<?php 
+            <?php
 
-if(isset($_POST['submit'])){
-    if(!empty($_FILES['newPhoto']['name'])){
+            if (isset($_POST['submit'])) {
+                if (!empty($_FILES['newPhoto']['name'])) {
 
-        $post = new Post($_FILES['newPhoto']['name']);
-        $post->setCriador($_SESSION['idSession']);
-        $post->setDescricao($_POST['descricao']);
-        if($post->save()){
-            header("location: profile.php?username={$_SESSION['nameSession']}");    
-        }else{
-            echo "<div class='error'><span>We only accept files that are images</span></div>";
-        }
-        
-    }
-}
+                    $post = new Post($_FILES['newPhoto']['name']);
+                    $post->setCriador($_SESSION['idSession']);
+                    $post->setDescricao($_POST['descricao']);
+                    if ($post->save()) {
+                        header("location: profile.php?username={$_SESSION['nameSession']}");
+                    } else {
+                        echo "<div class='error'><span>We only accept files that are images</span></div>";
+                    }
+                }
+            }
 
-?>
+            ?>
 
             <form action="newPhoto.php" method="post" enctype="multipart/form-data">
 
@@ -54,11 +55,11 @@ if(isset($_POST['submit'])){
                     </div>
                 </label>
 
-                <input type="file" accept="image/*" name="newPhoto" required class="input-img" id="input-img" >
-                
+                <input type="file" accept="image/*" name="newPhoto" required class="input-img" id="input-img">
+
                 <div class="desc-post">
-                    <label for='desc'>Description  :</label>
-                    <textarea name="descricao" id='desc' cols="20" rows="4" ></textarea>                 
+                    <label for='desc'>Description :</label>
+                    <textarea name="descricao" id='desc' cols="20" rows="4"></textarea>
                 </div>
                 <div class="submit-post">
                     <button type="submit" name="submit">Post</button>
@@ -67,7 +68,7 @@ if(isset($_POST['submit'])){
 
         </div>
     </main>
-    
+
     <script>
         const labelcontent = document.querySelector("#img-content");
         const contentDefault = `
@@ -77,22 +78,22 @@ if(isset($_POST['submit'])){
         labelcontent.innerHTML = contentDefault;
         const inputFile = document.querySelector("#input-img");
 
-        inputFile.addEventListener("change", function (e) {
+        inputFile.addEventListener("change", function(e) {
             const inputTarget = e.target;
             const file = inputTarget.files[0];
 
             if (file) {
                 const reader = new FileReader();
 
-                reader.addEventListener("load", function (e) {
-                const readerTarget = e.target;
+                reader.addEventListener("load", function(e) {
+                    const readerTarget = e.target;
 
-                const img = document.createElement("img");
-                img.src = readerTarget.result;
-                img.classList.add("img-format");
+                    const img = document.createElement("img");
+                    img.src = readerTarget.result;
+                    img.classList.add("img-format");
 
-                labelcontent.innerHTML = "";
-                labelcontent.appendChild(img);
+                    labelcontent.innerHTML = "";
+                    labelcontent.appendChild(img);
                 });
 
                 reader.readAsDataURL(file);
@@ -100,11 +101,11 @@ if(isset($_POST['submit'])){
 
             }
         });
-
     </script>
 
     <?php
     echo $footer;
-    ?>  
+    ?>
 </body>
+
 </html>

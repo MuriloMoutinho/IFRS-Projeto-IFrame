@@ -1,11 +1,12 @@
 <?php
-    require 'components/import.php';
-    require_once __DIR__."/vendor/autoload.php";
+require 'components/import.php';
+require_once __DIR__ . "/vendor/autoload.php";
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +16,7 @@
     <link rel="stylesheet" href="css/ranking.css">
     <title>IFrame - Ranking</title>
 </head>
+
 <body>
 
     <?php
@@ -29,14 +31,14 @@
             <p class="profile-turma">Most liked profiles!</p>
 
             <hr>
-            
-            <?php 
 
-        $usuariosBuscados = User::findUsersRanking();
+            <?php
 
-        foreach($usuariosBuscados as $usuario){
+            $usuariosBuscados = User::findUsersRanking();
 
-            echo "
+            foreach ($usuariosBuscados as $usuario) {
+
+                echo "
             <a href='profile.php?username={$usuario->getNome()}'>
             <div class='flex-row-bet profile-case'>
                 <div class='profile-case-int'>
@@ -57,13 +59,14 @@
                 </a>";
             }
             ?>
-   
+
         </div>
 
     </main>
 
     <?php
-        echo $footer;
-    ?>   
+    echo $footer;
+    ?>
 </body>
+
 </html>

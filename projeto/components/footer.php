@@ -44,4 +44,3 @@ $footer = "
         </ul>
     </nav>
 </footer>";
-?>

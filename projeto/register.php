@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,64 +10,68 @@
     <link rel="stylesheet" href="css/register.css">
     <title>IFrame - Sign up</title>
 </head>
+
 <body>
-<div class="container-register">
+    <div class="container-register">
         <div class="register-all-box">
             <div class="register-box">
-            
+
                 <div class="title-register">
                     <h1>Sign up</h1>
                 </div>
                 <div class="input-box">
 
-<?php 
-    require_once __DIR__."/vendor/autoload.php";
-    
-if(isset($_POST['submit'])){
+                    <?php
+                    require_once __DIR__ . "/vendor/autoload.php";
 
-    $u = new User();
-    $u->setNome($_POST['name']);
-    $u->setEmail($_POST['email']);
-    $u->setBio($_POST['bio']); 
+                    if (isset($_POST['submit'])) {
 
-    $u->setSenha($_POST['password']);
-    $u->setTurma($_POST['turma']);
-    $u->setFoto($_FILES['foto']['name']);
+                        $u = new User();
+                        $u->setNome($_POST['name']);
+                        $u->setEmail($_POST['email']);
+                        $u->setBio($_POST['bio']);
 
-    if($u->validate()){
-        if($u->save()){
-            header("location: login.php");
-        }else{
-            echo "<div class='error'><span>We only accept files that are images</span></div>";
-        }
-    }else{
-        echo"<div class='error'><span>Name or email is already in use. </span></div>";
-    }
-}
-?>
+                        $u->setSenha($_POST['password']);
+                        $u->setTurma($_POST['turma']);
+                        $u->setFoto($_FILES['foto']['name']);
+
+                        if ($u->validate()) {
+                            if ($u->save()) {
+                                if ($u->authenticate()) {
+                                    header("location: home.php");
+                                }
+                                header("location: login.php");
+                            } else {
+                                echo "<div class='error'><span>We only accept files that are images</span></div>";
+                            }
+                        } else {
+                            echo "<div class='error'><span>Name or email is already in use. </span></div>";
+                        }
+                    }
+                    ?>
                     <form action="register.php" method="post" class="column" enctype="multipart/form-data">
                         <div class="input-text">
                             <label>User Name <input type="text" name='name' minlength="2" placeholder="min : 2 characters" maxlength="50" required></label>
                             <label>Email <input type="email" placeholder="example@email.com" name='email' required></label>
                             <label>Password <input type="password" minlength="3" name='password' placeholder="min : 3 characters" required></label>
                             <div class="select">
-                            <label>Enter your class or position in IFRS<br> <select name='turma' required>
+                                <label>Enter your class or position in IFRS<br> <select name='turma' required>
 
-                                <option value="" disabled selected >Select . . .</option>
+                                        <option value="" disabled selected>Select . . .</option>
 
-                                <?php 
-                    
-                                    $conexao = new MySQL();
-                                    $sql = "SELECT * FROM turma order by id asc";
-                                    $turmas = $conexao->consulta($sql);
-                                    foreach($turmas as $turma){
-                                    echo "<option value='{$turma['id']}'>{$turma['curso']}</option>";
-                                    }
-                                ?>     
-                                </select>
-                            </label>
+                                        <?php
+
+                                        $conexao = new MySQL();
+                                        $sql = "SELECT * FROM turma order by id asc";
+                                        $turmas = $conexao->consulta($sql);
+                                        foreach ($turmas as $turma) {
+                                            echo "<option value='{$turma['id']}'>{$turma['curso']}</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </label>
                             </div>
-                            
+
                             <div class="bio-input">
                                 <label for='bio'>Bio</label>
                                 <textarea name="bio" id='id' cols="20" rows="3" placeholder="Your biography...">Hi! I am using Iframe.</textarea>
@@ -76,50 +81,49 @@ if(isset($_POST['submit'])){
 
                             <div class="div-user-photo">
                                 <label for='foto' class="user-photo">Add your profile photo</label>
-                                
+
                                 <div class="imgUser">
                                     <img src="photos/profile/profileDefault.jpg" id="imgPhoto">
-                                    </div>
-                                        <input type='file' accept="image/*" name='foto'  id='foto' hidden class="input_photo">
-                                    </div>
                                 </div>
-                            <div class="max-width">
-                                
+                                <input type='file' accept="image/*" name='foto' id='foto' hidden class="input_photo">
                             </div>
                         </div>
-                        <script>
+                        <div class="max-width">
 
-                            let photo = document.getElementById('imgPhoto');
-                            let file = document.getElementById('foto');
-
-                            file.addEventListener('change', () => {
-
-                            if (file.files.length <= 0) {
-                            return;
-                            }
-
-                            let reader = new FileReader();
-
-                            reader.onload = () => {
-                            photo.src = reader.result;
-                            }
-
-                            reader.readAsDataURL(file.files[0]);
-                            });
-
-                            </script>
-                        <div class="input-button">
-                            <div class="input-register">
-                                <input type="submit" value="Register" name='submit'>
-                            </div>
-                            <div class="voltar">
-                                <a href="index.php">Cancel</a>
-                            </div>
                         </div>
-                    </form>
                 </div>
+                <script>
+                    let photo = document.getElementById('imgPhoto');
+                    let file = document.getElementById('foto');
+
+                    file.addEventListener('change', () => {
+
+                        if (file.files.length <= 0) {
+                            return;
+                        }
+
+                        let reader = new FileReader();
+
+                        reader.onload = () => {
+                            photo.src = reader.result;
+                        }
+
+                        reader.readAsDataURL(file.files[0]);
+                    });
+                </script>
+                <div class="input-button">
+                    <div class="input-register">
+                        <input type="submit" value="Register" name='submit'>
+                    </div>
+                    <div class="voltar">
+                        <a href="index.php">Cancel</a>
+                    </div>
+                </div>
+                </form>
             </div>
         </div>
-</div>
+    </div>
+    </div>
 </body>
+
 </html>
