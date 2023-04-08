@@ -39,16 +39,13 @@ if (isset($_SESSION['idSession'])) {
               IFRS Feliz.
             </p>
             <p>
-              O projeto foi feito para o trabalho final de programação, por um grupo da turma do 3º de 2022
+              O projeto foi feito para o trabalho final de programação e inglês instrumental, por um grupo da turma do 3º de 2022
             </p>
             <p>
               Lembrando que o IFrame só pode ser acessado por dispositivos conectados à rede wi-fi do campus.
             </p>
             <p>
               Mantenha o respeito e o bom senso, todos podem conseguem ver a hora e o conteúdo das postagens.
-            </p>
-            <p>
-              Em caso de problemas ou feedbacks, envie um email para o suporte: murilo.silva@aluno.feliz.ifrs.edu.br
             </p>
           </div>
         </div>
