@@ -53,7 +53,7 @@ require_once __DIR__ . "/vendor/autoload.php";
                         echo "<div class='post'>
                             <a href='profile.php?username={$post['0']->getNome()}'>
                                 <div class='post-info'>
-                                    <img src='photos/profile/{$post['0']->getFoto()}' alt='Profile picture'>
+                                    <img src='photos/profile/{$post['0']->getFoto()}' loading='lazy' alt='Profile picture'>
                                         <div>
                                             <p class='profile-name'>{$post['0']->getNome()}</p>
                                             <p class='profile-turma'>{$post['0']->getTurma()}</p>
@@ -62,7 +62,7 @@ require_once __DIR__ . "/vendor/autoload.php";
                             </a>
 
                         <div class='post-img'>
-                            <img class='img-format' src='photos/posts/{$post['1']->getFoto()}'  alt='Post image'>
+                            <img class='img-format' src='photos/posts/{$post['1']->getFoto()}' loading='lazy'  alt='Post image'>
                         </div>
                         
                         <span class='date'>{$post['1']->getData()}</span>

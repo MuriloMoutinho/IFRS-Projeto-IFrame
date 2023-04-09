@@ -76,9 +76,12 @@ insert into turma (id, curso) values
 (9, "TMA-2"),
 (10, "TMA-3"),
 (11, "TMA-4"),
-(12, "Undergraduate"),
-(13, "Servant");
-
+(12, "TA-1"),
+(13, "TA-2"),
+(14, "TA-3"),
+(15, "TA-4"),
+(16, "Undergraduate"),
+(17, "Servant");
 
 
 DELIMITER $$

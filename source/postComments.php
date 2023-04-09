@@ -65,7 +65,7 @@ if (isset($_POST['submit'])) {
                     <div class='column links-delete profile-case'>
                         <a href='profile.php?username={$comment['0']->getNome()}'>
                             <div class='post-info'>
-                                <img src='photos/profile/{$comment['0']->getFoto()}' alt='Profile picture'>
+                                <img src='photos/profile/{$comment['0']->getFoto()}' loading='lazy' alt='Profile picture'>
                                 <div>
                                     <p class='user_name_search'>{$comment['0']->getNome()}</p>
                                     <p class='user_type_search'>{$comment['0']->getTurma()}</p>

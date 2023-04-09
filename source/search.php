@@ -63,7 +63,7 @@ require_once __DIR__ . "/config/filterStrings.php";
                 echo "
                         <a href='profile.php?username={$usuario->getNome()}'>
                             <div class='flex-row-short profile-case'>
-                                <img src='photos/profile/{$usuario->getFoto()}' class='profile-photo' alt='Profile picture'>
+                                <img src='photos/profile/{$usuario->getFoto()}' loading='lazy' class='profile-photo' alt='Profile picture'>
                                 <div class='column'>
                                     <span class='user_name_search'>{$usuario->getNome()}</span>
                                     <span class='user_type_search'>{$usuario->getTurma()}</span>

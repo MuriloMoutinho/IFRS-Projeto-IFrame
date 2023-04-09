@@ -103,7 +103,7 @@ if (!isset($_GET['username'])) {
                         }
 
                         echo "<div class='post-img'>
-                            <img class='img-format' src='photos/posts/{$post->getFoto()}' alt='Post Image'>
+                            <img class='img-format' src='photos/posts/{$post->getFoto()}' loading='lazy' alt='Post Image'>
                         </div>
 
                         <span class='date'>{$post->getData()}</span>

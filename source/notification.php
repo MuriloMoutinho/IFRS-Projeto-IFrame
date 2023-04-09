@@ -38,12 +38,12 @@ require_once __DIR__ . "/vendor/autoload.php";
                         echo "
                         <div class='notification_gap'>
                             <a class='profile-case notification_box' href='postComments.php?post={$notification['1']->getId()}'>
-                                <img src='photos/profile/{$notification['0']->getFoto()}' alt='foto de perfil' >
+                                <img src='photos/profile/{$notification['0']->getFoto()}' loading='lazy' alt='foto de perfil' >
                                 <div>
                                     <p>{$notification['0']->getNome()} commented on your post: {$notification['2']->getConteudo()}</p>
                                     <p class='date'>{$notification['2']->getData()}</p>
                                 </div>
-                                <img src='photos/posts/{$notification['1']->getFoto()}' class='post_notification' alt='foto da publicação'>                                
+                                <img src='photos/posts/{$notification['1']->getFoto()}' loading='lazy' class='post_notification' alt='foto da publicação'>                                
                             </a>
                             <a class='delete_notification' href='config/deleteNotification.php?idNotification={$notification['3']->getId()}'>Delete Notification</a>
                             </div>";
