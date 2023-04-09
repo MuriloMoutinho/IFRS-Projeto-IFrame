@@ -1,0 +1,38 @@
+.notification_box{
+    display: grid;
+    gap: 1em;
+    grid-template-columns: 1fr 4fr 1fr;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+}
+
+.notification_box img{
+    width: 100%;
+}
+
+.ops-notification{
+    background-color: rgb(53, 53, 53);
+}
+.delete_notification{
+    text-decoration: none;
+    color: black;
+    background-color: rgb(209, 111, 111);    
+    padding: 0.2em 0.4em;
+    font-size: 0.8em;
+    border-radius: 5px;
+    cursor: pointer;
+    border: solid 1px rgb(146, 146, 146);
+}
+.delete_notification:hover{
+    transition: filter 0.5s ease;
+
+}
+    
+.notification_gap{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    align-items: flex-start;
+}

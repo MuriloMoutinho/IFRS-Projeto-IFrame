@@ -1,0 +1,131 @@
+create table turma(
+    id int not null primary key,
+    curso varchar(100) not null unique
+);
+
+create table usuario(
+    id int not null primary key auto_increment,
+    email varchar(200) unique not null,
+    senha varchar(200) not null,
+    nome varchar(200) not null,
+    likes int not null default 0,
+    foto varchar(200) default "profileDefault.jpg",
+    bio varchar(400),
+    turma int not null,
+    FOREIGN key (turma) REFERENCES
+    turma(id)
+);
+
+create table post(
+    id int not null primary key auto_increment,
+    criador int not null,
+    foto varchar(200) not null,
+    descricao varchar(200),
+    dataCriacao timestamp not null, 
+    FOREIGN key (criador) REFERENCES
+    usuario(id) ON DELETE CASCADE
+);
+
+create table post_curtida(
+    id int not null primary key auto_increment,
+    post int not null,
+    usuario int not null,
+    FOREIGN key (usuario) REFERENCES
+    usuario(id) ON DELETE CASCADE,
+    FOREIGN key (post) REFERENCES
+    post(id)
+);
+
+
+
+create table post_comentario(
+    id int not null primary key auto_increment,
+    post int not null,
+    usuario int not null,
+    conteudo varchar(200) not null,
+    dataCriacao timestamp not null,
+    FOREIGN key (usuario) REFERENCES
+    usuario(id) ON DELETE CASCADE,
+    FOREIGN key (post) REFERENCES
+    post(id) ON DELETE CASCADE
+);
+
+create table notificacao(
+    id int not null primary key auto_increment,
+    usuario int not null,
+    post int not null,
+    comentario int not null,
+    FOREIGN key (usuario) REFERENCES 
+    usuario(id) ON DELETE CASCADE,
+    FOREIGN key (post) REFERENCES 
+    post(id) ON DELETE CASCADE,
+    FOREIGN key (comentario) REFERENCES 
+    post_comentario(id) ON DELETE CASCADE
+);
+
+insert into turma (id, curso) values
+(0, "TI-1"),
+(1, "TI-2"),
+(2, "TI-3"),
+(3, "TI-4"),
+(4, "TQ-1"),
+(5, "TQ-2"),
+(6, "TQ-3"),
+(7, "TQ-4"),
+(8, "TMA-1"),
+(9, "TMA-2"),
+(10, "TMA-3"),
+(11, "TMA-4"),
+(12, "Undergraduate"),
+(13, "Servant");
+
+
+
+DELIMITER $$
+
+
+CREATE TRIGGER tr_atualizarLikesInsert
+AFTER INSERT ON post_curtida
+FOR EACH ROW
+BEGIN
+  UPDATE usuario SET likes = likes + 1
+  WHERE id = (SELECT criador FROM post WHERE id = NEW.post);
+    
+END$$
+
+
+CREATE TRIGGER tr_atualizarLikesDelete
+AFTER DELETE ON post_curtida
+FOR EACH ROW
+BEGIN
+  UPDATE usuario SET likes = likes - 1
+  WHERE id = (SELECT criador FROM post WHERE id = OLD.post);
+    
+END$$
+
+
+CREATE TRIGGER tr_excluiLikesPostDeletado
+BEFORE DELETE ON post
+FOR EACH ROW
+BEGIN
+	DELETE FROM post_curtida WHERE post_curtida.post = OLD.id;
+END$$
+
+
+CREATE TRIGGER tr_criaNotificacao
+AFTER INSERT ON post_comentario
+FOR EACH ROW
+BEGIN
+    DECLARE post_usuario_id INT;
+    SELECT criador INTO post_usuario_id FROM post WHERE id = NEW.post;
+
+    IF NEW.usuario != post_usuario_id THEN
+        INSERT INTO notificacao(usuario, post, comentario)
+        VALUES (post_usuario_id, NEW.post, NEW.id);
+    END IF;
+END$$
+
+
+DELIMITER ;
+
+
