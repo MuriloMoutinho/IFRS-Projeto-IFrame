@@ -6,6 +6,8 @@ if (!isset($_GET['post'])) {
     header("location: home.php");
 }
 
+$profilesLike = Like::findProfileLikes($_GET['post']);
+
 ?>
 
 <!DOCTYPE html>
@@ -39,8 +41,6 @@ if (!isset($_GET['post'])) {
             <h1>Profiles that liked</h1>
             <hr>
             <?php
-
-            $profilesLike = Like::findProfileLikes($_GET['post']);
 
             if (count($profilesLike)) {
                 foreach ($profilesLike as $usuario) {

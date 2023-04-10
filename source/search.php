@@ -4,6 +4,19 @@ require 'components/import.php';
 require_once __DIR__ . "/vendor/autoload.php";
 require_once __DIR__ . "/config/filterStrings.php";
 
+$results = null;
+$searchTerm = null;
+
+if (isset($_GET['search'])) {
+    $results = "<h2>Results</h2>";
+
+    $searchTerm = filterString($_GET['search']);
+    $usuariosBuscados = User::findUser($searchTerm, 0);
+} else {
+
+    $results = "<h2>Suggestions</h2>";
+    $usuariosBuscados = User::findUser('', 100);
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +45,6 @@ require_once __DIR__ . "/config/filterStrings.php";
         <main>
             <form action="search.php" method="get">
 
-
                 <input type="search" class="search-input" required placeholder="User search" name="search">
 
                 <div class="div-botao-search">
@@ -47,16 +59,8 @@ require_once __DIR__ . "/config/filterStrings.php";
 
         <?php
 
-        if (isset($_GET['search'])) {
-            $searchTerm = filterString($_GET['search']);
-            echo $searchTerm;
-            $usuariosBuscados = User::findUser($searchTerm, 0);
-        } else {
-
-            echo "<h2>Suggestions</h2>";
-
-            $usuariosBuscados = User::findUser('', 100);
-        }
+        echo $results;
+        echo $searchTerm;
 
         if (count($usuariosBuscados)) {
             foreach ($usuariosBuscados as $usuario) {

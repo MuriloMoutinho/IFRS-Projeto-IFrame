@@ -1,3 +1,34 @@
+<?php
+require_once __DIR__ . "/vendor/autoload.php";
+
+$error = null;
+if (isset($_POST['submit'])) {
+
+    $u = new User();
+    $u->setNome($_POST['name']);
+    $u->setEmail($_POST['email']);
+    $u->setBio($_POST['bio']);
+
+    $u->setSenha($_POST['password']);
+    $u->setTurma($_POST['turma']);
+    $u->setFoto($_FILES['foto']['name']);
+
+    if ($u->validate()) {
+        if ($u->save()) {
+            if ($u->authenticate()) {
+                header("location: home.php");
+            } else {
+                header("location: login.php");
+            }
+        } else {
+            $error = "<div class='error'><span>We only accept files that are images</span></div>";
+        }
+    } else {
+        $error = "<div class='error'><span>Name or email is already in use. </span></div>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,35 +52,8 @@
                 </div>
                 <div class="input-box">
 
-                    <?php
-                    require_once __DIR__ . "/vendor/autoload.php";
-
-                    if (isset($_POST['submit'])) {
-
-                        $u = new User();
-                        $u->setNome($_POST['name']);
-                        $u->setEmail($_POST['email']);
-                        $u->setBio($_POST['bio']);
-
-                        $u->setSenha($_POST['password']);
-                        $u->setTurma($_POST['turma']);
-                        $u->setFoto($_FILES['foto']['name']);
-
-                        if ($u->validate()) {
-                            if ($u->save()) {
-                                if ($u->authenticate()) {
-                                    header("location: home.php");
-                                } else {
-                                    header("location: login.php");
-                                }
-                            } else {
-                                echo "<div class='error'><span>We only accept files that are images</span></div>";
-                            }
-                        } else {
-                            echo "<div class='error'><span>Name or email is already in use. </span></div>";
-                        }
-                    }
-                    ?>
+                    <?php echo $error; ?>
+                    
                     <form action="register.php" method="post" class="column" enctype="multipart/form-data">
                         <div class="input-text">
                             <label>User Name <input type="text" name='name' minlength="2" placeholder="min : 2 characters" maxlength="50" required></label>

@@ -1,6 +1,20 @@
 <?php
 require 'components/import.php';
 require_once __DIR__ . "/vendor/autoload.php";
+
+if (isset($_GET['pagina'])) {
+    $pagina = filter_input(INPUT_GET, "pagina", FILTER_VALIDATE_INT);
+}
+if (empty($pagina)) {
+    $pagina = 1;
+}
+
+$limiteDePosts = 50;
+$indexDoBanco = ($pagina * $limiteDePosts) - $limiteDePosts;
+
+$postsProfile = Post::findAllPostsPageable($indexDoBanco, $limiteDePosts);
+$ultimaPagina = Post::countPagesPosts($limiteDePosts);
+
 ?>
 
 <!DOCTYPE html>
@@ -13,8 +27,9 @@ require_once __DIR__ . "/vendor/autoload.php";
     <link rel="stylesheet" href="css/commun.css">
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="css/home.css">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script src="scripts.js" defer></script>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 
     <meta name="theme-color" content="#000000">
     <link rel="manifest" href="manifest.json" />
@@ -32,20 +47,6 @@ require_once __DIR__ . "/vendor/autoload.php";
         <div class="container">
             <div class="container-posts">
                 <?php
-
-                if (isset($_GET['pagina'])) {
-                    $pagina = filter_input(INPUT_GET, "pagina", FILTER_VALIDATE_INT);
-                }
-                if (empty($pagina)) {
-                    $pagina = 1;
-                }
-
-                $limiteDePosts = 50;
-                $indexDoBanco = ($pagina * $limiteDePosts) - $limiteDePosts;
-
-                $postsProfile = Post::findAllPostsPageable($indexDoBanco, $limiteDePosts);
-
-                $ultimaPagina = Post::countPagesPosts($limiteDePosts);
 
                 if (count($postsProfile)) {
                     foreach ($postsProfile as $post) {

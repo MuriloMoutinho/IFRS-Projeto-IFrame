@@ -87,92 +87,93 @@ if (isset($_POST['submit']) || isset($_POST['remove'])) {
                         <form action="editUser.php" method="post" class="column" enctype="multipart/form-data">
                             <?php
                             echo $error;
-
-                            echo "
-                    <div class='input-text'>
-                    <label for='userName'>User Name </label>
-                    <input type='text' name='name' id='userName' placeholder='min : 2 characters' class='input' maxlength='50' minlength='2' value='{$usuarioConsulta->getNome()}' required>
-                    <label for='email'>Email</label>
-                    <input type='email' name='email' placeholder='example@email.com' id='email' value='{$usuarioConsulta->getEmail()}' required>
-                
-                    <div class='select'>
-                    <label for='turma'>Enter your class or position in IFRS<br>
-                    <select id='turma' name='turma' required>";
-
-                            $conexao = new MySQL();
-                            $sql = "SELECT * FROM turma order by id asc";
-                            $turmas = $conexao->consulta($sql);
-
-                            foreach ($turmas as $turma) {
-
-                                echo "<option " . ($turma['id'] == $usuarioConsulta->getTurma() ? "selected" : "") . " value='{$turma['id']}'>{$turma['curso']}</option>";
-                            }
-
-                            echo "</select></label></div>
-
-                <div class='bio-input'>
-                    <label for='bio'>Bio</label>
-                    <textarea name='bio' id='biografia' cols='20' rows='6' placeholder='Your biography...'>{$usuarioConsulta->getBio()}</textarea>
-                </div>";
-
                             ?>
-                            <p>User Photo</p>
 
+                            <div class='input-text'>
+                                <label for='userName'>User Name </label>
 
+                                <input type='text' name='name' id='userName' placeholder='min : 2 characters' class='input' maxlength='50' minlength='2' value='<?php echo $usuarioConsulta->getNome(); ?>' required>
 
-                            <div class="div-user-photo">
-                                <label for='foto' class="user-photo">Change your profile photo here</label>
+                                <label for='email'>Email</label>
+                                <input type='email' name='email' placeholder='example@email.com' id='email' value='<?php echo $usuarioConsulta->getEmail() ?>' required>
 
-                                <div class="imgUser">
-                                    <img src="photos/profile/profileDefault.jpg" id="imgPhoto">
+                                <div class='select'>
+                                    <label for='turma'>Enter your class or position in IFRS<br>
+                                        <select id='turma' name='turma' required>";
+                                            <?php
+                                            $conexao = new MySQL();
+                                            $sql = "SELECT * FROM turma order by id asc";
+                                            $turmas = $conexao->consulta($sql);
+
+                                            foreach ($turmas as $turma) {
+
+                                                echo "<option " . ($turma['id'] == $usuarioConsulta->getTurma() ? " selected" : "") . " value='{$turma['id']}'>{$turma['curso']}</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </label>
                                 </div>
-                                <input type='file' accept="image/*" name='foto' id='foto' hidden class="input_photo">
 
-                            </div>
+                                <div class='bio-input'>
+                                    <label for='bio'>Bio</label>
+                                    <textarea name='bio' id='biografia' cols='20' rows='6' placeholder='Your biography...'><?php echo "{$usuarioConsulta->getBio()}"; ?></textarea>
+                                </div>
 
-                            <script>
-                                let photo = document.getElementById('imgPhoto');
-                                let file = document.getElementById('foto');
+                                <p>User Photo</p>
 
-                                file.addEventListener('change', () => {
+                                <div class="div-user-photo">
+                                    <label for='foto' class="user-photo">Change your profile photo here</label>
 
-                                    if (file.files.length <= 0) {
-                                        return;
-                                    }
-
-                                    let reader = new FileReader();
-
-                                    reader.onload = () => {
-                                        photo.src = reader.result;
-                                    }
-
-                                    reader.readAsDataURL(file.files[0]);
-                                });
-                            </script>
-                            <div class="remove-photo-div">
-                                <button class="botao-removes" type='submit' value='' name='remove'>Remove photo</button>
-                            </div>
-                            <div>
-                                <details class="new-pass">
-                                    <summary class='change-password-button'><u>Do you want to change your password?</u></summary>
-
-                                    <div class='change-password'>
-                                        <label for="currentPass">Write your current password</label>
-                                        <input type='password' name='currentPass' id="currentPass">
-                                        <label for="newPassword">Write your new password</label>
-                                        <input type='password' minlength='3' name='newPassword' id="newPassword">
+                                    <div class="imgUser">
+                                        <img src="photos/profile/profileDefault.jpg" id="imgPhoto">
                                     </div>
-                                </details>
-                            </div>
+                                    <input type='file' accept="image/*" name='foto' id='foto' hidden class="input_photo">
 
-                            <div class='btns'>
-                                <span class='delete-button buttonEdit' onclick="confirmDeleteUser()">Delete account</span>
-                                <a href="index.php" class='back-button buttonEdit'>Back</a>
-                            </div>
+                                </div>
 
-                            <div class="edit-photo-div">
-                                <button class="botao-edits" type='submit' name='submit'>Edit profile</button>
-                            </div>
+                                <script>
+                                    let photo = document.getElementById('imgPhoto');
+                                    let file = document.getElementById('foto');
+
+                                    file.addEventListener('change', () => {
+
+                                        if (file.files.length <= 0) {
+                                            return;
+                                        }
+
+                                        let reader = new FileReader();
+
+                                        reader.onload = () => {
+                                            photo.src = reader.result;
+                                        }
+
+                                        reader.readAsDataURL(file.files[0]);
+                                    });
+                                </script>
+                                <div class="remove-photo-div">
+                                    <button class="botao-removes" type='submit' value='' name='remove'>Remove photo</button>
+                                </div>
+                                <div>
+                                    <details class="new-pass">
+                                        <summary class='change-password-button'><u>Do you want to change your password?</u></summary>
+
+                                        <div class='change-password'>
+                                            <label for="currentPass">Write your current password</label>
+                                            <input type='password' name='currentPass' id="currentPass">
+                                            <label for="newPassword">Write your new password</label>
+                                            <input type='password' minlength='3' name='newPassword' id="newPassword">
+                                        </div>
+                                    </details>
+                                </div>
+
+                                <div class='btns'>
+                                    <span class='delete-button buttonEdit' onclick="confirmDeleteUser()">Delete account</span>
+                                    <a href="index.php" class='back-button buttonEdit'>Back</a>
+                                </div>
+
+                                <div class="edit-photo-div">
+                                    <button class="botao-edits" type='submit' name='submit'>Edit profile</button>
+                                </div>
 
                         </form>
 

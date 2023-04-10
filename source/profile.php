@@ -8,6 +8,10 @@ if (!isset($_GET['username'])) {
     header("location: home.php");
 }
 
+$username = filterString($_GET['username']);
+$u = User::findProfile($username);
+
+$postsProfile = Post::findProfilePost($username);
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +24,7 @@ if (!isset($_GET['username'])) {
     <link rel="stylesheet" href="css/commun.css">
     <link rel="stylesheet" href="css/profile.css">
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <title>IFrame - Profile</title>
 </head>
 
@@ -45,10 +49,8 @@ if (!isset($_GET['username'])) {
                 <span class='back-button buttonEdit' id='cancelDeletePost'>Cancel</span>
             </div>
             <?php
-            
-            $username = filterString($_GET['username']);
 
-            $u = User::findProfile($username);
+
 
             if (!empty($u)) {
 
@@ -91,7 +93,6 @@ if (!isset($_GET['username'])) {
         <div class='container-posts'>";
 
 
-                $postsProfile = Post::findProfilePost($username);
 
                 if (count($postsProfile)) {
                     foreach ($postsProfile as $post) {

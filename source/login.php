@@ -1,3 +1,20 @@
+<?php
+$error = null;
+if (isset($_POST['submit'])) {
+    require_once __DIR__ . "/vendor/autoload.php";
+
+    $u = new User();
+    $u->setEmail($_POST['email']);
+    $u->setSenha($_POST['password']);
+
+    if ($u->authenticate()) {
+        header("location: home.php");
+    } else {
+        $error = "<div class='error'><span>Wrong email or password. </span></div>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,21 +39,8 @@
                 </div>
                 <div class="input-box">
 
-                    <?php
-                    if (isset($_POST['submit'])) {
-                        require_once __DIR__ . "/vendor/autoload.php";
 
-                        $u = new User();
-                        $u->setEmail($_POST['email']);
-                        $u->setSenha($_POST['password']);
-
-                        if ($u->authenticate()) {
-                            header("location: home.php");
-                        } else {
-                            echo "<div class='error'><span>Wrong email or password. </span></div>";
-                        }
-                    }
-                    ?>
+                    <?php echo $error; ?>
                     <form action='login.php' method='post' class="column">
                         <div class="input-text">
                             <label>Email<input type="email" name='email' placeholder="example@email.com" required></label>

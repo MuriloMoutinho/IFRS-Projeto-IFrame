@@ -10,6 +10,8 @@ if (isset($_POST['submit'])) {
 
     $c->save();
 }
+
+$comments = Comment::findPostComment($_GET['post']);
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +24,6 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="css/commun.css">
     <link rel="stylesheet" href="css/profile.css">
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <title>IFrame - Comments</title>
 </head>
 
@@ -56,7 +57,6 @@ if (isset($_POST['submit'])) {
             <hr>
 
             <?php
-            $comments = Comment::findPostComment($_GET['post']);
 
             if (count($comments)) {
                 foreach ($comments as $comment) {

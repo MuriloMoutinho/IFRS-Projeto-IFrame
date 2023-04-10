@@ -2,6 +2,8 @@
 require 'components/import.php';
 require_once __DIR__ . "/vendor/autoload.php";
 
+$usuariosBuscados = User::findUsersRanking();
+
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +36,6 @@ require_once __DIR__ . "/vendor/autoload.php";
 
             <?php
 
-            $usuariosBuscados = User::findUsersRanking();
 
             foreach ($usuariosBuscados as $usuario) {
 

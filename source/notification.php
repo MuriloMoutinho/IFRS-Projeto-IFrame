@@ -1,6 +1,8 @@
 <?php
 require 'components/import.php';
 require_once __DIR__ . "/vendor/autoload.php";
+
+$notificationUser = Notification::findNotification($_SESSION['idSession']);
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +15,6 @@ require_once __DIR__ . "/vendor/autoload.php";
     <link rel="stylesheet" href="css/commun.css">
     <link rel="stylesheet" href="css/notification.css">
     <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script src="scripts.js" defer></script>
 
     <title>IFrame</title>
@@ -29,8 +30,6 @@ require_once __DIR__ . "/vendor/autoload.php";
         <div class="container">
             <div class="container-posts">
                 <?php
-
-                $notificationUser = Notification::findNotification($_SESSION['idSession']);
 
                 if (count($notificationUser)) {
                     foreach ($notificationUser as $notification) {
