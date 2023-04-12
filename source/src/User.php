@@ -94,28 +94,25 @@ class User implements ActiveRecord
         return $this->foto;
     }
 
-    //TODO sql
     //FINDPROFILE ------------------------------------------------
     public static function findUsersRanking(): array
     {
         $conexao = new MySQL();
 
-        $sqlUser = "SELECT usuario.nome,usuario.foto,usuario.turma,usuario.likes
-            FROM usuario 
-            ORDER BY usuario.likes DESC
-            LIMIT 20";
+        $sqlUser = "SELECT usuario.nome, usuario.foto, usuario.likes, turma.curso
+        FROM usuario 
+        INNER JOIN turma ON turma.id = usuario.turma
+        ORDER BY usuario.likes DESC
+        LIMIT 20";
 
         $usuariosBanco = $conexao->consulta($sqlUser);
 
         $usuarios = array();
         foreach ($usuariosBanco as $usuario) {
 
-            $sqlClass = "SELECT curso FROM turma WHERE id = {$usuario['turma']}";
-            $turmaUsuario = $conexao->consulta($sqlClass);
-
             $u = new User();
             $u->setNome($usuario['nome']);
-            $u->setTurma($turmaUsuario['0']['curso']); //retorna o nome da turma        
+            $u->setTurma($usuario['curso']);
             $u->setfoto($usuario['foto']);
             $u->setLikes($usuario['likes']);
 
@@ -124,17 +121,42 @@ class User implements ActiveRecord
         return $usuarios;
     }
 
-    //TODO sql
     //FINDPROFILE ------------------------------------------------
-    public static function findUser($nome, $limit): array
+    public static function findUser($nome): array
     {
-        $userSearch = "%" . trim($nome) . "%";
+        $nomeUsuarioPesquisar = filterString($nome);
 
-        if ($limit == 0) {
-            $sqlUser = "SELECT nome,foto,turma FROM usuario WHERE nome like '{$userSearch}'";
-        } else {
-            $sqlUser = "SELECT nome,foto,turma FROM usuario WHERE nome like '{$userSearch}' AND id != '{$_SESSION['idSession']}' LIMIT {$limit}";
+        $sqlUser = "SELECT usuario.nome, usuario.foto, turma.curso 
+        FROM usuario 
+        INNER JOIN turma ON turma.id = usuario.id
+        WHERE nome like '{$nomeUsuarioPesquisar}'";
+
+        $conexao = new MySQL();
+
+        $usuariosBanco = $conexao->consulta($sqlUser);
+
+        $usuarios = array();
+        foreach ($usuariosBanco as $usuario) {
+
+            $u = new User();
+            $u->setNome($usuario['nome']);
+            $u->setTurma($usuario['curso']);
+            $u->setfoto($usuario['foto']);
+
+            $usuarios[] = $u;
         }
+        return $usuarios;
+    }
+
+    //FINDPROFILE ------------------------------------------------
+    public static function findUserSuggestion(): array
+    {
+
+        $sqlUser = "SELECT usuario.nome, usuario.foto, turma.curso 
+        FROM usuario 
+        INNER JOIN turma ON turma.id = usuario.turma
+        WHERE usuario.id != '{$_SESSION['idSession']}' 
+        LIMIT 30";
 
         $conexao = new MySQL();
         $usuariosBanco = $conexao->consulta($sqlUser);
@@ -142,12 +164,9 @@ class User implements ActiveRecord
         $usuarios = array();
         foreach ($usuariosBanco as $usuario) {
 
-            $sqlClass = "SELECT curso FROM turma WHERE id = {$usuario['turma']}";
-            $turmaUsuario = $conexao->consulta($sqlClass);
-
             $u = new User();
             $u->setNome($usuario['nome']);
-            $u->setTurma($turmaUsuario['0']['curso']); //retorna o nome da turma        
+            $u->setTurma($usuario['curso']);
             $u->setfoto($usuario['foto']);
 
             $usuarios[] = $u;
@@ -160,7 +179,10 @@ class User implements ActiveRecord
     {
 
         $conexao = new MySQL();
-        $sqlUser = "SELECT usuario.id,usuario.nome,turma.curso,usuario.bio,usuario.foto,usuario.likes FROM usuario, turma WHERE usuario.turma = turma.id AND nome = '{$nome}'";
+        $sqlUser = "SELECT usuario.id, usuario.nome, turma.curso, usuario.bio, usuario.foto, usuario.likes 
+        FROM usuario
+        INNER JOIN turma ON usuario.turma = turma.id 
+        WHERE nome = '{$nome}'";
 
         $user = $conexao->consulta($sqlUser);
 
@@ -168,7 +190,7 @@ class User implements ActiveRecord
             $u = new User();
             $u->setId($user['0']['id']);
             $u->setNome($user['0']['nome']);
-            $u->setTurma($user['0']['curso']); //retorna o nome da turma
+            $u->setTurma($user['0']['curso']);
             $u->setBio($user['0']['bio']);
             $u->setLikes($user['0']['likes']);
             $u->setfoto($user['0']['foto']);
@@ -177,7 +199,7 @@ class User implements ActiveRecord
         return false;
     }
 
-    //FIND ----------------xxxx--------------------------------
+    //FIND ------------------------------------------------
     public static function find($id): User
     {
         $conexao = new MySQL();
@@ -192,7 +214,7 @@ class User implements ActiveRecord
         $u->setNome($resultado['0']['nome']);
         $u->setBio($resultado['0']['bio']);
 
-        $u->setTurma($resultado['0']['turma']); //retorna o numero da turma
+        $u->setTurma($resultado['0']['turma']);
         $u->setFoto($resultado['0']['foto']);
 
         return $u;

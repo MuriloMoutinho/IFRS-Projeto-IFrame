@@ -2,7 +2,6 @@
 
 require 'components/import.php';
 require_once __DIR__ . "/vendor/autoload.php";
-require_once __DIR__ . "/config/filterStrings.php";
 
 $results = null;
 $searchTerm = null;
@@ -10,12 +9,12 @@ $searchTerm = null;
 if (isset($_GET['search'])) {
     $results = "<h2>Results</h2>";
 
-    $searchTerm = filterString($_GET['search']);
-    $usuariosBuscados = User::findUser($searchTerm, 0);
+    $searchTerm = $_GET['search'];
+    $usuariosBuscados = User::findUser($searchTerm);
 } else {
 
     $results = "<h2>Suggestions</h2>";
-    $usuariosBuscados = User::findUser('', 100);
+    $usuariosBuscados = User::findUserSuggestion();
 }
 ?>
 

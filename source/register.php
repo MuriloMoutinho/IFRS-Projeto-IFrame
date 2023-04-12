@@ -2,6 +2,8 @@
 require_once __DIR__ . "/vendor/autoload.php";
 
 $error = null;
+
+
 if (isset($_POST['submit'])) {
 
     $u = new User();
@@ -27,6 +29,9 @@ if (isset($_POST['submit'])) {
         $error = "<div class='error'><span>Name or email is already in use. </span></div>";
     }
 }
+
+$turmas= Classes::find();
+
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +58,7 @@ if (isset($_POST['submit'])) {
                 <div class="input-box">
 
                     <?php echo $error; ?>
-                    
+
                     <form action="register.php" method="post" class="column" enctype="multipart/form-data">
                         <div class="input-text">
                             <label>User Name <input type="text" name='name' minlength="2" placeholder="min : 2 characters" maxlength="50" required></label>
@@ -65,13 +70,9 @@ if (isset($_POST['submit'])) {
                                         <option value="" disabled selected>Select . . .</option>
 
                                         <?php
-
-                                        $conexao = new MySQL();
-                                        $sql = "SELECT * FROM turma order by id asc";
-                                        $turmas = $conexao->consulta($sql);
-                                        foreach ($turmas as $turma) {
-                                            echo "<option value='{$turma['id']}'>{$turma['curso']}</option>";
-                                        }
+                                            foreach ($turmas as $turma) {
+                                                echo "<option value='{$turma->getId()}'>{$turma->getCurso()}</option>";
+                                            }
                                         ?>
                                     </select>
                                 </label>

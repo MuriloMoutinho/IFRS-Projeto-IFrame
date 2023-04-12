@@ -55,6 +55,8 @@ if (isset($_POST['submit']) || isset($_POST['remove'])) {
         }
     }
 }
+
+$turmas = Classes::find();
 ?>
 
 
@@ -101,15 +103,13 @@ if (isset($_POST['submit']) || isset($_POST['remove'])) {
                                     <label for='turma'>Enter your class or position in IFRS<br>
                                         <select id='turma' name='turma' required>";
                                             <?php
-                                            $conexao = new MySQL();
-                                            $sql = "SELECT * FROM turma order by id asc";
-                                            $turmas = $conexao->consulta($sql);
 
                                             foreach ($turmas as $turma) {
 
-                                                echo "<option " . ($turma['id'] == $usuarioConsulta->getTurma() ? " selected" : "") . " value='{$turma['id']}'>{$turma['curso']}</option>";
+                                                echo "<option " . ($turma->getId() == $usuarioConsulta->getTurma() ? " selected" : "") . " value='{$turma->getId()}'>{$turma->getCurso()}</option>";
                                             }
                                             ?>
+
                                         </select>
                                     </label>
                                 </div>

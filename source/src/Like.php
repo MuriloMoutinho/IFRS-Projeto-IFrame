@@ -40,22 +40,26 @@ class Like implements ActiveRecord
         return $this->usuario;
     }
 
-    //TODO sql
     //FINDLIKESPOSTS ------------------------------------------------
     public static function findProfileLikes($idPost): array
     {
         $conexao = new MySQL();
 
-        $sqlUserLikes = "SELECT usuario FROM post_curtida WHERE post = '{$idPost}'";
+        $sqlUserLikes = "SELECT usuario.foto, usuario.nome, turma.curso
+        FROM post_curtida 
+        INNER JOIN usuario ON usuario.id = post_curtida.usuario
+        INNER JOIN turma ON turma.id = usuario.turma
+        WHERE post = '{$idPost}'";
         $nomeUserLikes = $conexao->consulta($sqlUserLikes);
 
         $users = array();
-        foreach ($nomeUserLikes as $idUser) {
+        foreach ($nomeUserLikes as $usuario) {
 
-            $sqlUser = "SELECT nome FROM usuario WHERE id = '{$idUser['usuario']}'";
-            $nome = $conexao->consulta($sqlUser);
+            $u = new User();
+            $u->setNome($usuario['nome']);
+            $u->setTurma($usuario['curso']);
+            $u->setfoto($usuario['foto']);
 
-            $u = User::findProfile($nome['0']['nome']);
             $users[] = $u;
         }
         return $users;

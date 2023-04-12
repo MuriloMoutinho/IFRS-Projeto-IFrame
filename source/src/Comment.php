@@ -63,24 +63,25 @@ class Comment implements ActiveRecord
         return $this->dataCriacao;
     }
 
-    //TODO sql
     //FINDLIKESPOSTS ------------------------------------------------
     public static function findPostComment($idPost): array
     {
         $conexao = new MySQL();
 
-        $sqlComment = "SELECT * FROM post_comentario WHERE post = '{$idPost}'";
+        $sqlComment = "SELECT post_comentario.*, usuario.nome, turma.curso, usuario.foto 
+        FROM post_comentario 
+        INNER JOIN usuario ON usuario.id = post_comentario.usuario
+        INNER JOIN turma ON turma.id = usuario.turma
+        WHERE post = '{$idPost}'";
         $comments = $conexao->consulta($sqlComment);
 
         $commentsProfile = array();
         foreach ($comments as $comment) {
-            $sqlUser = "SELECT usuario.nome,turma.curso,usuario.foto FROM usuario, turma WHERE usuario.turma = turma.id AND usuario.id = '{$comment['usuario']}'";
-            $userBanco = $conexao->consulta($sqlUser);
 
             $u = new User();
-            $u->setNome($userBanco['0']['nome']);
-            $u->setTurma($userBanco['0']['curso']);
-            $u->setfoto($userBanco['0']['foto']);
+            $u->setNome($comment['nome']);
+            $u->setTurma($comment['curso']);
+            $u->setfoto($comment['foto']);
 
             $c = new Comment();
             $c->setId($comment['id']);

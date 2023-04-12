@@ -53,7 +53,7 @@ class Notification
         return $this->comentario;
     }
 
-    //FINDLIKESPOSTS ------------------------------------------------
+    //FINDNOTIFICATIONS ------------------------------------------------
     public static function findNotification($idUser): array
     {
         $conexao = new MySQL();

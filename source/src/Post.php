@@ -74,29 +74,30 @@ class Post implements ActiveRecord
         return $p;
     }
 
-    //TODO sql
     //FINDPROFILE ------------------------------------------------
     public static function findAllPostsPageable($inicio, $limite): array
     {
         $conexao = new MySQL();
-        $sqlPosts = "SELECT * FROM post ORDER BY dataCriacao desc LIMIT {$inicio}, {$limite}";
+        $sqlPosts = "SELECT post.*, usuario.nome, turma.curso, usuario.foto as fotoPerfil   
+        FROM post 
+        INNER JOIN usuario ON usuario.id = post.criador
+        INNER JOIN turma ON turma.id = usuario.turma
+        ORDER BY dataCriacao desc 
+        LIMIT {$inicio}, {$limite}";
+
         $postsBanco = $conexao->consulta($sqlPosts);
 
         $postsProfile = array();
         foreach ($postsBanco as $post) {
 
-            $sqlUser = "SELECT usuario.nome,turma.curso,usuario.foto FROM usuario, turma WHERE usuario.turma = turma.id AND usuario.id = '{$post['criador']}'";
-
-            $userBanco = $conexao->consulta($sqlUser);
-
             $u = new User();
-            $u->setNome($userBanco['0']['nome']);
-            $u->setTurma($userBanco['0']['curso']);
-            $u->setfoto($userBanco['0']['foto']);
+            $u->setNome($post['nome']);
+            $u->setTurma($post['curso']);
+            $u->setfoto($post['fotoPerfil']);
 
             $p = new Post($post['foto']);
-            $p->setCriador($post['criador']);
             $p->setId($post['id']);
+            $p->setCriador($post['criador']);
             $p->setDescricao($post['descricao']);
             $p->setData(strval($post['dataCriacao']));
 
@@ -141,26 +142,17 @@ class Post implements ActiveRecord
         return $postsProfile;
     }
 
-
-    //TODO sql
     //DELETE ------------------------------------------------
     public function delete(): bool
     {
         $conexao = new MySQL();
 
-        $sqlVerifica = "SELECT 1 as existe
-        FROM post
-        WHERE 
-        post.criador = {$this->criador} AND 
-        post.id = {$this->id}";
+        $sql = "DELETE FROM post 
+        WHERE post.id = '{$this->id}' 
+        AND post.criador = '{$this->criador}'";
 
-        $verificadorPermissaoExclusao = $conexao->consulta($sqlVerifica);
-
-        if (empty($verificadorPermissaoExclusao)) {
-            return false;
-        }
-        $sql = "DELETE FROM post WHERE post.id = '{$this->id}'";
         unlink("../photos/posts/" . $this->foto);
+
         return $conexao->executa($sql);
     }
 
