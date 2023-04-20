@@ -2,9 +2,6 @@
 require 'components/import.php';
 require_once __DIR__ . "/vendor/autoload.php";
 
-echo $menu;
-echo $header;
-
 $usuarioConsulta = User::find($_SESSION['idSession']);
 
 $error = null;
@@ -75,6 +72,14 @@ $turmas = Classes::find();
 </head>
 
 <body>
+
+    <?php
+
+    echo $menu;
+    echo $header;
+
+    ?>
+
     <main>
         <div class="container-editUser">
             <div class="editUser-all-box">
@@ -151,7 +156,7 @@ $turmas = Classes::find();
                                     });
                                 </script>
                                 <div class="remove-photo-div">
-                                    <button class="botao-removes" type='submit' value='' name='remove'>Remove photo</button>
+                                    <button class="botao-removes" type='submit' name='remove'>Remove photo</button>
                                 </div>
                                 <div>
                                     <details class="new-pass">
